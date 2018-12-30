@@ -38,7 +38,7 @@ extension AccountListVC {
                     case .removed: self.accounts.removeValue(forKey: id)
                     }
                 }
-                completion(DataModel(self.accounts.map{(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)", filter: $0.value.typeId ?? 4)}))
+                completion(DataModel(self.accounts.map{(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))", filter: $0.value.typeId ?? 4)}))
             }
         }
         

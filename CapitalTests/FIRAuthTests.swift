@@ -4,6 +4,9 @@ import XCTest
 class FIRAuthTests: XCTestCase {
     
     var sut: FireAuthProtocol!
+    let login = "\(String((0..<6).map{ _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }))@gmail.com"
+    let password = String((0..<6).map{ _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! })
+    
     
     override func setUp(){
         super.setUp()
@@ -12,7 +15,7 @@ class FIRAuthTests: XCTestCase {
     
     override func tearDown()
     {
-        sut = nil
+        self.sut = nil
         super.tearDown()
     }
     
@@ -22,70 +25,55 @@ class FIRAuthTests: XCTestCase {
         // given
         let promise = expectation(description: "Completion handler invoked")
         var responseError: Error?
-        let email = "\(String.randomWithSmallLetters())@gmail.com"
-
+        
         // when
-        sut.createUser(withEmail: email, password: "c0mp1!c@ted.password") {error in
-            print("LOG user created with id \(Auth.auth().currentUser?.uid ?? "")")
+        sut.createUser(withEmail: login, password: password) {error in
             responseError = error
-            self.sut.deleteUser { error in promise.fulfill()}
-        }
-        waitForExpectations(timeout: 5, handler: nil)
-        // then
-        XCTAssertNil(responseError)
-    }
-
-    func testSignIn() {
-        
-        // given
-        let promise = expectation(description: "Completion handler invoked")
-        var errorDesc: String? = nil
-        var responseError: Error? = nil {didSet {errorDesc = responseError?.localizedDescription}}
-
-        
-        // when
-        sut.createUser(withEmail: "test@gmail.com", password: "c0mp1!c@ted.password") {error in
-            if let error = error {responseError = error}
-            self.sut.signInUser(withEmail: "test@gmail.com", password: "c0mp1!c@ted.password") {error in
-                if let error = error {responseError = error}
-                if Auth.auth().currentUser == nil {errorDesc = "User is nil"}
-                responseError = error
-                self.sut.deleteUser { error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    }
-                    promise.fulfill()}
+            XCTAssert(self.sut.currentUserUid != nil)
+            self.sut.deleteUser { error in
+                responseError = responseError ?? error
+                if let error = error {fatalError(error.localizedDescription)}
+                XCTAssert(self.sut.currentUserUid == nil)
+                promise.fulfill()
             }
         }
         waitForExpectations(timeout: 5, handler: nil)
         
         // then
-        XCTAssertNil(errorDesc)
+        XCTAssertNil(responseError)
     }
-
-//    func testSignOut() {
-//
-//        // given
-//        let promise = expectation(description: "Completion handler invoked")
-//        var errorDesc: String? = nil
-//        var responseError: Error? = nil {didSet {errorDesc = responseError?.localizedDescription}}
-//
-//
-//        // when
-//        sut.createUser(withEmail: "test@gmail.com", password: "c0mp1!c@ted.password") {error in
-//            if let error = error {responseError = error}
-//            self.sut.signInUser(withEmail: "test@gmail.com", password: "c0mp1!c@ted.password") {error in
-//                if let error = error {responseError = error}
-//
-//
-////                self.sut.deleteUser { error in promise.fulfill()}
-//            }
-//        }
-//        waitForExpectations(timeout: 5, handler: nil)
-//
-//        // then
-//        XCTAssertNil(errorDesc)
-//    }
+    
+    func testSignIn() {
+        // given
+        let promise = expectation(description: "Completion handler invoked")
+        var responseError: Error?
+        
+        // when
+        sut.createUser(withEmail: login, password: password) {error in
+            responseError = error
+            XCTAssert(self.sut.currentUserUid != nil)
+            self.sut.signOutUser({ (error) in
+                responseError = responseError ?? error
+                XCTAssert(self.sut.currentUserUid == nil)
+                
+                self.sut.signInUser(withEmail: self.login, password: self.password) { error in
+                    responseError = responseError ?? error
+                    XCTAssert(self.sut.currentUserUid != nil)
+                    
+                    self.sut.deleteUser { error in
+                        responseError = responseError ?? error
+                        if let error = error {fatalError(error.localizedDescription)}
+                        XCTAssert(self.sut.currentUserUid == nil)
+                        promise.fulfill()
+                    }
+                }
+            })
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        // then
+        XCTAssertNil(responseError)
+    }
     
 }
 

@@ -49,8 +49,13 @@
 		C1164D8521BD974F00895A1B /* AdvancedNewTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8221BD974F00895A1B /* AdvancedNewTransactionVC.swift */; };
 		C1164D8621BD974F00895A1B /* AdvancedNewTransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8321BD974F00895A1B /* AdvancedNewTransactionService.swift */; };
 		C1164D8B21BD97BF00895A1B /* AccountSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8921BD97BF00895A1B /* AccountSelectorVC.swift */; };
-		C1164D9121BD986E00895A1B /* EnumValuesSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8D21BD986E00895A1B /* EnumValuesSelectorVC.swift */; };
 		C1164D9421BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D9021BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift */; };
+		C1240A9521CD708800A0E0BF /* EnumValuesSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8D21BD986E00895A1B /* EnumValuesSelectorVC.swift */; };
+		C125EBFC21D5932A00FB4F6F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027AB21BD4D1C00207FF7 /* Extensions.swift */; };
+		C125EC0421D671E200FB4F6F /* Architecture.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0021D671E200FB4F6F /* Architecture.md */; };
+		C125EC0521D671E200FB4F6F /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0121D671E200FB4F6F /* ReadMe.md */; };
+		C125EC0621D671E200FB4F6F /* TestingAlgorithm.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */; };
+		C125EC0721D671E200FB4F6F /* ToDo.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0321D671E200FB4F6F /* ToDo.md */; };
 		C16D36DB21C3B58A00690B7B /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D36DA21C3B58A00690B7B /* BarButtonItem.swift */; };
 		C16D36DD21C4078800690B7B /* AccountGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D36DC21C4078800690B7B /* AccountGroupTests.swift */; };
 		C16D36DF21C4157700690B7B /* DataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D36DE21C4157700690B7B /* DataMock.swift */; };
@@ -100,7 +105,7 @@
 		C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083721BD2170000D28C9 /* Assets.xcassets */; };
 		C1CE083B21BD2170000D28C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083921BD2170000D28C9 /* LaunchScreen.storyboard */; };
 		C1CE084621BD2170000D28C9 /* AppTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE084521BD2170000D28C9 /* AppTitleTests.swift */; };
-		C1CE085121BD2170000D28C9 /* CapitalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE085021BD2170000D28C9 /* CapitalUITests.swift */; };
+		C1CE085121BD2170000D28C9 /* SpringBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE085021BD2170000D28C9 /* SpringBoard.swift */; };
 		C1CE085F21BD221A000D28C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1CE085E21BD221A000D28C9 /* GoogleService-Info.plist */; };
 		C1CE087521BD2640000D28C9 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE086121BD263F000D28C9 /* BoringSSL.framework */; };
 		C1CE087621BD2640000D28C9 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE086221BD263F000D28C9 /* FIRAnalyticsConnector.framework */; };
@@ -139,7 +144,7 @@
 		C1E967B321C83829005014E1 /* SimpleTableWithSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E967B221C83829005014E1 /* SimpleTableWithSelectionTests.swift */; };
 		C1E967B521C83909005014E1 /* TransactionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E967B421C83909005014E1 /* TransactionItemTests.swift */; };
 		C1E967B721C8B367005014E1 /* ClassServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E967B621C8B367005014E1 /* ClassServiceTests.swift */; };
-		C1E967B921C8FA1B005014E1 /* SignUpSignOutSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E967B821C8FA1B005014E1 /* SignUpSignOutSignInTests.swift */; };
+		C1E967B921C8FA1B005014E1 /* CapitalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E967B821C8FA1B005014E1 /* CapitalUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +209,14 @@
 		C1164D8921BD97BF00895A1B /* AccountSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSelectorVC.swift; sourceTree = "<group>"; };
 		C1164D8D21BD986E00895A1B /* EnumValuesSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumValuesSelectorVC.swift; sourceTree = "<group>"; };
 		C1164D9021BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequencySelectorVC.swift; sourceTree = "<group>"; };
+		C125EC0021D671E200FB4F6F /* Architecture.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Architecture.md; sourceTree = "<group>"; };
+		C125EC0121D671E200FB4F6F /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TestingAlgorithm.md; sourceTree = "<group>"; };
+		C125EC0321D671E200FB4F6F /* ToDo.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ToDo.md; sourceTree = "<group>"; };
+		C125EC0E21D672B500FB4F6F /* Tasks.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Tasks.md; sourceTree = "<group>"; };
+		C125EC0F21D674E900FB4F6F /* Deecisions.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Deecisions.md; sourceTree = "<group>"; };
+		C125EC1021D754A300FB4F6F /* Simple Finance - Core Functionality.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Simple Finance - Core Functionality.md"; sourceTree = "<group>"; };
+		C125EC1121D75B8200FB4F6F /* test.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = test.md; sourceTree = "<group>"; };
 		C16D36DA21C3B58A00690B7B /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
 		C16D36DC21C4078800690B7B /* AccountGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroupTests.swift; sourceTree = "<group>"; };
 		C16D36DE21C4157700690B7B /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
@@ -258,7 +271,7 @@
 		C1CE084521BD2170000D28C9 /* AppTitleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleTests.swift; sourceTree = "<group>"; };
 		C1CE084721BD2170000D28C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CE084C21BD2170000D28C9 /* CapitalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapitalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1CE085021BD2170000D28C9 /* CapitalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalUITests.swift; sourceTree = "<group>"; };
+		C1CE085021BD2170000D28C9 /* SpringBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringBoard.swift; sourceTree = "<group>"; };
 		C1CE085221BD2170000D28C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CE085E21BD221A000D28C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1CE086121BD263F000D28C9 /* BoringSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BoringSSL.framework; sourceTree = "<group>"; };
@@ -301,7 +314,7 @@
 		C1E967B221C83829005014E1 /* SimpleTableWithSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableWithSelectionTests.swift; sourceTree = "<group>"; };
 		C1E967B421C83909005014E1 /* TransactionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemTests.swift; sourceTree = "<group>"; };
 		C1E967B621C8B367005014E1 /* ClassServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassServiceTests.swift; sourceTree = "<group>"; };
-		C1E967B821C8FA1B005014E1 /* SignUpSignOutSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSignOutSignInTests.swift; sourceTree = "<group>"; };
+		C1E967B821C8FA1B005014E1 /* CapitalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +453,22 @@
 			);
 			path = AccountGroup;
 			sourceTree = "<group>";
+		};
+		C125EBFF21D671E200FB4F6F /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C125EC0021D671E200FB4F6F /* Architecture.md */,
+				C125EC0E21D672B500FB4F6F /* Tasks.md */,
+				C125EC0F21D674E900FB4F6F /* Deecisions.md */,
+				C125EC0121D671E200FB4F6F /* ReadMe.md */,
+				C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */,
+				C125EC0321D671E200FB4F6F /* ToDo.md */,
+				C125EC1021D754A300FB4F6F /* Simple Finance - Core Functionality.md */,
+				C125EC1121D75B8200FB4F6F /* test.md */,
+			);
+			name = Documentation;
+			path = Capital/Documentation;
+			sourceTree = SOURCE_ROOT;
 		};
 		C1913FA621C42A2800D3DA3E /* Module */ = {
 			isa = PBXGroup;
@@ -640,6 +669,7 @@
 		C1CE082F21BD216F000D28C9 /* Capital */ = {
 			isa = PBXGroup;
 			children = (
+				C125EBFF21D671E200FB4F6F /* Documentation */,
 				C1A0279221BD428900207FF7 /* Modules */,
 				C1A027A821BD4AF700207FF7 /* Service */,
 				C1A0279721BD42E800207FF7 /* Common */,
@@ -673,9 +703,9 @@
 		C1CE084F21BD2170000D28C9 /* CapitalUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C1CE085021BD2170000D28C9 /* CapitalUITests.swift */,
+				C1CE085021BD2170000D28C9 /* SpringBoard.swift */,
 				C1CE085221BD2170000D28C9 /* Info.plist */,
-				C1E967B821C8FA1B005014E1 /* SignUpSignOutSignInTests.swift */,
+				C1E967B821C8FA1B005014E1 /* CapitalUITests.swift */,
 			);
 			path = CapitalUITests;
 			sourceTree = "<group>";
@@ -909,11 +939,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C125EC0721D671E200FB4F6F /* ToDo.md in Resources */,
 				C1CE083B21BD2170000D28C9 /* LaunchScreen.storyboard in Resources */,
 				C1CE085F21BD221A000D28C9 /* GoogleService-Info.plist in Resources */,
 				C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */,
+				C125EC0421D671E200FB4F6F /* Architecture.md in Resources */,
 				C1CE088521BD2640000D28C9 /* gRPCCertificates-Firestore.bundle in Resources */,
+				C125EC0521D671E200FB4F6F /* ReadMe.md in Resources */,
 				C1CE083621BD216F000D28C9 /* Main.storyboard in Resources */,
+				C125EC0621D671E200FB4F6F /* TestingAlgorithm.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,6 +1019,7 @@
 				C1164D4621BD704800895A1B /* TransactionTable.swift in Sources */,
 				C16D36DB21C3B58A00690B7B /* BarButtonItem.swift in Sources */,
 				C1A027AC21BD4D1C00207FF7 /* Extensions.swift in Sources */,
+				C1240A9521CD708800A0E0BF /* EnumValuesSelectorVC.swift in Sources */,
 				C1164D2521BD6CAA00895A1B /* SettingsViewController.swift in Sources */,
 				C1164D7921BD958900895A1B /* EditAccountGroupVC.swift in Sources */,
 				C1A027ED21BD54F300207FF7 /* FIRManager.swift in Sources */,
@@ -1015,7 +1050,6 @@
 				C1A027C921BD53AE00207FF7 /* FinTransaction.swift in Sources */,
 				C1164D2021BD5D0900895A1B /* FireStoreData.swift in Sources */,
 				C1164D5921BD805F00895A1B /* AccountListVC.swift in Sources */,
-				C1164D9121BD986E00895A1B /* EnumValuesSelectorVC.swift in Sources */,
 				C1164D2E21BD6F2F00895A1B /* CellStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1062,8 +1096,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1CE085121BD2170000D28C9 /* CapitalUITests.swift in Sources */,
-				C1E967B921C8FA1B005014E1 /* SignUpSignOutSignInTests.swift in Sources */,
+				C1CE085121BD2170000D28C9 /* SpringBoard.swift in Sources */,
+				C125EBFC21D5932A00FB4F6F /* Extensions.swift in Sources */,
+				C1E967B921C8FA1B005014E1 /* CapitalUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

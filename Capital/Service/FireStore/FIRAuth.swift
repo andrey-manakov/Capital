@@ -32,18 +32,21 @@ class FIRAuth: FireAuthProtocol {
         Auth.auth().createUser(withEmail: email, password: pwd) {authDataResult, error in
             if let error = error {
                 print("Error in user creation \(error.localizedDescription)")
+                completion?(error)
             } else {
-                self.fs.checkIfCapitalAccountExist()
-            }
-            if let id = authDataResult?.user.uid  {
-                let userDoc = Firestore.firestore().document("users/\(id)")
-                userDoc.setData(["email" : email, "password": pwd]) {error in
-                    if let error = error {
-                        print("LOG Error in setting user data \(error.localizedDescription)")
-                    }
+                //FIXME: update through fs object
+                if let user = Auth.auth().currentUser?.uid {
+                    Firestore.firestore().document("users/\(user)").setData(["email" : email, "password": pwd])
                 }
-            }            
-            completion?(error)
+
+                self.fs.checkIfCapitalAccountExist() {error in
+                    if let error = error {
+                        print("Error in capital account check or creation \(error.localizedDescription)")
+                    }
+                    
+                    completion?(error)
+                }
+            }
         }
     }
     
@@ -61,10 +64,17 @@ class FIRAuth: FireAuthProtocol {
     }
     
     func deleteUser(_ completion: ((Error?) -> ())?) {
-        let uid = currentUserUid! // FIXME: !
-        Firestore.firestore().document("users/\(uid)").delete() {error in
-            print("LOG delete user with id \(uid)")
-            self.currentUser?.delete { error in completion?(error)}
+        completion?(nil)
+        fs.deleteAll {
+            if let uid = self.currentUserUid {
+                Firestore.firestore().document("users/\(uid)").delete() {error in
+                    print("LOG delete user with id \(uid)")
+                }
+            }
+//            self.currentUser?.delete {
+//                error in completion?(error)
+//                print("result of user delete: \(error?.localizedDescription ?? "SUCCESS")")
+//            }
         }
     }
 }

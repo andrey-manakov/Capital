@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        settings.isPersistenceEnabled = false
+        db.settings = settings
+        
         if let _ = NSClassFromString("XCTest") {testing = true; return true}
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = LoginVC()
