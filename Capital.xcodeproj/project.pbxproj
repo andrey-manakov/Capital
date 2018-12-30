@@ -216,7 +216,6 @@
 		C125EC0E21D672B500FB4F6F /* Tasks.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Tasks.md; sourceTree = "<group>"; };
 		C125EC0F21D674E900FB4F6F /* Deecisions.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Deecisions.md; sourceTree = "<group>"; };
 		C125EC1021D754A300FB4F6F /* Simple Finance - Core Functionality.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Simple Finance - Core Functionality.md"; sourceTree = "<group>"; };
-		C125EC1121D75B8200FB4F6F /* test.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = test.md; sourceTree = "<group>"; };
 		C16D36DA21C3B58A00690B7B /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
 		C16D36DC21C4078800690B7B /* AccountGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroupTests.swift; sourceTree = "<group>"; };
 		C16D36DE21C4157700690B7B /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
@@ -464,7 +463,6 @@
 				C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */,
 				C125EC0321D671E200FB4F6F /* ToDo.md */,
 				C125EC1021D754A300FB4F6F /* Simple Finance - Core Functionality.md */,
-				C125EC1121D75B8200FB4F6F /* test.md */,
 			);
 			name = Documentation;
 			path = Capital/Documentation;
