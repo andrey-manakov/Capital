@@ -4,4 +4,5 @@ osx_image: xcode9.2 #2
 
 jobs:
   include:
-    - script: xcodebuild clean build test -project Capital.xcodeproj -scheme Capital -destination "platform=iOS Simulator,name=iPhone 8,OS=11.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+    - script: xcodebuild clean build test -project Capital.xcodeproj -scheme Capital CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+#    - script: xcodebuild clean build test -project Capital.xcodeproj -scheme Capital -destination "platform=iOS Simulator,name=iPhone 8,OS=11.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
