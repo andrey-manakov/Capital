@@ -127,16 +127,16 @@ class CapitalUITests: XCTestCase {
 //        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
     }
     
-    func testSimpleTransaction() {
-        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
-        let accounts = [randomAccount(), randomAccount()]
-        let amount = String((0..<3).map{ _ in "123456789".randomElement()! })
-        
-        XCTAssert(signUp(login: login, password: password))
-        _ = accounts.map{XCTAssert(create(account: $0))}
-        XCTAssert(create(transaction: amount, with: accounts))
-        XCTAssert(deleteUser())
-    }
+//    func testSimpleTransaction() {
+//        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
+//        let accounts = [randomAccount(), randomAccount()]
+//        let amount = String((0..<3).map{ _ in "123456789".randomElement()! })
+//
+//        XCTAssert(signUp(login: login, password: password))
+//        _ = accounts.map{XCTAssert(create(account: $0))}
+//        XCTAssert(create(transaction: amount, with: accounts))
+//        XCTAssert(deleteUser())
+//    }
     
     func create(transaction amount: String, with accounts: [(name: String, type: String, amount: String)]) -> Bool {
         app.tabBars.buttons["New Transaction"].tap()
@@ -197,35 +197,35 @@ class CapitalUITests: XCTestCase {
         return fromAccountIsCorrect && toAccountIsCorrect
     }
     
-    func testTransactionNotToday() {
-        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
-        let accounts = [randomAccount(), randomAccount()]
-        let amount = String((0..<3).map{ _ in "123456789".randomElement()! })
-        let day = "15"//(1...27).map{String($0)}.randomElement()!
-        let month = "December"
-        let year = "2018"
-//        let date = (day: day, month: "December", year: "2018")
-        let sampleDate = "\(day)-\(month)-\(year)".date(withFormat: "dd-MMMM-yyyy")
-        print(sampleDate?.str as Any)
-        print(Date().str)
-        XCTAssert(signUp(login: login, password: password))
-        _ = accounts.map{XCTAssert(create(account: $0))}
-        XCTAssert(create(transaction: amount, with: accounts, onDate: sampleDate!))
-        XCTAssert(deleteUser())
-        
-//        let vTable = app.tables["v"]
-//        vTable/*@START_MENU_TOKEN@*/.staticTexts["2018 Dec-21"]/*[[".cells.staticTexts[\"2018 Dec-21\"]",".staticTexts[\"2018 Dec-21\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        vTable/*@START_MENU_TOKEN@*/.pickerWheels["21"].press(forDuration: 1.2);/*[[".cells.pickerWheels[\"21\"]",".tap()",".press(forDuration: 1.2);",".pickerWheels[\"21\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
-//        vTable/*@START_MENU_TOKEN@*/.pickerWheels["20"].press(forDuration: 0.8);/*[[".cells.pickerWheels[\"20\"]",".tap()",".press(forDuration: 0.8);",".pickerWheels[\"20\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
-//        vTable/*@START_MENU_TOKEN@*/.staticTexts["repeat"]/*[[".cells.staticTexts[\"repeat\"]",".staticTexts[\"repeat\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        vTable/*@START_MENU_TOKEN@*/.staticTexts["Every Day"]/*[[".cells[\"Every Day\"].staticTexts[\"Every Day\"]",".staticTexts[\"Every Day\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//
-//        let vTable = app.tables["v"]
-//        vTable/*@START_MENU_TOKEN@*/.pickerWheels["19"]/*[[".cells.pickerWheels[\"19\"]",".pickerWheels[\"19\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
-//        vTable/*@START_MENU_TOKEN@*/.pickerWheels["22"].press(forDuration: 1.0);/*[[".cells.pickerWheels[\"22\"]",".tap()",".press(forDuration: 1.0);",".pickerWheels[\"22\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
-//        vTable/*@START_MENU_TOKEN@*/.pickerWheels["23"].press(forDuration: 0.5);/*[[".cells.pickerWheels[\"23\"]",".tap()",".press(forDuration: 0.5);",".pickerWheels[\"23\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
-        
-    }
+//    func testTransactionNotToday() {
+//        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
+//        let accounts = [randomAccount(), randomAccount()]
+//        let amount = String((0..<3).map{ _ in "123456789".randomElement()! })
+//        let day = "15"//(1...27).map{String($0)}.randomElement()!
+//        let month = "December"
+//        let year = "2018"
+////        let date = (day: day, month: "December", year: "2018")
+//        let sampleDate = "\(day)-\(month)-\(year)".date(withFormat: "dd-MMMM-yyyy")
+//        print(sampleDate?.str as Any)
+//        print(Date().str)
+//        XCTAssert(signUp(login: login, password: password))
+//        _ = accounts.map{XCTAssert(create(account: $0))}
+//        XCTAssert(create(transaction: amount, with: accounts, onDate: sampleDate!))
+//        XCTAssert(deleteUser())
+//        
+////        let vTable = app.tables["v"]
+////        vTable/*@START_MENU_TOKEN@*/.staticTexts["2018 Dec-21"]/*[[".cells.staticTexts[\"2018 Dec-21\"]",".staticTexts[\"2018 Dec-21\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["21"].press(forDuration: 1.2);/*[[".cells.pickerWheels[\"21\"]",".tap()",".press(forDuration: 1.2);",".pickerWheels[\"21\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
+////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["20"].press(forDuration: 0.8);/*[[".cells.pickerWheels[\"20\"]",".tap()",".press(forDuration: 0.8);",".pickerWheels[\"20\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
+////        vTable/*@START_MENU_TOKEN@*/.staticTexts["repeat"]/*[[".cells.staticTexts[\"repeat\"]",".staticTexts[\"repeat\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+////        vTable/*@START_MENU_TOKEN@*/.staticTexts["Every Day"]/*[[".cells[\"Every Day\"].staticTexts[\"Every Day\"]",".staticTexts[\"Every Day\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+////
+////        let vTable = app.tables["v"]
+////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["19"]/*[[".cells.pickerWheels[\"19\"]",".pickerWheels[\"19\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
+////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["22"].press(forDuration: 1.0);/*[[".cells.pickerWheels[\"22\"]",".tap()",".press(forDuration: 1.0);",".pickerWheels[\"22\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
+////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["23"].press(forDuration: 0.5);/*[[".cells.pickerWheels[\"23\"]",".tap()",".press(forDuration: 0.5);",".pickerWheels[\"23\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
+//        
+//    }
     
 
 }
