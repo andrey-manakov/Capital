@@ -50,10 +50,11 @@
 		C1164D8621BD974F00895A1B /* AdvancedNewTransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8321BD974F00895A1B /* AdvancedNewTransactionService.swift */; };
 		C1164D8B21BD97BF00895A1B /* AccountSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8921BD97BF00895A1B /* AccountSelectorVC.swift */; };
 		C1164D9421BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D9021BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift */; };
+		C116861A21DF4B67003D3ADA /* Main.md in Resources */ = {isa = PBXBuildFile; fileRef = C116861921DF4B67003D3ADA /* Main.md */; };
 		C1240A9521CD708800A0E0BF /* EnumValuesSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8D21BD986E00895A1B /* EnumValuesSelectorVC.swift */; };
 		C125EBFC21D5932A00FB4F6F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027AB21BD4D1C00207FF7 /* Extensions.swift */; };
 		C125EC0421D671E200FB4F6F /* Architecture.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0021D671E200FB4F6F /* Architecture.md */; };
-		C125EC0521D671E200FB4F6F /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0121D671E200FB4F6F /* ReadMe.md */; };
+		C125EC0521D671E200FB4F6F /* GeneralAppDesc.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0121D671E200FB4F6F /* GeneralAppDesc.md */; };
 		C125EC0621D671E200FB4F6F /* TestingAlgorithm.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */; };
 		C125EC0721D671E200FB4F6F /* ToDo.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0321D671E200FB4F6F /* ToDo.md */; };
 		C16D36DB21C3B58A00690B7B /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D36DA21C3B58A00690B7B /* BarButtonItem.swift */; };
@@ -207,8 +208,10 @@
 		C1164D8921BD97BF00895A1B /* AccountSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSelectorVC.swift; sourceTree = "<group>"; };
 		C1164D8D21BD986E00895A1B /* EnumValuesSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumValuesSelectorVC.swift; sourceTree = "<group>"; };
 		C1164D9021BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequencySelectorVC.swift; sourceTree = "<group>"; };
+		C116861921DF4B67003D3ADA /* Main.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Main.md; sourceTree = "<group>"; };
+		C116879421DF4C4E003D3ADA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C125EC0021D671E200FB4F6F /* Architecture.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Architecture.md; sourceTree = "<group>"; };
-		C125EC0121D671E200FB4F6F /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		C125EC0121D671E200FB4F6F /* GeneralAppDesc.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = GeneralAppDesc.md; sourceTree = "<group>"; };
 		C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TestingAlgorithm.md; sourceTree = "<group>"; };
 		C125EC0321D671E200FB4F6F /* ToDo.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ToDo.md; sourceTree = "<group>"; };
 		C125EC0E21D672B500FB4F6F /* Tasks.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Tasks.md; sourceTree = "<group>"; };
@@ -457,7 +460,8 @@
 				C125EC0021D671E200FB4F6F /* Architecture.md */,
 				C125EC0E21D672B500FB4F6F /* Tasks.md */,
 				C125EC0F21D674E900FB4F6F /* Decisions.md */,
-				C125EC0121D671E200FB4F6F /* ReadMe.md */,
+				C125EC0121D671E200FB4F6F /* GeneralAppDesc.md */,
+				C116861921DF4B67003D3ADA /* Main.md */,
 				C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */,
 				C125EC0321D671E200FB4F6F /* ToDo.md */,
 				C125EC1021D754A300FB4F6F /* CoreFunctionality.md */,
@@ -645,6 +649,7 @@
 		C1CE082421BD216F000D28C9 = {
 			isa = PBXGroup;
 			children = (
+				C116879421DF4C4E003D3ADA /* README.md */,
 				C1CE082F21BD216F000D28C9 /* Capital */,
 				C1CE084421BD2170000D28C9 /* CapitalTests */,
 				C1CE084F21BD2170000D28C9 /* CapitalUITests */,
@@ -938,9 +943,10 @@
 				C125EC0721D671E200FB4F6F /* ToDo.md in Resources */,
 				C1CE085F21BD221A000D28C9 /* GoogleService-Info.plist in Resources */,
 				C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */,
+				C116861A21DF4B67003D3ADA /* Main.md in Resources */,
 				C125EC0421D671E200FB4F6F /* Architecture.md in Resources */,
 				C1CE088521BD2640000D28C9 /* gRPCCertificates-Firestore.bundle in Resources */,
-				C125EC0521D671E200FB4F6F /* ReadMe.md in Resources */,
+				C125EC0521D671E200FB4F6F /* GeneralAppDesc.md in Resources */,
 				C125EC0621D671E200FB4F6F /* TestingAlgorithm.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
