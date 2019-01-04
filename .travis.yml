@@ -10,7 +10,7 @@ install:
 
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t a6f108e8-ba77-4e1e-9cfc-0958501c2b3e
+  - bash <(curl -s https://codecov.io/bash)
 
 #jobs: 
 #  include:
