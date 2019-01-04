@@ -101,9 +101,7 @@
 		C1A027EF21BD54F300207FF7 /* FIRListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DF21BD54F300207FF7 /* FIRListners.swift */; };
 		C1CE083121BD216F000D28C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE083021BD216F000D28C9 /* AppDelegate.swift */; };
 		C1CE083321BD216F000D28C9 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE083221BD216F000D28C9 /* TestController.swift */; };
-		C1CE083621BD216F000D28C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083421BD216F000D28C9 /* Main.storyboard */; };
 		C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083721BD2170000D28C9 /* Assets.xcassets */; };
-		C1CE083B21BD2170000D28C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083921BD2170000D28C9 /* LaunchScreen.storyboard */; };
 		C1CE084621BD2170000D28C9 /* AppTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE084521BD2170000D28C9 /* AppTitleTests.swift */; };
 		C1CE085121BD2170000D28C9 /* SpringBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE085021BD2170000D28C9 /* SpringBoard.swift */; };
 		C1CE085F21BD221A000D28C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1CE085E21BD221A000D28C9 /* GoogleService-Info.plist */; };
@@ -214,8 +212,8 @@
 		C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TestingAlgorithm.md; sourceTree = "<group>"; };
 		C125EC0321D671E200FB4F6F /* ToDo.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ToDo.md; sourceTree = "<group>"; };
 		C125EC0E21D672B500FB4F6F /* Tasks.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Tasks.md; sourceTree = "<group>"; };
-		C125EC0F21D674E900FB4F6F /* Deecisions.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Deecisions.md; sourceTree = "<group>"; };
-		C125EC1021D754A300FB4F6F /* Simple Finance - Core Functionality.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Simple Finance - Core Functionality.md"; sourceTree = "<group>"; };
+		C125EC0F21D674E900FB4F6F /* Decisions.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Decisions.md; sourceTree = "<group>"; };
+		C125EC1021D754A300FB4F6F /* CoreFunctionality.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CoreFunctionality.md; sourceTree = "<group>"; };
 		C16D36DA21C3B58A00690B7B /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
 		C16D36DC21C4078800690B7B /* AccountGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroupTests.swift; sourceTree = "<group>"; };
 		C16D36DE21C4157700690B7B /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
@@ -458,11 +456,11 @@
 			children = (
 				C125EC0021D671E200FB4F6F /* Architecture.md */,
 				C125EC0E21D672B500FB4F6F /* Tasks.md */,
-				C125EC0F21D674E900FB4F6F /* Deecisions.md */,
+				C125EC0F21D674E900FB4F6F /* Decisions.md */,
 				C125EC0121D671E200FB4F6F /* ReadMe.md */,
 				C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */,
 				C125EC0321D671E200FB4F6F /* ToDo.md */,
-				C125EC1021D754A300FB4F6F /* Simple Finance - Core Functionality.md */,
+				C125EC1021D754A300FB4F6F /* CoreFunctionality.md */,
 			);
 			name = Documentation;
 			path = Capital/Documentation;
@@ -938,13 +936,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C125EC0721D671E200FB4F6F /* ToDo.md in Resources */,
-				C1CE083B21BD2170000D28C9 /* LaunchScreen.storyboard in Resources */,
 				C1CE085F21BD221A000D28C9 /* GoogleService-Info.plist in Resources */,
 				C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */,
 				C125EC0421D671E200FB4F6F /* Architecture.md in Resources */,
 				C1CE088521BD2640000D28C9 /* gRPCCertificates-Firestore.bundle in Resources */,
 				C125EC0521D671E200FB4F6F /* ReadMe.md in Resources */,
-				C1CE083621BD216F000D28C9 /* Main.storyboard in Resources */,
 				C125EC0621D671E200FB4F6F /* TestingAlgorithm.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

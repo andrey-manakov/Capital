@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "transactionlist32.png",
+      "filename" : "coins.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "transactionlist50.png",
+      "filename" : "coins@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "transactionlist100.png",
+      "filename" : "coins@3x.png",
       "scale" : "3x"
     }
   ],

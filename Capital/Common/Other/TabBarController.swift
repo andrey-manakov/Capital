@@ -3,6 +3,18 @@ protocol TabBarControllerProtocol {
     
 }
 
+/// Main viewcontroller shown upon successful login
+///
+/// Calls:
+/// * `AccountGroupsViewController`
+/// * `AccountListVC`
+/// * `AdvancedNewTransactionVC`
+/// * `AdvancedNewTransactionVC`
+/// * `TransactionListVC`
+/// * `SettingsViewController`
+///
+/// Called by:
+/// * `LoginVC`
 class TabBarController: UITabBarController, TabBarControllerProtocol {
     
     init() {

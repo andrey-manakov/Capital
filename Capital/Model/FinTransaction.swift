@@ -17,6 +17,7 @@
 /// * parent is Transaction used for recuerrence, which produced this transaction, through the parent transactions is it possible to get all the related transactions
 
 final class FinTransaction: DataObject {
+    /// account **from** which is the transfer of funds - reference to `Account` instance
     var from: AccountInfo?
     var to: AccountInfo?
     var amount: Int?

@@ -4,25 +4,6 @@
 ## General App Description
 
 
-## Accounting principles
-
-### Mortgage example
-For example mortgage payment 70000: 60000 interest & 10000 body
-
-VTB Debit account -(70000)-> Mortgage Short Term debt
-Flat LO -(70000)-> Expense Living
-Mortgage Short Term Debt -(60000)-> Revenue 
-Mortgage Short Term Debt -(10000)-> Mortgage Long Term Debt 
-Expense Living -(70000)-> Capital
-Capital -(60000)-> Revenue? 
-
-Totals:
-VTB Debit account -70000
-Mortgage Short Term debt 0
-Revenue -60000
-Mortgage Long Term Debt -10000
-Expense Living -70000
-
 ## Use Cases
 
 ### Use Cases List
@@ -103,36 +84,4 @@ Group 3
 1. When app is opened Accounts View Controller is not being updated after accounts are loaded
 
 
-
-## Sample date
-
-### Sample transactions
-#### Expenses
-1. Children swimming pool - 15000 RUB/Month + Taxi 10000 RUB / Month
-2. Children gymnastics - 15000 RUB/Month
-3. KinderGarden+ - 10000 RUB/Month
-4. Utilities - 13000 RUB/Month
-5. Children Health (incl. Sanare) - 40000 RUB/Year - 4000 RUB/M
-6. Mortgage - 70000 RUB/Month
-7. Loan VTB800 - 22000 RUB/Month
-8. Loan Skoda Yeti - 31000 RUB/Month
-9. Parking - 10000 RUB/Month
-10. Business Lunch - 300 RUB / Wokring Day - 6000 RUB / Month
-11. Products - 20000 Rub/Month
-12. Beuty procedures - 10000 Rub / Month
-13. Sport Club - 60000 RUB/Year - 5000 Rub / Month
-14. Apparel - 60000 Rub/Year - 5000 Rub / Month
-15. Entertainment & Dine Out -  20000 Rub / Month
-16. Gasolina - 4000 RUB/Month
-17. Car Insurance - 40000 Rub / Year - 3500 Rub / Month
-18. Mortgage Insurance - 40000 Rub / Year
-19. Kids Birthdays - 40000 Rub / Year
-20. Our Birthdays - 40000 Rub / Year
-21. Cell Phones, Internet, Mobile Subscriptions, Cloud Drives - 10000 Rub / Month
-22. QClean 12000 Rub/Month
-
-Total 
-
-#### Revenue
-1. Salary
 

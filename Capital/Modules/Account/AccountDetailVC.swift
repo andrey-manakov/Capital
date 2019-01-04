@@ -1,7 +1,5 @@
 
 
-
-
 class AccountDetailVC: ViewController {
     
     override func viewDidLoad() {
