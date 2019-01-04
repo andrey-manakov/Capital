@@ -38,6 +38,11 @@
                BlueprintName = "CapitalTests"
                ReferencedContainer = "container:Capital.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "FIRAuthTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
