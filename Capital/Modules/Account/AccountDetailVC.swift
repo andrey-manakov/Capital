@@ -12,11 +12,13 @@ class AccountDetailVC: ViewController {
                 service.didTapDelete(withId: id)
                 self.navigationController?.popViewController(animated: true)
             }
-            view.add(subViews: ["deleteButton": button as? UIView], withConstraints: ["H:|-20-[deleteButton]-20-|", "V:[deleteButton(44)]-60-|"])
+            let constraints = ["H:|-20-[deleteButton]-20-|", "V:[deleteButton(44)]-60-|"]
+            view.add(subViews: ["deleteButton": button as? UIView], withConstraints: constraints)
         }
 
         navigationItem.rightBarButtonItem = BarButtonItem(title: "Done") {[unowned self] in
-                service.didTapDone(with: id, name: accountNameTextField.text ?? "", amount: accountAmountTextField.text ?? "")
+                service.didTapDone(with: id, name: accountNameTextField.text ?? "",
+                                   amount: accountAmountTextField.text ?? "")
                 self.navigationController?.popViewController(animated: true)
         }
 

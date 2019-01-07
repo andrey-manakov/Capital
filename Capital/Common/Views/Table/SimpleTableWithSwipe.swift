@@ -14,20 +14,23 @@ class SimpleTableWithSwipe: SimpleTable, SimpleTableWithSwipeProtocol {
     var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> Void)?
     var swipeRightAction: ((_ row: DataModelRowProtocol?) -> Void)?
 
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let rightSwipe = UIContextualAction(style: .normal, title: swipeRightLabel ?? "") {[unowned self] (_:UIContextualAction, _:UIView, success: (Bool) -> Void) in
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let handler = {[unowned self] (_:UIContextualAction, _:UIView, success: (Bool) -> Void) in
             self.swipeRightAction?(self.data[indexPath])
             success(true)
         }
+        let rightSwipe = UIContextualAction(style: .normal, title: swipeRightLabel ?? "", handler: handler)
         rightSwipe.backgroundColor = .blue
         return UISwipeActionsConfiguration(actions: [rightSwipe])
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let leftSwipe = UIContextualAction(style: .normal, title: swipeLeftLabel ?? "") {(_:UIContextualAction, _:UIView, success: (Bool) -> Void) in
+        let handler = {(_:UIContextualAction, _:UIView, success: (Bool) -> Void) in
             self.swipeLeftAction?(self.data[indexPath])
             success(true)
         }
+        let leftSwipe = UIContextualAction(style: .normal, title: swipeLeftLabel ?? "", handler: handler)
         leftSwipe.backgroundColor = .blue
         return UISwipeActionsConfiguration(actions: [leftSwipe])
     }

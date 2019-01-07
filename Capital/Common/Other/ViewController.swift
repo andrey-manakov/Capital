@@ -48,7 +48,9 @@ class ViewController: UIViewController, ViewControllerProtocol {
             self.dismiss(animated: true, completion: completion)
         }
     }
-    func dimissNavigationViewController(completion: (()->Void)? = nil) {navigationController?.dismiss(animated: true, completion: completion)}
+    func dimissNavigationViewController(completion: (()->Void)? = nil) {
+        navigationController?.dismiss(animated: true, completion: completion)
+    }
     func push(_ vc: UIViewController) {navigationController?.pushViewController(vc, animated: true)}
     func endEditing(force: Bool) {view.endEditing(force)}
     func alert(_ title: String? = nil, message: String) {

@@ -18,7 +18,11 @@ extension Account {
             let currentDate = Date()
             let lhsmin = lhs.min ?? (amount: 0, date: currentDate)
             let rhsmin = rhs.min ?? (amount: 0, date: currentDate)
-            return lhs.amount == rhs.amount && lhs.accounts == rhs.accounts && lhsmin.amount == rhsmin.amount && rhsmin.date.isSameDate(lhsmin.date) && lhs.name == rhs.name
+            return lhs.amount == rhs.amount &&
+                lhs.accounts == rhs.accounts &&
+                lhsmin.amount == rhsmin.amount &&
+                rhsmin.date.isSameDate(lhsmin.date) &&
+                lhs.name == rhs.name
         }
 
         required convenience init(_ data: [String: Any]) {
@@ -34,7 +38,9 @@ extension Account {
             case .min:
                 guard let value = value as? [String: Any],
                     let minAmount = value[Account.Fields.Min.amount.rawValue] as? Int,
-                    let minDate = (value[Account.Fields.Min.date.rawValue] as? Timestamp)?.dateValue() else {return}
+                    let minDate = (value[Account.Fields.Min.date.rawValue] as? Timestamp)?.dateValue() else {
+                        return
+                }
                 self.min = (amount: minAmount, date: minDate)
             case .accounts: self.accounts = value as? [String: String]
             }

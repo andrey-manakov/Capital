@@ -8,7 +8,9 @@
 //}
 //
 //class AccountTypesSegmentedControl: UISegmentedControl, AccountTypesSegmentedControlProtocol {
-//    var selectedAccountType: AccountType? {get {return AccountType(rawValue: self.selectedSegmentIndex)} set(newValue) {
+//    var selectedAccountType: AccountType? {get {
+//    return AccountType(rawValue: self.selectedSegmentIndex)}
+//                                           set(newValue) {
 //            self.selectedSegmentIndex = newValue?.rawValue ?? 0
 //        }
 //    }

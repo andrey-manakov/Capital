@@ -1,6 +1,7 @@
 import UIKit
 
-/// Template Table Protocol is public interface to Template Table. All the initializations of TemplateTable should be done through the TemplateTableProtocol
+/// Template Table Protocol is public interface to Template Table.
+/// All the initializations of TemplateTable should be done through the TemplateTableProtocol
 ///
 /// **Application Example**
 ///````

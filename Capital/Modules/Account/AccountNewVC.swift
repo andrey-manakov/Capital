@@ -15,10 +15,19 @@ class AccountNewVC: ViewController {
         segmentedControl.selectedSegmentIndex = selectedSegment
         title = "New account"
         navigationItem.rightBarButtonItem = BarButtonItem(title: "Done") {
-            service.didTapDoneWith(name: accountNameTextField.text, amount: accountAmountTextField.text, type: selectedSegment)
+            service.didTapDoneWith(name: accountNameTextField.text,
+                                   amount: accountAmountTextField.text,
+                                   type: selectedSegment)
             self.navigationController?.popViewController(animated: true)
         }
-        view.add(subViews: ["sc": segmentedControl as? UIView, "an": accountNameTextField as? UIView, "aa": accountAmountTextField as? UIView], withConstraints: ["H:|-20-[an]-20-|", "H:|-20-[aa]-20-|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-20-[an(31)]-20-[aa(31)]"])
+
+        view.add(subViews: ["sc": segmentedControl as? UIView,
+                            "an": accountNameTextField as? UIView,
+                            "aa": accountAmountTextField as? UIView],
+                 withConstraints: ["H:|-20-[an]-20-|",
+                                   "H:|-20-[aa]-20-|",
+                                   "H:|-20-[sc]-20-|",
+                                   "V:|-80-[sc(31)]-20-[an(31)]-20-[aa(31)]"])
     }
 }
 

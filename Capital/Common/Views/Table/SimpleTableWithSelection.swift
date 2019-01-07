@@ -20,7 +20,11 @@ class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {
         cell?.textLabel?.text = data[indexPath].name
         cell?.detailTextLabel?.text = data[indexPath].desc
         cell?.selectionStyle = .none
-        if data[indexPath].id == selectedRow?.id {cell?.accessoryType = .checkmark} else {cell?.accessoryType = .none}
+        if data[indexPath].id == selectedRow?.id {
+            cell?.accessoryType = .checkmark
+        } else {
+            cell?.accessoryType = .none
+        }
         return cell!
     }
 

@@ -9,7 +9,8 @@ class SimpleTable: TemplateTable, SimpleTableProtocol {
     override init() {
         super.init()
         register(LeftRightCell.self, forCellReuseIdentifier: LeftRightCell.self.description())
-        register(SimpleSectionHeader.self, forHeaderFooterViewReuseIdentifier: SimpleSectionHeader.self.description())
+        register(SimpleSectionHeader.self,
+                 forHeaderFooterViewReuseIdentifier: SimpleSectionHeader.self.description())
     }
 
     required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}

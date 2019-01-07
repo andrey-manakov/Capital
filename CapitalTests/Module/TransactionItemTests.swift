@@ -12,8 +12,12 @@ class TransactionItemTests: XCTestCase {
     }
     func testHeight() {
         for item in TransactionItem.allCases {
-            if (item == .dateSelection || item == .recurrenceEndDate) && item.height != 200 {XCTFail("height is wrong")}
-            if (item != .dateSelection && item != .recurrenceEndDate) && item.height != 45 {XCTFail("height is wrong")}
+            if (item == .dateSelection || item == .recurrenceEndDate) && item.height != 200 {
+                XCTFail("height is wrong")
+            }
+            if (item != .dateSelection && item != .recurrenceEndDate) && item.height != 45 {
+                XCTFail("height is wrong")
+            }
         }
     }
 }

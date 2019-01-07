@@ -31,11 +31,15 @@ struct DataModelSection: DataModelSectionProtocol {
     }
 
     init(_ labels: [(id: String?, name: String?, desc: String?, filter: Any?)]) {
-        for label in labels {rows.append(DataModelRow(id: label.id, name: label.name, desc: label.desc, filter: label.filter))}
+        for label in labels {
+            rows.append(DataModelRow(id: label.id, name: label.name, desc: label.desc, filter: label.filter))
+        }
     }
 
     init(_ labels: [(id: String?, name: String?, desc: String?, accessory: Int?)]) {
-        for label in labels {rows.append(DataModelRow(id: label.id, name: label.name, desc: label.desc, accessory: label.accessory))}
+        for label in labels {
+            rows.append(DataModelRow(id: label.id, name: label.name, desc: label.desc, accessory: label.accessory))
+        }
     }
 
     init(_ labels: [(id: String?, name: String?)]) {
@@ -43,11 +47,15 @@ struct DataModelSection: DataModelSectionProtocol {
     }
 
     init(_ labels: [(id: String?, name: String?, desc: String?, height: CGFloat?)]) {
-        for label in labels {rows.append(DataModelRow(id: label.id, name: label.name, desc: label.desc, height: label.height))}
+        for label in labels {
+            rows.append(DataModelRow(id: label.id, name: label.name, desc: label.desc, height: label.height))
+        }
     }
 
     init(_ labels: [(id: String?, left: String?, up: String?, down: String?, right: String?)]) {
-        for l in labels {rows.append(DataModelRow(id: l.id, left: l.left, up: l.up, down: l.down, right: l.right))}
+        for l in labels {
+            rows.append(DataModelRow(id: l.id, left: l.left, up: l.up, down: l.down, right: l.right))
+        }
     }
 
     func filter(_ filter: ((DataModelRowProtocol) -> (Bool))) -> DataModelSectionProtocol {
