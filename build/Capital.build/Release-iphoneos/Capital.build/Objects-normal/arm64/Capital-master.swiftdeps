@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "1618ee5f9fadabdfa4100d8fe0a1dbf4"
-build_time: [1546550298, 502391000]
+build_time: [1546899853, 297568000]
 inputs:
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Common/Views/Other/Button.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Modules/AccountGroup/AccountGroupDetailVC.swift": [9223372036, 854775807]
@@ -41,7 +41,7 @@ inputs:
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Common/Views/Table/TemplateTable.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Common/Views/Cell/DateSelectionCell.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Modules/Other/LoginVC.swift": [9223372036, 854775807]
-  "/Volumes/hdd/swift dec 2018/Capital/Capital/Service/FireStore/FIRFinTransactionManager_old.swift": [9223372036, 854775807]
+  "/Volumes/hdd/swift dec 2018/Capital/Capital/Service/FireStore/FIRFinTransactionManagerOld.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Common/Views/Label/NumberLabel.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Modules/TransactionNew/AdvancedNewTransactionVC.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Common/Views/TextField/NumberField.swift": [9223372036, 854775807]
@@ -55,7 +55,6 @@ inputs:
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Service/FireStore/FIRManager.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Service/Data/DataProtocol.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Modules/AccountGroups/AccountGroupsViewController.swift": [9223372036, 854775807]
-  "/Volumes/hdd/swift dec 2018/Capital/Capital/TestController.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Service/Other/ChangeType.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/Common/Other/ViewController.swift": [9223372036, 854775807]
   "/Volumes/hdd/swift dec 2018/Capital/Capital/AppDelegate.swift": [9223372036, 854775807]

@@ -584,13 +584,6 @@ SWIFT_CLASS("_TtC7Capital16TabBarController")
 
 
 
-SWIFT_CLASS("_TtC7Capital14TestController")
-@interface TestController : UIViewController
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 /// Test desc
 SWIFT_CLASS("_TtC7Capital18TestViewController")
 @interface TestViewController : UIViewController

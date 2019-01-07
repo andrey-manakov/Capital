@@ -1,6 +1,14 @@
+
+module: Capital
+author: Andrey Manakov
+#author_url: http://bustoutsolutions.com
+github_url: https://github.com/andrey-manakov/Capital
 clean: true
 min_acl: private
 documentation: Capital/Documentation/*.md
+copyright: '© 2018'
+#swift_version: 4.1.2
+theme: fullwidth
 custom_categories:
   - name: Model
     children:
