@@ -2,7 +2,7 @@ class AccountDetailVC: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let service = AccountDetailService() //should be private
+        let service = Service() //should be private
         let accountNameTextField: TextFieldProtocol = SimpleTextField()
         let accountAmountTextField: TextFieldProtocol = NumberField()
 
@@ -31,7 +31,7 @@ class AccountDetailVC: ViewController {
 }
 
 extension AccountDetailVC {
-    private class AccountDetailService: ClassService {//should be private
+    private class Service: ClassService {
 
         func didTapDone(with id: String?, name: String, amount: String) {
             if let id = id {

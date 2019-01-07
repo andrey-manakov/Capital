@@ -25,7 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         settings.isPersistenceEnabled = false
         dataBase.settings = settings
 
-        if NSClassFromString("XCTest") != nil {testing = true; return true}
+        if NSClassFromString("XCTest") != nil {
+            testing = true
+            return true
+        }
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = LoginVC()
         self.window!.makeKeyAndVisible()

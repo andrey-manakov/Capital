@@ -1,34 +1,27 @@
 /// Transaction is operation of moving of funds from one Account to another
-///
-///**Properties:**
-///
-/// * from - account **from** which is the transfer of funds
-/// * to - account **to** which is the transfer of funds
-/// * amount - amount of funds transferred
-/// * date - when transaction is supposed to take place
-/// * dateText  - date in text
-/// * serverTime - when transaction reecord is created in Online database
-/// * transaction - date converted to text in format yyyy MMM-dd
-/// * isApproved - defines if transaction is approved it is actually took place and should it be taken into account value calculation
-/// * approvalMode - defines what happens when transaction date comes
-/// * recurrenceFrequency - defines whether transaction should repeat, nil means no repeating
-/// * recurrenceEnd - date when repeating of the transaction should end
-/// * parent is Transaction used for recuerrence, which produced this transaction, through the parent transactions is it possible to get all the related transactions
-
 final class FinTransaction: DataObject {
     /// account **from** which is the transfer of funds - reference to `Account` instance
     var from: AccountInfo?
+    /// to - account **to** which is the transfer of funds
     var to: AccountInfo?
+    /// amount - amount of funds transferred
     var amount: Int?
+    /// date - when transaction is supposed to take place
     var date: Date?
+    /// serverTime - when transaction reecord is created in Online database
     var serverTime: Date?
+    /// dateText  - date in text format, date converted to text in format yyyy MMM-dd
     var dateText: String {return date == nil ? "" :  DateFormatter("yyyy MMM-dd").string(from: date! as Date)}
+    /// isApproved - defines if transaction is approved it is actually took place and should it be taken into account value calculation
     var isApproved: Bool?
+    /// approvalMode - defines what happens when transaction date comes
     var approvalMode: ApprovalMode?
+    /// recurrenceFrequency - defines whether transaction should repeat, nil means no repeating
     var recurrenceFrequency: RecurrenceFrequency?
+    /// recurrenceEnd - date when repeating of the transaction should end
     var recurrenceEnd: Date?
+    /// parent is Transaction used for recuerrence, which produced this transaction, through the parent transactions is it possible to get all the related transactions
     var parent: String?
-    //TODO: Projects, Comments, Geo, etc.
 
     required convenience init(_ data: [String: Any]) {
         self.init()
@@ -84,7 +77,6 @@ extension FinTransaction {
     /// - autoPostpone: transaction is moved forward in time with unapproved status
     /// - autoCancel: transaction is cancelled (unless it is approved manually)
     /// - manual: transaction just left unapproved without any auto action
-
     enum ApprovalMode: Int, CaseIterable {
         case autoApprove, autoPostpone, autoCancel, manual
         var name: String {
