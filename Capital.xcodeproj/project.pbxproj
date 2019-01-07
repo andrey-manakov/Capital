@@ -101,7 +101,6 @@
 		C1A027ED21BD54F300207FF7 /* FIRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DD21BD54F300207FF7 /* FIRManager.swift */; };
 		C1A027EF21BD54F300207FF7 /* FIRListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DF21BD54F300207FF7 /* FIRListners.swift */; };
 		C1CE083121BD216F000D28C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE083021BD216F000D28C9 /* AppDelegate.swift */; };
-		C1CE083321BD216F000D28C9 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE083221BD216F000D28C9 /* TestController.swift */; };
 		C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083721BD2170000D28C9 /* Assets.xcassets */; };
 		C1CE084621BD2170000D28C9 /* AppTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE084521BD2170000D28C9 /* AppTitleTests.swift */; };
 		C1CE085121BD2170000D28C9 /* SpringBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE085021BD2170000D28C9 /* SpringBoard.swift */; };
@@ -262,7 +261,6 @@
 		C1A027DF21BD54F300207FF7 /* FIRListners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRListners.swift; sourceTree = "<group>"; };
 		C1CE082D21BD216F000D28C9 /* Capital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1CE083021BD216F000D28C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C1CE083221BD216F000D28C9 /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		C1CE083521BD216F000D28C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1CE083721BD2170000D28C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1CE083A21BD2170000D28C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -676,7 +674,6 @@
 				C1A0279721BD42E800207FF7 /* Common */,
 				C1A027BF21BD538400207FF7 /* Model */,
 				C1CE086021BD263F000D28C9 /* Firebase */,
-				C1CE083221BD216F000D28C9 /* TestController.swift */,
 				C1CE083021BD216F000D28C9 /* AppDelegate.swift */,
 				C1CE085E21BD221A000D28C9 /* GoogleService-Info.plist */,
 				C1CE083C21BD2170000D28C9 /* Info.plist */,
@@ -1046,7 +1043,6 @@
 				C1A027ED21BD54F300207FF7 /* FIRManager.swift in Sources */,
 				C1A027BE21BD521C00207FF7 /* DataProtocol.swift in Sources */,
 				C1164D6921BD93B600895A1B /* AccountGroupsViewController.swift in Sources */,
-				C1CE083321BD216F000D28C9 /* TestController.swift in Sources */,
 				C1A027CF21BD541E00207FF7 /* ChangeType.swift in Sources */,
 				C1A0279A21BD43D200207FF7 /* ViewController.swift in Sources */,
 				C1CE083121BD216F000D28C9 /* AppDelegate.swift in Sources */,
