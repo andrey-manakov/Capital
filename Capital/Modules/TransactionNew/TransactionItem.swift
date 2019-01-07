@@ -1,4 +1,3 @@
-
 import UIKit
 
 enum TransactionItem: String, CaseIterable {

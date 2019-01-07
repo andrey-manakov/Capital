@@ -1,12 +1,10 @@
-
-
 protocol FIRListnersProtocol {
-    func setListner(forObject objectId: ObjectIdentifier, toPath path: String, whereClause: (field: String, comparisonType: ComparisonType, value: Any)?, completion: @escaping ([(id: String, data: [String: Any], changeType: ChangeType)]) -> ())
+    func setListner(forObject objectId: ObjectIdentifier, toPath path: String, whereClause: (field: String, comparisonType: ComparisonType, value: Any)?, completion: @escaping ([(id: String, data: [String: Any], changeType: ChangeType)]) -> Void)
     func removeListners(ofObject objectId: ObjectIdentifier)
 }
 
 extension FIRListnersProtocol {
-    func setListner(forObject objectId: ObjectIdentifier, toPath path: String, completion: @escaping ([(id: String, data: [String: Any], changeType: ChangeType)]) -> ()) {
+    func setListner(forObject objectId: ObjectIdentifier, toPath path: String, completion: @escaping ([(id: String, data: [String: Any], changeType: ChangeType)]) -> Void) {
         setListner(forObject: objectId, toPath: path, whereClause: nil, completion: completion)
     }
 }
@@ -21,8 +19,7 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
     }
 
     var listners = [ObjectIdentifier: [ListenerRegistration?]]()
-    
-    
+
     /// Sets listner to FireStore data base
     ///
     /// - Parameters:
@@ -30,7 +27,7 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
     ///   - path: FireStore path
     ///   - whereClause: where clause
     ///   - completion: completion action to process acquired data
-    func setListner(forObject objectId: ObjectIdentifier, toPath path: String, whereClause: WhereClause?, completion: @escaping ([ListnerResult]) -> ()) {
+    func setListner(forObject objectId: ObjectIdentifier, toPath path: String, whereClause: WhereClause?, completion: @escaping ([ListnerResult]) -> Void) {
         guard let ref = ref else {return}
         var query: Query = ref.collection(path)
         if let whereClause = whereClause {
@@ -41,13 +38,13 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
             case .arrayContains: query = query.whereField(whereClause.field, arrayContains: whereClause.value)
             case .isLessThan: query = query.whereField(whereClause.field, isLessThan: whereClause.value)
             case .isLessThanOrEqualTo: query = query.whereField(whereClause.field, isLessThanOrEqualTo: whereClause.value)
-            }            
+            }
         }
-        let listner = query.addSnapshotListener() { snapshot, err in
+        let listner = query.addSnapshotListener { snapshot, _ in
             guard let docChanges = snapshot?.documentChanges else {return}
-            completion(docChanges.map{(id: $0.document.documentID, data: $0.document.data(), changeType: ChangeType(rawValue: $0.type.rawValue) ?? .modified)}) //TODO: ??
+            completion(docChanges.map {(id: $0.document.documentID, data: $0.document.data(), changeType: ChangeType(rawValue: $0.type.rawValue) ?? .modified)}) //TODO: ??
         }
-        
+
         if listners[objectId] == nil {listners[objectId] = [ListenerRegistration?]()}
         listners[objectId]!.append(listner)
     }
@@ -60,5 +57,5 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
         for listner in objListners {listner?.remove()}
         listners.removeValue(forKey: objectId)
     }
-    
+
 }

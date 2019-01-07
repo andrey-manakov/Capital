@@ -1,4 +1,3 @@
-
 import UIKit
 
 class NumberLabel: SimpleLabel {
@@ -6,6 +5,6 @@ class NumberLabel: SimpleLabel {
         super.init(text)
         textAlignment = .right
     }
-    
+
     required init?(coder aDecoder: NSCoder) {return nil}
 }

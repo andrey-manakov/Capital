@@ -1,5 +1,3 @@
-
-
 extension Data: MiscFunctionsProtocol {}
 
 /// Data is a singleton for all data operations, it is called only by Services: childs from ClassService, and other Services in Services folder
@@ -13,56 +11,56 @@ class Data: DataProtocol {
 //            return Data()
 //        }
 //    }()
-    
+
     static var sharedForUnitTests = DataMock()
-    
+
     private let fs: FIRDataProtocol? = FireStoreData.shared
     private let fa: FireAuthProtocol? = FIRAuth.shared
     private let accountGroupManager: FIRAccountGroupManagerProtocol? = FIRAccountGroupManager.shared
     private let finTransactionManager: FIRFinTransactionManagerProtocol? = FIRFinTransactionManager.shared
     private let accountManager: FIRAccountManagerProtocol? = FIRAccountManager.shared
     private let listnersManager: FIRListnersProtocol? = FIRListners.shared
-    
+
     let capitalAccountName = "capital"
 
     private init() {}
-    
+
 }
 
 // MARK: - Set up listners
 extension Data {
 
-    func setListnerToAccounts(for objectId: ObjectIdentifier, completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)])->() ))) {
+    func setListnerToAccounts(for objectId: ObjectIdentifier, completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)])->Void ))) {
         listnersManager?.setListner(forObject: objectId, toPath: "/\(DataObjectType.account.rawValue)") {data in
-            completion(data.map{($0.id, Account($0.data), $0.changeType)})
+            completion(data.map {($0.id, Account($0.data), $0.changeType)})
         }
     }
-    
-    func setListnerToAccountGroup(for objectId: ObjectIdentifier, completion: @escaping ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)])->() ))) {
+
+    func setListnerToAccountGroup(for objectId: ObjectIdentifier, completion: @escaping ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)])->Void ))) {
         listnersManager?.setListner(forObject: objectId, toPath: "/\(DataObjectType.group.rawValue)") {data in
-            completion(data.map{($0.id, Account.Group($0.data), $0.changeType)})
+            completion(data.map {($0.id, Account.Group($0.data), $0.changeType)})
         }
     }
-    
-    func setListnersToAccountsInGroup(withId id: String, for objectId: ObjectIdentifier, completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)])->() ))) {
-        listnersManager?.setListner(forObject: objectId, toPath: "/\(DataObjectType.account.rawValue)", whereClause: (field: "\(Account.Fields.groups.rawValue).\(id)", .isGreaterThan ,value: "")) {data in
-            completion(data.map{($0.id, Account($0.data), $0.changeType)})
+
+    func setListnersToAccountsInGroup(withId id: String, for objectId: ObjectIdentifier, completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)])->Void ))) {
+        listnersManager?.setListner(forObject: objectId, toPath: "/\(DataObjectType.account.rawValue)", whereClause: (field: "\(Account.Fields.groups.rawValue).\(id)", .isGreaterThan, value: "")) {data in
+            completion(data.map {($0.id, Account($0.data), $0.changeType)})
         }
     }
-    
-    func setListnersToTransactionsOfAccount(withId id: String,for objectId: ObjectIdentifier, completion: @escaping ((( [(id: String, account: FinTransaction, changeType: ChangeType)])->() ))) {
+
+    func setListnersToTransactionsOfAccount(withId id: String, for objectId: ObjectIdentifier, completion: @escaping ((( [(id: String, account: FinTransaction, changeType: ChangeType)])->Void ))) {
         let path = "/\(DataObjectType.transaction.rawValue)"
-        
+
         listnersManager?.setListner(forObject: objectId, toPath: path, whereClause:
-        (field: "\(FinTransaction.Fields.from.rawValue).\(FinTransaction.Fields.From.id.rawValue)", .isEqualTo ,value: id)) {data in
-            completion(data.map{($0.id, FinTransaction($0.data), $0.changeType)})
+        (field: "\(FinTransaction.Fields.from.rawValue).\(FinTransaction.Fields.From.id.rawValue)", .isEqualTo, value: id)) {data in
+            completion(data.map {($0.id, FinTransaction($0.data), $0.changeType)})
         }
         listnersManager?.setListner(forObject: objectId, toPath: path, whereClause:
-        (field: "\(FinTransaction.Fields.to.rawValue).\(FinTransaction.Fields.To.id.rawValue)", .isEqualTo ,value: id)) {data in
-            completion(data.map{($0.id, FinTransaction($0.data), $0.changeType)})
+        (field: "\(FinTransaction.Fields.to.rawValue).\(FinTransaction.Fields.To.id.rawValue)", .isEqualTo, value: id)) {data in
+            completion(data.map {($0.id, FinTransaction($0.data), $0.changeType)})
         }
     }
-    
+
     func removeListners(ofObject objectId: ObjectIdentifier) {
         listnersManager?.removeListners(ofObject: objectId)
     }
@@ -70,31 +68,30 @@ extension Data {
 
 //typealias whereClause = (field: String, com) //FIXME: where clause typealias
 
-//MARK: - Sign In, Sign Out
+// MARK: - Sign In, Sign Out
 extension Data {
-    func signOut(_ completion: ((Error?)->())? = nil) {
+    func signOut(_ completion: ((Error?)->Void)? = nil) {
         fa?.signOutUser(completion)}
-    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?)->())?) {
+    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)?) {
         fa?.signInUser(withEmail: email, password: pwd, completion: completion)
     }
-    func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?)->())?) {
+    func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)?) {
         fa?.createUser(withEmail: email, password: pwd, completion: completion)}
-    func deleteUser(completion: ((Error?)->())?) {
+    func deleteUser(completion: ((Error?)->Void)?) {
         fa?.deleteUser(completion)
     }
 }
 
-//MARK: - Private Data Functions, the only reason to have these functions is to concentrate all the requests through these functions
+// MARK: - Private Data Functions, the only reason to have these functions is to concentrate all the requests through these functions
 extension Data { //Decide if these functions are needed at all
-    
-    
+
     /// Deletes data object from FireStore DataBase
     ///
     /// - Parameters:
     ///   - dataObject: collection reference (Accounts, Transactions, etc.)
     ///   - id: id of data object to be deleted
     ///   - completion: function to run after successful deletion
-    func delete(_ dataObject: DataObjectType, withId id: String?, completion: (() -> ())? = nil) {
+    func delete(_ dataObject: DataObjectType, withId id: String?, completion: (() -> Void)? = nil) {
         guard let id = id else {return}
         switch dataObject {
         case .account: break//deleteAccount(withId: id, completion)
@@ -104,9 +101,7 @@ extension Data { //Decide if these functions are needed at all
         }
     }
 
-    
-    
-    private func update(_ dataObject: DataObjectType, id: String, with values: [String: Any?], completion: (()->())? = nil) {
+    private func update(_ dataObject: DataObjectType, id: String, with values: [String: Any?], completion: (()->Void)? = nil) {
         fs?.update(dataObject, id: id, with: values, completion: completion)
     }
 
@@ -123,14 +118,14 @@ extension Data { //Decide if these functions are needed at all
 
 }
 
-//MARK: - Public Data functions
+// MARK: - Public Data functions
 extension Data {
-    
-    func createAccount(_ name: String?, ofType type: AccountType?, withAmount amount: Int?, completion: ((String?)->())? = nil) {
+
+    func createAccount(_ name: String?, ofType type: AccountType?, withAmount amount: Int?, completion: ((String?)->Void)? = nil) {
         accountManager?.createAccount(name, ofType: type, withAmount: amount, completion: completion)
     }
     //TODO: consider remove default value for date
-    func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, completion: ((String?)->())? = nil) {
+    func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, completion: ((String?)->Void)? = nil) {
 
         finTransactionManager?.createTransaction(from: from, to: to, amount: amount, date: date, approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd, completion: completion)
 
@@ -155,21 +150,19 @@ extension Data {
 //            date = nextDate(from: date, recurrenceFrequency: recurrenceFrequency)
 //        }
 
-        
-        
         //        repeat {
 //            date = nextDate(from: date, recurrenceFrequency: recurrenceFrequency)
 //        } while date! <= recurrenceEnd ?? Date() && recurrenceFrequency != nil && recurrenceFrequency! != .never
 
 //        finTransactionManager?.createTransaction(from: from, to: to, amount: amount, date: date, approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd, completion: completion)
     }
-    
+
     func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {//FIXME: add completion
-        accountGroupManager?.create(name, withAccounts: accounts.map{$0.id}) // TODO: introduce completion
+        accountGroupManager?.create(name, withAccounts: accounts.map {$0.id}) // TODO: introduce completion
 //        fs.createAccountGroup(name, withAccounts: accounts)
     }
-    
-    func deleteAccount(withId id: String, completion: (() -> ())?) {
+
+    func deleteAccount(withId id: String, completion: (() -> Void)?) {
         //FIXME: add implementation
 //        if (UIApplication.shared.delegate as! AppDelegate).testing {
 //            print("deleteAccount during test")
@@ -194,11 +187,11 @@ extension Data {
 //        }
 //        update(.account, id: capitalAccountName, with: ["amount" : ((accounts[capitalAccountName]?.amount ?? 0) + capitalAccountChange)])
     }
-    
-    func deleteAccountGroup(withId id: String, completion: (()->())?) {
+
+    func deleteAccountGroup(withId id: String, completion: (()->Void)?) {
         //FIXME: add implementation
     }
-    
+
     func deleteTransaction(withId id: String) {
 //        //FIXME: account value is not updated
 //        guard let accountFromId = transactions[id]?.from,
@@ -210,20 +203,20 @@ extension Data {
 //            self.update(accountWithId: accountToId, withAmount: amount, andDirection: .from)
 //        }
     }
-    
+
     /// Function is used to update account value without details of the reasons / transactions, etc. Account update is performed through creation of the transaction with the 'capital' account. Events: transaction created + account update -> transactions child added event + accounts child changed event
     ///
     /// - Parameters:
     ///   - id: Account Id (assigned by Firebase)
     ///   - name: New name (nil means no name update)
     ///   - amount: New account amount (nil means no amount update)
-    
-    func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (()->())? = nil) {
+
+    func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (()->Void)? = nil) {
         accountManager?.updateAccount(withId: id, name: name, amount: amount, completion: completion)
     }
-    
-    func deleteAll(completion: (()->())? = nil) {
+
+    func deleteAll(completion: (()->Void)? = nil) {
         fs?.deleteAll(completion)
     }
-    
+
 }

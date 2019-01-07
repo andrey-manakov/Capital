@@ -1,6 +1,5 @@
-
 protocol FIRFinTransactionManagerProtocol: class {
-    func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, completion: ((String?)->())?)
+    func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, completion: ((String?)->Void)?)
 }
 
 extension FIRFinTransactionManager: FireStoreCompletionProtocol, FireStoreGettersProtocol, MiscFunctionsProtocol {}
@@ -9,7 +8,7 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
     /// Singlton
     static var shared: FIRFinTransactionManagerProtocol = FIRFinTransactionManager()
     private override init() {}
-    
+
     /// Creates transaction in FireStore date base, including recurrent transactions, updates account values if transactions are in the past
     ///
     /// - Parameters:
@@ -27,27 +26,27 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
     ///     * read account amounts from FireStore
     ///     * create transactions
     ///     * update account amounts
-    func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, completion: ((String?)->())? = nil) {
-        
+    func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, completion: ((String?)->Void)? = nil) {
+
         guard let ref = ref, let from = from, let to = to, let amount = amount else {return}
-        
+
         let batch = self.db.batch()
-        
+
         var date: Date? = date ?? Date()
         var approvedAmount = 0
         var amountChange = [String: Int]()
         var i = 0
-        var originalTransaction: DocumentReference? = nil
+        var originalTransaction: DocumentReference?
         while date != nil {// && !(date!.isAfter(recurrenceEnd ?? Date()))
             let newRef = ref.collection(DataObjectType.transaction.rawValue).document()
             if i == 0 {originalTransaction = newRef}
             let approved = date ?? Date() <= Date()
             batch.setData([
-                FinTransaction.Fields.amount.rawValue : amount,
+                FinTransaction.Fields.amount.rawValue: amount,
                 FinTransaction.Fields.approvalMode.rawValue: approvalMode?.rawValue as Any,
                 FinTransaction.Fields.date.rawValue: date as Any ,
                 FinTransaction.Fields.from.rawValue: [
-                    FinTransaction.Fields.From.id.rawValue: from.id, FinTransaction.Fields.From.name.rawValue:from.name],
+                    FinTransaction.Fields.From.id.rawValue: from.id, FinTransaction.Fields.From.name.rawValue: from.name],
                 FinTransaction.Fields.to.rawValue: [
                     FinTransaction.Fields.To.id.rawValue: to.id, FinTransaction.Fields.To.name.rawValue: to.name],
                 FinTransaction.Fields.isApproved.rawValue: approved,
@@ -62,15 +61,15 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
             i += 1
             if i == 366 {fatalError()}
         }
-        
+
         batch.setData([
             LogFields.from.rawValue: [
-                FinTransaction.Fields.From.id.rawValue: from.id, FinTransaction.Fields.From.name.rawValue:from.name],
+                FinTransaction.Fields.From.id.rawValue: from.id, FinTransaction.Fields.From.name.rawValue: from.name],
             LogFields.to.rawValue: [
-                FinTransaction.Fields.To.id.rawValue: to.id, FinTransaction.Fields.To.name.rawValue:to.name],
+                FinTransaction.Fields.To.id.rawValue: to.id, FinTransaction.Fields.To.name.rawValue: to.name],
             LogFields.timestamp.rawValue: FieldValue.serverTimestamp(),
             LogFields.transaction.rawValue: originalTransaction as Any,
-            LogFields.approvedAmount.rawValue : approvedAmount,
+            LogFields.approvedAmount.rawValue: approvedAmount,
             LogFields.recurrenceChanges.rawValue: amountChange],
                       forDocument: ref.collection(LogFields.logCollection).document())
         batch.commit(completion: fireStoreCompletion)
@@ -78,11 +77,9 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
     enum LogFields: String {
         static let logCollection = "change"
         case type, from, to, timestamp, transaction, approvedAmount, recurrenceChanges
-        
+
         enum LogType: String {
             case approved, recurrence
         }
     }
 }
-
-

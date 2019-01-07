@@ -1,3 +1,3 @@
 enum CellStyle: String {
-    case LeftRightCell, InputAmountCell
+    case leftRightCell, inputAmountCell
 }

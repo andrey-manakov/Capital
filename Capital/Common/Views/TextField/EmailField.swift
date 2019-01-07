@@ -1,6 +1,5 @@
-
 class EmailField: SimpleTextField {
-    override init(_ placeholder: String? = nil, _ actionOnReturn: (()->())? = nil) {
+    override init(_ placeholder: String? = nil, _ actionOnReturn: (()->Void)? = nil) {
         super.init(placeholder, actionOnReturn)
         keyboardType = .emailAddress
     }

@@ -1,4 +1,3 @@
-
 /// Transaction is operation of moving of funds from one Account to another
 ///
 ///**Properties:**
@@ -30,12 +29,12 @@ final class FinTransaction: DataObject {
     var recurrenceEnd: Date?
     var parent: String?
     //TODO: Projects, Comments, Geo, etc.
-    
+
     required convenience init(_ data: [String: Any]) {
         self.init()
         for (field, value) in data {self.update(field: field, value: value)}
     }
-    
+
     convenience init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date) {
         self.init()
         self.from = from
@@ -43,10 +42,16 @@ final class FinTransaction: DataObject {
         self.amount = amount
         self.date = date
     }
-    
+
+    //swiftlint:disable cyclomatic_complexity
+    /// Updates field value of Transaction with value provided
+    ///
+    /// - Parameters:
+    ///   - field: field name
+    ///   - value: value to use for field update
     func update(field: String, value: Any) {
         guard let field = Fields.init(rawValue: field) else {return}
-        
+
         switch field {
         case .from:
             guard let value = value as? [String: Any],
@@ -72,14 +77,14 @@ final class FinTransaction: DataObject {
 
 // MARK: - Introduction of ApprovalMode enum
 extension FinTransaction {
-    
+
     /// Enum defines the approach for transactionы scheduled on FUTURE date. What to do when the transaction date comes.
     ///
     /// - autoApprove: transaction is approved automatically
     /// - autoPostpone: transaction is moved forward in time with unapproved status
     /// - autoCancel: transaction is cancelled (unless it is approved manually)
     /// - manual: transaction just left unapproved without any auto action
-    
+
     enum ApprovalMode: Int, CaseIterable {
         case autoApprove, autoPostpone, autoCancel, manual
         var name: String {
@@ -96,9 +101,9 @@ extension FinTransaction {
 // MARK: - Adds conformance to CustomStringConvertible, CustomDebugStringConvertible
 extension FinTransaction: CustomStringConvertible, CustomDebugStringConvertible {
     var description: String {
-        return "from: \(from?.name ?? "") to: \(to?.name ?? "") amount: \(amount ?? 0) date: \(date?.str ?? "")"
+        return "from: \(from?.name ?? "") to: \(to?.name ?? "") amount: \(amount ?? 0) date: \(date?.string ?? "")"
     }
-    
+
     var debugDescription: String {return description}
 
 }
@@ -110,13 +115,13 @@ extension FinTransaction {
         enum From: String {case id, name}
         enum To: String {case id, name}
     }
-    
+
 }
 
 extension FinTransaction: Equatable {
     static func == (lhs: FinTransaction, rhs: FinTransaction) -> Bool {
         let currentDate = Date()
-        
-        return lhs.amount == rhs.amount && lhs.approvalMode == rhs.approvalMode && (lhs.date ?? currentDate).isSameDate(rhs.date ?? currentDate) && lhs.from ?? ("","") == rhs.from ?? ("","") && lhs.to ?? ("","") == rhs.to ?? ("","") && lhs.isApproved == rhs.isApproved && lhs.parent == rhs.parent && lhs.recurrenceEnd == rhs.recurrenceEnd && lhs.recurrenceFrequency == rhs.recurrenceFrequency
+
+        return lhs.amount == rhs.amount && lhs.approvalMode == rhs.approvalMode && (lhs.date ?? currentDate).isSameDate(rhs.date ?? currentDate) && lhs.from ?? ("", "") == rhs.from ?? ("", "") && lhs.to ?? ("", "") == rhs.to ?? ("", "") && lhs.isApproved == rhs.isApproved && lhs.parent == rhs.parent && lhs.recurrenceEnd == rhs.recurrenceEnd && lhs.recurrenceFrequency == rhs.recurrenceFrequency
     }
 }

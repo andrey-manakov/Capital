@@ -1,6 +1,5 @@
-
 class FIRManagerProtocol {
-    
+
 }
 
 class FIRManager {

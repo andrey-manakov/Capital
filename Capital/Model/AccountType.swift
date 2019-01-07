@@ -1,4 +1,3 @@
-
 enum AccountType: Int, CaseIterable {
     case asset, liability, revenue, expense, capital
     static let all = ["asset", "liability", "revenue", "expense", "capital"]

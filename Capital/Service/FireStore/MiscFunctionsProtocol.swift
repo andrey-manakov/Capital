@@ -1,6 +1,5 @@
-
 protocol MiscFunctionsProtocol {
-    
+
 }
 
 extension MiscFunctionsProtocol {

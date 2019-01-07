@@ -1,23 +1,21 @@
-
 import UIKit
 
 protocol SimpleTableWithSwipeProtocol: SimpleTableProtocol {
     var swipeLeftLabel: String? {get set}
     var swipeRightLabel: String? {get set}
-    var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> ())? {get set}
-    var swipeRightAction: ((_ row: DataModelRowProtocol?) -> ())? {get set}
+    var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> Void)? {get set}
+    var swipeRightAction: ((_ row: DataModelRowProtocol?) -> Void)? {get set}
 }
 
 class SimpleTableWithSwipe: SimpleTable, SimpleTableWithSwipeProtocol {
 
     var swipeLeftLabel: String?
     var swipeRightLabel: String?
-    var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> ())?
-    var swipeRightAction: ((_ row: DataModelRowProtocol?) -> ())?
+    var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> Void)?
+    var swipeRightAction: ((_ row: DataModelRowProtocol?) -> Void)?
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let rightSwipe = UIContextualAction(style: .normal, title:  swipeRightLabel ?? ""){
-            [unowned self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+        let rightSwipe = UIContextualAction(style: .normal, title: swipeRightLabel ?? "") {[unowned self] (_:UIContextualAction, _:UIView, success: (Bool) -> Void) in
             self.swipeRightAction?(self.data[indexPath])
             success(true)
         }
@@ -26,8 +24,7 @@ class SimpleTableWithSwipe: SimpleTable, SimpleTableWithSwipeProtocol {
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let leftSwipe = UIContextualAction(style: .normal, title:  swipeLeftLabel ?? "") {
-            (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+        let leftSwipe = UIContextualAction(style: .normal, title: swipeLeftLabel ?? "") {(_:UIContextualAction, _:UIView, success: (Bool) -> Void) in
             self.swipeLeftAction?(self.data[indexPath])
             success(true)
         }
@@ -35,4 +32,3 @@ class SimpleTableWithSwipe: SimpleTable, SimpleTableWithSwipeProtocol {
         return UISwipeActionsConfiguration(actions: [leftSwipe])
     }
 }
-

@@ -1,9 +1,8 @@
-
 class BarButtonItem: UIBarButtonItem {
-    
-    var tapAction: (()->())?
-    
-    convenience init(assetName: String, action: (()->())?) {
+
+    var tapAction: (()->Void)?
+
+    convenience init(assetName: String, action: (()->Void)?) {
         let barButton = UIButton(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
         let barButtonImage = UIImage(named: assetName)?.withRenderingMode(.alwaysTemplate)
         barButton.setImage(barButtonImage, for: .normal)
@@ -12,8 +11,8 @@ class BarButtonItem: UIBarButtonItem {
         self.action = #selector(didTap)
         barButton.addTarget(self, action: self.action!, for: .touchUpInside) //FIXME: !
     }
-    
-    convenience init(title: String, action: (()->())?) {
+
+    convenience init(title: String, action: (()->Void)?) {
         let barButton = UIButton(frame: .zero)
         barButton.sizeToFit()
         barButton.setTitle(title, for: UIControl.State.normal)
@@ -24,7 +23,7 @@ class BarButtonItem: UIBarButtonItem {
         barButton.addTarget(self, action: #selector(didTap), for: .touchUpInside)
         self.action = #selector(didTap)
     }
-    
+
     private override init() {super.init()}
     required init?(coder aDecoder: NSCoder) {return nil}
     @objc func didTap() {tapAction?()}

@@ -1,53 +1,48 @@
-
 import XCTest
 @testable import Capital
 
-
 class AccountGroupDetailVCTests: XCTestCase {
-    
+
     // MARK: Subject under test
-    
+
     var sut: AccountGroupDetailVC!
     var view: UIView!
     var window: UIWindow!
-    
+
     // MARK: Test lifecycle
-    
-    override func setUp()
-    {
+
+    override func setUp() {
         super.setUp()
         window = UIWindow()
         setupVC()
     }
-    
-    override func tearDown()
-    {
+
+    override func tearDown() {
         window = nil
         sut = nil // TODO: Check if it is needed
         view = nil // TODO: Check if it is needed
         super.tearDown()
     }
-    
+
     // MARK: Test setup
-    
-    func setupVC()
-    {
+
+    func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = AccountGroupDetailVC("id")
         view = sut.view
         self.window?.rootViewController = sut
         self.window!.makeKeyAndVisible()
     }
-    
+
     func loadView() {
         window.addSubview(view)
         RunLoop.current.run(until: Date())
     }
-    
+
     func testViewDidLoad() {
         XCTAssert(view.subviews.count == 1 && "\(type(of: view.subviews[0]))" == "SimpleTable")
     }
-    
+
 //    func testAccountDelete() {
 //        var result = false
 //        if let views = view?.subviews {
@@ -60,7 +55,7 @@ class AccountGroupDetailVCTests: XCTestCase {
 //        if let data = Data.shared as? DataMock, data.deleteAccountCalled == true  {result = true}
 //        XCTAssert(result)
 //    }
-    
+
 //    func testViewDidLoad() {
 //        var result = true
 //        let viewsSet: Set<String> = ["accountName", "accountAmount", "deleteButton"]
@@ -75,11 +70,11 @@ class AccountGroupDetailVCTests: XCTestCase {
 //        }
 //        XCTAssert(result)
 //    }
-    
+
 //    func testDoneButton() {
 //        let item = sut.navigationItem.rightBarButtonItem
 //        item?.perform(item?.action)
 //        XCTAssert((Data.shared as? DataMock)?.updateAccountCalled ?? false)
 //    }
-    
+
 }

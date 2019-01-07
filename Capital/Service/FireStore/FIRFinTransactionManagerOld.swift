@@ -1,6 +1,6 @@
 protocol FIRFinTransactionManagerProtocolOld: class {
     func createTransaction(from: String?, to: String?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, completion: ((String?)->Void)?)
-    //swiftlint:disable function_parameter_count
+    // swiftlint:disable function_parameter_count
     func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String?, approvedAmount: Int) -> Int
 }
 

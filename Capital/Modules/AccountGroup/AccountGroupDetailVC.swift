@@ -1,10 +1,9 @@
-
 class AccountGroupDetailVC: ViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
-        
+
         let table: SimpleTableProtocol = SimpleTable()
         if let data = data as? (id: String, name: String) {
             service.getData(withId: data.id) {dataModel in table.localData = dataModel}
@@ -18,13 +17,13 @@ class AccountGroupDetailVC: ViewController {
         }
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
     }
-    
+
 }
 
 extension AccountGroupDetailVC {
     private class Service: ClassService {
         private var accounts = [String: Account]()
-        func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> ())) {
+        func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
             guard let id = id else {return}
             data.setListnersToAccountsInGroup(withId: id, for: self.id, completion: { data in
                 for (id, account, changeType) in data {
@@ -33,10 +32,10 @@ extension AccountGroupDetailVC {
                     case .removed: self.accounts.removeValue(forKey: id)
                     }
                 }
-                completion(DataModel(self.accounts.map{(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")}))
+                completion(DataModel(self.accounts.map {(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")}))
             })
         }
-        
+
         func deleteAccountGroup(id: String) {
             data.deleteAccountGroup(withId: id, completion: nil)
         }

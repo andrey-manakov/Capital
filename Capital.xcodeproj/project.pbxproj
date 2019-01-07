@@ -91,7 +91,7 @@
 		C1A027CF21BD541E00207FF7 /* ChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027CC21BD541E00207FF7 /* ChangeType.swift */; };
 		C1A027D021BD541E00207FF7 /* FIRAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027CD21BD541E00207FF7 /* FIRAuth.swift */; };
 		C1A027E221BD54F300207FF7 /* FIRAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D221BD54F200207FF7 /* FIRAccountManager.swift */; };
-		C1A027E521BD54F300207FF7 /* FIRFinTransactionManager_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D521BD54F200207FF7 /* FIRFinTransactionManager_old.swift */; };
+		C1A027E521BD54F300207FF7 /* FIRFinTransactionManagerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */; };
 		C1A027E621BD54F300207FF7 /* MiscFunctionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D621BD54F200207FF7 /* MiscFunctionsProtocol.swift */; };
 		C1A027E721BD54F300207FF7 /* extSimpleOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D721BD54F200207FF7 /* extSimpleOperations.swift */; };
 		C1A027E821BD54F300207FF7 /* extCheckCapital.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D821BD54F200207FF7 /* extCheckCapital.swift */; };
@@ -251,7 +251,7 @@
 		C1A027CC21BD541E00207FF7 /* ChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeType.swift; sourceTree = "<group>"; };
 		C1A027CD21BD541E00207FF7 /* FIRAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAuth.swift; sourceTree = "<group>"; };
 		C1A027D221BD54F200207FF7 /* FIRAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAccountManager.swift; sourceTree = "<group>"; };
-		C1A027D521BD54F200207FF7 /* FIRFinTransactionManager_old.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManager_old.swift; sourceTree = "<group>"; };
+		C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManagerOld.swift; sourceTree = "<group>"; };
 		C1A027D621BD54F200207FF7 /* MiscFunctionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctionsProtocol.swift; sourceTree = "<group>"; };
 		C1A027D721BD54F200207FF7 /* extSimpleOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extSimpleOperations.swift; sourceTree = "<group>"; };
 		C1A027D821BD54F200207FF7 /* extCheckCapital.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extCheckCapital.swift; sourceTree = "<group>"; };
@@ -596,7 +596,7 @@
 				C1164D1B21BD5CDF00895A1B /* FireStoreGettersProtocol.swift */,
 				C1164D1E21BD5D0900895A1B /* FireStoreData.swift */,
 				C1A027DB21BD54F200207FF7 /* FIRDataProtocol.swift */,
-				C1A027D521BD54F200207FF7 /* FIRFinTransactionManager_old.swift */,
+				C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */,
 				C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */,
 				C1A027DF21BD54F300207FF7 /* FIRListners.swift */,
 				C1A027DD21BD54F300207FF7 /* FIRManager.swift */,
@@ -984,7 +984,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#if which swiftlint >/dev/null; then\n#swiftlint\n#else\n#echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1032,7 +1032,7 @@
 				C1164D4221BD704800895A1B /* TemplateTable.swift in Sources */,
 				C1164D3A21BD703A00895A1B /* DateSelectionCell.swift in Sources */,
 				C1A0279621BD428900207FF7 /* LoginVC.swift in Sources */,
-				C1A027E521BD54F300207FF7 /* FIRFinTransactionManager_old.swift in Sources */,
+				C1A027E521BD54F300207FF7 /* FIRFinTransactionManagerOld.swift in Sources */,
 				C1164D4B21BD762400895A1B /* NumberLabel.swift in Sources */,
 				C1164D8521BD974F00895A1B /* AdvancedNewTransactionVC.swift in Sources */,
 				C1164D6221BD834A00895A1B /* NumberField.swift in Sources */,

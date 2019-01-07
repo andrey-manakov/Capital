@@ -1,6 +1,5 @@
-
 protocol TabBarControllerProtocol {
-    
+
 }
 
 /// Main viewcontroller shown upon successful login
@@ -16,7 +15,7 @@ protocol TabBarControllerProtocol {
 /// Called by:
 /// * `LoginVC`
 class TabBarController: UITabBarController, TabBarControllerProtocol {
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
         viewControllers = [NavigationController(AccountGroupsViewController()),
@@ -36,12 +35,12 @@ class TabBarController: UITabBarController, TabBarControllerProtocol {
         tabBar.items?[4].image = UIImage(named: "Settings")
         tabBar.items?[4].title = "Settings"
     }
-    
+
     required init?(coder aDecoder: NSCoder) {return nil}
     deinit {print("\(type(of: self)) deinit!")}
-    
+
     struct TabBarItem {
-        
+
     }
 }
 

@@ -1,9 +1,8 @@
-
 protocol BasicDataPropertiesProtocol: CustomStringConvertible, CustomDebugStringConvertible {
     var id: String? {get set}
     var name: String? {get set}
     var desc: String? {get set}
-    
+
 }
 
 extension BasicDataPropertiesProtocol {
@@ -13,44 +12,42 @@ extension BasicDataPropertiesProtocol {
 
 protocol DataModelProtocol: CustomStringConvertible, CustomDebugStringConvertible {
     var sections: [DataModelSectionProtocol] {get set}
-    subscript(i: IndexPath) -> DataModelRowProtocol {get set}
-    func filter(_: (DataModelRowProtocol)->(Bool)) -> DataModelProtocol
+    subscript(index: IndexPath) -> DataModelRowProtocol {get set}
+    func filter(_: (DataModelRowProtocol) -> (Bool)) -> DataModelProtocol
 }
 
 struct DataModel: DataModelProtocol {
-    
 
     var sections: [DataModelSectionProtocol] = [DataModelSection]()
-    
+
     var description: String {
         var desc = "-------- Data Model with \(sections.count) sections -------\n"
         for section in sections {desc += "\(section) \n"}
         return desc
     }
-    
+
     var debugDescription: String {return self.description}
-    
-    subscript(s: Int, r: Int) -> (name: String?, desc: String?) {
-        let row = sections[s].rows[r]
+
+    subscript(sectionIndex: Int, rowIndex: Int) -> (name: String?, desc: String?) {
+        let row = sections[sectionIndex].rows[rowIndex]
         return (row.name, row.desc)
     }
-    
-    subscript(i: IndexPath) -> DataModelRowProtocol {
+
+    subscript(index: IndexPath) -> DataModelRowProtocol {
         get {
-            return sections[i.section].rows[i.row]
+            return sections[index.section].rows[index.row]
         }
         set {
-            sections[i.section].rows[i.row] = newValue
+            sections[index.section].rows[index.row] = newValue
         }
     }
 
-    
-    init(){}
+    init() {}
     init(_ labels: [(id: String?, name: String?, desc: String?)]) {
         self.init()
         sections.append(DataModelSection(labels))
     }
-    
+
     init(_ labels: [(id: String?, name: String?, desc: String?, filter: Any?)]) {
         self.init()
         sections.append(DataModelSection(labels))
@@ -72,18 +69,15 @@ struct DataModel: DataModelProtocol {
         self.init()
         sections.append(DataModelSection(labels))
     }
-    
+
     init(_ sections: [DataModelSectionProtocol]) {
         self.sections = sections
     }
-    
+
     init(_ rows: [DataModelRowProtocol]) {self.sections.append(DataModelSection(rows))}
-    
+
     func filter(_ filter: (DataModelRowProtocol) -> (Bool)) -> DataModelProtocol {
-        return DataModel(sections.map{$0.filter(filter)})
+        return DataModel(sections.map {$0.filter(filter)})
     }
-    
+
 }
-
-
-

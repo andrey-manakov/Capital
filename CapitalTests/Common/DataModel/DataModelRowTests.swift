@@ -1,14 +1,12 @@
-
 import XCTest
 @testable import Capital
-
 
 class DataModelRowTests: XCTestCase {
 
     func testInit() {
-        
+
         var selectActionCalled = false
-        
+
         let id = "id"
         let name = "name"
         let desc = "desc"
@@ -17,13 +15,13 @@ class DataModelRowTests: XCTestCase {
         let down = "down"
         let right = "right"
         let height = CGFloat(10.2)
-        let style = CellStyle.LeftRightCell
-        let action: ((_ row : DataModelRowProtocol, _ ix : IndexPath) -> ())? = {_, _ in
+        let style = CellStyle.leftRightCell
+        let action: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)? = {_, _ in
             selectActionCalled = true
         }
         let accessory = 1
         let filter = "Any?"
-        
+
         let sample = DataModelRow(id: id, name: name, desc: desc, height: height, left: left, up: up, down: down, right: right, style: style, action: action, accessory: accessory, filter: filter)
         var master = DataModelRow()
         master.id = id

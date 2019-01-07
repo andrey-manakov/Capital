@@ -1,4 +1,3 @@
-
 // MARK: - Fields enum - to name all the fields of Account class
 extension Account {
     enum Fields: String {
@@ -8,7 +7,7 @@ extension Account {
         }
     }
 }
-final class Account: DataObject{
+final class Account: DataObject {
     var name: AccountName?
     var amount: Int?
     var minAmount: Int?
@@ -23,13 +22,13 @@ final class Account: DataObject{
         return accountType
     }
     var groups: [GroupId: GroupName]?
-    
+
     required convenience init(_ data: [String: Any]) {
         self.init()
         for (key, value) in data {update(field: key, value: value)
         }
     }
-    
+
     func update(field: String, value: Any) {
         guard let property = Account.Fields(rawValue: field) else {return}
         switch property {
@@ -61,7 +60,7 @@ extension Account: Equatable {
         }
         return json
     }
-    
+    // swiftlint:disable identifier_name
     static func == (lhs: Account, rhs: Account) -> Bool {
         let currentDate = Date()
         return lhs.amount == rhs.amount &&
@@ -86,8 +85,7 @@ extension Account: CustomStringConvertible, CustomDebugStringConvertible {
         }
         return json
     }
-    
-    var debugDescription: String {return description}
-    
-}
 
+    var debugDescription: String {return description}
+
+}

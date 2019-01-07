@@ -1,4 +1,3 @@
-
 import UIKit
 
 class TitleLabel: UILabel, SimpleLabelProtocol {
@@ -8,6 +7,6 @@ class TitleLabel: UILabel, SimpleLabelProtocol {
         font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         textAlignment = .center
     }
-    
+
     required init?(coder aDecoder: NSCoder) {return nil}
 }

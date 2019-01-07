@@ -1,9 +1,8 @@
-
 protocol LoginViewControllerProtocol: ViewControllerProtocol {
 }
 
 class LoginVC: ViewController, LoginViewControllerProtocol {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -31,7 +30,7 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
         }
         view.add(subViews:
             ["appTitle": AppTitle(),
-             "loginTextField" : loginTextField as? UIView,
+             "loginTextField": loginTextField as? UIView,
              "passwordTextField": passwordTextField as? UIView,
              "signInButton": signInButton as? UIView,
              "signUpButton": signUpButton as? UIView], withConstraints:
@@ -48,24 +47,23 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
 }
 
 extension LoginVC {
-    
+
     private class Service: ClassService {
-        
-        func listenToAuthUpdates(withAction action: ((String?)->())?) {
+
+        func listenToAuthUpdates(withAction action: ((String?)->Void)?) {
             //TODO: don't call Firebase directly
             FIRAuth.shared.getUpdatedUserInfo[ObjectIdentifier(self)] = action
         }
-        
-        func didTapSignIn(withLogin login: String?, andPassword password: String?, completion: ((Error?)->())? = nil) {
+
+        func didTapSignIn(withLogin login: String?, andPassword password: String?, completion: ((Error?)->Void)? = nil) {
             guard let lgn = login, let pwd = password else {return}
             Data.shared.signInUser(withEmail: lgn, password: pwd, completion: completion)
         }
-        
-        func didTapSignUp(withLogin login: String?, andPassword password: String?, completion: ((Error?)->())? = nil) {
+
+        func didTapSignUp(withLogin login: String?, andPassword password: String?, completion: ((Error?)->Void)? = nil) {
             guard let lgn = login, let pwd = password else {return} //TODO: consider use UIAlertVC
             Data.shared.signUpUser(withEmail: lgn, password: pwd, completion: completion)
         }
-        
+
     }
 }
-

@@ -1,4 +1,3 @@
-
 enum RecurrenceFrequency: Int, CaseIterable {
     case never, everyDay, everyWorkingDay, everyWeek, everyMonth, everyYear
     var name: String {

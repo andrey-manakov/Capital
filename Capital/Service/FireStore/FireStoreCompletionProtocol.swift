@@ -1,4 +1,3 @@
-
 protocol FireStoreCompletionProtocol {
     func fireStoreCompletion(result: Any?, error: Error?)
     func fireStoreCompletion(error: Error?)
@@ -14,11 +13,11 @@ extension FireStoreCompletionProtocol {
         if let error = error {
             print("Error in working with firebase: \(error.localizedDescription)")
         } else {
-            guard let completionAction = result as? ()->() else {return}
+            guard let completionAction = result as? ()->Void else {return}
             completionAction()
         }
     }
-    
+
     /// Used as completion action for FireStore runTransaction
     ///
     /// - Parameters:
@@ -26,5 +25,5 @@ extension FireStoreCompletionProtocol {
     func fireStoreCompletion(error: Error?) {
         if let error = error {print("Error in working with firebase: \(error)")}
     }
-    
+
 }

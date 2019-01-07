@@ -10,8 +10,8 @@ class DataObject: DataObjectProtocol, Codable {
     typealias GroupId = String
     typealias GroupName = String
     typealias FieldName = String
-    
+
     init() {}
-    required init(_ data: [String : Any]) {
+    required init(_ data: [String: Any]) {
     }
 }

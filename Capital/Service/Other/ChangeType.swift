@@ -1,5 +1,3 @@
-
-
 /// Duplicates FireStore Enum FIRDocumentChangeType for the use in other parts of the program and not to be dependent on FireStore Library
 ///
 /// - added: record was added

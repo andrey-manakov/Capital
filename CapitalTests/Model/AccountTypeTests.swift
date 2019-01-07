@@ -10,7 +10,7 @@ class AccountTypeTests: XCTestCase {
             }
         }
     }
-    
+
     func testNameTests() {
         for type in AccountType.allCases {
             switch type {

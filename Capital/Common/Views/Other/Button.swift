@@ -1,14 +1,13 @@
-
 import UIKit
 
 protocol ButtonProtocol {
-    
+
 }
 
 class Button: UIButton, ButtonProtocol {
-    var action: (()->())?
-    
-    init(name: String, action: @escaping ()->()) {
+    var action: (()->Void)?
+
+    init(name: String, action: @escaping ()->Void) {
         super.init(frame: CGRect.zero)
         self.action = action
         setTitle(name, for: UIControl.State.normal)
@@ -18,8 +17,8 @@ class Button: UIButton, ButtonProtocol {
         layer.cornerRadius = 15.0
         self.addTarget(self, action: #selector(tapAction), for: UIControl.Event.touchUpInside)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {return nil}
-    
+
     @objc func tapAction() {action?()}
 }

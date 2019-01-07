@@ -7,16 +7,14 @@ protocol LeftRightCellProtocol: class {
 }
 
 class LeftRightCell: UITableViewCell, LeftRightCellProtocol {
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         detailTextLabel?.textColor = .black
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
-
-

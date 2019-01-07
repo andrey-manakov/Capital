@@ -1,4 +1,3 @@
-
 // import Foundation
 
 enum DataObjectType: String, CaseIterable {
