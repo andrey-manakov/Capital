@@ -8,28 +8,5 @@ xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone 6s
 install:
   - gem install xcpretty
 
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - cc-test-reporter before-build
- # - ./cc-test-reporter before-build
-script:
-  - bundle exec rspec
-after_script:
-#  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  - cc-test-reporter after-build
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-
-
-
-#jobs: 
-#  include:
-#    after_script: bash <(curl -s https://codecov.io/bash) -t a6f108e8-ba77-4e1e-9cfc-0958501c2b3e
-
-#
-#jobs:
-#  include:
-#    - script: xcodebuild clean build test -project Capital.xcodeproj -scheme Capital CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-#    - script: xcodebuild clean build test -project Capital.xcodeproj -scheme Capital -destination "platform=iOS Simulator,name=iPhone 8,OS=11.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
