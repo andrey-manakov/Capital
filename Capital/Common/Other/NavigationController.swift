@@ -7,6 +7,4 @@ class NavigationController: UINavigationController {
         self.viewControllers.append(vc)
     }
     deinit {print("\(type(of: self)) deinit!")}
-    
 }
-
