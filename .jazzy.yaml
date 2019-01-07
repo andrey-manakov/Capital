@@ -1,0 +1,14 @@
+clean: true
+min_acl: private
+documentation: Capital/Documentation/*.md
+custom_categories:
+  - name: Model
+    children:
+    - Tasks
+    - FinTransaction
+    - Account
+    - AccountGroup
+    - AccountType
+    - DataObject
+    - Direction
+    - RecurrenceFrequency
