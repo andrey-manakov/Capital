@@ -7,11 +7,11 @@ xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone 6s
 
 install:
   - gem install xcpretty
-  - ./install_swiftlint.sh
+#  - ./install_swiftlint.sh
 
-script:
-  - swiftlint
-  - xctool test -project SwiftLint-TravisCI-Example.xcodeproj -scheme SwiftLint-TravisCI-Example -sdk iphonesimulator
+#script:
+#  - swiftlint
+#  - xctool test -project SwiftLint-TravisCI-Example.xcodeproj -scheme SwiftLint-TravisCI-Example -sdk iphonesimulator
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
