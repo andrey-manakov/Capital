@@ -34,16 +34,16 @@ class FinTransactionTests: XCTestCase {
     }
     //Check other fields
 
-    func testDescription() {
-        let currentDate = Date()
-        let transaction = FinTransaction(
-            from: ("id1", "account1"), to: ("id2", "account2"), amount: 10, date: currentDate)
-
-        XCTAssert(transaction.description ==
-            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
-        XCTAssert(transaction.debugDescription ==
-            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
-    }
+//    func testDescription() {
+//        let currentDate = Date()
+//        let transaction = FinTransaction(
+//            from: ("id1", "account1"), to: ("id2", "account2"), amount: 10, date: currentDate)
+//
+//        XCTAssert(transaction.description ==
+//            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
+//        XCTAssert(transaction.debugDescription ==
+//            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
+//    }
 
     func testApprovalModeNames() {
         XCTAssert(FinTransaction.ApprovalMode.autoApprove.name == "Auto Approve" &&

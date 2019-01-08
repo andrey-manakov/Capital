@@ -76,18 +76,6 @@ extension Account: Equatable {
 
 // MARK: - Adds conformance to CustomStringConvertible, CustomDebugStringConvertible
 extension Account: CustomStringConvertible, CustomDebugStringConvertible {
-    var description: String {
-        let jsonEncoder = JSONEncoder()
-        let json: String
-        do {
-            let jsonData = try jsonEncoder.encode(self)
-            json = String(data: jsonData, encoding: String.Encoding.utf8) ?? ""
-        } catch {
-            json = ""
-        }
-        return json
-    }
-
+    var description: String {return json}
     var debugDescription: String {return description}
-
 }
