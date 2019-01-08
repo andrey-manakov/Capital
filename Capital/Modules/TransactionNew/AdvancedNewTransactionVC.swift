@@ -73,7 +73,7 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.sections[section].rows.count
     }
-    // swiftlint:disable cyclomatic_complexity
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let id = tableData[indexPath].id, let item = TransactionItem(rawValue: id) else {
             return UITableViewCell()

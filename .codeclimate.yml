@@ -1,9 +1,0 @@
-plugins:
-  swiftlint:
-    enabled: true
-exclude_patterns:
-- "docs/"
-- "build/"
-- "CapitalTests/"
-- "CapitalUITests/"
-- "Firebase/"

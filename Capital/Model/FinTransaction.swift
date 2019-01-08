@@ -43,7 +43,6 @@ final class FinTransaction: DataObject {
     }
 
     /// MARK: - Methods
-    //swiftlint:disable cyclomatic_complexity
     /// Updates field value of Transaction with value provided
     ///
     /// - Parameters:

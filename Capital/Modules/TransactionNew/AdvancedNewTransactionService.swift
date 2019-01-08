@@ -58,7 +58,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
         guard let indexPath = transactionItems.firstIndex(of: transactionItem) else {return}
         getData(for: IndexPath(row: indexPath, section: 0))
     }
-    // swiftlint:disable cyclomatic_complexity
+
     func didSelect(_ item: TransactionItem) {
         if item != .date {hide(.dateSelection)}
         if item != .recurrenceEnd {hide(.recurrenceEndDate)}
@@ -97,7 +97,6 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
     }
 
     // MARK: - Actions on selection of Transaction items
-    // swiftlint:disable cyclomatic_complexity
     func didChoose(transactionItem: TransactionItem, with value: Any?) {
         switch transactionItem {
         case .from:
