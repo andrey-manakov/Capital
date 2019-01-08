@@ -36,10 +36,13 @@ class FinTransactionTests: XCTestCase {
 
     func testDescription() {
         let currentDate = Date()
-        let transaction = FinTransaction(from: ("id1", "account1"), to: ("id2", "account2"), amount: 10, date: currentDate)
+        let transaction = FinTransaction(
+            from: ("id1", "account1"), to: ("id2", "account2"), amount: 10, date: currentDate)
 
-        XCTAssert(transaction.description == "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
-        XCTAssert(transaction.debugDescription == "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
+        XCTAssert(transaction.description ==
+            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
+        XCTAssert(transaction.debugDescription ==
+            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
     }
 
     func testApprovalModeNames() {
@@ -51,8 +54,8 @@ class FinTransactionTests: XCTestCase {
 
     func testDateText() {
         let currentDate = Date()
-        let tr = FinTransaction()
-        tr.date = currentDate
+        let transaction = FinTransaction()
+        transaction.date = currentDate
         XCTAssert(tr.dateText == DateFormatter("yyyy MMM-dd").string(from: currentDate))
     }
 }

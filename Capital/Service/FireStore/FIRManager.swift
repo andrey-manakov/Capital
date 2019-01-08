@@ -3,7 +3,7 @@ class FIRManagerProtocol {
 }
 
 class FIRManager {
-    let db = Firestore.firestore()
+    let fireDB = Firestore.firestore()
     var ref: DocumentReference? {
         guard let user = FIRAuth.shared.currentUserUid else {return nil}
         return Firestore.firestore().document("users/\(user)")

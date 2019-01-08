@@ -2,15 +2,15 @@ disabled_rules: # rule identifiers to exclude from running
 #  - colon
 #  - comma
 #  - control_statement
-  - identifier_name
+#  - identifier_name
   - large_tuple
   - todo
-  - line_length
+#  - line_length
 #  - return_arrow_whitespace
-  - nesting
-  - type_name
-  - cyclomatic_complexity
-  - function_parameter_count
+#  - nesting
+#  - type_name
+#  - cyclomatic_complexity
+#  - function_parameter_count
 opt_in_rules: # some rules are only opt-in
 #  - empty_count
   # Find all the available rules by running:
@@ -24,6 +24,7 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
 #  - Source/ExcludedFile.swift
 #  - Source/*/ExcludedFile.swift # Exclude files with a wildcard
 - Documentation
+- build
 analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
   - explicit_self
 
@@ -46,14 +47,14 @@ file_length:
 # naming rules can set warnings/errors for min_length and max_length
 # additionally they can set excluded names
 type_name:
-  min_length: 4 # only warning
+  min_length: 3 # only warning
   max_length: # warning and error
     warning: 40
     error: 50
   excluded: iPhone # excluded via string
 identifier_name:
   min_length: # only min_length
-    error: 4 # only error
+    error: 3 # only error
   excluded: # excluded via string array
     - id
     - URL

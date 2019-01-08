@@ -57,7 +57,6 @@ extension String {
 
 extension Date {
     var month: Int {return Calendar.current.dateComponents([.month], from: self).month!}
-    // swiftlint:disable identifier_name
     var day: Int {return Calendar.current.dateComponents([.day], from: self).day!}
     var year: Int {return Calendar.current.dateComponents([.year], from: self).year!}
 //    var day: Int

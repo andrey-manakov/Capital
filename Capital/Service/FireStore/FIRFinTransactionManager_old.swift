@@ -1,6 +1,10 @@
 protocol FIRFinTransactionManagerProtocolOld: class {
-    func createTransaction(from: String?, to: String?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, completion: ((String?) -> Void)?)
-    //swiftlint:disable function_parameter_count
+    // swiftlint:disable identifier_name function_parameter_count
+    func createTransaction(
+        from: String?, to: String?, amount: Int?, date: Date?,
+        approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?,
+        recurrenceEnd: Date?, completion: ((String?) -> Void)?)
+    //swiftlint:disable function_parameter_count identifier_name function_parameter_count
     func sendFinTransaction(
         to fsTransaction: Transaction, from: AccountInfo?,
         to: AccountInfo?, amount: Int?, date: Date?,
@@ -9,6 +13,7 @@ protocol FIRFinTransactionManagerProtocolOld: class {
 }
 
 extension FIRFinTransactionManagerProtocolOld {
+    // swiftlint:disable identifier_name
     func sendFinTransaction(
         to fsTransaction: Transaction,
         from: AccountInfo?, to: AccountInfo?, amount: Int?) -> Int {
@@ -28,6 +33,7 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
     static var shared: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld()
     private override init() {}
 
+    // swiftlint:disable identifier_name
     //TODO: consider add error processing to completion
     //FIXME: introduce limit to number of recurrent operations
     /// Creates transaction in FireStore date base, including recurrent transactions,
@@ -41,21 +47,29 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
     ///   - approvalMode: the way **future** transaction is processed when the transaction ````date```` comes
     ///   - recurrenceFrequency: for transaction to be repeated in the future, the repeating frequency
     ///   - recurrenceEnd: date when recurrency should finish
-    ///   - completion: action to perform after function finishes execution, for now it only works for successes
+    ///   - completion: action to perform after function finishes execution,
+    ///     for now it only works for successes
     ///
-    /// * For now it doesn't limit the receurrence End date, but Transactions in FireStore are limited to 400 operations, so the limit should be intoduced here
+    /// * For now it doesn't limit the receurrence End date,
+    ///   but Transactions in FireStore are limited to 400 operations,
+    ///   so the limit should be intoduced here
     /// * The creation is performed the following way
     ///     * read account amounts from FireStore
     ///     * create transactions
     ///     * update account amounts
-    func createTransaction(from: String?, to: String?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
-
+    func createTransaction(
+        from: String?, to: String?, amount: Int?, date: Date? = Date(),
+        approvalMode: FinTransaction.ApprovalMode? = nil,
+        recurrenceFrequency: RecurrenceFrequency? = nil,
+        recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
+        // swiftlint:disable identifier_name
         guard let ref = ref, let from = from, let to = to, let amount = amount else {return}
 
         db.runTransaction({ (fsTransaction, errorPointer) -> Any? in
             // read account amounts from FireStore
             guard let fromAccount = self.getAccount(withId: from, for: fsTransaction, with: errorPointer),
-                let toAccount = self.getAccount(withId: to, for: fsTransaction, with: errorPointer) else {return nil}
+                let toAccount = self.getAccount(
+                    withId: to, for: fsTransaction, with: errorPointer) else {return nil}
             // create transactions
             let approvedAmount =
                 self.sendFinTransaction(

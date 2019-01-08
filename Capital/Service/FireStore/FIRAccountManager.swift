@@ -37,7 +37,7 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
             return
         }
         let capitalReference = ref.collection(DataObjectType.account.rawValue).document(capitalAccountName)
-        db.runTransaction({[unowned self] fsTransaction, errorPointer -> Any? in
+        fireDB.runTransaction({[unowned self] fsTransaction, errorPointer -> Any? in
             // Get capital amount
             let capitalAmount = self.getAmount(
                 ofAccount: "capital", for: fsTransaction, with: errorPointer) ?? 0
@@ -81,7 +81,7 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
             let accountDoc = ref?.collection(DataObjectType.account.rawValue).document(id),
             let capitalDoc  = capitalDoc else {return}
 
-        db.runTransaction({[unowned self]  fsTransaction, _ -> Any? in
+        fireDB.runTransaction({[unowned self]  fsTransaction, _ -> Any? in
             let account = self.getAccount(withId: id, for: fsTransaction)
             guard let oldAmount = account?.amount, let type = account?.type,
                 let capitalAmount = self.getAccount(

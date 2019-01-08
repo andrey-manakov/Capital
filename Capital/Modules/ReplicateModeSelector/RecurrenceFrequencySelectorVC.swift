@@ -7,7 +7,7 @@ class RecurrenceFrequencySelectorVC: ViewController {
         }
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
         let selectionAction = data as? ((Any?) -> Void)
-        table.didSelect = {[unowned self] row, ix in
+        table.didSelect = {[unowned self] row, _ in
             selectionAction?(row.id)
             self.dismiss()
         }

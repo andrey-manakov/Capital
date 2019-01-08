@@ -1,7 +1,7 @@
 protocol SettingsServiceProtocol: class {
     var view: SettingsViewControllerProtocol? {get set}
     func viewDidLoad(_ view: SettingsViewControllerProtocol)
-    func didSelect(_ row: DataModelRowProtocol, at ix: IndexPath)
+    func didSelect(_ row: DataModelRowProtocol, at indexPath: IndexPath)
 }
 
 class SettingsService: ClassService, SettingsServiceProtocol {
@@ -18,16 +18,16 @@ class SettingsService: ClassService, SettingsServiceProtocol {
         })
     }
 
-    func didSelect(_ row: DataModelRowProtocol, at ix: IndexPath) {
+    func didSelect(_ row: DataModelRowProtocol, at indexPath: IndexPath) {
         guard let id = row.id, let idInt = Int(id), let settings = Settings(rawValue: idInt) else {return}
         switch settings {
-        case .LogOut:
+        case .logOut:
             data.signOut {error in
                 if let error = error {print("Error in loggin out user \(error.localizedDescription)")} else {
                     self.view?.dismissNavigationViewController()
                 }
             }
-        case .DeleteUser:
+        case .deleteUser:
             data.deleteUser {error in
                 if let error = error {print("Error in deleting user \(error.localizedDescription)")} else {
                     self.view?.dismissNavigationViewController()
@@ -37,11 +37,11 @@ class SettingsService: ClassService, SettingsServiceProtocol {
     }
 
     enum Settings: Int, CaseIterable {
-        case LogOut, DeleteUser
+        case logOut, deleteUser
         var name: String {
             switch self {
-            case .LogOut: return "Log Out"
-            case .DeleteUser: return "Delete User"
+            case .logOut: return "Log Out"
+            case .deleteUser: return "Delete User"
             }
         }
     }

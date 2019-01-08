@@ -50,7 +50,8 @@ class AccountGroupTests: XCTestCase {
         XCTAssertEqual(master, sample)
     }
 
-    /// Test checks that code correctly updates groups, when ["groups": ["group id": "group name"]]] is submitted
+    /// Test checks that code correctly updates groups,
+    ///when ["groups": ["group id": "group name"]]] is submitted
     func testUpdateWithGroupsFieldValue() {
         // 1. Arrange
         let field = "accounts"
@@ -66,7 +67,8 @@ class AccountGroupTests: XCTestCase {
         XCTAssertEqual(master, sample)
     }
 
-    /// Test checks that code correctly updates min value and date, when ["min" : ["amount": 10, "date": {timestamp}]] is submitted
+    /// Test checks that code correctly updates min value and date,
+    /// when ["min" : ["amount": 10, "date": {timestamp}]] is submitted
     func testUpdateWithMinFieldValue() {
         // 1. Arrange
         let field = "min"

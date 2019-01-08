@@ -32,7 +32,9 @@ class SimpleLabelTests: XCTestCase {
         let sample = SimpleLabel(text, alignment: alignment, lines: lines)
 
         // then
-        XCTAssertTrue(sample.text == text && sample.textAlignment == alignment && sample.numberOfLines == lines)
+        XCTAssertTrue(sample.text == text &&
+            sample.textAlignment == alignment &&
+            sample.numberOfLines == lines)
     }
 
 }

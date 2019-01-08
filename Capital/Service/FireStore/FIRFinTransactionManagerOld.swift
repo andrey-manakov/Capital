@@ -1,25 +1,44 @@
 protocol FIRFinTransactionManagerProtocolOld: class {
-    func createTransaction(from: String?, to: String?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, completion: ((String?) -> Void)?)
+    // swiftlint:disable identifier_name function_parameter_count
+    func createTransaction(
+        from: String?, to: String?, amount: Int?, date: Date?,
+        approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?,
+        recurrenceEnd: Date?, completion: ((String?) -> Void)?)
     // swiftlint:disable function_parameter_count
-    func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String?, approvedAmount: Int) -> Int
+    func sendFinTransaction(
+        to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?,
+        date: Date?, approvalMode: FinTransaction.ApprovalMode?,
+        recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String?,
+        approvedAmount: Int) -> Int
 }
 
 extension FIRFinTransactionManagerProtocolOld {
-    func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?) -> Int {
-        return sendFinTransaction(to: fsTransaction, from: from, to: to, amount: amount, date: nil, approvalMode: nil, recurrenceFrequency: nil, recurrenceEnd: nil, parent: nil, approvedAmount: 0)
+    // swiftlint:disable identifier_name
+    func sendFinTransaction(
+        to fsTransaction: Transaction,
+        from: AccountInfo?,
+        to: AccountInfo?,
+        amount: Int?) -> Int {
+
+        return sendFinTransaction(to: fsTransaction, from: from, to: to,
+            amount: amount, date: nil, approvalMode: nil, recurrenceFrequency: nil,
+            recurrenceEnd: nil, parent: nil, approvedAmount: 0)
     }
 }
 
-extension FIRFinTransactionManagerOld: FireStoreCompletionProtocol, FireStoreGettersProtocol, MiscFunctionsProtocol {}
+extension FIRFinTransactionManagerOld: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
+extension FIRFinTransactionManagerOld: MiscFunctionsProtocol {}
 
 class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolOld {
     /// Singlton
     static var shared: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld()
     private override init() {}
 
+    // swiftlint:disable identifier_name
     //TODO: consider add error processing to completion
     //FIXME: introduce limit to number of recurrent operations
-    /// Creates transaction in FireStore date base, including recurrent transactions, updates account values if transactions are in the past
+    /// Creates transaction in FireStore date base, including recurrent transactions,
+    /// updates account values if transactions are in the past
     ///
     /// - Parameters:
     ///   - from: account id **from** which transaction amount is changed
@@ -29,33 +48,48 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
     ///   - approvalMode: the way **future** transaction is processed when the transaction ````date```` comes
     ///   - recurrenceFrequency: for transaction to be repeated in the future, the repeating frequency
     ///   - recurrenceEnd: date when recurrency should finish
-    ///   - completion: action to perform after function finishes execution, for now it only works for successes
+    ///   - completion: action to perform after function finishes execution,
+    ///     for now it only works for successes
     ///
-    /// * For now it doesn't limit the receurrence End date, but Transactions in FireStore are limited to 400 operations, so the limit should be intoduced here
+    /// * For now it doesn't limit the receurrence End date,
+    ///   but Transactions in FireStore are limited to 400 operations, so the limit should be intoduced here
     /// * The creation is performed the following way
     ///     * read account amounts from FireStore
     ///     * create transactions
     ///     * update account amounts
-    func createTransaction(from: String?, to: String?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
-
+    func createTransaction(
+        from: String?, to: String?, amount: Int?, date: Date? = Date(),
+        approvalMode: FinTransaction.ApprovalMode? = nil,
+        recurrenceFrequency: RecurrenceFrequency? = nil,
+        recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
+        // swiftlint:disable identifier_name
         guard let ref = ref, let from = from, let to = to, let amount = amount else {return}
 
-        db.runTransaction({ (fsTransaction, errorPointer) -> Any? in
+        fireDB.runTransaction({ (fsTransaction, errorPointer) -> Any? in
             // read account amounts from FireStore
-            guard let fromAccount = self.getAccount(withId: from, for: fsTransaction, with: errorPointer),
-                let toAccount = self.getAccount(withId: to, for: fsTransaction, with: errorPointer) else {return nil}
+            guard let fromAccount = self.getAccount(
+                withId: from, for: fsTransaction, with: errorPointer),
+                let toAccount = self.getAccount(
+                    withId: to, for: fsTransaction, with: errorPointer) else {return nil}
             // create transactions
-            let approvedAmount = self.sendFinTransaction(to: fsTransaction, from: (from, fromAccount.name ?? ""), to: (to, toAccount.name ?? ""), amount: amount, date: date, approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd)
+            let approvedAmount = self.sendFinTransaction(
+                to: fsTransaction, from: (from, fromAccount.name ?? ""),
+                to: (to, toAccount.name ?? ""), amount: amount, date: date,
+                approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency,
+                recurrenceEnd: recurrenceEnd)
             // update account amounts
             for (id, account) in [from: fromAccount, to: toAccount] {
                 let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to ? 1 : -1)
-                fsTransaction.updateData([Account.Fields.amount.rawValue: (account.amount ?? 0) + coef * approvedAmount], forDocument: ref.collection(DataObjectType.account.rawValue).document(id))
+                fsTransaction.updateData(
+                    [Account.Fields.amount.rawValue: (account.amount ?? 0) + coef * approvedAmount],
+                    forDocument: ref.collection(DataObjectType.account.rawValue).document(id))
             }
             return {print("Transaction created")}
         }, completion: fireStoreCompletion)
 
     }
 
+    // swiftlint:disable identifier_name
     /// Adds FinTransaction to operations in FireStore transaction, returns id of new FinTransaction
     ///
     /// - Parameters:
@@ -79,6 +113,7 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
                             date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
                             recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
                             parent: String? = nil, approvedAmount: Int = 0) -> Int {
+        // swiftlint:disable identifier_name
         guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
             let from = from, let to = to, let amount = amount else {return 0}
         let date = date ?? Date()
@@ -100,9 +135,9 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
             ], forDocument: newFinTransactionRef)
         let approvedAmount = date < Date() ? approvedAmount + amount : approvedAmount
         //TODO: consider default recurrence end
-        if let rf = recurrenceFrequency, rf != .never,
+        if let recurrenceFrequency = recurrenceFrequency, recurrenceFrequency != .never,
             let nextDate = nextDate(from: date, recurrenceFrequency: recurrenceFrequency),
-            let re = recurrenceEnd, nextDate <= re {
+            let recurrenceEnd = recurrenceEnd, nextDate <= recurrenceEnd {
             return sendFinTransaction(to: fsTransaction, from: from, to: to, amount: amount, date: nextDate,
                                       approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency,
                                       recurrenceEnd: recurrenceEnd,

@@ -10,8 +10,8 @@ class AccountNewVC: ViewController {
         var selectedSegment = data as? Int ?? 0
 
         let segmentedControl: SegmentedControlProtocol
-        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {i in
-            selectedSegment = i
+        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {segmentIndex in
+            selectedSegment = segmentIndex
         }
         segmentedControl.selectedSegmentIndex = selectedSegment
         title = "New account"

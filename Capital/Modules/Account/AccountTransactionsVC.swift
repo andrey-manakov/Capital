@@ -50,7 +50,6 @@ extension AccountTransactionsVC {
         func deleteTransaction(withId id: String?, completion: (() -> Void)? = nil) {
             //FIXME: Add implementation
         }
-
         func approveTransaction(withId id: String?, completion: (() -> Void)? = nil) {
             //FIXME: Add implementation
         }

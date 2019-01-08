@@ -16,7 +16,7 @@ class SettingsViewController: ViewController, SettingsViewControllerProtocol {
         service.viewDidLoad(self)
         title = "Settings"
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
-        table.didSelect = {[unowned self] row, ix in
-            self.service.didSelect(row, at: ix)}
+        table.didSelect = {[unowned self] row, index in
+            self.service.didSelect(row, at: index)}
     }
 }

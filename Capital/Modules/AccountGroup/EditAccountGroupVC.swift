@@ -7,8 +7,9 @@ class AccountGroupEditVC: ViewController {
 
         let table: SimpleTableProtocol = SimpleTable()
         let segmentedControl: SegmentedControlProtocol
-        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {[unowned table] i in
-            table.filter = {$0.filter as? Int == i}
+        segmentedControl = SegmentedControl(
+        AccountType.allCases.map {$0.name}) {[unowned table] selelctedIndex in
+            table.filter = {$0.filter as? Int == selelctedIndex}
         }
         table.filter = {$0.filter as? Int == 0}
         if let data = data as? (id: String, name: String) {
@@ -23,7 +24,7 @@ class AccountGroupEditVC: ViewController {
                               "V:|-80-[nm(31)]-20-[sc]-10-[tbl]|"])
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
                                                             target: self, action: #selector(didTapDone))
-        table.didSelect = {[unowned self] row, ix in
+        table.didSelect = {[unowned self] row, _ in
             //TODO: reload only one
             self.service.rowSelected(id: row.id) {dataModel in table.localData = dataModel}
         }

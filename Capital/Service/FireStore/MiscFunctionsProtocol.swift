@@ -11,9 +11,9 @@ extension MiscFunctionsProtocol {
     /// - Returns: next transaction date
     func nextDate(from date: Date?, recurrenceFrequency: RecurrenceFrequency?) -> Date? {
         // TODO: consider moving to sendFinTransaction
-        guard let rf = recurrenceFrequency, let date = date else {return nil}
+        guard let recurrenceFrequency = recurrenceFrequency, let date = date else {return nil}
         let newDate: Date?
-        switch rf {
+        switch recurrenceFrequency {
         case .never: newDate = nil
         case .everyDay:
             newDate = Calendar.current.date(byAdding: Calendar.Component.day, value: 1, to: date)

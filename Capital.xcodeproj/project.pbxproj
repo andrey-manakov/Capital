@@ -39,7 +39,6 @@
 		C1164D5B21BD818D00895A1B /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D5A21BD818D00895A1B /* SegmentedControl.swift */; };
 		C1164D6021BD82B100895A1B /* AccountNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D5E21BD82B100895A1B /* AccountNewVC.swift */; };
 		C1164D6221BD834A00895A1B /* NumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6121BD834A00895A1B /* NumberField.swift */; };
-		C1164D6421BD841400895A1B /* AccountTypeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6321BD841300895A1B /* AccountTypeSegmentedControl.swift */; };
 		C1164D6921BD93B600895A1B /* AccountGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6721BD93B600895A1B /* AccountGroupsViewController.swift */; };
 		C1164D6E21BD94BA00895A1B /* AccountGroupDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6B21BD94BA00895A1B /* AccountGroupDetailVC.swift */; };
 		C1164D7521BD952100895A1B /* AccountTransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D7321BD952100895A1B /* AccountTransactionsVC.swift */; };
@@ -195,7 +194,6 @@
 		C1164D5A21BD818D00895A1B /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		C1164D5E21BD82B100895A1B /* AccountNewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNewVC.swift; sourceTree = "<group>"; };
 		C1164D6121BD834A00895A1B /* NumberField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberField.swift; sourceTree = "<group>"; };
-		C1164D6321BD841300895A1B /* AccountTypeSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTypeSegmentedControl.swift; sourceTree = "<group>"; };
 		C1164D6721BD93B600895A1B /* AccountGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupsViewController.swift; sourceTree = "<group>"; };
 		C1164D6B21BD94BA00895A1B /* AccountGroupDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupDetailVC.swift; sourceTree = "<group>"; };
 		C1164D7321BD952100895A1B /* AccountTransactionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTransactionsVC.swift; sourceTree = "<group>"; };
@@ -552,7 +550,6 @@
 			children = (
 				C1164D5A21BD818D00895A1B /* SegmentedControl.swift */,
 				C1164D5221BD79C600895A1B /* DatePicker.swift */,
-				C1164D6321BD841300895A1B /* AccountTypeSegmentedControl.swift */,
 				C1A0279D21BD467700207FF7 /* Button.swift */,
 				C16D36DA21C3B58A00690B7B /* BarButtonItem.swift */,
 			);
@@ -1004,7 +1001,6 @@
 				C1164D1A21BD5CC500895A1B /* FireStoreCompletionProtocol.swift in Sources */,
 				C1164D1C21BD5CDF00895A1B /* FireStoreGettersProtocol.swift in Sources */,
 				C1A027E221BD54F300207FF7 /* FIRAccountManager.swift in Sources */,
-				C1164D6421BD841400895A1B /* AccountTypeSegmentedControl.swift in Sources */,
 				C1164D8B21BD97BF00895A1B /* AccountSelectorVC.swift in Sources */,
 				C1164D9421BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift in Sources */,
 				C1164D8421BD974F00895A1B /* TransactionItem.swift in Sources */,

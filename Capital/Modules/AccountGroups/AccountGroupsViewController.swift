@@ -12,10 +12,9 @@ class AccountGroupsViewController: ViewController {
         }
         table.swipeLeftAction = {[unowned service] row in service.remove(row)}
         table.swipeLeftLabel = "Delete"
-        table.didSelect = {[unowned self] row, ix in
-            print("Row \(row) was selected at index \(ix)")
-            self.navigationController?.pushViewController(AccountGroupDetailVC((row.id, row.name)),
-                                                          animated: true)
+        table.didSelect = {[unowned self] row, _ in
+            self.navigationController?.pushViewController(
+                AccountGroupDetailVC((row.id, row.name)), animated: true)
         }
     }
 

@@ -17,7 +17,7 @@ protocol TemplateTableProtocol: class {
     func removeFromSuperview()
 
     func reloadData()
-    func reloadRows(at: [IndexPath], with: UITableView.RowAnimation)
+    func reloadRows(at indexPath: [IndexPath], with: UITableView.RowAnimation)
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
     func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
 
@@ -59,13 +59,10 @@ class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDataSource, 
         return data.sections[section].rows.count
     }
 
-    /* TODO: decide what to do with height def
-     warning appears if i comment two functions below */
-
+    // height def warning appears if i comment two functions below
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 45
     }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 45
     }

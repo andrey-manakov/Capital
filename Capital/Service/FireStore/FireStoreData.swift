@@ -3,7 +3,7 @@ extension FireStoreData: FireStoreGettersProtocol, FireStoreCompletionProtocol {
 class FireStoreData: FIRDataProtocol {
 
 //    private let fa: FireAuthProtocol = FIRAuth.shared
-    let db = Firestore.firestore()
+    let fireDB = Firestore.firestore()
     var ref: DocumentReference? {
         guard let user = Auth.auth().currentUser?.uid else {
             return nil

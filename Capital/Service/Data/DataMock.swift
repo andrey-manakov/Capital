@@ -24,6 +24,7 @@ class DataMock: DataProtocol {
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {}
     func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {}
 
+    // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?,
                            approvalMode: FinTransaction.ApprovalMode?,
                            recurrenceFrequency: RecurrenceFrequency?,

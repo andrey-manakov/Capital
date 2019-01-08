@@ -11,6 +11,7 @@ class DataModelRowTests: XCTestCase {
         let name = "name"
         let desc = "desc"
         let left = "left"
+        //swiftlint:disable identifier_name
         let up = "up"
         let down = "down"
         let right = "right"
@@ -22,7 +23,9 @@ class DataModelRowTests: XCTestCase {
         let accessory = 1
         let filter = "Any?"
 
-        let sample = DataModelRow(id: id, name: name, desc: desc, height: height, left: left, up: up, down: down, right: right, style: style, action: action, accessory: accessory, filter: filter)
+        let sample = DataModelRow(
+            id: id, name: name, desc: desc, height: height, left: left, up: up, down: down,
+            right: right, style: style, action: action, accessory: accessory, filter: filter)
         var master = DataModelRow()
         master.id = id
         master.name = name

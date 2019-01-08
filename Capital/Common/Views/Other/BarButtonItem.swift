@@ -9,7 +9,9 @@ class BarButtonItem: UIBarButtonItem {
         barButton.tintColor = UIColor.white
         self.init(customView: barButton)
         self.action = #selector(didTap)
-        barButton.addTarget(self, action: self.action!, for: .touchUpInside) //FIXME: !
+        if let action = self.action {
+            barButton.addTarget(self, action: action, for: .touchUpInside)
+        }
     }
 
     convenience init(title: String, action: (() -> Void)?) {

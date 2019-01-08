@@ -6,6 +6,7 @@ protocol DataProtocol {
 
     func createAccount(_ name: String?, ofType type: AccountType?, withAmount amount: Int?,
                        completion: ((String?) -> Void)?)
+    // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?,
                            date: Date?, approvalMode: FinTransaction.ApprovalMode?,
                            recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?,

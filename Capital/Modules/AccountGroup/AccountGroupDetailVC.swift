@@ -7,7 +7,7 @@ class AccountGroupDetailVC: ViewController {
         let table: SimpleTableProtocol = SimpleTable()
         if let data = data as? (id: String, name: String) {
             service.getData(withId: data.id) {dataModel in table.localData = dataModel}
-            table.didSelect = {[unowned self] row, ix in
+            table.didSelect = {[unowned self] row, _ in
                 let viewController = AccountTransactionsVC((row.id, row.name))
                 self.navigationController?.pushViewController(viewController, animated: true)
             }

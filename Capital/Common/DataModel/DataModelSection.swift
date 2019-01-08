@@ -54,8 +54,9 @@ struct DataModelSection: DataModelSectionProtocol {
     }
 
     init(_ labels: [(id: String?, left: String?, up: String?, down: String?, right: String?)]) {
-        for l in labels {
-            rows.append(DataModelRow(id: l.id, left: l.left, up: l.up, down: l.down, right: l.right))
+        for label in labels {
+            rows.append(DataModelRow(id: label.id, left: label.left, up: label.up,
+                                     down: label.down, right: label.right))
         }
     }
 

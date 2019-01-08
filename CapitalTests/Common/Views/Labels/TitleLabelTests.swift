@@ -21,6 +21,8 @@ class TitleLabelTests: XCTestCase {
         let view =  TitleLabel(text)
 
         // 3. Assert
-        XCTAssert(view.text == text && view.font == UIFont(name: "HelveticaNeue-Bold", size: 20) && view.textAlignment == .center )
+        XCTAssert(view.text == text &&
+            view.font == UIFont(name: "HelveticaNeue-Bold", size: 20) &&
+            view.textAlignment == .center )
     }
 }

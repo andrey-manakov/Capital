@@ -51,7 +51,9 @@ class ViewController: UIViewController, ViewControllerProtocol {
     func dimissNavigationViewController(completion: (() -> Void)? = nil) {
         navigationController?.dismiss(animated: true, completion: completion)
     }
-    func push(_ vc: UIViewController) {navigationController?.pushViewController(vc, animated: true)}
+    func push(_ viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     func endEditing(force: Bool) {view.endEditing(force)}
     func alert(_ title: String? = nil, message: String) {
         let alert = UIAlertController(title: title ?? "Alert", message: message, preferredStyle: .alert)

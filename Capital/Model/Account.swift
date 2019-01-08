@@ -2,8 +2,10 @@
 extension Account {
     enum Fields: String {
         case name, amount, min, type, groups
+        // swiftlint:disable nesting
         enum Min: String {
-            case amount, date
+            case amount
+            case date
         }
     }
 }
@@ -60,7 +62,7 @@ extension Account: Equatable {
         }
         return json
     }
-    // swiftlint:disable identifier_name
+
     static func == (lhs: Account, rhs: Account) -> Bool {
         let currentDate = Date()
         return lhs.amount == rhs.amount &&

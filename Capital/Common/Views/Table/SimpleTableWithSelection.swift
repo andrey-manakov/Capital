@@ -9,7 +9,7 @@ class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {
 
     override init() {
         super.init()
-        didSelect = {[unowned self] row, ix in
+        didSelect = {[unowned self] row, _ in
             self.selectedRow = row
             self.reloadData() //TODO: consider not updating ALL the rows
         }

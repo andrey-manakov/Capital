@@ -1,4 +1,5 @@
 protocol FIRFinTransactionManagerProtocol: class {
+    // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(from: AccountInfo?, to: AccountInfo?,
                            amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?,
                            recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?,
@@ -13,6 +14,7 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
     static var shared: FIRFinTransactionManagerProtocol = FIRFinTransactionManager()
     private override init() {}
 
+    // swiftlint:disable function_body_length identifier_name
     /// Creates transaction in FireStore date base, including recurrent transactions,
     /// updates account values if transactions are in the past
     ///
@@ -41,7 +43,7 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
 
         guard let ref = ref, let from = from, let to = to, let amount = amount else {return}
 
-        let batch = self.db.batch()
+        let batch = self.fireDB.batch()
 
         var date: Date? = date ?? Date()
         var approvedAmount = 0
@@ -76,25 +78,33 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
             if i == 366 {fatalError()}
         }
 
-//        batch.setData([
-//            LogFields.from.rawValue: [
-//                FinTransaction.Fields.From.id.rawValue:
-//                    from.id, FinTransaction.Fields.From.name.rawValue: from.name],
-//            LogFields.to.rawValue: [
-//                FinTransaction.Fields.To.id.rawValue: to.id, FinTransaction.Fields.To.name.rawValue: to.name],
-//            LogFields.timestamp.rawValue: FieldValue.serverTimestamp(),
-//            LogFields.transaction.rawValue: originalTransaction as Any,
-//            LogFields.approvedAmount.rawValue: approvedAmount,
-//            LogFields.recurrenceChanges.rawValue: amountChange],
-//                      forDocument: ref.collection(LogFields.logCollection).document())
+        batch.setData([
+            LogFields.from.rawValue: [
+                FinTransaction.Fields.From.id.rawValue: from.id,
+                FinTransaction.Fields.From.name.rawValue: from.name],
+            LogFields.to.rawValue: [
+                FinTransaction.Fields.To.id.rawValue: to.id,
+                FinTransaction.Fields.To.name.rawValue: to.name],
+            LogFields.timestamp.rawValue: FieldValue.serverTimestamp(),
+            LogFields.transaction.rawValue: originalTransaction as Any,
+            LogFields.approvedAmount.rawValue: approvedAmount,
+            LogFields.recurrenceChanges.rawValue: amountChange],
+                      forDocument: ref.collection(LogFields.logCollection).document())
         batch.commit(completion: fireStoreCompletion)
     }
     enum LogFields: String {
         static let logCollection = "change"
-        case type, from, to, timestamp, transaction, approvedAmount, recurrenceChanges
-
+        case type
+        case from
+        case to
+        case timestamp
+        case transaction
+        case approvedAmount
+        case recurrenceChanges
+        // swiftlint:disable nesting
         enum LogType: String {
-            case approved, recurrence
+            case approved
+            case recurrence
         }
     }
 }

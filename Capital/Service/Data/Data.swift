@@ -15,8 +15,8 @@ class Data: DataProtocol {
 
     static var sharedForUnitTests = DataMock()
 
-    private let fs: FIRDataProtocol? = FireStoreData.shared
-    private let fa: FireAuthProtocol? = FIRAuth.shared
+    private let fireStorage: FIRDataProtocol? = FireStoreData.shared
+    private let fireAuth: FireAuthProtocol? = FIRAuth.shared
     private let accountGroupManager: FIRAccountGroupManagerProtocol? = FIRAccountGroupManager.shared
     private let finTransactionManager: FIRFinTransactionManagerProtocol? = FIRFinTransactionManager.shared
     private let accountManager: FIRAccountManagerProtocol? = FIRAccountManager.shared
@@ -93,14 +93,14 @@ extension Data {
 // MARK: - Sign In, Sign Out
 extension Data {
     func signOut(_ completion: ((Error?) -> Void)? = nil) {
-        fa?.signOutUser(completion)}
+        fireAuth?.signOutUser(completion)}
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {
-        fa?.signInUser(withEmail: email, password: pwd, completion: completion)
+        fireAuth?.signInUser(withEmail: email, password: pwd, completion: completion)
     }
     func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {
-        fa?.createUser(withEmail: email, password: pwd, completion: completion)}
+        fireAuth?.createUser(withEmail: email, password: pwd, completion: completion)}
     func deleteUser(completion: ((Error?) -> Void)?) {
-        fa?.deleteUser(completion)
+        fireAuth?.deleteUser(completion)
     }
 }
 
@@ -126,7 +126,7 @@ extension Data { //Decide if these functions are needed at all
 
     private func update(_ dataObject: DataObjectType, id: String,
                         with values: [String: Any?], completion: (() -> Void)? = nil) {
-        fs?.update(dataObject, id: id, with: values, completion: completion)
+        fireStorage?.update(dataObject, id: id, with: values, completion: completion)
     }
 
 }
@@ -138,6 +138,7 @@ extension Data {
                        withAmount amount: Int?, completion: ((String?) -> Void)? = nil) {
         accountManager?.createAccount(name, ofType: type, withAmount: amount, completion: completion)
     }
+    // swiftlint:disable identifier_name
     func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?,
                            date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
                            recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
@@ -187,7 +188,7 @@ extension Data {
     }
 
     func deleteAll(completion: (() -> Void)? = nil) {
-        fs?.deleteAll(completion)
+        fireStorage?.deleteAll(completion)
     }
 
 }

@@ -7,8 +7,8 @@ class AccountSelectorVC: ViewController {
 
         let table: SimpleTableWithSwipeProtocol = SimpleTableWithSwipe()
         let segmentedControl: SegmentedControlProtocol
-        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {i in
-            table.filter = {$0.filter as? Int == i}
+        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {index in
+            table.filter = {$0.filter as? Int == index}
         }
         table.filter = {$0.filter as? Int == 0}
         service.getData { dataModel in table.localData = dataModel}
@@ -17,7 +17,7 @@ class AccountSelectorVC: ViewController {
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
 
         let selectionAction = data as? ((Any?) -> Void)
-        table.didSelect = {row, ix in
+        table.didSelect = {row, _ in
             selectionAction?((row.id, row.name))
             self.dismiss()
         }

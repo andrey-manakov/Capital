@@ -49,16 +49,16 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
         getData()
     }
 
-    func getData(for ix: IndexPath? = nil) {
+    func getData(for indexPath: IndexPath? = nil) {
         view?.tableData = DataModel(tableData)
-        view?.reloadData(for: ix)
+        view?.reloadData(for: indexPath)
     }
 
     func getData(for transactionItem: TransactionItem) {
-        guard let ix = transactionItems.firstIndex(of: transactionItem) else {return}
-        getData(for: IndexPath(row: ix, section: 0))
+        guard let indexPath = transactionItems.firstIndex(of: transactionItem) else {return}
+        getData(for: IndexPath(row: indexPath, section: 0))
     }
-
+    // swiftlint:disable cyclomatic_complexity
     func didSelect(_ item: TransactionItem) {
         if item != .date {hide(.dateSelection)}
         if item != .recurrenceEnd {hide(.recurrenceEndDate)}
@@ -97,7 +97,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
     }
 
     // MARK: - Actions on selection of Transaction items
-
+    // swiftlint:disable cyclomatic_complexity
     func didChoose(transactionItem: TransactionItem, with value: Any?) {
         switch transactionItem {
         case .from:
@@ -122,16 +122,16 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
             }
             getData(for: .date)
         case .approvalMode:
-            guard let id = value as? String, let rv = Int(id),
-                let am = FinTransaction.ApprovalMode(rawValue: rv) else {return}
-            approvalMode = am
+            guard let enumId = value as? String, let rawValue = Int(enumId),
+                let approvalMode = FinTransaction.ApprovalMode(rawValue: rawValue) else {return}
+            self.approvalMode = approvalMode
             getData(for: transactionItem)
         case .recurrenceFrequency:
-            guard let id = value  as? String, let rw = Int(id),
-                let rm = RecurrenceFrequency(rawValue: rw) else {return}
-            self.recurrenceFrequency = rm
+            guard let enumId = value  as? String, let rawValue = Int(enumId),
+                let recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue) else {return}
+            self.recurrenceFrequency = recurrenceFrequency
             getData(for: .recurrenceFrequency)
-            if rm == .never {hide(.recurrenceEnd)} else {
+            if recurrenceFrequency == .never {hide(.recurrenceEnd)} else {
                 if !transactionItems.contains(.recurrenceEnd) {
                     insert(.recurrenceEnd, after: .recurrenceFrequency)
                 }
@@ -167,17 +167,17 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
     }
 
     func insert(_ transactionItem: TransactionItem, after place: TransactionItem) {
-        guard let ix = transactionItems.firstIndex(of: place) else {return}
-        transactionItems.insert(transactionItem, at: ix+1)
+        guard let index = transactionItems.firstIndex(of: place) else {return}
+        transactionItems.insert(transactionItem, at: index+1)
         view?.tableData = DataModel(tableData)
-        view?.insertRows(at: [IndexPath(row: ix+1, section: 0)], with: .fade)
+        view?.insertRows(at: [IndexPath(row: index+1, section: 0)], with: .fade)
     }
 
     func hide(_ item: TransactionItem) {
-        guard let ix = transactionItems.firstIndex(of: item) else {return}
-        transactionItems.remove(at: ix)
+        guard let index = transactionItems.firstIndex(of: item) else {return}
+        transactionItems.remove(at: index)
         view?.tableData = DataModel(tableData)
-        view?.deleteRows(at: [IndexPath(row: ix, section: 0)], with: .fade)
+        view?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
     }
 
 }

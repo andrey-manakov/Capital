@@ -9,8 +9,8 @@ class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {
 
     init(_ titles: [String], _ actionOnValueChange: ((Int) -> Void)? = nil) {
         super.init(frame: CGRect.zero)
-        for i in 0..<AccountType.all.count {
-            self.insertSegment(withTitle: AccountType.all[i], at: i, animated: false)
+        for index in 0..<AccountType.all.count {
+            self.insertSegment(withTitle: AccountType.all[index], at: index, animated: false)
             self.selectedSegmentIndex = 0
         }
         addTarget(self, action: #selector(self.didChangeValue(sender:)), for: UIControl.Event.valueChanged)

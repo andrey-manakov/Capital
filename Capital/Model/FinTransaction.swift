@@ -3,6 +3,7 @@ final class FinTransaction: DataObject {
     /// MARK: - Properties
     /// account **from** which is the transfer of funds - reference to `Account` instance
     var from: AccountInfo?
+    // swiftlint:disable identifier_name
     /// to - account **to** which is the transfer of funds
     var to: AccountInfo?
     /// amount - amount of funds transferred
@@ -32,6 +33,7 @@ final class FinTransaction: DataObject {
         for (field, value) in data {self.update(field: field, value: value)}
     }
 
+    // swiftlint:disable identifier_name
     convenience init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date) {
         self.init()
         self.from = from
@@ -65,9 +67,12 @@ final class FinTransaction: DataObject {
         case .date: self.date = (value as? Timestamp)?.dateValue()
         case .serverTime: self.serverTime = (value as? Timestamp)?.dateValue()
         case .isApproved: self.isApproved = value as? Bool
-        case .approvalMode: if let rv = value as? Int {self.approvalMode = ApprovalMode(rawValue: rv)}
+        case .approvalMode:
+            if let rawValue = value as? Int {self.approvalMode = ApprovalMode(rawValue: rawValue)}
         case .recurrenceFrequency:
-            if let rv = value as? Int {self.recurrenceFrequency = RecurrenceFrequency(rawValue: rv)}
+            if let rawValue = value as? Int {
+                self.recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue)
+            }
         case .recurrenceEnd: self.recurrenceEnd = (value as? Timestamp)?.dateValue()
         case .parent: self.parent = value as? String
         }
@@ -117,6 +122,7 @@ extension FinTransaction: CustomStringConvertible, CustomDebugStringConvertible 
 extension FinTransaction {
     enum Fields: String, CaseIterable {
         case from
+        // swiftlint:disable identifier_name
         case to
         case amount
         case date
@@ -126,7 +132,9 @@ extension FinTransaction {
         case recurrenceFrequency
         case recurrenceEnd
         case parent
+        // swiftlint:disable nesting
         enum From: String {case id, name}
+        // swiftlint:disable nesting type_name
         enum To: String {case id, name}
     }
 

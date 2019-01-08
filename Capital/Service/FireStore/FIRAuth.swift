@@ -9,7 +9,7 @@ protocol FireAuthProtocol {
 class FIRAuth: FireAuthProtocol {
 
     static var shared = FIRAuth()
-    private lazy var fs: FIRDataProtocol = FireStoreData.shared //TODO: get rid of lazy
+    private lazy var fireStorage: FIRDataProtocol = FireStoreData.shared //TODO: get rid of lazy
 
     var currentUser: User? {return Auth.auth().currentUser}
     var currentUserUid: String? {return currentUser?.uid}
@@ -38,7 +38,7 @@ class FIRAuth: FireAuthProtocol {
                     Firestore.firestore().document("users/\(user)").setData(["email": email, "password": pwd])
                 }
 
-                self.fs.checkIfCapitalAccountExist {error in
+                self.fireStorage.checkIfCapitalAccountExist {error in
                     if let error = error {
                         print("Error in capital account check or creation \(error.localizedDescription)")
                     }
@@ -64,7 +64,7 @@ class FIRAuth: FireAuthProtocol {
 
     func deleteUser(_ completion: ((Error?) -> Void)?) {
         completion?(nil)
-        fs.deleteAll {
+        fireStorage.deleteAll {
             if let uid = self.currentUserUid {
                 Firestore.firestore().document("users/\(uid)").delete {_ in
                     print("LOG delete user with id \(uid)")

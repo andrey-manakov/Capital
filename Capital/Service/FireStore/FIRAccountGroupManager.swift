@@ -25,7 +25,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
             let newRef = self.ref?.collection(DataObjectType.group.rawValue).document() else {
                 return
         }
-        db.runTransaction({ (fsTransaction, errorPointer) -> Any? in
+        fireDB.runTransaction({ (fsTransaction, errorPointer) -> Any? in
             // get accounts from the group
             let accounts: [String: Account] = Dictionary(uniqueKeysWithValues:
                 accountIds.map {
@@ -43,6 +43,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
                 var newAccountGroup = [newRef.documentID: name]
                 if let oldAccountGroup = accounts[id]?.groups {
                     newAccountGroup = newAccountGroup.merging(
+                        // swiftlint:disable identifier_name
                         oldAccountGroup, uniquingKeysWith: { x, _ -> String in x})
                 }
                 fsTransaction.updateData(
@@ -67,7 +68,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
     ///   - completion: action on deletion completion
     func delete(id: String, completion: (() -> Void)? = nil) {
         guard let ref = ref else {return}
-        db.runTransaction({[unowned self] (fsTransaction, errorPointer) -> Any? in
+        fireDB.runTransaction({[unowned self] (fsTransaction, errorPointer) -> Any? in
             // Get account group data
             guard let group = self.get(.group,
                                        withId: id,

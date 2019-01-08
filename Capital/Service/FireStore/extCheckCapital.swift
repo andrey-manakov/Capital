@@ -64,7 +64,7 @@ extension FireStoreData {
                 completion?()
                 return
             }
-            let batch = self.db.batch()
+            let batch = self.fireDB.batch()
             for doc in snapshot.documents {
                 batch.deleteDocument(doc.reference)
             }

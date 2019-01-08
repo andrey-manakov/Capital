@@ -57,7 +57,7 @@ struct DataModel: DataModelProtocol {
         self.init()
         sections.append(DataModelSection(labels))
     }
-    init(_ labels: [(id: String?, name: String?)]) { //TODO: consider change to dict
+    init(_ labels: [(id: String?, name: String?)]) {
         self.init()
         sections.append(DataModelSection(labels))
     }

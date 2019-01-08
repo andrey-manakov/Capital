@@ -3,14 +3,14 @@ import UIKit
 protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
     var service: AdvancedNewTransactionServiceProtocol {get set}
     var tableData: DataModel {get set}
-    func reloadData(for ix: IndexPath?)
+    func reloadData(for indexPath: IndexPath?)
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
     func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
     func setAmountFieldFirstResponder()
 }
 
 protocol AdvancedNewTransactionTableProtocol: class { //TODO: compare with TemplateTableProtocol
-    func reloadRows(at: [IndexPath], with: UITableView.RowAnimation)
+    func reloadRows(at indexPath: [IndexPath], with: UITableView.RowAnimation)
     func reloadData()
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
     func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
@@ -47,13 +47,13 @@ class AdvancedNewTransactionVC: ViewController, AdvancedNewTransactionVCProtocol
 extension AdvancedNewTransactionVC {
 
     class AdvancedNewTransactionTable: UITableView, AdvancedNewTransactionTableProtocol {
-        init(_ vc: AdvancedNewTransactionVC) {
+        init(_ viewController: AdvancedNewTransactionVC) {
             super.init(frame: CGRect.zero, style: UITableView.Style.plain)
             register(LeftRightCell.self, forCellReuseIdentifier: LeftRightCell.self.description())
             register(InputAmountCell.self, forCellReuseIdentifier: InputAmountCell.self.description())
             register(DateSelectionCell.self, forCellReuseIdentifier: DateSelectionCell.self.description())
-            self.delegate = vc
-            self.dataSource = vc
+            self.delegate = viewController
+            self.dataSource = viewController
         }
 
         required init?(coder aDecoder: NSCoder) {return nil}
@@ -62,14 +62,18 @@ extension AdvancedNewTransactionVC {
 
 extension AdvancedNewTransactionVC: UITableViewDataSource {
 
-    func reloadData(for ix: IndexPath? = nil) {
-        if let i = ix {table.reloadRows(at: [i], with: .fade)} else {table.reloadData()}
+    func reloadData(for indexPath: IndexPath? = nil) {
+        if let indexPath = indexPath {
+            table.reloadRows(at: [indexPath], with: .fade)
+        } else {
+            table.reloadData()
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.sections[section].rows.count
     }
-
+    // swiftlint:disable cyclomatic_complexity
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let id = tableData[indexPath].id, let item = TransactionItem(rawValue: id) else {
             return UITableViewCell()

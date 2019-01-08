@@ -1,9 +1,19 @@
 // MARK: - Introduction of Account.Group class
 extension Account {
     class Group: DataObject, Equatable {
-
+        // swiftlint:disable nesting
+        /// Fields names
+        ///
+        /// - accounts: accounts field
+        /// - name: name field
+        /// - amount: amount field
+        /// - min: amount and date of minimum value
         enum Fields: String {
-            case accounts, name, amount, min
+            case accounts
+            case name
+            case amount
+            case min
+            // swiftlint:disable nesting
             enum Min: String {
                 case amount, date
             }

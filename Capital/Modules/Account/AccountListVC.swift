@@ -6,10 +6,10 @@ class AccountListVC: ViewController {
         var selectedSegment = 0
         title = "Accounts"
         let table: SimpleTableProtocol = SimpleTable()
-        let segmentedControl: SegmentedControlProtocol
-        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {[unowned table] i in
-            table.filter = {$0.filter as? Int == i}
-            selectedSegment = i
+        let segmentedControl: SegmentedControlProtocol =
+            SegmentedControl(AccountType.allCases.map {$0.name}) {[unowned table] segmentIndex in
+            table.filter = {$0.filter as? Int == segmentIndex}
+            selectedSegment = segmentIndex
         }
         table.filter = {$0.filter as? Int == 0}
         service.getData { dataModel in table.localData = dataModel}
@@ -17,7 +17,7 @@ class AccountListVC: ViewController {
             self.navigationController?.pushViewController(AccountNewVC(selectedSegment), animated: true)
         }
 
-        table.didSelect = {[unowned self] row, ix in
+        table.didSelect = {[unowned self] row, _ in
             let viewController = AccountTransactionsVC((row.id, row.name))
             self.navigationController?.pushViewController(viewController, animated: true)}
         view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView],

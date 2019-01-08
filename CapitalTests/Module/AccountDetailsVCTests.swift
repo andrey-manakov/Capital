@@ -44,7 +44,8 @@ class AccountDetailVCTests: XCTestCase {
             XCTFail("problem with view controller view")
             return}
         for view in views {
-            guard let deleteButton = view as? Button, deleteButton.accessibilityIdentifier == "deleteButton" else {continue}
+            guard let deleteButton = view as? Button,
+                deleteButton.accessibilityIdentifier == "deleteButton" else {continue}
             deleteButton.sendActions(for: UIControl.Event.touchUpInside)
         }
         XCTAssert(Data.sharedForUnitTests.deleteAccountCalled)
@@ -71,69 +72,3 @@ class AccountDetailVCTests: XCTestCase {
         XCTAssert(Data.sharedForUnitTests.updateAccountCalled)
     }
 }
-
-//class AccountDetailVCTests: XCTestCase
-//{
-//// MARK: Subject under test
-//
-//var sut: AccountDetailVC!
-//var window: UIWindow!
-//
-//// MARK: Test lifecycle
-//
-//override func setUp()
-//{
-//super.setUp()
-//window = UIWindow()
-//setupVC()
-//}
-//
-//override func tearDown()
-//{
-//window = nil
-//super.tearDown()
-//}
-//
-//// MARK: Test setup
-//
-//func setupVC()
-//{
-//self.window = UIWindow(frame: UIScreen.main.bounds)
-//sut = AccountDetailVC()
-//self.window?.rootViewController = sut
-//self.window!.makeKeyAndVisible()
-//}
-//
-//func loadView()
-//{
-//window.addSubview(sut.view)
-//RunLoop.current.run(until: Date())
-//}
-//
-//// MARK: Test doubles
-//
-////class ListGistsBusinessLogicSpy: ListGistsBusinessLogic
-////{
-////var fetchGistsCalled = false
-////
-////func fetchGists(request: ListGists.FetchGists.Request)
-////{
-////fetchGistsCalled = true
-////}
-////}
-////
-////// MARK: Tests
-////
-////func testShouldFetchGistsWhenViewIsLoaded()
-////{
-////// Given
-////let listGistsBusinessLogicSpy = ListGistsBusinessLogicSpy()
-////sut.interactor = listGistsBusinessLogicSpy
-////
-////// When
-////loadView()
-////
-////// Then
-////XCTAssertTrue(listGistsBusinessLogicSpy.fetchGistsCalled, "viewDidLoad() should ask the interactor to fetch gists")
-////}
-//}
