@@ -2,6 +2,7 @@ import XCTest
 @testable import Capital
 
 class TitleLabelTests: XCTestCase {
+
     func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)

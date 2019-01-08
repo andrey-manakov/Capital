@@ -2,6 +2,7 @@ import XCTest
 @testable import Capital
 
 class RecurrenceFrequencyTests: XCTestCase {
+
     func testName() {
         for item in RecurrenceFrequency.allCases {
             switch item {

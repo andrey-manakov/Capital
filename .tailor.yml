@@ -1,0 +1,6 @@
+exclude:
+- docs/
+- build/
+- CapitalTests/
+- CapitalUITests/
+- Firebase/

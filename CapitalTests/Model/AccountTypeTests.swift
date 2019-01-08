@@ -2,6 +2,7 @@ import XCTest
 @testable import Capital
 
 class AccountTypeTests: XCTestCase {
+
     func testActiveAsset() {
         for type in AccountType.allCases {
             switch type {
