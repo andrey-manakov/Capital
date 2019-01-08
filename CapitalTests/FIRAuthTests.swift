@@ -4,21 +4,18 @@
 //class FIRAuthTests: XCTestCase {
 //
 //    var sut: FireAuthProtocol!
-//    let login = "\(String((0..<6).map{ _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }))@gmail.com"
-//    let password = String((0..<6).map{ _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! })
+//    let login = "\(String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }))@gmail.com"
+//    let password = String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! })
 //
-//
-//    override func setUp(){
+//    override func setUp() {
 //        super.setUp()
 //        sut = FIRAuth.shared
 //    }
 //
-//    override func tearDown()
-//    {
+//    override func tearDown() {
 //        self.sut = nil
 //        super.tearDown()
 //    }
-//
 //
 //    func testSignUp() {
 //
@@ -76,4 +73,3 @@
 //    }
 //
 //}
-//
