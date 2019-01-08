@@ -7,6 +7,6 @@ class NavigationControllerTests: XCTestCase {
     func testInitWithVC() {
         let viewController = UIViewController()
         let nvc = NavigationController(viewController)
-        XCTAssertEqual(nvc.viewControllers[0], vc)
+        XCTAssertEqual(nvc.viewControllers[0], viewController)
     }
 }

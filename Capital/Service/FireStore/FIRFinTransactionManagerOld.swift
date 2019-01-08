@@ -62,7 +62,6 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
         approvalMode: FinTransaction.ApprovalMode? = nil,
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
-        // swiftlint:disable identifier_name
         guard let ref = ref, let from = from, let to = to, let amount = amount else {return}
 
         fireDB.runTransaction({ (fsTransaction, errorPointer) -> Any? in
@@ -113,7 +112,6 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
                             date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
                             recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
                             parent: String? = nil, approvedAmount: Int = 0) -> Int {
-        // swiftlint:disable identifier_name
         guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
             let from = from, let to = to, let amount = amount else {return 0}
         let date = date ?? Date()

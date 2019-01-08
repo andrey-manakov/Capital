@@ -56,6 +56,6 @@ class FinTransactionTests: XCTestCase {
         let currentDate = Date()
         let transaction = FinTransaction()
         transaction.date = currentDate
-        XCTAssert(tr.dateText == DateFormatter("yyyy MMM-dd").string(from: currentDate))
+        XCTAssert(transaction.dateText == DateFormatter("yyyy MMM-dd").string(from: currentDate))
     }
 }

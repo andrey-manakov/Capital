@@ -6,8 +6,8 @@ class TabBarControllerTests: XCTestCase {
     /// DashBoard, Accounts, New Transaction, Transactions, Settings
     func testInitWithVC() {
         let tabVC = TabBarController()
-        let navVC = (tabVC.viewControllers?[0] as? NavigationController)?
-        XCTAssertTrue(navVC.viewControllers[0] as? AccountGroupsViewController != nil)
+        let navVC = (tabVC.viewControllers?[0] as? NavigationController)
+        XCTAssertTrue(navVC?.viewControllers[0] as? AccountGroupsViewController != nil)
         //FIXME: add the rest VCs
     }
 }
