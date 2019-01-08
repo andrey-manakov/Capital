@@ -69,11 +69,15 @@ class FIRAuth: FireAuthProtocol {
     }
 
     func deleteUser(_ completion: ((Error?) -> Void)?) {
-        completion?(nil)
+//        completion?(nil)
         fireStorage.deleteAll {
             if let uid = self.currentUserUid {
                 Firestore.firestore().document("users/\(uid)").delete {_ in
                     print("LOG delete user with id \(uid)")
+                    // FIXME: change to delete user
+                    self.signOutUser { _ in
+                        completion?(nil)
+                    }
                 }
             }
 //            self.currentUser?.delete {
