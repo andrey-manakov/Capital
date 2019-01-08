@@ -10,7 +10,7 @@ struct DataModelSection: DataModelSectionProtocol {
     var rows: [DataModelRowProtocol] = [DataModelRow]()
 
     var description: String {
-        var description = "------------ Section \(name ?? "") \(desc ?? "") with \(rows.count) rows --------\n"
+        var description = "Section \(name ?? "") \(desc ?? "") with \(rows.count) rows\n"
         for row in rows {description += "\(row)\n"}
         return description
     }
@@ -38,7 +38,8 @@ struct DataModelSection: DataModelSectionProtocol {
 
     init(_ labels: [(id: String?, name: String?, desc: String?, accessory: Int?)]) {
         for label in labels {
-            rows.append(DataModelRow(id: label.id, name: label.name, desc: label.desc, accessory: label.accessory))
+            rows.append(DataModelRow(id: label.id, name: label.name,
+                                     desc: label.desc, accessory: label.accessory))
         }
     }
 

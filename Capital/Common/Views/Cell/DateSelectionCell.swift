@@ -1,14 +1,14 @@
 import UIKit
 
 protocol DateSelectionCellProtocol {
-    var actionOnDateChange: ((_ date: Date)->Void)? {get set}
+    var actionOnDateChange: ((_ date: Date) -> Void)? {get set}
     var date: Date? {get set}
 }
 
 class DateSelectionCell: UITableViewCell, DateSelectionCellProtocol {
     var date: Date? = Date() {didSet {if let date = date {datePicker.date = date}}}
     var datePicker: DatePickerProtocol = DatePicker()
-    var actionOnDateChange: ((_ date: Date)->Void)? {
+    var actionOnDateChange: ((_ date: Date) -> Void)? {
         didSet {datePicker.actionOnDateChange = self.actionOnDateChange}
     }
 

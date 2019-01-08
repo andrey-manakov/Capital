@@ -6,7 +6,8 @@ class AccountListVC: ViewController {
         var selectedSegment = 0
         title = "Accounts"
         let table: SimpleTableProtocol = SimpleTable()
-        let segmentedControl: SegmentedControlProtocol = SegmentedControl(AccountType.allCases.map {$0.name}) {[unowned table] i in
+        let segmentedControl: SegmentedControlProtocol
+        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {[unowned table] i in
             table.filter = {$0.filter as? Int == i}
             selectedSegment = i
         }
@@ -17,7 +18,8 @@ class AccountListVC: ViewController {
         }
 
         table.didSelect = {[unowned self] row, ix in
-            self.navigationController?.pushViewController(AccountTransactionsVC((row.id, row.name)), animated: true)}
+            let viewController = AccountTransactionsVC((row.id, row.name))
+            self.navigationController?.pushViewController(viewController, animated: true)}
         view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView],
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
     }
@@ -26,9 +28,9 @@ class AccountListVC: ViewController {
 extension AccountListVC {
     class Service: ClassService {
 
-        private var accounts = [String: Account]() //{didSet{print(accountGroups)}}
+        private var accounts = [String: Account]()
 
-        func getData(completion: @escaping ((DataModelProtocol)->Void)) {
+        func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccounts(for: self.id) { data in
                 for (id, account, changeType) in data {
                     switch changeType {
@@ -36,7 +38,11 @@ extension AccountListVC {
                     case .removed: self.accounts.removeValue(forKey: id)
                     }
                 }
-                completion(DataModel(self.accounts.map {(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))", filter: $0.value.typeId ?? 4)}))
+                let dataModel = DataModel(self.accounts.map {
+                    (id: $0.key, name: $0.value.name,
+                     desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))",
+                        filter: $0.value.typeId ?? 4)})
+                completion(dataModel)
             }
         }
 

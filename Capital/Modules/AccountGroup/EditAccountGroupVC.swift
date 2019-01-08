@@ -6,7 +6,8 @@ class AccountGroupEditVC: ViewController {
         super.viewDidLoad()
 
         let table: SimpleTableProtocol = SimpleTable()
-        let segmentedControl: SegmentedControlProtocol = SegmentedControl(AccountType.allCases.map {$0.name}) {[unowned table] i in
+        let segmentedControl: SegmentedControlProtocol
+        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {[unowned table] i in
             table.filter = {$0.filter as? Int == i}
         }
         table.filter = {$0.filter as? Int == 0}
@@ -15,10 +16,16 @@ class AccountGroupEditVC: ViewController {
             nameTextField.text = data.name
         }
         service.getData { dataModel in table.localData = dataModel}
-        view.add(subViews: ["nm": nameTextField as? UIView, "sc": segmentedControl as? UIView, "tbl": table as? UIView], withConstraints: ["H:|-15-[nm]-15-|", "H:|-20-[sc]-20-|", "H:|[tbl]|", "V:|-80-[nm(31)]-20-[sc]-10-[tbl]|"])
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
+        view.add(
+            subViews: ["nm": nameTextField as? UIView, "sc": segmentedControl as? UIView,
+                       "tbl": table as? UIView],
+            withConstraints: ["H:|-15-[nm]-15-|", "H:|-20-[sc]-20-|", "H:|[tbl]|",
+                              "V:|-80-[nm(31)]-20-[sc]-10-[tbl]|"])
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                            target: self, action: #selector(didTapDone))
         table.didSelect = {[unowned self] row, ix in
-            self.service.rowSelected(id: row.id) {dataModel in table.localData = dataModel} //TODO: reload only one
+            //TODO: reload only one
+            self.service.rowSelected(id: row.id) {dataModel in table.localData = dataModel}
         }
     }
 
@@ -67,9 +74,11 @@ extension AccountGroupEditVC {
             completion?(self.dataModel)
         }
 
-        func didTapDone(name: String?, completion: (()->Void)? = nil) {
+        func didTapDone(name: String?, completion: (() -> Void)? = nil) {
             guard let name = name else {return}
-            let accounts = self.accounts.filter {selectedAccounts.contains($0.key)}.map {($0.key, $0.value.name ?? "")}
+            let accounts = self.accounts.filter {
+                selectedAccounts.contains($0.key)}.map {($0.key, $0.value.name ?? "")
+            }
             data.createAccountGroup(named: name, withAccounts: accounts)
             completion?()
         }

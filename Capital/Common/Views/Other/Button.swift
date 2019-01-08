@@ -5,9 +5,9 @@ protocol ButtonProtocol {
 }
 
 class Button: UIButton, ButtonProtocol {
-    var action: (()->Void)?
+    var action: (() -> Void)?
 
-    init(name: String, action: @escaping ()->Void) {
+    init(name: String, action: @escaping () -> Void) {
         super.init(frame: CGRect.zero)
         self.action = action
         setTitle(name, for: UIControl.State.normal)

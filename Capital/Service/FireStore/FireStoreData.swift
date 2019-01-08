@@ -16,10 +16,14 @@ class FireStoreData: FIRDataProtocol {
     static var shared: FIRDataProtocol = FireStoreData()
 
     let capitalAccountName = "capital"
-    var capitalDoc: DocumentReference? {return ref?.collection(DataObjectType.account.rawValue).document(capitalAccountName)}
+    var capitalDoc: DocumentReference? {
+        return ref?.collection(DataObjectType.account.rawValue).document(capitalAccountName)
+    }
 
     private init() {
-        // MARK: - With this change, timestamps stored in Cloud Firestore will be read back as Firebase Timestamp objects instead of as system Date objects. So you will also need to update code expecting a Date to instead expect a Timestamp. For example:
+        // MARK: - With this change, timestamps in Cloud Firestore will be read as Firebase Timestamp objects
+        // instead of as system Date objects.
+        // So you will also need to update code expecting a Date to instead expect a Timestamp. For example:
         //        // old:
         //        let date: Date = documentSnapshot.get("created_at") as! Date
         //        // new:

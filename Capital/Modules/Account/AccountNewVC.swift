@@ -9,7 +9,8 @@ class AccountNewVC: ViewController {
         let accountAmountTextField: TextFieldProtocol = NumberField("initial account amount")
         var selectedSegment = data as? Int ?? 0
 
-        let segmentedControl: SegmentedControlProtocol = SegmentedControl(AccountType.allCases.map {$0.name}) {i in
+        let segmentedControl: SegmentedControlProtocol
+        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {i in
             selectedSegment = i
         }
         segmentedControl.selectedSegmentIndex = selectedSegment
@@ -34,7 +35,8 @@ class AccountNewVC: ViewController {
 extension AccountNewVC {
     private class Service: ClassService {
         func didTapDoneWith(name: String?, amount: String?, type accountType: Int) {
-            data.createAccount(name, ofType: AccountType(rawValue: accountType), withAmount: Int(amount ?? ""), completion: nil)
+            data.createAccount(name, ofType: AccountType(rawValue: accountType),
+                               withAmount: Int(amount ?? ""), completion: nil)
         }
     }
 }

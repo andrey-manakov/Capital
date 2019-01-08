@@ -36,31 +36,31 @@ class CapitalUITests: XCTestCase {
         XCTAssert(deleteUser())
     }
 
-    func signUp(login: String, password: String)->Bool {
+    func signUp(login: String, password: String) -> Bool {
         app.textFields["loginTextField"].tap()
         _ = login.map {app.keys[String($0)].tap()}
-        app/*@START_MENU_TOKEN@*/.secureTextFields["passwordTextField"]/*[[".secureTextFields[\"password\"]",".secureTextFields[\"passwordTextField\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.secureTextFields["passwordTextField"].tap()
         _ = password.map {app.keys[String($0)].tap()}
-        app/*@START_MENU_TOKEN@*/.buttons["signUpButton"]/*[[".buttons[\"Sign Up\"]",".buttons[\"signUpButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.buttons["signUpButton"].tap()
         return app.navigationBars["DashBoard"].waitForExistence(timeout: 10)
     }
 
-    func signIn(login: String, password: String)->Bool {
+    func signIn(login: String, password: String) -> Bool {
         app.textFields["loginTextField"].tap()
         _ = login.map {app.keys[String($0)].tap()}
-        app/*@START_MENU_TOKEN@*/.secureTextFields["passwordTextField"]/*[[".secureTextFields[\"password\"]",".secureTextFields[\"passwordTextField\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.secureTextFields["passwordTextField"].tap()
         _ = password.map {app.keys[String($0)].tap()}
         app.buttons["signInButton"].tap()
         return app.navigationBars["DashBoard"].waitForExistence(timeout: 10)
     }
 
-    func signOut()->Bool {
+    func signOut() -> Bool {
         app.tabBars.buttons["Settings"].tap()
         app.tables["v"].staticTexts["Log Out"].tap()
         return app.staticTexts["appTitle"].waitForExistence(timeout: 10)
     }
 
-    func deleteUser()->Bool {
+    func deleteUser() -> Bool {
         app.tabBars.buttons["Settings"].tap()
         app.tables["v"].staticTexts["Delete User"].tap()
         return app.staticTexts["appTitle"].waitForExistence(timeout: 10)
@@ -70,16 +70,18 @@ class CapitalUITests: XCTestCase {
         app.tabBars.buttons["Accounts"].tap()
         app.buttons[account.type].tap()
         app.navigationBars["Accounts"].buttons["New"].tap()
-        app/*@START_MENU_TOKEN@*/.textFields["an"]/*[[".textFields[\"new account name\"]",".textFields[\"an\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.textFields["an"].tap()
         _ = account.name.map {app.keys[String($0)].tap()}
-        app/*@START_MENU_TOKEN@*/.textFields["aa"]/*[[".textFields[\"initial account amount\"]",".textFields[\"aa\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.textFields["aa"].tap()
         _ = account.amount.map {app.keys[String($0)].tap()}
         app.navigationBars["New account"].buttons["Done"].tap()
         //Alternative way to call
 //        let myTable = app.tables.matching(identifier: "t")
 //        let cell = myTable.cells.element(matching: .cell, identifier: name)
 //        cell.tap()
-        return app.tables["t"].staticTexts["\(account.amount) (\(account.amount))"].waitForExistence(timeout: 10) // FIXME: change to unique name
+        return app.tables["t"].staticTexts[
+            "\(account.amount) (\(account.amount))"].waitForExistence(timeout: 10)
+        // FIXME: change to unique name
     }
 
     func testCreateAccount() {
@@ -105,7 +107,9 @@ class CapitalUITests: XCTestCase {
         XCTAssert(deleteUser())
     }
 
-    func create(accountGroup name: String, with accounts: [(name: String, type: String, amount: String)]) -> Bool {
+    func create(
+        accountGroup name: String,
+        with accounts: [(name: String, type: String, amount: String)]) -> Bool {
 
         app.tabBars.buttons["DashBoard"].tap()
         app.navigationBars["DashBoard"].buttons["New"].tap()
@@ -115,8 +119,8 @@ class CapitalUITests: XCTestCase {
             app.buttons[accounts[$0].type].tap()
             app.tables["tbl"].staticTexts[accounts[$0].name].tap()
         }
-//        app/*@START_MENU_TOKEN@*/.buttons["liability"]/*[[".segmentedControls[\"sc\"].buttons[\"liability\"]",".buttons[\"liability\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        app.tables["tbl"]/*@START_MENU_TOKEN@*/.staticTexts["a"]/*[[".cells[\"a\"].staticTexts[\"a\"]",".staticTexts[\"a\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*//*@START_MENU_TOKEN@*/.staticTexts["b"]/*[[".cells[\"b\"].staticTexts[\"b\"]",".staticTexts[\"b\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+//        app.buttons["liability"].tap()
+//        app.tables["tbl"].staticTexts["a"].staticTexts["b"].tap()
         app.navigationBars["DashBoard"].buttons["Done"].tap()
         return app.tables["v"].staticTexts[name].waitForExistence(timeout: 10)
 //        app.tables["v"].staticTexts[name].tap()
@@ -134,36 +138,50 @@ class CapitalUITests: XCTestCase {
 //        XCTAssert(create(transaction: amount, with: accounts))
 //        XCTAssert(deleteUser())
 //    }
-    func create(transaction amount: String, with accounts: [(name: String, type: String, amount: String)]) -> Bool {
+    func create(
+        transaction amount: String,
+        with accounts: [(name: String, type: String, amount: String)]) -> Bool {
+
         app.tabBars.buttons["New Transaction"].tap()
-        app.tables["v"]/*@START_MENU_TOKEN@*/.staticTexts["from"]/*[[".cells.staticTexts[\"from\"]",".staticTexts[\"from\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.tables["v"].staticTexts["from"].tap()
         app.buttons[accounts[0].type].tap()
         app.tables["t"].staticTexts[accounts[0].name].tap()
         app.tables["v"].staticTexts["to"].tap()
         app.buttons[accounts[1].type].tap()
         app.tables["t"].staticTexts[accounts[1].name].tap()
-        app.tables["v"]/*@START_MENU_TOKEN@*/.staticTexts["amount"]/*[[".cells.staticTexts[\"amount\"]",".staticTexts[\"amount\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.tables["v"].staticTexts["amount"].tap()
         _ = amount.map {app.keys[String($0)].tap()}
         app.navigationBars["New Transaction"].buttons["Done"].tap()
         app.tabBars.buttons["Accounts"].tap()
         app.buttons[accounts[0].type].tap()
-        let newFromAccountValue = String((accounts[0].type == "asset" || accounts[0].type == "expense") ? Int(accounts[0].amount)! - Int(amount)!: Int(accounts[0].amount)! + Int(amount)!)
-        let newToAccountValue = String((accounts[1].type == "asset" || accounts[1].type == "expense") ? Int(accounts[1].amount)! + Int(amount)!: Int(accounts[1].amount)! - Int(amount)!)
 
-        let fromAccountIsCorrect = app.tables["t"].staticTexts["\(newFromAccountValue) (\(newFromAccountValue))"].waitForExistence(timeout: 10)
+        let newFromAccountValue =
+            String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
+                Int(accounts[0].amount)! - Int(amount)!:
+                Int(accounts[0].amount)! + Int(amount)!)
+        let newToAccountValue =
+            String((accounts[1].type == "asset" || accounts[1].type == "expense") ?
+                Int(accounts[1].amount)! + Int(amount)!:
+                Int(accounts[1].amount)! - Int(amount)!)
+
+        let fromAccountIsCorrect = app.tables["t"].staticTexts[
+            "\(newFromAccountValue) (\(newFromAccountValue))"].waitForExistence(timeout: 10)
         app.buttons[accounts[1].type].tap()
-        let toAccountIsCorrect = app.tables["t"].staticTexts["\(newToAccountValue) (\(newToAccountValue))"].waitForExistence(timeout: 10)
+        let toAccountIsCorrect = app.tables["t"].staticTexts[
+            "\(newToAccountValue) (\(newToAccountValue))"].waitForExistence(timeout: 10)
         return fromAccountIsCorrect && toAccountIsCorrect
     }
-    func create(transaction amount: String, with accounts: [(name: String, type: String, amount: String)], onDate date: Date) -> Bool {
+    func create(transaction amount: String,
+                with accounts: [(name: String, type: String, amount: String)],
+                onDate date: Date) -> Bool {
         app.tabBars.buttons["New Transaction"].tap()
-        app.tables["v"]/*@START_MENU_TOKEN@*/.staticTexts["from"]/*[[".cells.staticTexts[\"from\"]",".staticTexts[\"from\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.tables["v"].staticTexts["from"].tap()
         app.buttons[accounts[0].type].tap()
         app.tables["t"].staticTexts[accounts[0].name].tap()
         app.tables["v"].staticTexts["to"].tap()
         app.buttons[accounts[1].type].tap()
         app.tables["t"].staticTexts[accounts[1].name].tap()
-        app.tables["v"]/*@START_MENU_TOKEN@*/.staticTexts["amount"]/*[[".cells.staticTexts[\"amount\"]",".staticTexts[\"amount\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.tables["v"].staticTexts["amount"].tap()
         _ = amount.map {app.keys[String($0)].tap()}
         app.tables["v"].staticTexts["date"].tap()
 
@@ -172,7 +190,8 @@ class CapitalUITests: XCTestCase {
 //        _ = app.tables["v"].datePickers["v"].waitForExistence(timeout: 10)
 //        print(app.descendants(matching: .any).debugDescription)
 //        datePickers.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: date.day)
-//        app.tables["v"].datePickers["v"].pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: date.day)
+//        app.tables["v"].datePickers["v"].pickerWheels.element(
+//        boundBy: 1).adjust(toPickerWheelValue: date.day)
 //        datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2015")
         print("transaction date \(date.day)")
         app.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "\(date.day)")
@@ -180,12 +199,22 @@ class CapitalUITests: XCTestCase {
         app.tabBars.buttons["Accounts"].tap()
 
         app.buttons[accounts[0].type].tap()
-        let newFromAccountValue = String((accounts[0].type == "asset" || accounts[0].type == "expense") ? Int(accounts[0].amount)! - Int(amount)!: Int(accounts[0].amount)! + Int(amount)!)
-        let fromAccountIsCorrect = app.tables["t"].staticTexts["\(newFromAccountValue) (\(newFromAccountValue))"].waitForExistence(timeout: 10)
+        let newFromAccountValue =
+            String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
+                Int(accounts[0].amount)! - Int(amount)!:
+                Int(accounts[0].amount)! + Int(amount)!)
+        let fromAccountIsCorrect =
+            app.tables["t"].staticTexts[
+                "\(newFromAccountValue) (\(newFromAccountValue))"].waitForExistence(timeout: 10)
 
         app.buttons[accounts[1].type].tap()
-        let newToAccountValue = String((accounts[1].type == "asset" || accounts[1].type == "expense") ? Int(accounts[1].amount)! + Int(amount)!: Int(accounts[1].amount)! - Int(amount)!)
-        let toAccountIsCorrect = app.tables["t"].staticTexts["\(newToAccountValue) (\(newToAccountValue))"].waitForExistence(timeout: 10)
+        let newToAccountValue =
+            String((accounts[1].type == "asset" || accounts[1].type == "expense") ?
+                Int(accounts[1].amount)! + Int(amount)!:
+                Int(accounts[1].amount)! - Int(amount)!)
+        let toAccountIsCorrect =
+            app.tables["t"].staticTexts[
+                "\(newToAccountValue) (\(newToAccountValue))"].waitForExistence(timeout: 10)
 
         return fromAccountIsCorrect && toAccountIsCorrect
     }
@@ -206,17 +235,17 @@ class CapitalUITests: XCTestCase {
 //        XCTAssert(create(transaction: amount, with: accounts, onDate: sampleDate!))
 //        XCTAssert(deleteUser())
 //        
-////        let vTable = app.tables["v"]
-////        vTable/*@START_MENU_TOKEN@*/.staticTexts["2018 Dec-21"]/*[[".cells.staticTexts[\"2018 Dec-21\"]",".staticTexts[\"2018 Dec-21\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["21"].press(forDuration: 1.2);/*[[".cells.pickerWheels[\"21\"]",".tap()",".press(forDuration: 1.2);",".pickerWheels[\"21\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
-////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["20"].press(forDuration: 0.8);/*[[".cells.pickerWheels[\"20\"]",".tap()",".press(forDuration: 0.8);",".pickerWheels[\"20\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
-////        vTable/*@START_MENU_TOKEN@*/.staticTexts["repeat"]/*[[".cells.staticTexts[\"repeat\"]",".staticTexts[\"repeat\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-////        vTable/*@START_MENU_TOKEN@*/.staticTexts["Every Day"]/*[[".cells[\"Every Day\"].staticTexts[\"Every Day\"]",".staticTexts[\"Every Day\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-////
-////        let vTable = app.tables["v"]
-////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["19"]/*[[".cells.pickerWheels[\"19\"]",".pickerWheels[\"19\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
-////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["22"].press(forDuration: 1.0);/*[[".cells.pickerWheels[\"22\"]",".tap()",".press(forDuration: 1.0);",".pickerWheels[\"22\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
-////        vTable/*@START_MENU_TOKEN@*/.pickerWheels["23"].press(forDuration: 0.5);/*[[".cells.pickerWheels[\"23\"]",".tap()",".press(forDuration: 0.5);",".pickerWheels[\"23\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
-//        
+//        let vTable = app.tables["v"]
+//        vTable.staticTexts["2018 Dec-21"].tap()
+//        vTable.pickerWheels["21"].press(forDuration: 1.2);
+//        vTable.pickerWheels["20"].press(forDuration: 0.8);
+//        vTable.staticTexts["repeat"].tap()
+//        vTable.staticTexts["Every Day"].tap()
+//
+//        let vTable = app.tables["v"]
+//        vTable.pickerWheels["19"].swipeUp()
+//        vTable.pickerWheels["22"].press(forDuration: 1.0);
+//        vTable.pickerWheels["23"].press(forDuration: 0.5);
+//
 //    }
 }

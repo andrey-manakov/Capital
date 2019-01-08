@@ -9,5 +9,7 @@ class FIRManager {
         return Firestore.firestore().document("users/\(user)")
     }
     let capitalAccountName = "capital"
-    var capitalDoc: DocumentReference? {return ref?.collection(DataObjectType.account.rawValue).document(capitalAccountName)}
+    var capitalDoc: DocumentReference? {
+        return ref?.collection(DataObjectType.account.rawValue).document(capitalAccountName)
+    }
 }

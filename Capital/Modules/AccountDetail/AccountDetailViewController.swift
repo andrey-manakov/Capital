@@ -25,15 +25,20 @@ class AccountDetailVC: ViewController, AccountDetailViewControllerProtocol {
         view.add(subViews: ["accountName": accountNameTextField as? UIView,
                             "accountAmount": accountAmountTextField as? UIView,
                             "deleteButton": button as? UIView],
-                 withConstraints: ["H:|-20-[accountName]-20-|", "H:|-20-[accountAmount]-20-|", "H:|-20-[deleteButton]-20-|", "V:|-120-[accountName(31)]-20-[accountAmount(31)]", "V:[deleteButton(44)]-60-|"])
+                 withConstraints: ["H:|-20-[accountName]-20-|", "H:|-20-[accountAmount]-20-|",
+                                   "H:|-20-[deleteButton]-20-|",
+                                   "V:|-120-[accountName(31)]-20-[accountAmount(31)]",
+                                   "V:[deleteButton(44)]-60-|"])
 
         service.viewDidLoad(self)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .SystemItem.done,
+                                                            target: self, action: #selector(didTapDone))
 
     }
 
     @objc func didTapDone() {
-        service.didTapDone(with: id, name: accountNameTextField.text ?? "", amount: accountAmountTextField.text ?? "")
+        service.didTapDone(with: id, name: accountNameTextField.text ?? "",
+                           amount: accountAmountTextField.text ?? "")
         navigationController?.popViewController(animated: true)
     }
 

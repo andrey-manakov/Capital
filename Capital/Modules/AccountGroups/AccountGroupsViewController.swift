@@ -14,7 +14,8 @@ class AccountGroupsViewController: ViewController {
         table.swipeLeftLabel = "Delete"
         table.didSelect = {[unowned self] row, ix in
             print("Row \(row) was selected at index \(ix)")
-            self.navigationController?.pushViewController(AccountGroupDetailVC((row.id, row.name)), animated: true)
+            self.navigationController?.pushViewController(AccountGroupDetailVC((row.id, row.name)),
+                                                          animated: true)
         }
     }
 
@@ -25,7 +26,7 @@ extension AccountGroupsViewController {
 
         private var accountGroups = [String: Account.Group]() //{didSet{print(accountGroups)}}
 
-        func getData(completion: @escaping ((DataModelProtocol)->Void)) {
+        func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccountGroup(for: self.id) { data in
                 for (id, accountGroup, changeType) in data {
                     switch changeType {
@@ -33,7 +34,10 @@ extension AccountGroupsViewController {
                     case .removed: self.accountGroups.removeValue(forKey: id)
                     }
                 }
-                completion(DataModel(self.accountGroups.map {(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")}))
+                let dataModel = DataModel(self.accountGroups.map {
+                    (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
+                })
+                completion(dataModel)
             }
         }
 

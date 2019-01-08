@@ -6,13 +6,15 @@ class AccountSelectorVC: ViewController {
         title = "Select Account"
 
         let table: SimpleTableWithSwipeProtocol = SimpleTableWithSwipe()
-        let segmentedControl: SegmentedControlProtocol = SegmentedControl(AccountType.allCases.map {$0.name}) {i in
+        let segmentedControl: SegmentedControlProtocol
+        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {i in
             table.filter = {$0.filter as? Int == i}
         }
         table.filter = {$0.filter as? Int == 0}
         service.getData { dataModel in table.localData = dataModel}
 
-        view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView], withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
+        view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView],
+                 withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
 
         let selectionAction = data as? ((Any?) -> Void)
         table.didSelect = {row, ix in

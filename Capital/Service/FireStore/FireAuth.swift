@@ -1,8 +1,8 @@
 protocol FireAuthProtocol {
     var currentUserUid: String? {get}
-    func signOutUser(_ completion: ((Error?)->Void)?)
-    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)?)
-    func createUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)?)
+    func signOutUser(_ completion: ((Error?) -> Void)?)
+    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
+    func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
 }
 
 class FIRAuth: FireAuthProtocol {
@@ -30,20 +30,21 @@ class FIRAuth: FireAuthProtocol {
         }
     }
 
-    func createUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)? = nil) {
+    func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
         Auth.auth().createUser(withEmail: email, password: pwd) {[unowned self] _, error in
             guard error == nil else {print(error?.localizedDescription as Any);return}
             self.signInUser(withEmail: email, password: pwd)
         }
     }
 
-    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)? = nil) {
+    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
         Auth.auth().signIn(withEmail: email, password: pwd) {_, error in completion?(error)
             //TODO: consider checking for capital account
         }
     }
 
-    func signOutUser(_ completion: ((Error?)->Void)? = nil) {     //TODO: check if removal of observers is needed
+    func signOutUser(_ completion: ((Error?) -> Void)? = nil) {
+        //TODO: check if removal of observers is needed
         do {
             try Auth.auth().signOut()
             completion?(nil)

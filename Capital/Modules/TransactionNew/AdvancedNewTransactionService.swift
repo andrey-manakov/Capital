@@ -71,16 +71,26 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
         case .amount:
             view?.setAmountFieldFirstResponder()
         case .date:
-            if transactionItems.contains(.dateSelection) {hide(.dateSelection)} else {insert(.dateSelection, after: .date)}
+            if transactionItems.contains(.dateSelection) {
+                hide(.dateSelection)
+            } else {
+                insert(.dateSelection, after: .date)
+            }
         case .dateSelection:
             fatalError()
         case .approvalMode:
-            let sourceData: () -> (DataModel) = {return DataModel(FinTransaction.ApprovalMode.allCases.map {(id: "\($0.rawValue)", name: $0.name)})}
+            let sourceData: () -> (DataModel) = {
+                return DataModel(FinTransaction.ApprovalMode.allCases.map {
+                    (id: "\($0.rawValue)", name: $0.name)
+                })
+            }
             view?.push(EnumValuesSelectorVC((sourceData: sourceData, selectionAction: action)))
         case .recurrenceFrequency:
             view?.push(RecurrenceFrequencySelectorVC(action))
         case .recurrenceEnd:
-            if transactionItems.contains(.recurrenceEndDate) {hide(.recurrenceEndDate)} else {insert(.recurrenceEndDate, after: .recurrenceEnd)}
+            if transactionItems.contains(.recurrenceEndDate) {hide(.recurrenceEndDate)} else {
+                insert(.recurrenceEndDate, after: .recurrenceEnd)
+            }
         case .recurrenceEndDate:
             fatalError()
         }
@@ -112,14 +122,20 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
             }
             getData(for: .date)
         case .approvalMode:
-            guard let id = value as? String, let rv = Int(id), let am = FinTransaction.ApprovalMode(rawValue: rv) else {return}
+            guard let id = value as? String, let rv = Int(id),
+                let am = FinTransaction.ApprovalMode(rawValue: rv) else {return}
             approvalMode = am
             getData(for: transactionItem)
         case .recurrenceFrequency:
-            guard let id = value  as? String, let rw = Int(id), let rm = RecurrenceFrequency(rawValue: rw) else {return}
+            guard let id = value  as? String, let rw = Int(id),
+                let rm = RecurrenceFrequency(rawValue: rw) else {return}
             self.recurrenceFrequency = rm
             getData(for: .recurrenceFrequency)
-            if rm == .never {hide(.recurrenceEnd)} else {if !transactionItems.contains(.recurrenceEnd) {insert(.recurrenceEnd, after: .recurrenceFrequency)}}
+            if rm == .never {hide(.recurrenceEnd)} else {
+                if !transactionItems.contains(.recurrenceEnd) {
+                    insert(.recurrenceEnd, after: .recurrenceFrequency)
+                }
+            }
         case .recurrenceEnd:
             fatalError()
         case .recurrenceEndDate:
@@ -132,8 +148,13 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
 
     func didTapDone() {
         view?.endEditing(force: true)
-        guard let fromId = fromAccountId, let fromName = transactionItemsDesc[.from], let toId = toAccountId, let toName = transactionItemsDesc[.to], let amountV = amount  else {return}
-        data.createTransaction(from: (fromId, fromName), to: (toId, toName), amount: amountV, date: date, approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEndDate) {_ in
+        guard let fromId = fromAccountId, let fromName = transactionItemsDesc[.from],
+            let toId = toAccountId, let toName = transactionItemsDesc[.to],
+            let amountV = amount  else {return}
+        data.createTransaction(from: (fromId, fromName), to: (toId, toName), amount: amountV,
+                               date: date, approvalMode: approvalMode,
+                               recurrenceFrequency: recurrenceFrequency,
+                               recurrenceEnd: recurrenceEndDate) {_ in
             //            self.view?.dismissNavigationViewController() //FIXME: should clear the data
         }
 

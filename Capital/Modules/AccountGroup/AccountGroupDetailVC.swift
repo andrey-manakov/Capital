@@ -8,11 +8,13 @@ class AccountGroupDetailVC: ViewController {
         if let data = data as? (id: String, name: String) {
             service.getData(withId: data.id) {dataModel in table.localData = dataModel}
             table.didSelect = {[unowned self] row, ix in
-                self.navigationController?.pushViewController(AccountTransactionsVC((row.id, row.name)), animated: true)
+                let viewController = AccountTransactionsVC((row.id, row.name))
+                self.navigationController?.pushViewController(viewController, animated: true)
             }
             title = data.name
             navigationItem.rightBarButtonItem = BarButtonItem(title: "Edit") {[unowned self] in
-                self.navigationController?.pushViewController(AccountGroupEditVC((data.id, data.name)), animated: true)
+                let viewController = AccountGroupEditVC((data.id, data.name))
+                self.navigationController?.pushViewController(viewController, animated: true)
             }
         }
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
@@ -32,7 +34,10 @@ extension AccountGroupDetailVC {
                     case .removed: self.accounts.removeValue(forKey: id)
                     }
                 }
-                completion(DataModel(self.accounts.map {(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")}))
+                let dataModel = DataModel(self.accounts.map {
+                    (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
+                })
+                completion(dataModel)
             })
         }
 

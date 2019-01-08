@@ -1,5 +1,5 @@
 protocol FIRFinTransactionManagerProtocolOld: class {
-    func createTransaction(from: String?, to: String?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, completion: ((String?)->Void)?)
+    func createTransaction(from: String?, to: String?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, completion: ((String?) -> Void)?)
     // swiftlint:disable function_parameter_count
     func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String?, approvedAmount: Int) -> Int
 }
@@ -36,7 +36,7 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
     ///     * read account amounts from FireStore
     ///     * create transactions
     ///     * update account amounts
-    func createTransaction(from: String?, to: String?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, completion: ((String?)->Void)? = nil) {
+    func createTransaction(from: String?, to: String?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
 
         guard let ref = ref, let from = from, let to = to, let amount = amount else {return}
 
@@ -67,28 +67,47 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
     ///   - approvalMode: the way **future** transaction is processed when the transaction ````date```` comes
     ///   - recurrenceFrequency: for transaction to be repeated in the future, the repeating frequency
     ///   - recurrenceEnd: date when recurrency should finish
-    ///   - completion: action to perform after function finishes execution, for now it only works for successes
-    ///   - parent: id of parent transaction - transaction which is based for recurrent transactions, this parent prpoerty is used to be able to get the group of recurrent transactions
-    ///   - approvedAmount: amount returned - the sum of amounts of approved transactions (in the past) used to update account values
-    /// - Returns: approvedAmount(Int) - the sum of amounts of approved transactions (in the past) used to update account values
-    func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil, recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil, parent: String? = nil, approvedAmount: Int = 0) -> Int {
-        guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(), let from = from, let to = to, let amount = amount else {return 0}
+    ///   - completion: action to perform after function finishes execution,
+    ///     for now it only works for successes
+    ///   - parent: id of parent transaction - transaction which is based for recurrent transactions,
+    ///     this parent prpoerty is used to be able to get the group of recurrent transactions
+    ///   - approvedAmount: amount returned - the sum of amounts of approved transactions (in the past),
+    ///     used to update account values
+    /// - Returns: approvedAmount(Int) - the sum of amounts of approved transactions (in the past),
+    ///     used to update account values
+    func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?,
+                            date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
+                            recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
+                            parent: String? = nil, approvedAmount: Int = 0) -> Int {
+        guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
+            let from = from, let to = to, let amount = amount else {return 0}
         let date = date ?? Date()
         fsTransaction.setData([
-            FinTransaction.Fields.from.rawValue: [FinTransaction.Fields.From.id.rawValue: from.id, FinTransaction.Fields.From.name.rawValue: from.name] as Any,
+            FinTransaction.Fields.from.rawValue:
+                [FinTransaction.Fields.From.id.rawValue: from.id,
+                 FinTransaction.Fields.From.name.rawValue: from.name] as Any,
             FinTransaction.Fields.to.rawValue:
-                [FinTransaction.Fields.To.id.rawValue: to.id, FinTransaction.Fields.To.name.rawValue: to.name] as Any,
+                [FinTransaction.Fields.To.id.rawValue: to.id,
+                 FinTransaction.Fields.To.name.rawValue: to.name] as Any,
             FinTransaction.Fields.amount.rawValue: amount as Any,
             FinTransaction.Fields.date.rawValue: Timestamp(date: date),
             FinTransaction.Fields.isApproved.rawValue: date < Date() ? true : false,
             FinTransaction.Fields.approvalMode.rawValue: approvalMode?.rawValue as Any,
-            FinTransaction.Fields.recurrenceFrequency.rawValue: recurrenceFrequency == nil ? NSNull() : recurrenceFrequency!.rawValue,
-            FinTransaction.Fields.recurrenceEnd.rawValue: recurrenceEnd == nil ? NSNull() : Timestamp(date: recurrenceEnd!)
+            FinTransaction.Fields.recurrenceFrequency.rawValue:
+                recurrenceFrequency == nil ? NSNull() : recurrenceFrequency!.rawValue,
+            FinTransaction.Fields.recurrenceEnd.rawValue:
+                recurrenceEnd == nil ? NSNull() : Timestamp(date: recurrenceEnd!)
             ], forDocument: newFinTransactionRef)
         let approvedAmount = date < Date() ? approvedAmount + amount : approvedAmount
         //TODO: consider default recurrence end
-        if let rf = recurrenceFrequency, rf != .never, let nextDate = nextDate(from: date, recurrenceFrequency: recurrenceFrequency), let re = recurrenceEnd, nextDate <= re {
-            return sendFinTransaction(to: fsTransaction, from: from, to: to, amount: amount, date: nextDate, approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd, parent: parent ?? newFinTransactionRef.documentID, approvedAmount: approvedAmount)
+        if let rf = recurrenceFrequency, rf != .never,
+            let nextDate = nextDate(from: date, recurrenceFrequency: recurrenceFrequency),
+            let re = recurrenceEnd, nextDate <= re {
+            return sendFinTransaction(to: fsTransaction, from: from, to: to, amount: amount, date: nextDate,
+                                      approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency,
+                                      recurrenceEnd: recurrenceEnd,
+                                      parent: parent ?? newFinTransactionRef.documentID,
+                                      approvedAmount: approvedAmount)
         } else {
             return approvedAmount
         }

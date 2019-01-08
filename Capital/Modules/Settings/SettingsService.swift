@@ -13,7 +13,9 @@ class SettingsService: ClassService, SettingsServiceProtocol {
     }
 
     func getData() {
-        view?.table.localData = DataModel(Settings.allCases.map {(id: "\($0.rawValue)", name: $0.name, desc: "")})
+        view?.table.localData = DataModel(Settings.allCases.map {
+            (id: "\($0.rawValue)", name: $0.name, desc: "")
+        })
     }
 
     func didSelect(_ row: DataModelRowProtocol, at ix: IndexPath) {

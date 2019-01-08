@@ -30,7 +30,8 @@ extension AccountTransactionsVC {
         private var transactions = [String: FinTransaction]()
         func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
             guard let id = id else {return}
-            data.setListnersToTransactionsOfAccount(withId: id, for: self.id, completion: {[unowned self] data in
+            data.setListnersToTransactionsOfAccount(withId: id, for: self.id,
+                                                    completion: {[unowned self] data in
                 for (id, transaction, changeType) in data {
                     switch changeType {
                     case .added, .modified: self.transactions[id] = transaction

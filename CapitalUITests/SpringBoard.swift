@@ -46,8 +46,10 @@ class Springboard {
         // Wait some time for the animation end
         Thread.sleep(forTimeInterval: 0.5)
 
-        // Handle iOS 11 iPad 'duplication' of icons (one nested under "Home screen icons" and the other nested under "Multitasking Dock"
-        let settingsIcon = springboard.otherElements["Home screen icons"].scrollViews.otherElements.icons["Settings"]
+        // Handle iOS 11 iPad 'duplication' of icons (one nested under "Home screen icons"
+        // and the other nested under "Multitasking Dock"
+        let settingsIcon = springboard.otherElements[
+            "Home screen icons"].scrollViews.otherElements.icons["Settings"]
         if settingsIcon.exists {
             settingsIcon.tap()
             settings.tables.staticTexts["General"].tap()

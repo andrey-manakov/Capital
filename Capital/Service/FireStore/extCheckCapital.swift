@@ -1,7 +1,7 @@
 // MARK: - Capital Account Creation if needed
 extension FireStoreData {
     /// Creates Capital account if doesn't exist
-    func checkIfCapitalAccountExist(completion: ((Error?)->Void)? = nil) {
+    func checkIfCapitalAccountExist(completion: ((Error?) -> Void)? = nil) {
         //FIXME: get rid of text in quotes
         //FIXME: move to sign in sign up
         let capitalRef = ref?.collection(DataObjectType.account.rawValue).document("capital")
@@ -55,7 +55,7 @@ extension FireStoreData {
 
     }
 
-    private func deleteAll(_ dataObject: DataObjectType, _ completion: (()->Void)? = nil) {
+    private func deleteAll(_ dataObject: DataObjectType, _ completion: (() -> Void)? = nil) {
         self.ref?.collection(dataObject.rawValue).getDocuments { snapshot, error in
             print(dataObject)
             if let error = error {print(error.localizedDescription); completion?()}

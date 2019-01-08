@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Capital Docs
         </a>
-         (9% documented)
+         (10% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -604,7 +604,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getUserData</span><span class="p">(</span><span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span> <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DocumentSnapshot</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getUserData</span><span class="p">(</span><span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span>
+                 <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DocumentSnapshot</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -634,7 +635,10 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">_</span> <span class="nv">dataObject</span><span class="p">:</span> <span class="kt"><a href="../Enums/DataObjectType.html">DataObjectType</a></span><span class="p">,</span> <span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span> <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/DataObjectProtocol.html">DataObjectProtocol</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">_</span> <span class="nv">dataObject</span><span class="p">:</span> <span class="kt"><a href="../Enums/DataObjectType.html">DataObjectType</a></span><span class="p">,</span>
+         <span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+         <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span>
+         <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/DataObjectProtocol.html">DataObjectProtocol</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -664,7 +668,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAccountGroup</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span> <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt"><a href="../Classes/Account.html">Account</a></span><span class="o">.</span><span class="kt">Group</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAccountGroup</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+                     <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span>
+                     <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt"><a href="../Classes/Account.html">Account</a></span><span class="o">.</span><span class="kt">Group</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -694,7 +700,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAccount</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span> <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Account.html">Account</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAccount</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+                <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span>
+                <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Account.html">Account</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -724,7 +732,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getTransaction</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span> <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FinTransaction.html">FinTransaction</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getTransaction</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+                    <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span>
+                    <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FinTransaction.html">FinTransaction</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -754,7 +764,9 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAmount</span><span class="p">(</span><span class="n">ofAccount</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span> <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getAmount</span><span class="p">(</span><span class="n">ofAccount</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+               <span class="k">for</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span>
+               <span class="n">with</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>

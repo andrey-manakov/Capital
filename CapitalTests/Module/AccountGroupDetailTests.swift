@@ -47,7 +47,8 @@ class AccountGroupDetailVCTests: XCTestCase {
 //        var result = false
 //        if let views = view?.subviews {
 //            for view in views {
-//                if let deleteButton = view as? Button, deleteButton.accessibilityIdentifier == "deleteButton" {
+//                if let deleteButton = view as? Button,
+//                    deleteButton.accessibilityIdentifier == "deleteButton" {
 //                    deleteButton.sendActions(for: UIControl.Event.touchUpInside)
 //                }
 //            }
@@ -55,7 +56,7 @@ class AccountGroupDetailVCTests: XCTestCase {
 //        if let data = Data.shared as? DataMock, data.deleteAccountCalled == true  {result = true}
 //        XCTAssert(result)
 //    }
-
+//
 //    func testViewDidLoad() {
 //        var result = true
 //        let viewsSet: Set<String> = ["accountName", "accountAmount", "deleteButton"]
@@ -70,7 +71,7 @@ class AccountGroupDetailVCTests: XCTestCase {
 //        }
 //        XCTAssert(result)
 //    }
-
+//
 //    func testDoneButton() {
 //        let item = sut.navigationItem.rightBarButtonItem
 //        item?.perform(item?.action)

@@ -7,7 +7,7 @@ protocol SegmentedControlProtocol: class {
 class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {
     var actionOnValueChange: ((Int) -> Void)?
 
-    init(_ titles: [String], _ actionOnValueChange: ((Int)->Void)? = nil) {
+    init(_ titles: [String], _ actionOnValueChange: ((Int) -> Void)? = nil) {
         super.init(frame: CGRect.zero)
         for i in 0..<AccountType.all.count {
             self.insertSegment(withTitle: AccountType.all[i], at: i, animated: false)

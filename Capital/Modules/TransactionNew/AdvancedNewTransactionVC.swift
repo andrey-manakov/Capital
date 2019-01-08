@@ -30,8 +30,9 @@ class AdvancedNewTransactionVC: ViewController, AdvancedNewTransactionVCProtocol
         service.viewDidLoad(self)
         title = "New Transaction"
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(didTapCancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonItem.SystemItem.done,
+            target: self, action: #selector(didTapDone))
     }
 
     @objc func didTapCancel() {dismissNavigationViewController()}
@@ -70,31 +71,49 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let id = tableData[indexPath].id, let item = TransactionItem(rawValue: id) else {return UITableViewCell()}
+        guard let id = tableData[indexPath].id, let item = TransactionItem(rawValue: id) else {
+            return UITableViewCell()
+        }
         switch item {
 
         case .from, .to, .recurrenceFrequency, .approvalMode:
-            guard let cell: LeftRightCellProtocol = tableView.dequeueReusableCell(withIdentifier: LeftRightCell.self.description()) as? LeftRightCell else {return UITableViewCell()}
+            guard let cell: LeftRightCellProtocol =
+                tableView.dequeueReusableCell(
+                    withIdentifier: LeftRightCell.self.description()) as? LeftRightCell else {
+                        return UITableViewCell()
+            }
             cell.textLabel?.text = tableData[indexPath].name
             cell.detailTextLabel?.text = tableData[indexPath].desc
             cell.detailTextLabel?.textColor = .red
             //            cell.accessoryType = .disclosureIndicator //            FIXME: disclosureIndicator
             if let cellV = cell as? UITableViewCell {return cellV} else {return UITableViewCell()}
         case .amount:
-            guard let cell: InputAmountCellProtocol = tableView.dequeueReusableCell(withIdentifier: InputAmountCell.self.description()) as? InputAmountCell else {return UITableViewCell()}
+            guard let cell: InputAmountCellProtocol =
+                tableView.dequeueReusableCell(
+                    withIdentifier: InputAmountCell.self.description()) as? InputAmountCell else {
+                    return UITableViewCell()
+            }
             cell.textLabel?.text = tableData[indexPath].name
             amountTextField = cell.amountTextField
             cell.amountTextField.delegate = self
             amountTextField?.text = tableData[indexPath].desc
             return cell as? UITableViewCell ?? UITableViewCell()
         case .date, .recurrenceEnd:
-            guard let cell: LeftRightCellProtocol = tableView.dequeueReusableCell(withIdentifier: LeftRightCell.self.description()) as? LeftRightCell else {return UITableViewCell()}
+            guard let cell: LeftRightCellProtocol =
+                tableView.dequeueReusableCell(
+                    withIdentifier: LeftRightCell.self.description()) as? LeftRightCell else {
+                    return UITableViewCell()
+            }
             cell.textLabel?.text = tableData[indexPath].name
             cell.detailTextLabel?.text = tableData[indexPath].desc ?? Date().string
             cell.detailTextLabel?.textColor = .red
             if let cellV = cell as? UITableViewCell {return cellV} else {return UITableViewCell()}
         case .dateSelection, .recurrenceEndDate:
-            guard var cell: DateSelectionCellProtocol = tableView.dequeueReusableCell(withIdentifier: DateSelectionCell.self.description()) as? DateSelectionCell else {return UITableViewCell()}
+            guard var cell: DateSelectionCellProtocol =
+                tableView.dequeueReusableCell(
+                    withIdentifier: DateSelectionCell.self.description()) as? DateSelectionCell else {
+                        return UITableViewCell()
+            }
             cell.date = tableData[indexPath].desc?.date
             cell.actionOnDateChange = {[unowned self] date in
                 self.service.didChoose(transactionItem: item, with: date)
@@ -102,8 +121,12 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
             if let cellV = cell as? UITableViewCell {return cellV} else {return UITableViewCell()}
         }
     }
-    func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {table.deleteRows(at: indexPaths, with: animation)} //TODO: check if this is delegate
-    func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {table.insertRows(at: indexPaths, with: animation)}
+    func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+        table.deleteRows(at: indexPaths, with: animation)
+    } //TODO: check if this is delegate
+    func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+        table.insertRows(at: indexPaths, with: animation)
+    }
 
 }
 
@@ -122,11 +145,17 @@ extension AdvancedNewTransactionVC: UITableViewDelegate {
         service.didSelect(item)
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) { service.didScroll()}//TODO: check if this event is correct choice
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        service.didScroll()
+    }//TODO: check if this event is correct choice
 
 }
 
 extension AdvancedNewTransactionVC: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {service.didChoose(transactionItem: .amount, with: textField.text)}
-    func textFieldDidBeginEditing(_ textField: UITextField) {textField.selectAll(nil)}
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        service.didChoose(transactionItem: .amount, with: textField.text)
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.selectAll(nil)
+    }
 }

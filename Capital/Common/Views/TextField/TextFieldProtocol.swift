@@ -4,5 +4,5 @@ protocol TextFieldProtocol: class {
     var isFirstResponder: Bool {get}
     func resignFirstResponder() -> Bool
     func becomeFirstResponder() -> Bool
-    var actionOnReturn: (()->Void)? {get set}
+    var actionOnReturn: (() -> Void)? {get set}
 }

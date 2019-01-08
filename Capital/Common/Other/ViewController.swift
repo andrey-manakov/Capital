@@ -3,8 +3,8 @@ import UIKit
 /// Parent protocol to all View Controllers protocol
 protocol ViewControllerProtocol: class {
     var data: Any? {get set}
-    func dismiss(completion: (()->Void)?)
-    func dimissNavigationViewController(completion: (()->Void)?)
+    func dismiss(completion: (() -> Void)?)
+    func dimissNavigationViewController(completion: (() -> Void)?)
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
     func push(_ viewController: UIViewController)
     func endEditing(force: Bool)
@@ -41,14 +41,14 @@ class ViewController: UIViewController, ViewControllerProtocol {
     /// Check that View Controller is deallocated - for debug purposes
     deinit {print("\(type(of: self)) deinit!")}
 
-    func dismiss(completion: (()->Void)? = nil) {
+    func dismiss(completion: (() -> Void)? = nil) {
         if let navigationController = navigationController {
             navigationController.popViewController(animated: true)
         } else {
             self.dismiss(animated: true, completion: completion)
         }
     }
-    func dimissNavigationViewController(completion: (()->Void)? = nil) {
+    func dimissNavigationViewController(completion: (() -> Void)? = nil) {
         navigationController?.dismiss(animated: true, completion: completion)
     }
     func push(_ vc: UIViewController) {navigationController?.pushViewController(vc, animated: true)}

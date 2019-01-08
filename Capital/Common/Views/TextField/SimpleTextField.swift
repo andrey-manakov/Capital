@@ -3,9 +3,9 @@ import UIKit
 class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDelegate {
 
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-    var actionOnReturn: (()->Void)?
+    var actionOnReturn: (() -> Void)?
 
-    init(_ placeholder: String? = nil, _ actionOnReturn: (()->Void)? = nil) {
+    init(_ placeholder: String? = nil, _ actionOnReturn: (() -> Void)? = nil) {
         super.init(frame: CGRect.zero)
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1.0

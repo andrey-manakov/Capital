@@ -4,7 +4,9 @@ class EnumValuesSelectorVC: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
-        guard let dataV = data as? (sourceData: () -> (DataModel), selectionAction: (Any?)->Void) else {return}
+        guard let dataV = data as? (sourceData: () -> (DataModel), selectionAction: (Any?) -> Void) else {
+            return
+        }
         table.dataFormula = dataV.sourceData
         table.didSelect = {[unowned self] row, ix in
             dataV.selectionAction(row.id)

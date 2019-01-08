@@ -32,7 +32,11 @@ struct DataModelRow: DataModelRowProtocol {
         return "name \(name ?? "nil") desc \(desc ?? "nil")"
     }
 
-    init(id: String? = nil, name: String? = nil, desc: String? = nil, height: CGFloat? = nil, left: String? = nil, up: String? = nil, down: String? = nil, right: String? = nil, style: CellStyle? = nil, action: ((_ row: DataModelRowProtocol, _ ix: IndexPath)->Void)? = nil, accessory: Int? = nil, filter: Any? = nil) {
+    init(id: String? = nil, name: String? = nil, desc: String? = nil, height: CGFloat? = nil,
+         left: String? = nil, up: String? = nil, down: String? = nil, right: String? = nil,
+         style: CellStyle? = nil,
+         action: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)? = nil,
+         accessory: Int? = nil, filter: Any? = nil) {
         self.id = id
         self.name = name
         self.desc = desc

@@ -5,7 +5,8 @@ protocol FireStoreGettersProtocol {
 
 extension FireStoreGettersProtocol {
 
-    func getUserData(for fsTransaction: Transaction, with errorPointer: NSErrorPointer = nil) -> DocumentSnapshot? {
+    func getUserData(for fsTransaction: Transaction,
+                     with errorPointer: NSErrorPointer = nil) -> DocumentSnapshot? {
         guard let ref = ref else {return nil}
         let doc: DocumentSnapshot
         do {
@@ -17,7 +18,10 @@ extension FireStoreGettersProtocol {
         return doc
     }
 
-    func get(_ dataObject: DataObjectType, withId id: String?, for fsTransaction: Transaction, with errorPointer: NSErrorPointer = nil) -> DataObjectProtocol? {
+    func get(_ dataObject: DataObjectType,
+             withId id: String?,
+             for fsTransaction: Transaction,
+             with errorPointer: NSErrorPointer = nil) -> DataObjectProtocol? {
         guard let ref = ref, let id = id else {return nil}
         let doc: DocumentSnapshot
         do {
@@ -36,19 +40,27 @@ extension FireStoreGettersProtocol {
         }
     }
 
-    func getAccountGroup(withId id: String?, for fsTransaction: Transaction, with errorPointer: NSErrorPointer = nil)->Account.Group? {
+    func getAccountGroup(withId id: String?,
+                         for fsTransaction: Transaction,
+                         with errorPointer: NSErrorPointer = nil)->Account.Group? {
         return get(.group, withId: id, for: fsTransaction, with: errorPointer) as? Account.Group
     }
 
-    func getAccount(withId id: String?, for fsTransaction: Transaction, with errorPointer: NSErrorPointer = nil) -> Account? {
+    func getAccount(withId id: String?,
+                    for fsTransaction: Transaction,
+                    with errorPointer: NSErrorPointer = nil) -> Account? {
         return get(.account, withId: id, for: fsTransaction, with: errorPointer) as? Account
     }
 
-    func getTransaction(withId id: String?, for fsTransaction: Transaction, with errorPointer: NSErrorPointer = nil) -> FinTransaction? {
+    func getTransaction(withId id: String?,
+                        for fsTransaction: Transaction,
+                        with errorPointer: NSErrorPointer = nil) -> FinTransaction? {
         return get(.transaction, withId: id, for: fsTransaction, with: errorPointer) as? FinTransaction
     }
 
-    func getAmount(ofAccount id: String?, for fsTransaction: Transaction, with errorPointer: NSErrorPointer = nil) -> Int? {
+    func getAmount(ofAccount id: String?,
+                   for fsTransaction: Transaction,
+                   with errorPointer: NSErrorPointer = nil) -> Int? {
         return getAccount(withId: id, for: fsTransaction, with: errorPointer)?.amount
     }
 }

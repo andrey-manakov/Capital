@@ -1,9 +1,9 @@
 protocol FireAuthProtocol {
     var currentUserUid: String? {get}
-    func deleteUser(_ completion: ((Error?)->Void)?)
-    func signOutUser(_ completion: ((Error?)->Void)?)
-    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)?)
-    func createUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)?)
+    func deleteUser(_ completion: ((Error?) -> Void)?)
+    func signOutUser(_ completion: ((Error?) -> Void)?)
+    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
+    func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
 }
 
 class FIRAuth: FireAuthProtocol {
@@ -27,7 +27,7 @@ class FIRAuth: FireAuthProtocol {
         }
     }
 
-    func createUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)? = nil) {
+    func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
         Auth.auth().createUser(withEmail: email, password: pwd) {_, error in
             if let error = error {
                 print("Error in user creation \(error.localizedDescription)")
@@ -49,11 +49,11 @@ class FIRAuth: FireAuthProtocol {
         }
     }
 
-    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?)->Void)? = nil) {
+    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
         Auth.auth().signIn(withEmail: email, password: pwd) {_, error in completion?(error)}
     }
 
-    func signOutUser(_ completion: ((Error?)->Void)? = nil) {
+    func signOutUser(_ completion: ((Error?) -> Void)? = nil) {
         do {
             try Auth.auth().signOut()
             completion?(nil)

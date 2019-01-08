@@ -13,7 +13,7 @@ extension FireStoreCompletionProtocol {
         if let error = error {
             print("Error in working with firebase: \(error.localizedDescription)")
         } else {
-            guard let completionAction = result as? ()->Void else {return}
+            guard let completionAction = result as? () -> Void else {return}
             completionAction()
         }
     }
