@@ -13,22 +13,31 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
             if user != nil {self.present(TabBarController(), animated: true)} else {print("User is nil")}}
 
         let signInButton: ButtonProtocol = Button(name: "Sign In") {
-            service.didTapSignIn(withLogin: loginTextField.text,
-                                 andPassword: passwordTextField.text) {error in
-                if let error = error {self.alert(message: error.localizedDescription)} else {
-                    loginTextField.text = ""
-                    passwordTextField.text = ""
-                }
+            guard let login = loginTextField.text, let password = passwordTextField.text else {return}
+            loginTextField.text = ""
+            passwordTextField.text = ""
+            service.didTapSignIn(withLogin: login,
+                                 andPassword: password) {error in
+                if let error = error {self.alert(message: error.localizedDescription)}
+//                else {
+//                    loginTextField.text = ""
+//                    passwordTextField.text = ""
+//                }
             }
         }
 
         let signUpButton: ButtonProtocol = Button(name: "Sign Up") {
-            service.didTapSignUp(withLogin: loginTextField.text,
-                                 andPassword: passwordTextField.text) {error in
-                if let error = error {self.alert(message: error.localizedDescription)} else {
-                    loginTextField.text = ""
-                    passwordTextField.text = ""
-                }
+            guard let login = loginTextField.text, let password = passwordTextField.text else {return}
+            loginTextField.text = ""
+            passwordTextField.text = ""
+            service.didTapSignUp(
+                withLogin: login,
+                andPassword: password) {error in
+                    if let error = error {self.alert(message: error.localizedDescription)}
+//                if let error = error {self.alert(message: error.localizedDescription)} else {
+//                    loginTextField.text = ""
+//                    passwordTextField.text = ""
+//                }
             }
         }
         // swiftlint:disable line_length
