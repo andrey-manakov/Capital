@@ -14,11 +14,11 @@ class SimpleLabelTests: XCTestCase {
     }
 
     func testInitWithText() {
-        //given
+        // given
         let text = "1"
-        //when
+        // when
         let sample = SimpleLabel(text)
-        //then
+        // then
         XCTAssertTrue(sample.text == text)
     }
 

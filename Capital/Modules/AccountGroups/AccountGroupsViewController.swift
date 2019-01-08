@@ -23,7 +23,7 @@ class AccountGroupsViewController: ViewController {
 extension AccountGroupsViewController {
     class Service: ClassService {
 
-        private var accountGroups = [String: Account.Group]() //{didSet{print(accountGroups)}}
+        private var accountGroups = [String: Account.Group]() // {didSet{print(accountGroups)}}
 
         func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccountGroup(for: self.id) { data in
@@ -44,6 +44,7 @@ extension AccountGroupsViewController {
             guard let id = row?.id else {return}
             data.delete(.group, withId: id)
         }
+
     }
 
 }

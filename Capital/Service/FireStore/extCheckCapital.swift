@@ -1,25 +1,28 @@
 // MARK: - Capital Account Creation if needed
 extension FireStoreData {
+
     /// Creates Capital account if doesn't exist
     func checkIfCapitalAccountExist(completion: ((Error?) -> Void)? = nil) {
-        //FIXME: get rid of text in quotes
-        //FIXME: move to sign in sign up
+        // FIXME: get rid of text in quotes
+        // FIXME: move to sign in sign up
         let capitalRef = ref?.collection(DataObjectType.account.rawValue).document("capital")
         capitalRef?.getDocument { (doc, error) in
-            if let error = error {completion?(error)}
+            if let error = error {
+                completion?(error)
+            }
             if let doc = doc, doc.exists {
                 print("Capital account exists")
                 completion?(error)
             } else {
                 print("Capital account creation")
-                capitalRef?.setData(["name": "capital", "amount": 0, "type": 4]) {error in
+                capitalRef?.setData(["name": "capital", "amount": 0, "type": 4]) { error in
                     completion?(error)
                 }
             }
         }
     }
 
-    //FIXME: Change implementation
+    // FIXME: Change implementation
     func deleteAll(_ completion: (() -> Void)? = nil) {
         // FIXME: decide if delete all accounts should create capital account
 
@@ -27,7 +30,9 @@ extension FireStoreData {
 
         if let uid = Auth.auth().currentUser?.uid {
             Firestore.firestore().document("users/\(uid)").delete { error in
-                if let error = error {fatalError(error.localizedDescription)}
+                if let error = error {
+                    fatalError(error.localizedDescription)
+                }
             }
         }
 
@@ -58,7 +63,10 @@ extension FireStoreData {
     private func deleteAll(_ dataObject: DataObjectType, _ completion: (() -> Void)? = nil) {
         self.ref?.collection(dataObject.rawValue).getDocuments { snapshot, error in
             print(dataObject)
-            if let error = error {print(error.localizedDescription); completion?()}
+            if let error = error {
+                print(error.localizedDescription)
+                completion?()
+            }
             guard let snapshot = snapshot, snapshot.documents.count > 0 else {
                 print("\(dataObject) with 0 records")
                 completion?()
@@ -80,4 +88,5 @@ extension FireStoreData {
             }
         }
     }
+
 }

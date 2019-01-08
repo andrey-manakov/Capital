@@ -37,7 +37,9 @@ extension Account {
 
         required convenience init(_ data: [String: Any]) {
             self.init()
-            for (field, value) in data {update(field: field, value: value)}
+            for (field, value) in data {
+                update(field: field, value: value)
+            }
         }
 
         func update(field: String, value: Any) {

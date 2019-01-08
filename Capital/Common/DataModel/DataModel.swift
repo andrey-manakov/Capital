@@ -22,7 +22,9 @@ struct DataModel: DataModelProtocol {
 
     var description: String {
         var desc = "-------- Data Model with \(sections.count) sections -------\n"
-        for section in sections {desc += "\(section) \n"}
+        for section in sections {
+            desc += "\(section) \n"
+        }
         return desc
     }
 
@@ -74,7 +76,9 @@ struct DataModel: DataModelProtocol {
         self.sections = sections
     }
 
-    init(_ rows: [DataModelRowProtocol]) {self.sections.append(DataModelSection(rows))}
+    init(_ rows: [DataModelRowProtocol]) {
+        self.sections.append(DataModelSection(rows))
+    }
 
     func filter(_ filter: (DataModelRowProtocol) -> (Bool)) -> DataModelProtocol {
         return DataModel(sections.map {$0.filter(filter)})

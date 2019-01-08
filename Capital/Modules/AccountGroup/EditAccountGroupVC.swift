@@ -25,26 +25,32 @@ class AccountGroupEditVC: ViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
                                                             target: self, action: #selector(didTapDone))
         table.didSelect = {[unowned self] row, _ in
-            //TODO: reload only one
-            self.service.rowSelected(id: row.id) {dataModel in table.localData = dataModel}
+            // TODO: reload only one
+            self.service.rowSelected(id: row.id) { dataModel in
+                table.localData = dataModel
+            }
         }
     }
 
     @objc func didTapDone() {
         service.didTapDone(name: nameTextField.text) {[unowned self] in self.dismiss()}
     }
+
 }
 
 extension AccountGroupEditVC {
     class Service: ClassService {
 
         private var accounts = [String: Account]()
-        private var dataModel: DataModelProtocol {return DataModel(self.accounts.map {DataModelRow(
-            id: $0.key,
-            name: $0.value.name,
-            desc: "\($0.value.amount ?? 0)",
-            accessory: self.selectedAccounts.contains($0.key) ? 3 : 0,
-            filter: $0.value.type?.rawValue)})}
+        private var dataModel: DataModelProtocol {
+            return DataModel(self.accounts.map {DataModelRow(
+                id: $0.key,
+                name: $0.value.name,
+                desc: "\($0.value.amount ?? 0)",
+                accessory: self.selectedAccounts.contains($0.key) ? 3 : 0,
+                filter: $0.value.type?.rawValue)
+            })
+        }
         var accountGroup: String?
         var selectedAccounts: Set<String> = []
 
@@ -65,6 +71,7 @@ extension AccountGroupEditVC {
                 completion(self.dataModel)
             }
         }
+
         func rowSelected(id: String?, completion: ((DataModelProtocol) -> Void)? = nil) {
             guard let id = id else {return}
             if selectedAccounts.contains(id) {
@@ -78,7 +85,8 @@ extension AccountGroupEditVC {
         func didTapDone(name: String?, completion: (() -> Void)? = nil) {
             guard let name = name else {return}
             let accounts = self.accounts.filter {
-                selectedAccounts.contains($0.key)}.map {($0.key, $0.value.name ?? "")
+                selectedAccounts.contains($0.key)
+                }.map {($0.key, $0.value.name ?? "")
             }
             data.createAccountGroup(named: name, withAccounts: accounts)
             completion?()

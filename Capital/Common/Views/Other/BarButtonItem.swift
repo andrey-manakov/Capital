@@ -26,7 +26,15 @@ class BarButtonItem: UIBarButtonItem {
         self.action = #selector(didTap)
     }
 
-    private override init() {super.init()}
-    required init?(coder aDecoder: NSCoder) {return nil}
-    @objc func didTap() {tapAction?()}
+    private override init() {
+        super.init()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
+
+    @objc func didTap() {
+        tapAction?()
+    }
+
 }

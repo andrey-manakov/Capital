@@ -32,7 +32,7 @@ class FinTransactionTests: XCTestCase {
         master.amount = 10
         XCTAssertEqual(master, sample)
     }
-    //Check other fields
+    // Check other fields
 
 //    func testDescription() {
 //        let currentDate = Date()
@@ -58,4 +58,5 @@ class FinTransactionTests: XCTestCase {
         transaction.date = currentDate
         XCTAssert(transaction.dateText == DateFormatter("yyyy MMM-dd").string(from: currentDate))
     }
+
 }

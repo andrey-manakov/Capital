@@ -24,12 +24,14 @@ class FIRAuthTests: XCTestCase {
         var responseError: Error?
 
         // when
-        sut.createUser(withEmail: login, password: password) {error in
+        sut.createUser(withEmail: login, password: password) { error in
             responseError = error
             XCTAssert(self.sut.currentUserUid != nil)
             self.sut.deleteUser { error in
                 responseError = responseError ?? error
-                if let error = error {fatalError(error.localizedDescription)}
+                if let error = error {
+                    fatalError(error.localizedDescription)
+                }
                 XCTAssert(self.sut.currentUserUid == nil)
                 promise.fulfill()
             }
@@ -46,10 +48,10 @@ class FIRAuthTests: XCTestCase {
         var responseError: Error?
 
         // when
-        sut.createUser(withEmail: login, password: password) {error in
+        sut.createUser(withEmail: login, password: password) { error in
             responseError = error
             XCTAssert(self.sut.currentUserUid != nil)
-            self.sut.signOutUser({ (error) in
+            self.sut.signOutUser { error in
                 responseError = responseError ?? error
                 XCTAssert(self.sut.currentUserUid == nil)
 
@@ -59,12 +61,14 @@ class FIRAuthTests: XCTestCase {
 
                     self.sut.deleteUser { error in
                         responseError = responseError ?? error
-                        if let error = error {fatalError(error.localizedDescription)}
+                        if let error = error {
+                            fatalError(error.localizedDescription)
+                        }
                         XCTAssert(self.sut.currentUserUid == nil)
                         promise.fulfill()
                     }
                 }
-            })
+            }
         }
         waitForExpectations(timeout: 10, handler: nil)
 

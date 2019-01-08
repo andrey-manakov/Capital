@@ -25,6 +25,8 @@ class TransactionCell: UITableViewCell, TransactionCellProtocol {
                               "V:[to(22)]|", "V:|[amount]|"])
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 
 }

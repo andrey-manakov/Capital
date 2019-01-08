@@ -10,19 +10,21 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
         let passwordTextField: TextFieldProtocol = PasswordField("password")
 
         service.listenToAuthUpdates {[unowned self] user in
-            if user != nil {self.present(TabBarController(), animated: true)} else {print("User is nil")}}
+            if user != nil {
+                self.present(TabBarController(), animated: true)
+            } else {
+                print("User is nil")
+            }
+        }
 
         let signInButton: ButtonProtocol = Button(name: "Sign In") {
             guard let login = loginTextField.text, let password = passwordTextField.text else {return}
             loginTextField.text = ""
             passwordTextField.text = ""
-            service.didTapSignIn(withLogin: login,
-                                 andPassword: password) {error in
-                if let error = error {self.alert(message: error.localizedDescription)}
-//                else {
-//                    loginTextField.text = ""
-//                    passwordTextField.text = ""
-//                }
+            service.didTapSignIn(withLogin: login, andPassword: password) { error in
+                if let error = error {
+                    self.alert(message: error.localizedDescription)
+                }
             }
         }
 
@@ -32,8 +34,10 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
             passwordTextField.text = ""
             service.didTapSignUp(
                 withLogin: login,
-                andPassword: password) {error in
-                    if let error = error {self.alert(message: error.localizedDescription)}
+                andPassword: password) { error in
+                    if let error = error {
+                        self.alert(message: error.localizedDescription)
+                    }
 //                if let error = error {self.alert(message: error.localizedDescription)} else {
 //                    loginTextField.text = ""
 //                    passwordTextField.text = ""
@@ -55,6 +59,7 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
              "V:|-40-[appTitle(100)]-20-[loginTextField(44)]-20-[passwordTextField(44)]-30-[signInButton(44)]-20-[signUpButton(44)]"])
         _ = loginTextField.becomeFirstResponder()
     }
+
 }
 
 extension LoginVC {
@@ -62,7 +67,7 @@ extension LoginVC {
     private class Service: ClassService {
 
         func listenToAuthUpdates(withAction action: ((String?) -> Void)?) {
-            //TODO: don't call Firebase directly
+            // TODO: don't call Firebase directly
             FIRAuth.shared.getUpdatedUserInfo[ObjectIdentifier(self)] = action
         }
 
@@ -74,7 +79,7 @@ extension LoginVC {
 
         func didTapSignUp(withLogin login: String?, andPassword password: String?,
                           completion: ((Error?) -> Void)? = nil) {
-            guard let lgn = login, let pwd = password else {return} //TODO: consider use UIAlertVC
+            guard let lgn = login, let pwd = password else {return} // TODO: consider use UIAlertVC
             Data.shared.signUpUser(withEmail: lgn, password: pwd, completion: completion)
         }
 

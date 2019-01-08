@@ -14,4 +14,5 @@ class RecurrenceFrequencyTests: XCTestCase {
             }
         }
     }
+
 }

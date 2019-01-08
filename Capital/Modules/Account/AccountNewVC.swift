@@ -10,7 +10,7 @@ class AccountNewVC: ViewController {
         var selectedSegment = data as? Int ?? 0
 
         let segmentedControl: SegmentedControlProtocol
-        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {segmentIndex in
+        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) { segmentIndex in
             selectedSegment = segmentIndex
         }
         segmentedControl.selectedSegmentIndex = selectedSegment
@@ -30,13 +30,16 @@ class AccountNewVC: ViewController {
                                    "H:|-20-[sc]-20-|",
                                    "V:|-80-[sc(31)]-20-[an(31)]-20-[aa(31)]"])
     }
+
 }
 
 extension AccountNewVC {
     private class Service: ClassService {
+
         func didTapDoneWith(name: String?, amount: String?, type accountType: Int) {
             data.createAccount(name, ofType: AccountType(rawValue: accountType),
                                withAmount: Int(amount ?? ""), completion: nil)
         }
+
     }
 }

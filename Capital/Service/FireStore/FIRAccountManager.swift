@@ -10,7 +10,7 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
 
     static var shared: FIRAccountManagerProtocol = FIRAccountManager()
     private override init() {}
-    //FIXME: old reference
+    // FIXME: old reference
     let finTransactionManager: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld.shared
 
     /// Creates transaction in FireStore date base,
@@ -50,8 +50,8 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
 
             let transactionFrom = type.active ? (self.capitalAccountName, self.capitalAccountName) :
                 (newAccountRef.documentID, name)
-            let transactionTo = (type.active ? (newAccountRef.documentID, name) :
-                (self.capitalAccountName, self.capitalAccountName))
+            let transactionTo = type.active ? (newAccountRef.documentID, name) :
+                (self.capitalAccountName, self.capitalAccountName)
             _ = self.finTransactionManager.sendFinTransaction(
                 to: fsTransaction, from: transactionFrom, to: transactionTo, amount: amount)
             // Update capital account
@@ -81,7 +81,7 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
             let accountDoc = ref?.collection(DataObjectType.account.rawValue).document(id),
             let capitalDoc  = capitalDoc else {return}
 
-        fireDB.runTransaction({[unowned self]  fsTransaction, _ -> Any? in
+        fireDB.runTransaction({[unowned self] fsTransaction, _ -> Any? in
             let account = self.getAccount(withId: id, for: fsTransaction)
             guard let oldAmount = account?.amount, let type = account?.type,
                 let capitalAmount = self.getAccount(
@@ -104,11 +104,11 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
                         from: (id, name ?? oldName),
                         to: (self.capitalAccountName, self.capitalAccountName), amount: abs(delta))
                 }
-                //Update account amount and name
+                // Update account amount and name
                 fsTransaction.updateData(
                     [Account.Fields.amount.rawValue: newAmount,
                      Account.Fields.name.rawValue: name ?? oldName], forDocument: accountDoc)
-                // Udate Capital account amount
+                // Update Capital account amount
                 fsTransaction.updateData(
                     [Account.Fields.amount.rawValue: capitalAmount + delta], forDocument: capitalDoc)
             } else {

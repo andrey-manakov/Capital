@@ -23,6 +23,7 @@ class TitleLabelTests: XCTestCase {
         // 3. Assert
         XCTAssert(view.text == text &&
             view.font == UIFont(name: "HelveticaNeue-Bold", size: 20) &&
-            view.textAlignment == .center )
+            view.textAlignment == .center)
     }
+
 }

@@ -23,9 +23,17 @@ class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {return bounds.inset(by: padding)}
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {return bounds.inset(by: padding)}
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {return bounds.inset(by: padding)}
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
 
     deinit {
         print("deinit \(type(of: self))")

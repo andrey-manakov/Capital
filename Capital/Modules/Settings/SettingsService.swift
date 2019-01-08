@@ -22,14 +22,18 @@ class SettingsService: ClassService, SettingsServiceProtocol {
         guard let id = row.id, let idInt = Int(id), let settings = Settings(rawValue: idInt) else {return}
         switch settings {
         case .logOut:
-            data.signOut {error in
-                if let error = error {print("Error in loggin out user \(error.localizedDescription)")} else {
+            data.signOut { error in
+                if let error = error {
+                    print("Error in loggin out user \(error.localizedDescription)")
+                } else {
                     self.view?.dismissNavigationViewController()
                 }
             }
         case .deleteUser:
-            data.deleteUser {error in
-                if let error = error {print("Error in deleting user \(error.localizedDescription)")} else {
+            data.deleteUser { error in
+                if let error = error {
+                    print("Error in deleting user \(error.localizedDescription)")
+                } else {
                     self.view?.dismissNavigationViewController()
                 }
             }

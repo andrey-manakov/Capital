@@ -9,7 +9,7 @@ protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
     func setAmountFieldFirstResponder()
 }
 
-protocol AdvancedNewTransactionTableProtocol: class { //TODO: compare with TemplateTableProtocol
+protocol AdvancedNewTransactionTableProtocol: class { // TODO: compare with TemplateTableProtocol
     func reloadRows(at indexPath: [IndexPath], with: UITableView.RowAnimation)
     func reloadData()
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
@@ -35,8 +35,13 @@ class AdvancedNewTransactionVC: ViewController, AdvancedNewTransactionVCProtocol
             target: self, action: #selector(didTapDone))
     }
 
-    @objc func didTapCancel() {dismissNavigationViewController()}
-    @objc func didTapDone() {service.didTapDone()}
+    @objc func didTapCancel() {
+        dismissNavigationViewController()
+    }
+
+    @objc func didTapDone() {
+        service.didTapDone()
+    }
 
     func setAmountFieldFirstResponder() {
         _ = amountTextField?.becomeFirstResponder()
@@ -56,7 +61,9 @@ extension AdvancedNewTransactionVC {
             self.dataSource = viewController
         }
 
-        required init?(coder aDecoder: NSCoder) {return nil}
+        required init?(coder aDecoder: NSCoder) {
+            return nil
+        }
     }
 }
 
@@ -74,6 +81,7 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
         return tableData.sections[section].rows.count
     }
 
+    // swiftlint:disable function_body_length
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let id = tableData[indexPath].id, let item = TransactionItem(rawValue: id) else {
             return UITableViewCell()
@@ -89,8 +97,11 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
             cell.textLabel?.text = tableData[indexPath].name
             cell.detailTextLabel?.text = tableData[indexPath].desc
             cell.detailTextLabel?.textColor = .red
-            //            cell.accessoryType = .disclosureIndicator //            FIXME: disclosureIndicator
-            if let cellV = cell as? UITableViewCell {return cellV} else {return UITableViewCell()}
+            if let cell = cell as? UITableViewCell {
+                return cell
+            } else {
+                return UITableViewCell()
+            }
         case .amount:
             guard let cell: InputAmountCellProtocol =
                 tableView.dequeueReusableCell(
@@ -111,7 +122,11 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
             cell.textLabel?.text = tableData[indexPath].name
             cell.detailTextLabel?.text = tableData[indexPath].desc ?? Date().string
             cell.detailTextLabel?.textColor = .red
-            if let cellV = cell as? UITableViewCell {return cellV} else {return UITableViewCell()}
+            if let cell = cell as? UITableViewCell {
+                return cell
+            } else {
+                return UITableViewCell()
+            }
         case .dateSelection, .recurrenceEndDate:
             guard var cell: DateSelectionCellProtocol =
                 tableView.dequeueReusableCell(
@@ -122,12 +137,18 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
             cell.actionOnDateChange = {[unowned self] date in
                 self.service.didChoose(transactionItem: item, with: date)
             }
-            if let cellV = cell as? UITableViewCell {return cellV} else {return UITableViewCell()}
+            if let cell = cell as? UITableViewCell {
+                return cell
+            } else {
+                return UITableViewCell()
+            }
         }
     }
+
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
         table.deleteRows(at: indexPaths, with: animation)
-    } //TODO: check if this is delegate
+    } // TODO: check if this is delegate
+
     func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
         table.insertRows(at: indexPaths, with: animation)
     }
@@ -140,6 +161,7 @@ extension AdvancedNewTransactionVC: UITableViewDelegate {
         return tableData[indexPath].height ?? 45
 
     }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableData[indexPath].height ?? 45
     }
@@ -151,15 +173,18 @@ extension AdvancedNewTransactionVC: UITableViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         service.didScroll()
-    }//TODO: check if this event is correct choice
+    }// TODO: check if this event is correct choice
 
 }
 
 extension AdvancedNewTransactionVC: UITextFieldDelegate {
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         service.didChoose(transactionItem: .amount, with: textField.text)
     }
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.selectAll(nil)
     }
+
 }

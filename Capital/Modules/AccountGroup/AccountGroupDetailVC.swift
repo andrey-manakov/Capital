@@ -6,7 +6,9 @@ class AccountGroupDetailVC: ViewController {
 
         let table: SimpleTableProtocol = SimpleTable()
         if let data = data as? (id: String, name: String) {
-            service.getData(withId: data.id) {dataModel in table.localData = dataModel}
+            service.getData(withId: data.id) { dataModel in
+                table.localData = dataModel
+            }
             table.didSelect = {[unowned self] row, _ in
                 let viewController = AccountTransactionsVC((row.id, row.name))
                 self.navigationController?.pushViewController(viewController, animated: true)
@@ -25,6 +27,7 @@ class AccountGroupDetailVC: ViewController {
 extension AccountGroupDetailVC {
     private class Service: ClassService {
         private var accounts = [String: Account]()
+
         func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
             guard let id = id else {return}
             data.setListnersToAccountsInGroup(withId: id, for: self.id, completion: { data in
@@ -44,5 +47,6 @@ extension AccountGroupDetailVC {
         func deleteAccountGroup(id: String) {
             data.deleteAccountGroup(withId: id, completion: nil)
         }
+
     }
 }

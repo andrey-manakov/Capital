@@ -48,11 +48,20 @@ extension DateFormatter {
 extension Date {
     var string: String {return DateFormatter("yyyy MMM-dd").string(from: self)}
     var strFireBasePath: String {return DateFormatter("/yyyy/MM/dd").string(from: self)}
-    func str(_ format: String) -> String {return DateFormatter(format).string(from: self)}
+
+    func str(_ format: String) -> String {
+        return DateFormatter(format).string(from: self)
+    }
+
 }
+
 extension String {
     var date: Date? {return DateFormatter("yyyy MMM-dd").date(from: self)}
-    func date(withFormat format: String) -> Date? {return DateFormatter(format).date(from: self)}
+
+    func date(withFormat format: String) -> Date? {
+        return DateFormatter(format).date(from: self)
+    }
+
 }
 
 extension Date {
@@ -63,15 +72,18 @@ extension Date {
 }
 
 extension String {
+
     static func randomWithSmallLetters(length: Int = 10) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyz" //ABCDEFGHIJKLMNOPQRSTUVWXYZ"//0123456789"
+        let letters = "abcdefghijklmnopqrstuvwxyz"
         return String((0...length-1).map { _ in letters.randomElement()! })
     }
+
 }
 
 // MARK: Compare dates
 
 extension Date {
+
     func isSameDate(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedSame
@@ -86,9 +98,11 @@ extension Date {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedDescending
     }
+
 }
 
 extension Date {
+
     func dayNumberOfWeek() -> Int? {
         return Calendar.current.dateComponents([.weekday], from: self).weekday
     }
@@ -97,6 +111,7 @@ extension Date {
         let weekDay = Calendar.current.dateComponents([.weekday], from: self).weekday
         return (weekDay == 1 || weekDay == 7) ? true : false
     }
+
 }
 
 // MARK: - Number fomatting

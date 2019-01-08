@@ -2,7 +2,7 @@ class AccountDetailVC: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let service = Service() //should be private
+        let service = Service() // should be private
         let accountNameTextField: TextFieldProtocol = SimpleTextField()
         let accountAmountTextField: TextFieldProtocol = NumberField()
 
@@ -43,5 +43,6 @@ extension AccountDetailVC {
         func didTapDelete(withId id: String) {
             data.deleteAccount(withId: id, completion: nil)
         }
+
     }
 }

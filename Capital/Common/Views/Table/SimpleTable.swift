@@ -13,7 +13,9 @@ class SimpleTable: TemplateTable, SimpleTableProtocol {
                  forHeaderFooterViewReuseIdentifier: SimpleSectionHeader.self.description())
     }
 
-    required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: LeftRightCell.self.description())
@@ -24,4 +26,5 @@ class SimpleTable: TemplateTable, SimpleTableProtocol {
         print("cell?.accessibilityIdentifier  = \(cell?.accessibilityIdentifier ?? "")")
         return cell!
     }
+
 }

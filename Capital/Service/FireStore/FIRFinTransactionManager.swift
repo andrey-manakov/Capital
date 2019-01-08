@@ -52,12 +52,14 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
         var originalTransaction: DocumentReference?
         while date != nil {// && !(date!.isAfter(recurrenceEnd ?? Date()))
             let newRef = ref.collection(DataObjectType.transaction.rawValue).document()
-            if i == 0 {originalTransaction = newRef}
+            if i == 0 {
+                originalTransaction = newRef
+            }
             let approved = date ?? Date() <= Date()
             batch.setData([
                 FinTransaction.Fields.amount.rawValue: amount,
                 FinTransaction.Fields.approvalMode.rawValue: approvalMode?.rawValue as Any,
-                FinTransaction.Fields.date.rawValue: date as Any ,
+                FinTransaction.Fields.date.rawValue: date as Any,
                 FinTransaction.Fields.from.rawValue: [
                     FinTransaction.Fields.From.id.rawValue:
                         from.id, FinTransaction.Fields.From.name.rawValue: from.name],
@@ -69,13 +71,21 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
                 FinTransaction.Fields.recurrenceEnd.rawValue: recurrenceEnd ?? NSNull(),
                 FinTransaction.Fields.recurrenceFrequency.rawValue:
                     recurrenceFrequency?.rawValue ?? NSNull()], forDocument: newRef)
-            if approved {approvedAmount += amount} else {
-                if let date = date {amountChange[date.str("yyyy-MM-dd")] = amount}
+            if approved {
+                approvedAmount += amount
+            } else {
+                if let date = date {
+                    amountChange[date.str("yyyy-MM-dd")] = amount
+                }
             }
             date = nextDate(from: date, recurrenceFrequency: recurrenceFrequency)
-            if recurrenceEnd == nil || date == nil || date!.isAfter(recurrenceEnd!) {date = nil}
+            if recurrenceEnd == nil || date == nil || date!.isAfter(recurrenceEnd!) {
+                date = nil
+            }
             i += 1
-            if i == 366 {fatalError()}
+            if i == 366 {
+                fatalError()
+            }
         }
 
         batch.setData([
@@ -92,6 +102,7 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
                       forDocument: ref.collection(LogFields.logCollection).document())
         batch.commit(completion: fireStoreCompletion)
     }
+
     enum LogFields: String {
         static let logCollection = "change"
         case type

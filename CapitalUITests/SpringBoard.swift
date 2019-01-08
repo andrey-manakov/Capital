@@ -36,7 +36,7 @@ class Springboard {
         // Wait some time for the animation end
         Thread.sleep(forTimeInterval: 0.5)
 
-        //springboard.alerts.buttons["Delete"].firstMatch.tap()
+        // springboard.alerts.buttons["Delete"].firstMatch.tap()
         springboard.buttons["Delete"].firstMatch.tap()
 
         // Press home once make the icons stop wiggling
@@ -64,4 +64,5 @@ class Springboard {
             settings.terminate()
         }
     }
+
 }

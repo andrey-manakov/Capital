@@ -23,25 +23,27 @@ protocol DataProtocol {
 
     func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
-        completion: @escaping ((( [(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void )))
+        completion: @escaping ((( [(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void)))
     func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void )))
+        ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void)))
     func setListnersToAccountsInGroup(
         withId id: String, for objectId: ObjectIdentifier,
-        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void )))
+        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void)))
     func setListnerToAccounts(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void )))
+        ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void)))
     func removeListners(ofObject objectId: ObjectIdentifier)
 }
 
 extension DataProtocol {
+
     func delete(_ dataObject: DataObjectType, withId id: String?) {
         delete(dataObject, withId: id, completion: nil)
     }
+
 }
 
 // MARK: - Extension to provide functions with default values
@@ -51,5 +53,5 @@ extension DataProtocol {
         createAccount(name, ofType: type, withAmount: amount, completion: nil)
     }
 
-    //TODO: consider adding func createTransaction with default values
+    // TODO: consider adding func createTransaction with default values
 }

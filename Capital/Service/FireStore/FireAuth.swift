@@ -15,12 +15,14 @@ class FIRAuth: FireAuthProtocol {
 //    private let fs = FireStoreData.shared
 
     private init() {
-        Auth.auth().addStateDidChangeListener {auth, user in _ =
+        Auth.auth().addStateDidChangeListener { auth, user in _ =
             self.getUpdatedUserInfo.values.map {$0(Auth.auth().currentUser?.uid)}
             if let user = user {
                 let newLog = Firestore.firestore().collection("users/\(user.uid)/log").document()
-                newLog.setData(["timestamp": FieldValue.serverTimestamp()]) {error in
-                    if let error = error {print(error)}
+                newLog.setData(["timestamp": FieldValue.serverTimestamp()]) { error in
+                    if let error = error {
+                        print(error)
+                    }
                 }
             }
 
@@ -32,19 +34,22 @@ class FIRAuth: FireAuthProtocol {
 
     func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
         Auth.auth().createUser(withEmail: email, password: pwd) {[unowned self] _, error in
-            guard error == nil else {print(error?.localizedDescription as Any);return}
+            guard error == nil else {
+                print(error?.localizedDescription as Any)
+                return
+            }
             self.signInUser(withEmail: email, password: pwd)
         }
     }
 
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
-        Auth.auth().signIn(withEmail: email, password: pwd) {_, error in completion?(error)
-            //TODO: consider checking for capital account
+        Auth.auth().signIn(withEmail: email, password: pwd) { _, error in completion?(error)
+            // TODO: consider checking for capital account
         }
     }
 
     func signOutUser(_ completion: ((Error?) -> Void)? = nil) {
-        //TODO: check if removal of observers is needed
+        // TODO: check if removal of observers is needed
         do {
             try Auth.auth().signOut()
             completion?(nil)

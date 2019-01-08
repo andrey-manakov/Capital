@@ -13,7 +13,7 @@ class ClassService {
     deinit {
         /// Check that View Controller is deallocated - for debug purposes
         print("\(type(of: self)) deinit")
-        ///Removes from the listeners list
+        /// Removes from the listeners list
         data.removeListners(ofObject: self.id)
     }
 }

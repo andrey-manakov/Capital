@@ -2,6 +2,7 @@ import XCTest
 @testable import Capital
 
 class NumberLabelTests: XCTestCase {
+
     func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
@@ -14,11 +15,12 @@ class NumberLabelTests: XCTestCase {
     }
 
     func testInitWithText() {
-        //given
+        // given
         let text = "1"
-        //when
+        // when
         let sample = NumberLabel(text)
-        //then
+        // then
         XCTAssertTrue(sample.text == text && sample.textAlignment == .right)
     }
+
 }

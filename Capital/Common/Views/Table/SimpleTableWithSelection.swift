@@ -11,7 +11,7 @@ class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {
         super.init()
         didSelect = {[unowned self] row, _ in
             self.selectedRow = row
-            self.reloadData() //TODO: consider not updating ALL the rows
+            self.reloadData() // TODO: consider not updating ALL the rows
         }
     }
 
@@ -28,5 +28,7 @@ class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {
         return cell!
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 }

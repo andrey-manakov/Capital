@@ -15,6 +15,8 @@ class SimpleSectionHeader: UITableViewHeaderFooterView, SimpleSectionHeaderProto
         contentView.add(subView: desc, withConstraints: ["H:[v(50)]-15-|", "V:|-7-[v(30)]"])
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 
 }

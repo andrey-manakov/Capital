@@ -7,6 +7,8 @@ class PasswordField: SimpleTextField {
         self.delegate = self
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 
 }

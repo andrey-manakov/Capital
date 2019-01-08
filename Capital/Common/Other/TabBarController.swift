@@ -21,7 +21,7 @@ class TabBarController: UITabBarController, TabBarControllerProtocol {
         viewControllers = [NavigationController(AccountGroupsViewController()),
                            NavigationController(AccountListVC()),
                            NavigationController(AdvancedNewTransactionVC()),
-                           TestViewController(),
+                           NavigationController(AccountListVC()),
                            NavigationController(SettingsViewController())]
 
         tabBar.items?[0].image = UIImage(named: "DashBoard")
@@ -36,22 +36,13 @@ class TabBarController: UITabBarController, TabBarControllerProtocol {
         tabBar.items?[4].title = "Settings"
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
+
     deinit {print("\(type(of: self)) deinit!")}
 
     struct TabBarItem {
 
     }
-}
-
-/// Test desc
-class TestViewController: UIViewController {
-//    init() {
-//        super.init(nibName: nil, bundle: nil)
-//        print("init of TestViewController done")
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 }

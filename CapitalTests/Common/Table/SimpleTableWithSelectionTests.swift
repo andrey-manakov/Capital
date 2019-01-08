@@ -2,6 +2,7 @@ import XCTest
 @testable import Capital
 
 class SimpleTableWithSelectionTests: XCTestCase {
+
     func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
@@ -12,4 +13,5 @@ class SimpleTableWithSelectionTests: XCTestCase {
         // 3. Assert
         XCTAssertNil(view)
     }
+
 }

@@ -7,7 +7,7 @@ class AccountSelectorVC: ViewController {
 
         let table: SimpleTableWithSwipeProtocol = SimpleTableWithSwipe()
         let segmentedControl: SegmentedControlProtocol
-        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) {index in
+        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) { index in
             table.filter = {$0.filter as? Int == index}
         }
         table.filter = {$0.filter as? Int == 0}
@@ -17,7 +17,7 @@ class AccountSelectorVC: ViewController {
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
 
         let selectionAction = data as? ((Any?) -> Void)
-        table.didSelect = {row, _ in
+        table.didSelect = { row, _ in
             selectionAction?((row.id, row.name))
             self.dismiss()
         }
@@ -32,7 +32,8 @@ extension AccountSelectorVC {
             id: $0.key,
             name: $0.value.name,
             desc: "\($0.value.amount ?? 0)",
-            filter: $0.value.type?.rawValue)})}
+            filter: $0.value.type?.rawValue)
+        })}
 
         func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccounts(for: self.id) {[unowned self] data in
@@ -45,6 +46,7 @@ extension AccountSelectorVC {
                 completion(self.dataModel)
             }
         }
+
     }
 
 }

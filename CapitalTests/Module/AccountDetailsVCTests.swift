@@ -71,4 +71,5 @@ class AccountDetailVCTests: XCTestCase {
         item?.perform(item?.action)
         XCTAssert(Data.sharedForUnitTests.updateAccountCalled)
     }
+
 }

@@ -14,9 +14,16 @@ class SimpleLabel: UILabel, SimpleLabelProtocol {
 
     convenience init(_ text: String? = nil, alignment: NSTextAlignment? = nil, lines: Int? = nil) {
         self.init(text)
-        if let alignmentV = alignment {self.textAlignment = alignmentV}
-        if let linesV = lines {self.numberOfLines = linesV}
+        if let alignment = alignment {
+            self.textAlignment = alignment
+        }
+        if let lines = lines {
+            self.numberOfLines = lines
+        }
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
+
 }

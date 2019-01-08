@@ -16,9 +16,13 @@ class AccountTransactionsVC: ViewController {
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
 
         // MARK: transaction table setup
-        table.swipeLeftAction = {row in service.deleteTransaction(withId: row?.id)}
+        table.swipeLeftAction = {
+            row in service.deleteTransaction(withId: row?.id)
+        }
         table.swipeLeftLabel = "Delete"
-        table.swipeRightAction = {row in service.deleteTransaction(withId: row?.id)}
+        table.swipeRightAction = {
+            row in service.deleteTransaction(withId: row?.id)
+        }
         table.swipeRightLabel = "Approve"
 
     }
@@ -28,6 +32,7 @@ class AccountTransactionsVC: ViewController {
 extension AccountTransactionsVC {
     private class Service: ClassService {
         private var transactions = [String: FinTransaction]()
+
         func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
             guard let id = id else {return}
             data.setListnersToTransactionsOfAccount(withId: id, for: self.id,
@@ -43,15 +48,18 @@ extension AccountTransactionsVC {
                     left: $0.value.dateText,
                     up: $0.value.from?.name,
                     down: $0.value.to?.name,
-                    right: "\($0.value.amount ?? 0)")}))
+                    right: "\($0.value.amount ?? 0)")
+                }))
             })
         }
 
         func deleteTransaction(withId id: String?, completion: (() -> Void)? = nil) {
-            //FIXME: Add implementation
+            // FIXME: Add implementation
         }
+
         func approveTransaction(withId id: String?, completion: (() -> Void)? = nil) {
-            //FIXME: Add implementation
+            // FIXME: Add implementation
         }
+
     }
 }

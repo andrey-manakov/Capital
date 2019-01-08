@@ -36,7 +36,7 @@ class FireStoreData: FIRDataProtocol {
 //        settings.isPersistenceEnabled = false
 //        db.settings = settings
 
-        //FIXME: Need to check capital account also when user signs in
+        // FIXME: Need to check capital account also when user signs in
 //        checkIfCapitalAccountExist()
     }
 }

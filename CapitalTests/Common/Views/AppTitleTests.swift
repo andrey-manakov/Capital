@@ -2,6 +2,7 @@ import XCTest
 @testable import Capital
 
 class AppTitleTests: XCTestCase {
+
     func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
@@ -12,9 +13,11 @@ class AppTitleTests: XCTestCase {
         // 3. Assert
         XCTAssertNil(view)
     }
+
 }
 
 class ButtonTest: XCTestCase {
+
     func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
@@ -40,4 +43,5 @@ class ButtonTest: XCTestCase {
         // 3. Assert
         XCTAssert(buttonActionWasCalled)
     }
+
 }

@@ -51,7 +51,7 @@ class AccountGroupTests: XCTestCase {
     }
 
     /// Test checks that code correctly updates groups,
-    ///when ["groups": ["group id": "group name"]]] is submitted
+    /// when ["groups": ["group id": "group name"]]] is submitted
     func testUpdateWithGroupsFieldValue() {
         // 1. Arrange
         let field = "accounts"

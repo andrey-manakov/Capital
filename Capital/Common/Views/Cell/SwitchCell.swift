@@ -20,6 +20,8 @@ class SwitchCell: UITableViewCell, SwitchCellProtocol {
         contentView.add(subView: switchControl as? UIView, withConstraints: ["H:[v(50)]-20-|", "V:|[v]|"])
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 
 }

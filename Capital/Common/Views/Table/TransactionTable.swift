@@ -11,7 +11,9 @@ class TransactionsTable: SimpleTableWithSwipe, TransactionsTableProtocol {
         register(TransactionCell.self, forCellReuseIdentifier: TransactionCell.self.description())
     }
 
-    required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: TransactionCellProtocol = dequeueReusableCell(

@@ -11,11 +11,19 @@ protocol ViewControllerProtocol: class {
 }
 
 extension ViewControllerProtocol {
-    func dismissNavigationViewController() {dimissNavigationViewController(completion: nil)}
-    func dismiss() {dismiss(completion: nil)}
+
+    func dismissNavigationViewController() {
+        dimissNavigationViewController(completion: nil)
+    }
+
+    func dismiss() {
+        dismiss(completion: nil)
+    }
+
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool) {
         present(viewControllerToPresent, animated: flag, completion: nil)
     }
+
     func present(_ viewControllerToPresent: UIViewController) {
         present(viewControllerToPresent, animated: true, completion: nil)
     }
@@ -48,13 +56,19 @@ class ViewController: UIViewController, ViewControllerProtocol {
             self.dismiss(animated: true, completion: completion)
         }
     }
+
     func dimissNavigationViewController(completion: (() -> Void)? = nil) {
         navigationController?.dismiss(animated: true, completion: completion)
     }
+
     func push(_ viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
-    func endEditing(force: Bool) {view.endEditing(force)}
+
+    func endEditing(force: Bool) {
+        view.endEditing(force)
+    }
+
     func alert(_ title: String? = nil, message: String) {
         let alert = UIAlertController(title: title ?? "Alert", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -68,7 +82,8 @@ class ViewController: UIViewController, ViewControllerProtocol {
             case .destructive:
                 print("destructive")
 
-            }}))
+            }
+        }))
         self.present(alert, animated: true, completion: nil)
     }
 

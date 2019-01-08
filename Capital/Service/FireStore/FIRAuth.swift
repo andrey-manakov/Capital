@@ -9,14 +9,14 @@ protocol FireAuthProtocol {
 class FIRAuth: FireAuthProtocol {
 
     static var shared = FIRAuth()
-    private lazy var fireStorage: FIRDataProtocol = FireStoreData.shared //TODO: get rid of lazy
+    private lazy var fireStorage: FIRDataProtocol = FireStoreData.shared // TODO: get rid of lazy
 
     var currentUser: User? {return Auth.auth().currentUser}
     var currentUserUid: String? {return currentUser?.uid}
     lazy var getUpdatedUserInfo = [ObjectIdentifier: (String?)->Void]()
 
     private init() {
-        Auth.auth().addStateDidChangeListener {auth, user in _ =
+        Auth.auth().addStateDidChangeListener { auth, user in _ =
             self.getUpdatedUserInfo.values.map {$0(Auth.auth().currentUser?.uid)}
             if let user = user {
                 let newLog = Firestore.firestore().collection("log").document()
@@ -28,21 +28,21 @@ class FIRAuth: FireAuthProtocol {
     }
 
     func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
-        Auth.auth().createUser(withEmail: email, password: pwd) {_, error in
+        Auth.auth().createUser(withEmail: email, password: pwd) { _, error in
             if let error = error {
                 print("Error in user creation \(error.localizedDescription)")
                 completion?(error)
             } else {
-                //FIXME: update through fs object
+                // FIXME: update through fs object
                 if let user = Auth.auth().currentUser?.uid {
                     Firestore.firestore().document("users/\(user)").setData(
-                    ["email": email, "password": pwd]) {error in
+                    ["email": email, "password": pwd]) { error in
                         if let error = error {
                             print(error.localizedDescription)
                         } else {
                             print("email and password are saved user record")
                         }
-                        self.fireStorage.checkIfCapitalAccountExist {error in
+                        self.fireStorage.checkIfCapitalAccountExist { error in
                             if let error = error {
                                 print("Error in capital account check or creation")
                                 print("\(error.localizedDescription)")
@@ -56,7 +56,7 @@ class FIRAuth: FireAuthProtocol {
     }
 
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
-        Auth.auth().signIn(withEmail: email, password: pwd) {_, error in completion?(error)}
+        Auth.auth().signIn(withEmail: email, password: pwd) { _, error in completion?(error)}
     }
 
     func signOutUser(_ completion: ((Error?) -> Void)? = nil) {
@@ -72,7 +72,7 @@ class FIRAuth: FireAuthProtocol {
 //        completion?(nil)
         fireStorage.deleteAll {
             if let uid = self.currentUserUid {
-                Firestore.firestore().document("users/\(uid)").delete {_ in
+                Firestore.firestore().document("users/\(uid)").delete { _ in
                     print("LOG delete user with id \(uid)")
                     // FIXME: change to delete user
                     self.signOutUser { _ in
@@ -86,4 +86,5 @@ class FIRAuth: FireAuthProtocol {
 //            }
         }
     }
+
 }

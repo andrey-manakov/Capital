@@ -13,6 +13,7 @@ protocol FIRFinTransactionManagerProtocolOld: class {
 }
 
 extension FIRFinTransactionManagerProtocolOld {
+
     // swiftlint:disable identifier_name
     func sendFinTransaction(
         to fsTransaction: Transaction,
@@ -24,6 +25,7 @@ extension FIRFinTransactionManagerProtocolOld {
             amount: amount, date: nil, approvalMode: nil, recurrenceFrequency: nil,
             recurrenceEnd: nil, parent: nil, approvedAmount: 0)
     }
+
 }
 
 extension FIRFinTransactionManagerOld: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
@@ -35,8 +37,8 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
     private override init() {}
 
     // swiftlint:disable identifier_name
-    //TODO: consider add error processing to completion
-    //FIXME: introduce limit to number of recurrent operations
+    // TODO: consider add error processing to completion
+    // FIXME: introduce limit to number of recurrent operations
     /// Creates transaction in FireStore date base, including recurrent transactions,
     /// updates account values if transactions are in the past
     ///
@@ -132,7 +134,7 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
                 recurrenceEnd == nil ? NSNull() : Timestamp(date: recurrenceEnd!)
             ], forDocument: newFinTransactionRef)
         let approvedAmount = date < Date() ? approvedAmount + amount : approvedAmount
-        //TODO: consider default recurrence end
+        // TODO: consider default recurrence end
         if let recurrenceFrequency = recurrenceFrequency, recurrenceFrequency != .never,
             let nextDate = nextDate(from: date, recurrenceFrequency: recurrenceFrequency),
             let recurrenceEnd = recurrenceEnd, nextDate <= recurrenceEnd {

@@ -3,5 +3,7 @@ class EmailField: SimpleTextField {
         super.init(placeholder, actionOnReturn)
         keyboardType = .emailAddress
     }
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 }

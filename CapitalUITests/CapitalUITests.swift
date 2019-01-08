@@ -23,7 +23,9 @@ class CapitalUITests: XCTestCase {
     }
 
     func testSignIn() {
-        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
+        if app.navigationBars["DashBoard"].exists {
+            XCTAssert(signOut())
+        }
         XCTAssert(signUp(login: login, password: password))
         XCTAssert(signOut())
         XCTAssert(signIn(login: login, password: password))
@@ -31,7 +33,9 @@ class CapitalUITests: XCTestCase {
     }
 
     func testSignUp() {
-        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
+        if app.navigationBars["DashBoard"].exists {
+            XCTAssert(signOut())
+        }
         XCTAssert(signUp(login: login, password: password))
         XCTAssert(deleteUser())
     }
@@ -75,7 +79,7 @@ class CapitalUITests: XCTestCase {
         app.textFields["aa"].tap()
         _ = account.amount.map {app.keys[String($0)].tap()}
         app.navigationBars["New account"].buttons["Done"].tap()
-        //Alternative way to call
+        // Alternative way to call
 //        let myTable = app.tables.matching(identifier: "t")
 //        let cell = myTable.cells.element(matching: .cell, identifier: name)
 //        cell.tap()
@@ -85,7 +89,9 @@ class CapitalUITests: XCTestCase {
     }
 
     func testCreateAccount() {
-        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
+        if app.navigationBars["DashBoard"].exists {
+            XCTAssert(signOut())
+        }
         XCTAssert(signUp(login: login, password: password))
         XCTAssert(create(account: randomAccount()))
         XCTAssert(deleteUser())
@@ -98,7 +104,9 @@ class CapitalUITests: XCTestCase {
     }
 
     func testCreateAccountGroup() {
-        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
+        if app.navigationBars["DashBoard"].exists {
+            XCTAssert(signOut())
+        }
         let accounts = [randomAccount(), randomAccount()]
         let name = String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! })
         XCTAssert(signUp(login: login, password: password))
@@ -128,6 +136,7 @@ class CapitalUITests: XCTestCase {
 //        app.navigationBars["test"].buttons["DashBoard"].tap()
 //        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
     }
+
 //    func testSimpleTransaction() {
 //        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
 //        let accounts = [randomAccount(), randomAccount()]
@@ -138,6 +147,7 @@ class CapitalUITests: XCTestCase {
 //        XCTAssert(create(transaction: amount, with: accounts))
 //        XCTAssert(deleteUser())
 //    }
+
     func create(
         transaction amount: String,
         with accounts: [(name: String, type: String, amount: String)]) -> Bool {
@@ -157,11 +167,11 @@ class CapitalUITests: XCTestCase {
 
         let newFromAccountValue =
             String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
-                Int(accounts[0].amount)! - Int(amount)!:
+                Int(accounts[0].amount)! - Int(amount)! :
                 Int(accounts[0].amount)! + Int(amount)!)
         let newToAccountValue =
             String((accounts[1].type == "asset" || accounts[1].type == "expense") ?
-                Int(accounts[1].amount)! + Int(amount)!:
+                Int(accounts[1].amount)! + Int(amount)! :
                 Int(accounts[1].amount)! - Int(amount)!)
 
         let fromAccountIsCorrect = app.tables["t"].staticTexts[
@@ -171,6 +181,7 @@ class CapitalUITests: XCTestCase {
             "\(newToAccountValue) (\(newToAccountValue))"].waitForExistence(timeout: 10)
         return fromAccountIsCorrect && toAccountIsCorrect
     }
+
     func create(transaction amount: String,
                 with accounts: [(name: String, type: String, amount: String)],
                 onDate date: Date) -> Bool {
@@ -201,7 +212,7 @@ class CapitalUITests: XCTestCase {
         app.buttons[accounts[0].type].tap()
         let newFromAccountValue =
             String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
-                Int(accounts[0].amount)! - Int(amount)!:
+                Int(accounts[0].amount)! - Int(amount)! :
                 Int(accounts[0].amount)! + Int(amount)!)
         let fromAccountIsCorrect =
             app.tables["t"].staticTexts[
@@ -210,7 +221,7 @@ class CapitalUITests: XCTestCase {
         app.buttons[accounts[1].type].tap()
         let newToAccountValue =
             String((accounts[1].type == "asset" || accounts[1].type == "expense") ?
-                Int(accounts[1].amount)! + Int(amount)!:
+                Int(accounts[1].amount)! + Int(amount)! :
                 Int(accounts[1].amount)! - Int(amount)!)
         let toAccountIsCorrect =
             app.tables["t"].staticTexts[
@@ -226,7 +237,7 @@ class CapitalUITests: XCTestCase {
 //        let day = "15"//(1...27).map{String($0)}.randomElement()!
 //        let month = "December"
 //        let year = "2018"
-////        let date = (day: day, month: "December", year: "2018")
+//        let date = (day: day, month: "December", year: "2018")
 //        let sampleDate = "\(day)-\(month)-\(year)".date(withFormat: "dd-MMMM-yyyy")
 //        print(sampleDate?.str as Any)
 //        print(Date().str)
@@ -234,7 +245,7 @@ class CapitalUITests: XCTestCase {
 //        _ = accounts.map{XCTAssert(create(account: $0))}
 //        XCTAssert(create(transaction: amount, with: accounts, onDate: sampleDate!))
 //        XCTAssert(deleteUser())
-//        
+//
 //        let vTable = app.tables["v"]
 //        vTable.staticTexts["2018 Dec-21"].tap()
 //        vTable.pickerWheels["21"].press(forDuration: 1.2);

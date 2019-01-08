@@ -19,10 +19,12 @@ class AccountListVC: ViewController {
 
         table.didSelect = {[unowned self] row, _ in
             let viewController = AccountTransactionsVC((row.id, row.name))
-            self.navigationController?.pushViewController(viewController, animated: true)}
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
         view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView],
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
     }
+
 }
 
 extension AccountListVC {
@@ -41,7 +43,8 @@ extension AccountListVC {
                 let dataModel = DataModel(self.accounts.map {
                     (id: $0.key, name: $0.value.name,
                      desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))",
-                        filter: $0.value.typeId ?? 4)})
+                        filter: $0.value.typeId ?? 4)
+                })
                 completion(dataModel)
             }
         }
@@ -50,6 +53,7 @@ extension AccountListVC {
             guard let id = row?.id else {return}
             data.delete(.group, withId: id)
         }
+
     }
 
 }

@@ -8,6 +8,7 @@ protocol FIRListnersProtocol {
 }
 
 extension FIRListnersProtocol {
+
     func setListner(
         forObject objectId: ObjectIdentifier,
         toPath path: String,
@@ -15,12 +16,13 @@ extension FIRListnersProtocol {
         ([(id: String, data: [String: Any], changeType: ChangeType)]) -> Void) {
         setListner(forObject: objectId, toPath: path, whereClause: nil, completion: completion)
     }
+
 }
 
 // MARK: - Observers
 final class FIRListners: FIRManager, FIRListnersProtocol {
     typealias WhereClause = (field: String, comparisonType: ComparisonType, value: Any)
-    //TODO: Consider moving to the upper level to use in protocols as well
+    // TODO: Consider moving to the upper level to use in protocols as well
     typealias ListnerResult = (id: String, data: [String: Any], changeType: ChangeType)
     /// Singlton
     static var shared: FIRListnersProtocol = FIRListners()
@@ -69,7 +71,9 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
             })
         }
 
-        if listners[objectId] == nil {listners[objectId] = [ListenerRegistration?]()}
+        if listners[objectId] == nil {
+            listners[objectId] = [ListenerRegistration?]()
+        }
         listners[objectId]!.append(listner)
     }
 
@@ -78,7 +82,9 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
     /// - Parameter objectId: id of the instance being deinitialized
     func removeListners(ofObject objectId: ObjectIdentifier) {
         guard let objListners = listners[objectId] else {return}
-        for listner in objListners {listner?.remove()}
+        for listner in objListners {
+            listner?.remove()
+        }
         listners.removeValue(forKey: objectId)
     }
 

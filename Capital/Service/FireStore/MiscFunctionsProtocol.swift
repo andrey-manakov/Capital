@@ -3,6 +3,7 @@ protocol MiscFunctionsProtocol {
 }
 
 extension MiscFunctionsProtocol {
+
     /// Calculates next transaction date based on previous transaction date and recurrence frequency
     ///
     /// - Parameters:
@@ -19,7 +20,7 @@ extension MiscFunctionsProtocol {
             newDate = Calendar.current.date(byAdding: Calendar.Component.day, value: 1, to: date)
         case .everyWorkingDay:
             newDate = Calendar.current.date(byAdding: Calendar.Component.day, value: 1, to: date)
-        //FIXME: if transactionDate.isWeekEnd() {continue} remove weekend
+        // FIXME: if transactionDate.isWeekEnd() {continue} remove weekend
         case .everyWeek:
             newDate = Calendar.current.date(byAdding: Calendar.Component.day, value: 1, to: date)
         case .everyMonth:
@@ -28,6 +29,6 @@ extension MiscFunctionsProtocol {
             newDate = Calendar.current.date(byAdding: Calendar.Component.year, value: 1, to: date)
         }
         return newDate
-//         && !(date!.isAfter(recurrenceEnd ?? Date()))
     }
+
 }

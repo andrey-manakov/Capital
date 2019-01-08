@@ -4,7 +4,11 @@ protocol FIRAccountGroupManagerProtocol: class {
 }
 
 extension FIRAccountGroupManagerProtocol {
-    func delete(id: String) {delete(id: id, completion: nil)}
+
+    func delete(id: String) {
+        delete(id: id, completion: nil)
+    }
+
 }
 
 extension FIRAccountGroupManager: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
@@ -39,7 +43,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
                     $0.type == AccountType.liability
                     }.map {$0.amount ?? 0}.reduce(0, +)
             // write to each account information about its membership in group
-            accountIds.forEach {id in
+            accountIds.forEach { id in
                 var newAccountGroup = [newRef.documentID: name]
                 if let oldAccountGroup = accounts[id]?.groups {
                     newAccountGroup = newAccountGroup.merging(
@@ -55,7 +59,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
                 Account.Group.Fields.name.rawValue: name,
                 Account.Group.Fields.amount.rawValue: amount,
                 Account.Group.Fields.accounts.rawValue:
-                    accounts.mapValues {acc in acc.name}], forDocument: newRef)
+                    accounts.mapValues { acc in acc.name}], forDocument: newRef)
             return true
         }, completion: fireStoreCompletion)
 
@@ -79,7 +83,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
                 (id: $0, self.get(.account, withId: $0, for: fsTransaction) as? Account)
             }) {
                 let accounts = Dictionary(uniqueKeysWithValues: uniqueKeysWithValues)
-                accounts.forEach({
+                accounts.forEach {
                     if let groups = $0.value?.groups {
                         var newGroups = groups
                         newGroups.removeValue(forKey: id)
@@ -87,7 +91,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
                             [Account.Fields.groups.rawValue: newGroups],
                             forDocument: ref.collection(DataObjectType.account.rawValue).document($0.key))
                     }
-                })
+                }
             }
 
             // Delete account group

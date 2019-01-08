@@ -6,5 +6,8 @@ class NumberLabel: SimpleLabel {
         textAlignment = .right
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
+
 }

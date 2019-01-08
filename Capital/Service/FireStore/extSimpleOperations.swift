@@ -1,5 +1,6 @@
 // MARK: - Simple create, update, delete oprations on FireStore DataBase
 extension FireStoreData {
+
     /// Creates data object in FireStore DataBase
     ///
     /// - Parameters:
@@ -9,7 +10,7 @@ extension FireStoreData {
     func create(_ dataObject: DataObjectType, with data: [String: Any?],
                 completion: ((String?) -> Void)? = nil) {
         var docRef: DocumentReference?
-        docRef = ref?.collection(dataObject.rawValue).addDocument(data: data as [String: Any]) {err in
+        docRef = ref?.collection(dataObject.rawValue).addDocument(data: data as [String: Any]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
@@ -28,7 +29,7 @@ extension FireStoreData {
     func update(_ dataObject: DataObjectType, id: String?, with values: [String: Any?],
                 completion: (() -> Void)? = nil) {
         guard let id = id else {return}
-        ref?.collection(dataObject.rawValue).document(id).updateData(values as [AnyHashable: Any]) {err in
+        ref?.collection(dataObject.rawValue).document(id).updateData(values as [AnyHashable: Any]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
             } else {

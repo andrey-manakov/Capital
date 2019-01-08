@@ -48,6 +48,7 @@ final class Account: DataObject {
         case .groups: self.groups =  value as? [String: String]
         }
     }
+
 }
 
 extension Account: Equatable {
@@ -72,6 +73,7 @@ extension Account: Equatable {
             lhs.name == rhs.name &&
             lhs.type == rhs.type
     }
+
 }
 
 // MARK: - Adds conformance to CustomStringConvertible, CustomDebugStringConvertible

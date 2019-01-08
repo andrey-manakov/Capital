@@ -1,13 +1,4 @@
-//
-//  AppDelegate.swift
-//  Capital
-//
-//  Created by Andrey Manakov on 09/12/2018.
-//  Copyright © 2018 Andrey Manakov. All rights reserved.
-//
-
 import UIKit
-//import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,4 +25,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         return true
     }
+
 }

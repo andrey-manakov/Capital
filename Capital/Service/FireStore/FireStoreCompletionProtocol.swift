@@ -4,6 +4,7 @@ protocol FireStoreCompletionProtocol {
 }
 
 extension FireStoreCompletionProtocol {
+
     /// Used as completion action for FireStore runTransaction
     ///
     /// - Parameters:
@@ -23,7 +24,9 @@ extension FireStoreCompletionProtocol {
     /// - Parameters:
     ///   - error: error passed from Transaction
     func fireStoreCompletion(error: Error?) {
-        if let error = error {print("Error in working with firebase: \(error)")}
+        if let error = error {
+            print("Error in working with firebase: \(error)")
+        }
     }
 
 }

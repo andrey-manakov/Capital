@@ -1,5 +1,5 @@
 import UIKit
-//FIXME: Switch to import Swift or Foundation
+// FIXME: Switch to import Swift or Foundation
 
 protocol AdvancedNewTransactionServiceProtocol: class {
     var view: AdvancedNewTransactionVCProtocol? {get set}
@@ -15,17 +15,24 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
     weak var view: AdvancedNewTransactionVCProtocol?
     private var fromAccountId: String?
     private var toAccountId: String?
-    private var amount: Int? {didSet {transactionItemsDesc[.amount] = "\(amount ?? 0)"}}
+    private var amount: Int? {didSet {
+        transactionItemsDesc[.amount] = "\(amount ?? 0)"
+        }
+    }
     private var date: Date? {didSet {
         transactionItemsDesc[.date] = date?.string
         transactionItemsDesc[.dateSelection] = date?.string
         }
     }
     private var approvalMode: FinTransaction.ApprovalMode? {
-        didSet {transactionItemsDesc[.approvalMode] = approvalMode?.name}
+        didSet {
+            transactionItemsDesc[.approvalMode] = approvalMode?.name
+        }
     }
     private var recurrenceFrequency = RecurrenceFrequency.never {
-        didSet {transactionItemsDesc[.recurrenceFrequency] = recurrenceFrequency.name}
+        didSet {
+            transactionItemsDesc[.recurrenceFrequency] = recurrenceFrequency.name
+        }
     }
     private var recurrenceEndDate: Date? {didSet {
         transactionItemsDesc[.recurrenceEnd] = recurrenceEndDate?.string
@@ -60,9 +67,15 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
     }
 
     func didSelect(_ item: TransactionItem) {
-        if item != .date {hide(.dateSelection)}
-        if item != .recurrenceEnd {hide(.recurrenceEndDate)}
-        let action: ((Any?) -> Void) = {id in self.didChoose(transactionItem: item, with: id)}
+        if item != .date {
+            hide(.dateSelection)
+        }
+        if item != .recurrenceEnd {
+            hide(.recurrenceEndDate)
+        }
+        let action: ((Any?) -> Void) = {
+            id in self.didChoose(transactionItem: item, with: id)
+        }
 
         switch item {
         case .from, .to:
@@ -88,7 +101,9 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
         case .recurrenceFrequency:
             view?.push(RecurrenceFrequencySelectorVC(action))
         case .recurrenceEnd:
-            if transactionItems.contains(.recurrenceEndDate) {hide(.recurrenceEndDate)} else {
+            if transactionItems.contains(.recurrenceEndDate) {
+                hide(.recurrenceEndDate)
+            } else {
                 insert(.recurrenceEndDate, after: .recurrenceEnd)
             }
         case .recurrenceEndDate:
@@ -96,6 +111,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
         }
     }
 
+    // swiftlint:disable function_body_length
     // MARK: - Actions on selection of Transaction items
     func didChoose(transactionItem: TransactionItem, with value: Any?) {
         switch transactionItem {
@@ -115,7 +131,9 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
         case .dateSelection:
             self.date = value as? Date
             if let date = value as? Date, date > Date() {
-                if !transactionItems.contains(.approvalMode) {insert(.approvalMode, after: .dateSelection)}
+                if !transactionItems.contains(.approvalMode) {
+                    insert(.approvalMode, after: .dateSelection)
+                }
             } else {
                 hide(.approvalMode)
             }
@@ -130,7 +148,9 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
                 let recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue) else {return}
             self.recurrenceFrequency = recurrenceFrequency
             getData(for: .recurrenceFrequency)
-            if recurrenceFrequency == .never {hide(.recurrenceEnd)} else {
+            if recurrenceFrequency == .never {
+                hide(.recurrenceEnd)
+            } else {
                 if !transactionItems.contains(.recurrenceEnd) {
                     insert(.recurrenceEnd, after: .recurrenceFrequency)
                 }
@@ -153,14 +173,14 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
         data.createTransaction(from: (fromId, fromName), to: (toId, toName), amount: amountV,
                                date: date, approvalMode: approvalMode,
                                recurrenceFrequency: recurrenceFrequency,
-                               recurrenceEnd: recurrenceEndDate) {_ in
+                               recurrenceEnd: recurrenceEndDate) { _ in
             //            self.view?.dismissNavigationViewController() //FIXME: should clear the data
         }
 
     }
 
     func didScroll() {
-        //TODO: don't hide selected cell details
+        // TODO: don't hide selected cell details
         hide(.dateSelection)
         view?.endEditing(force: true)
     }

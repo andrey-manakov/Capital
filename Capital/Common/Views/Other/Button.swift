@@ -18,7 +18,12 @@ class Button: UIButton, ButtonProtocol {
         self.addTarget(self, action: #selector(tapAction), for: UIControl.Event.touchUpInside)
     }
 
-    required init?(coder aDecoder: NSCoder) {return nil}
+    required init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 
-    @objc func tapAction() {action?()}
+    @objc func tapAction() {
+        action?()
+    }
+
 }

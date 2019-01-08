@@ -33,9 +33,9 @@ extension Data {
 
     func setListnerToAccounts(
         for objectId: ObjectIdentifier,
-        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void ))) {
+        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
         listnersManager?.setListner(forObject: objectId,
-                                    toPath: "/\(DataObjectType.account.rawValue)") {data in
+                                    toPath: "/\(DataObjectType.account.rawValue)") { data in
             completion(data.map {($0.id, Account($0.data), $0.changeType)})
         }
     }
@@ -43,20 +43,21 @@ extension Data {
     func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void ))) {
-        listnersManager?.setListner(forObject: objectId, toPath: "/\(DataObjectType.group.rawValue)") {data in
+        ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))) {
+        listnersManager?.setListner(
+        forObject: objectId, toPath: "/\(DataObjectType.group.rawValue)") { data in
             completion(data.map {($0.id, Account.Group($0.data), $0.changeType)})
         }
     }
 
     func setListnersToAccountsInGroup(
         withId id: String, for objectId: ObjectIdentifier,
-        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void ))) {
+        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
         listnersManager?.setListner(
         forObject: objectId,
         toPath: "/\(DataObjectType.account.rawValue)",
         whereClause: (
-            field: "\(Account.Fields.groups.rawValue).\(id)", .isGreaterThan, value: "")) {data in
+            field: "\(Account.Fields.groups.rawValue).\(id)", .isGreaterThan, value: "")) { data in
             completion(data.map {($0.id, Account($0.data), $0.changeType)})
         }
     }
@@ -64,21 +65,21 @@ extension Data {
     func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void ))) {
+        ((( [(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void))) {
         let path = "/\(DataObjectType.transaction.rawValue)"
 
         listnersManager?.setListner(
             forObject: objectId, toPath: path,
             whereClause: (field:
                 "\(FinTransaction.Fields.from.rawValue).\(FinTransaction.Fields.From.id.rawValue)",
-                .isEqualTo, value: id)) {data in
+                .isEqualTo, value: id)) { data in
             completion(data.map {($0.id, FinTransaction($0.data), $0.changeType)})
         }
         listnersManager?.setListner(
             forObject: objectId, toPath: path,
             whereClause: (field:
                 "\(FinTransaction.Fields.to.rawValue).\(FinTransaction.Fields.To.id.rawValue)",
-                .isEqualTo, value: id)) {data in
+                .isEqualTo, value: id)) { data in
             completion(data.map {($0.id, FinTransaction($0.data), $0.changeType)})
         }
     }
@@ -86,27 +87,35 @@ extension Data {
     func removeListners(ofObject objectId: ObjectIdentifier) {
         listnersManager?.removeListners(ofObject: objectId)
     }
+
 }
 
-//typealias whereClause = (field: String, com) //FIXME: where clause typealias
+// typealias whereClause = (field: String, com) //FIXME: where clause typealias
 
 // MARK: - Sign In, Sign Out
 extension Data {
+
     func signOut(_ completion: ((Error?) -> Void)? = nil) {
-        fireAuth?.signOutUser(completion)}
+        fireAuth?.signOutUser(completion)
+    }
+
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {
         fireAuth?.signInUser(withEmail: email, password: pwd, completion: completion)
     }
+
     func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {
-        fireAuth?.createUser(withEmail: email, password: pwd, completion: completion)}
+        fireAuth?.createUser(withEmail: email, password: pwd, completion: completion)
+    }
+
     func deleteUser(completion: ((Error?) -> Void)?) {
         fireAuth?.deleteUser(completion)
     }
+
 }
 
 // MARK: - Private Data Functions, the only reason to have these functions is
 // to concentrate all the requests through these functions
-extension Data { //Decide if these functions are needed at all
+extension Data { // Decide if these functions are needed at all
 
     /// Deletes data object from FireStore DataBase
     ///
@@ -117,9 +126,9 @@ extension Data { //Decide if these functions are needed at all
     func delete(_ dataObject: DataObjectType, withId id: String?, completion: (() -> Void)? = nil) {
         guard let id = id else {return}
         switch dataObject {
-        case .account: break//deleteAccount(withId: id, completion)
+        case .account: break// deleteAccount(withId: id, completion)
         case .group: accountGroupManager?.delete(id: id, completion: completion)
-        case .transaction: break //deleteFinTransaction(withId: id, completion)
+        case .transaction: break // deleteFinTransaction(withId: id, completion)
         case .change: break // TODO: double check
         }
     }
@@ -138,6 +147,7 @@ extension Data {
                        withAmount amount: Int?, completion: ((String?) -> Void)? = nil) {
         accountManager?.createAccount(name, ofType: type, withAmount: amount, completion: completion)
     }
+
     // swiftlint:disable identifier_name
     func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?,
                            date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
@@ -158,7 +168,7 @@ extension Data {
     }
 
     func deleteAccountGroup(withId id: String, completion: (() -> Void)?) {
-        //FIXME: add implementation
+        // FIXME: add implementation
     }
 
     func deleteTransaction(withId id: String) {
@@ -166,7 +176,7 @@ extension Data {
 //        guard let accountFromId = transactions[id]?.from,
 //            let accountToId = transactions[id]?.to,
 //            let amount = transactions[id]?.amount else {fatalError("could not find transaction or field")}
-//        
+//
 //        delete(.transaction, withId: id) {
 //            self.update(accountWithId: accountFromId, withAmount: amount, andDirection: .to)
 //            self.update(accountWithId: accountToId, withAmount: amount, andDirection: .from)
