@@ -25,10 +25,10 @@ script:
 
 after_script:
   - bash <(curl -s https://codecov.io/bash)
-#  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  - ./cc-test-reporter format-coverage -t gcov ./coverage/gcov.info
-  - ./cc-test-reporter upload-coverage
-  - ls
-  - ls ./
-  - ls ./coverage
+ - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  # - ./cc-test-reporter format-coverage -t gcov ./coverage/gcov.info
+  # - ./cc-test-reporter upload-coverage
+  # - ls
+  # - ls ./
+  # - ls ./coverage
 
