@@ -1,17 +1,13 @@
     
-language: 
-  - objective-c
-  - go
-go:
-  - 1.9
+language: objective-c
 osx_image: xcode10.1
 xcode_project: Capital.xcodeproj
 xcode_scheme: Capital
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone 6s
 env:
-global:
-- CC_TEST_REPORTER_ID=db15990215dc6d274f01ad4cbe188a17fdf5fc057f96bff6112f58388eafaad5
-# os: osx
+  global:
+    - CC_TEST_REPORTER_ID=db15990215dc6d274f01ad4cbe188a17fdf5fc057f96bff6112f58388eafaad5
+os: linux
 
 # working with codecov
 # install:
@@ -24,27 +20,20 @@ global:
 
 install:
   - gem install xcpretty
-  - go get -v github.com/golang/dep/cmd/dep
-  - go get -v github.com/codeclimate/test-reporter
-  - cd $GOPATH/src/github.com/golang/dep/cmd/dep && git checkout tags/v0.4.1 && go install
-  - cd $GOPATH/src/github.com/codeclimate/test-reporter && git checkout tags/v0.4.3 && go install
-  - cd - && dep ensure -v -vendor-only
-
 
 before_script:
-  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
   # - bash <(curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > cc-test-reporter)
   # - chmod +x ./cc-test-reporter
   # - file ./cc-test-reporter
-  # - bash file ./cc-test-reporter
-  # - ./cc-test-reporter before-build
-  - test-reporter before-build
+  - ./cc-test-reporter before-build
+  # - test-reporter before-build
 
 script:
   - bundle exec rspec
 
 after_script:
-  # - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  - test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  # - test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - bash <(curl -s https://codecov.io/bash)
