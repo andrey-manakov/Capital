@@ -311,6 +311,12 @@
 		C1E967B421C83909005014E1 /* TransactionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemTests.swift; sourceTree = "<group>"; };
 		C1E967B621C8B367005014E1 /* ClassServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassServiceTests.swift; sourceTree = "<group>"; };
 		C1E967B821C8FA1B005014E1 /* CapitalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalUITests.swift; sourceTree = "<group>"; };
+		C1F90B7121E5F968006BD59E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		C1F90B7221E5F968006BD59E /* .tailor.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .tailor.yml; sourceTree = "<group>"; };
+		C1F90B7321E5F968006BD59E /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		C1F90B7421E5F968006BD59E /* .codebeatignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .codebeatignore; sourceTree = "<group>"; };
+		C1F90B7521E5F968006BD59E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C1F90B7621E5F968006BD59E /* .jazzy.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .jazzy.yaml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -645,6 +651,12 @@
 			isa = PBXGroup;
 			children = (
 				C116879421DF4C4E003D3ADA /* README.md */,
+				C1F90B7421E5F968006BD59E /* .codebeatignore */,
+				C1F90B7521E5F968006BD59E /* .gitignore */,
+				C1F90B7621E5F968006BD59E /* .jazzy.yaml */,
+				C1F90B7121E5F968006BD59E /* .swiftlint.yml */,
+				C1F90B7221E5F968006BD59E /* .tailor.yml */,
+				C1F90B7321E5F968006BD59E /* .travis.yml */,
 				C1CE082F21BD216F000D28C9 /* Capital */,
 				C1CE084421BD2170000D28C9 /* CapitalTests */,
 				C1CE084F21BD2170000D28C9 /* CapitalUITests */,
