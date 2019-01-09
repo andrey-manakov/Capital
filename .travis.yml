@@ -24,5 +24,8 @@ script:
   - xcodebuild -project Capital.xcodeproj -scheme Capital -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.1,name=iPhone 6s" -configuration Debug -PBXBuildsContinueAfterErrors=0 SWIFT_VERSION=$SWIFT_VERSION build test
 
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - bash <(curl -s https://codecov.io/bash)
+#  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.info
+  - ./cc-test-reporter upload-coverage
+
