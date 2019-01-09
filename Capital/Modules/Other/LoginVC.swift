@@ -29,8 +29,7 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
 
     private func signIn() {
         guard let login = self.loginTextField.text, let password = self.passwordTextField.text else {return}
-        self.loginTextField.text = ""
-        self.passwordTextField.text = ""
+        cleanTextFields()
         self.service.didTapSignIn(withLogin: login, andPassword: password) { error in
             if let error = error {
                 self.alert(message: error.localizedDescription)
@@ -40,8 +39,7 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
 
     private func signUp() {
         guard let login = self.loginTextField.text, let password = self.passwordTextField.text else {return}
-        self.loginTextField.text = ""
-        self.passwordTextField.text = ""
+        cleanTextFields()
         self.service.didTapSignUp(
             withLogin: login,
             andPassword: password) { error in
@@ -59,6 +57,11 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
                 print("User is nil")
             }
         }
+    }
+
+    private func cleanTextFields() {
+        self.loginTextField.text = ""
+        self.passwordTextField.text = ""
     }
 
 }
