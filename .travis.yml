@@ -7,6 +7,8 @@ xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone 6s
 env:
   global:
     - CC_TEST_REPORTER_ID=db15990215dc6d274f01ad4cbe188a17fdf5fc057f96bff6112f58388eafaad5
+env:
+  - SWIFT_VERSION=4.2
 os: osx
 
 # working with codecov
@@ -31,7 +33,8 @@ before_script:
   # - test-reporter before-build
 
 script:
-  # - bundle exec rspec
+  # - 
+  - xcodebuild -project Capital.xcodeproj -scheme Capital -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.1,name=iPhone 6s" -configuration Debug -PBXBuildsContinueAfterErrors=0 SWIFT_VERSION=$SWIFT_VERSION build test
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
