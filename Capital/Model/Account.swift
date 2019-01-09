@@ -9,28 +9,55 @@ extension Account {
         }
     }
 }
+
+/// Account - is the entity to record transactions (`FinTransaction`).
 final class Account: DataObject {
+
+    // MARK - Properties
+
+    /// Account name
     var name: AccountName?
+    /// Account current balance
     var amount: Int?
+    /// Account available amount, which takes into account future withdrawals
     var minAmount: Int?
+    /// Date when Account reaches its min value (`Account.minAmount`)
     var minDate: Date?
+    /// Computed tuple holding `Account.minAmount` and `Account.minDate`
+    /// In that way the data regarding `Account.minAmount` and `Account.minDate` is stored in Firestore.
     var min: (amount: Int, date: Date)? {
         guard let minAmount = minAmount, let minDate = minDate else {return nil}
         return (minAmount, minDate)
     }
+    /// RawValue of Enum `AccountType`
+    /// In that way data is stored in FireStore
     var typeId: Int?
+    /// Computed value of Enum `AccountType` based on rawValue
     var type: AccountType? {
         guard let typeId = typeId, let accountType = AccountType(rawValue: typeId) else {return nil}
         return accountType
     }
+    /// Groups to which 'Account' belongs to
     var groups: [GroupId: GroupName]?
 
+    // MARK - Initializers
+
+    /// Initializer used to create instance of `Account` from data loaded from FireStore
+    ///
+    /// - Parameter data: data as it is stored in FireStore
     required convenience init(_ data: [String: Any]) {
         self.init()
         for (key, value) in data {update(field: key, value: value)
         }
     }
 
+    // MARK - Methods
+
+    /// Updates instance field with new value
+    ///
+    /// - Parameters:
+    ///   - field: field name
+    ///   - value: value of the field
     func update(field: String, value: Any) {
         guard let property = Account.Fields(rawValue: field) else {return}
         switch property {
@@ -51,7 +78,9 @@ final class Account: DataObject {
 
 }
 
+// MARK: - Extends 'Account' to Equatable protocol
 extension Account: Equatable {
+    /// JSON representation of 'Account' instance
     var json: String {
         let jsonEncoder = JSONEncoder()
         let json: String
@@ -64,6 +93,12 @@ extension Account: Equatable {
         return json
     }
 
+    /// Implementation of '==' to comply with Equatable protocol
+    ///
+    /// - Parameters:
+    ///   - lhs: first instance
+    ///   - rhs: second instance
+    /// - Returns: true if first and second instances are equal
     static func == (lhs: Account, rhs: Account) -> Bool {
         let currentDate = Date()
         return lhs.amount == rhs.amount &&
@@ -76,7 +111,7 @@ extension Account: Equatable {
 
 }
 
-// MARK: - Adds conformance to CustomStringConvertible, CustomDebugStringConvertible
+/// MARK: - Extends  'Account' to CustomStringConvertible, CustomDebugStringConvertible protocols
 extension Account: CustomStringConvertible, CustomDebugStringConvertible {
     var description: String {return json}
     var debugDescription: String {return description}

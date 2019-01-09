@@ -171,7 +171,6 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
                                date: date, approvalMode: approvalMode,
                                recurrenceFrequency: recurrenceFrequency,
                                recurrenceEnd: recurrenceEndDate) { _ in
-            //            self.view?.dismissNavigationViewController() //FIXME: should clear the data
         }
 
     }

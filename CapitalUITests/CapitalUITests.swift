@@ -137,21 +137,23 @@ class CapitalUITests: XCTestCase {
 //        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
     }
 
-//    func testSimpleTransaction() {
-//        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
-//        let accounts = [randomAccount(), randomAccount()]
-//        let amount = String((0..<3).map{ _ in "123456789".randomElement()! })
-//
-//        XCTAssert(signUp(login: login, password: password))
-//        _ = accounts.map{XCTAssert(create(account: $0))}
-//        XCTAssert(create(transaction: amount, with: accounts))
-//        XCTAssert(deleteUser())
-//    }
+    func testSimpleTransaction() {
+        if app.navigationBars["DashBoard"].exists {
+            XCTAssert(signOut())
+        }
+        let accounts = [randomAccount(), randomAccount()]
+        let amount = String((0..<3).map { _ in "123456789".randomElement()!})
+
+        XCTAssert(signUp(login: login, password: password))
+        _ = accounts.map {XCTAssert(create(account: $0))}
+        XCTAssert(create(transaction: amount, with: accounts))
+        XCTAssert(deleteUser())
+    }
 
     func create(
         transaction amount: String,
         with accounts: [(name: String, type: String, amount: String)]) -> Bool {
-
+        print("create function without date")
         app.tabBars.buttons["New Transaction"].tap()
         app.tables["v"].staticTexts["from"].tap()
         app.buttons[accounts[0].type].tap()
@@ -169,10 +171,17 @@ class CapitalUITests: XCTestCase {
             String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
                 Int(accounts[0].amount)! - Int(amount)! :
                 Int(accounts[0].amount)! + Int(amount)!)
+        print("LOG accounts[0].type \(accounts[0].type)")
+        print((accounts[0].type == "asset" || accounts[0].type == "expense"))
+        print("LOG newFromAccountValue \(newFromAccountValue)")
+
         let newToAccountValue =
             String((accounts[1].type == "asset" || accounts[1].type == "expense") ?
                 Int(accounts[1].amount)! + Int(amount)! :
                 Int(accounts[1].amount)! - Int(amount)!)
+        print("LOG accounts[1].type \(accounts[1].type)")
+        print((accounts[1].type == "asset" || accounts[1].type == "expense"))
+        print("LOG newToAccountValue \(newToAccountValue)")
 
         let fromAccountIsCorrect = app.tables["t"].staticTexts[
             "\(newFromAccountValue) (\(newFromAccountValue))"].waitForExistence(timeout: 10)
@@ -214,6 +223,9 @@ class CapitalUITests: XCTestCase {
             String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
                 Int(accounts[0].amount)! - Int(amount)! :
                 Int(accounts[0].amount)! + Int(amount)!)
+        print("accounts[0].type \(accounts[0].type)")
+        print((accounts[0].type == "asset" || accounts[0].type == "expense"))
+        print("newFromAccountValue \(newFromAccountValue)")
         let fromAccountIsCorrect =
             app.tables["t"].staticTexts[
                 "\(newFromAccountValue) (\(newFromAccountValue))"].waitForExistence(timeout: 10)
@@ -223,6 +235,10 @@ class CapitalUITests: XCTestCase {
             String((accounts[1].type == "asset" || accounts[1].type == "expense") ?
                 Int(accounts[1].amount)! + Int(amount)! :
                 Int(accounts[1].amount)! - Int(amount)!)
+        print("accounts[1].type \(accounts[1].type)")
+        print((accounts[1].type == "asset" || accounts[1].type == "expense"))
+        print("newToAccountValue \(newToAccountValue)")
+
         let toAccountIsCorrect =
             app.tables["t"].staticTexts[
                 "\(newToAccountValue) (\(newToAccountValue))"].waitForExistence(timeout: 10)
