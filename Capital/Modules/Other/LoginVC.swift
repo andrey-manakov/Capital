@@ -2,48 +2,15 @@ protocol LoginViewControllerProtocol: ViewControllerProtocol {
 }
 
 class LoginVC: ViewController, LoginViewControllerProtocol {
+    private let service = Service()
+    let loginTextField: TextFieldProtocol = EmailField("email")
+    let passwordTextField: TextFieldProtocol = PasswordField("password")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let service = Service()
-        let loginTextField: TextFieldProtocol = EmailField("email")
-        let passwordTextField: TextFieldProtocol = PasswordField("password")
-
-        service.listenToAuthUpdates {[unowned self] user in
-            if user != nil {
-                self.present(TabBarController(), animated: true)
-            } else {
-                print("User is nil")
-            }
-        }
-
-        let signInButton: ButtonProtocol = Button(name: "Sign In") {
-            guard let login = loginTextField.text, let password = passwordTextField.text else {return}
-            loginTextField.text = ""
-            passwordTextField.text = ""
-            service.didTapSignIn(withLogin: login, andPassword: password) { error in
-                if let error = error {
-                    self.alert(message: error.localizedDescription)
-                }
-            }
-        }
-
-        let signUpButton: ButtonProtocol = Button(name: "Sign Up") {
-            guard let login = loginTextField.text, let password = passwordTextField.text else {return}
-            loginTextField.text = ""
-            passwordTextField.text = ""
-            service.didTapSignUp(
-                withLogin: login,
-                andPassword: password) { error in
-                    if let error = error {
-                        self.alert(message: error.localizedDescription)
-                    }
-//                if let error = error {self.alert(message: error.localizedDescription)} else {
-//                    loginTextField.text = ""
-//                    passwordTextField.text = ""
-//                }
-            }
-        }
+        setListners()
+        let signInButton: ButtonProtocol = Button(name: "Sign In", action: signIn)
+        let signUpButton: ButtonProtocol = Button(name: "Sign Up", action: signUp)
         // swiftlint:disable line_length
         view.add(subViews:
             ["appTitle": AppTitle(),
@@ -58,6 +25,40 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
              "H:|-100-[signUpButton]-100-|",
              "V:|-40-[appTitle(100)]-20-[loginTextField(44)]-20-[passwordTextField(44)]-30-[signInButton(44)]-20-[signUpButton(44)]"])
         _ = loginTextField.becomeFirstResponder()
+    }
+
+    private func signIn() {
+        guard let login = self.loginTextField.text, let password = self.passwordTextField.text else {return}
+        self.loginTextField.text = ""
+        self.passwordTextField.text = ""
+        self.service.didTapSignIn(withLogin: login, andPassword: password) { error in
+            if let error = error {
+                self.alert(message: error.localizedDescription)
+            }
+        }
+    }
+
+    private func signUp() {
+        guard let login = self.loginTextField.text, let password = self.passwordTextField.text else {return}
+        self.loginTextField.text = ""
+        self.passwordTextField.text = ""
+        self.service.didTapSignUp(
+            withLogin: login,
+            andPassword: password) { error in
+                if let error = error {
+                    self.alert(message: error.localizedDescription)
+                }
+        }
+    }
+
+    private func setListners() {
+        service.listenToAuthUpdates {[unowned self] user in
+            if user != nil {
+                self.present(TabBarController(), animated: true)
+            } else {
+                print("User is nil")
+            }
+        }
     }
 
 }
