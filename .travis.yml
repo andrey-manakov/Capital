@@ -7,7 +7,7 @@ xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone 6s
 env:
   global:
     - CC_TEST_REPORTER_ID=db15990215dc6d274f01ad4cbe188a17fdf5fc057f96bff6112f58388eafaad5
-os: linux
+os: osx
 
 # working with codecov
 # install:
@@ -22,8 +22,8 @@ install:
   - gem install xcpretty
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
   # - bash <(curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > cc-test-reporter)
   - chmod +x ./cc-test-reporter
   - file ./cc-test-reporter
