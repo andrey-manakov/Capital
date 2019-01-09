@@ -5,13 +5,24 @@ xcode_project: Capital.xcodeproj
 xcode_scheme: Capital
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone 6s
 
+# working with codecov
+# install:
+#   - gem install xcpretty
+
+# after_success:
+#   - bash <(curl -s https://codecov.io/bash)
+
+# single test suite, non-parallel build.
+
 install:
   - gem install xcpretty
-#  - ./install_swiftlint.sh
 
-#script:
-#  - swiftlint
-#  - xctool test -project SwiftLint-TravisCI-Example.xcodeproj -scheme SwiftLint-TravisCI-Example -sdk iphonesimulator
-
-after_success:
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - bash <(curl -s https://codecov.io/bash)
