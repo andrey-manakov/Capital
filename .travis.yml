@@ -11,32 +11,18 @@ env:
   - SWIFT_VERSION=4.2
 os: osx
 
-# working with codecov
-# install:
-#   - gem install xcpretty
-
-# after_success:
-#   - bash <(curl -s https://codecov.io/bash)
-
-# single test suite, non-parallel build.
-
 install:
   - gem install xcpretty
 
 before_script:
-  	# - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-  # - bash <(curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > cc-test-reporter)
   - chmod +x ./cc-test-reporter
   - file ./cc-test-reporter
   - ./cc-test-reporter before-build
-  # - test-reporter before-build
 
 script:
-  # - 
   - xcodebuild -project Capital.xcodeproj -scheme Capital -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.1,name=iPhone 6s" -configuration Debug -PBXBuildsContinueAfterErrors=0 SWIFT_VERSION=$SWIFT_VERSION build test
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  # - test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - bash <(curl -s https://codecov.io/bash)
