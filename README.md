@@ -1,6 +1,10 @@
 #  Capital App
 
 <p align="center">
+<a href="https://github.com/andrey-manakov/Capital">
+<img src="https://img.shields.io/badge/docs-10%25-red.svg"
+alt="Documentation Status">
+</a>
 <a href="https://travis-ci.org/andrey-manakov/Capital">
 <img src="https://api.travis-ci.org/andrey-manakov/Capital.svg?branch=master"
 alt="Build Status">
