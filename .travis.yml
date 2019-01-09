@@ -4,7 +4,7 @@ osx_image: xcode10.1
 xcode_project: Capital.xcodeproj
 xcode_scheme: Capital
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone 6s
-os: osx
+# os: osx
 
 # working with codecov
 # install:
@@ -19,13 +19,13 @@ install:
   - gem install xcpretty
 
 before_script:
-  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > cc-test-reporter
   # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-  - bash <(curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter)
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+  # - bash <(curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > cc-test-reporter)
+  - chmod +x cc-test-reporter
+  - cc-test-reporter before-build
 script:
   - bundle exec rspec
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - bash <(curl -s https://codecov.io/bash)
