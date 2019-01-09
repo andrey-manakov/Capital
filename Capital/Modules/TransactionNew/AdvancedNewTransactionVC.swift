@@ -1,5 +1,3 @@
-import UIKit
-
 protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
     var service: AdvancedNewTransactionServiceProtocol {get set}
     var tableData: DataModel {get set}

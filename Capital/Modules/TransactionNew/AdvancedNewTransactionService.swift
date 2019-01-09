@@ -1,6 +1,3 @@
-import UIKit
-// FIXME: Switch to import Swift or Foundation
-
 protocol AdvancedNewTransactionServiceProtocol: class {
     var view: AdvancedNewTransactionVCProtocol? {get set}
     func viewDidLoad(_ view: AdvancedNewTransactionVCProtocol)
