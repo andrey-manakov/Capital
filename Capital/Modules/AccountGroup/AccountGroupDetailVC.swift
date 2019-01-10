@@ -32,7 +32,7 @@ extension AccountGroupDetailVC {
             guard let id = id else {
                 return
             }
-            data.setListnersToAccountsInGroup(withId: id, for: self.id, completion: { data in
+            data.setListnersToAccountsInGroup(withId: id, for: self.id) { data in
                 for (id, account, changeType) in data {
                     switch changeType {
                     case .added, .modified:
@@ -45,7 +45,7 @@ extension AccountGroupDetailVC {
                     (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
                 })
                 completion(dataModel)
-            })
+            }
         }
 
         func deleteAccountGroup(id: String) {

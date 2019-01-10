@@ -1,18 +1,26 @@
 import XCTest
 @testable import Capital
 
-class RecurrenceFrequencyTests: XCTestCase {
+internal class RecurrenceFrequencyTests: XCTestCase {
 
-    func testName() {
+    internal func testName() {
         for item in RecurrenceFrequency.allCases {
+            let nameIsCorrect: Bool
             switch item {
-            case .everyDay: XCTAssert(item.name == "Every Day")
-            case .everyMonth: XCTAssert(item.name == "Every Month")
-            case .everyWeek: XCTAssert(item.name == "Every Week")
-            case .everyWorkingDay: XCTAssert(item.name == "Every Working Day")
-            case .everyYear: XCTAssert(item.name == "Every Year")
-            case .never: XCTAssert(item.name == "Never")
+            case .everyDay:
+                nameIsCorrect = (item.name == "Every Day")
+            case .everyMonth:
+                nameIsCorrect = (item.name == "Every Month")
+            case .everyWeek:
+                nameIsCorrect = (item.name == "Every Week")
+            case .everyWorkingDay:
+                nameIsCorrect = (item.name == "Every Working Day")
+            case .everyYear:
+                nameIsCorrect = (item.name == "Every Year")
+            case .never:
+                nameIsCorrect = (item.name == "Never")
             }
+            XCTAssert(nameIsCorrect)
         }
     }
 

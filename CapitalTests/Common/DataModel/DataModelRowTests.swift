@@ -1,9 +1,9 @@
 import XCTest
 @testable import Capital
 
-class DataModelRowTests: XCTestCase {
+internal class DataModelRowTests: XCTestCase {
 
-    func testInit() {
+    internal func testInit() {
 
         var selectActionCalled = false
 

@@ -1,5 +1,4 @@
-protocol MiscFunctionsProtocol {
-
+internal protocol MiscFunctionsProtocol {
 }
 
 extension MiscFunctionsProtocol {
@@ -10,12 +9,15 @@ extension MiscFunctionsProtocol {
     ///   - date: date of previous transaction
     ///   - recurrenceFrequency: recurrence frequency enum
     /// - Returns: next transaction date
-    func nextDate(from date: Date?, recurrenceFrequency: RecurrenceFrequency?) -> Date? {
+    internal func nextDate(from date: Date?, recurrenceFrequency: RecurrenceFrequency?) -> Date? {
         // TODO: consider moving to sendFinTransaction
-        guard let recurrenceFrequency = recurrenceFrequency, let date = date else { return nil }
+        guard let recurrenceFrequency = recurrenceFrequency, let date = date else {
+            return nil
+        }
         let newDate: Date?
         switch recurrenceFrequency {
-        case .never: newDate = nil
+        case .never:
+            newDate = nil
         case .everyDay:
             newDate = Calendar.current.date(byAdding: Calendar.Component.day, value: 1, to: date)
         case .everyWorkingDay:

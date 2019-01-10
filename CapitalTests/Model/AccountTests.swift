@@ -1,10 +1,10 @@
 import XCTest
 @testable import Capital
 
-class AccountTests: XCTestCase {
+internal class AccountTests: XCTestCase {
 
     /// <#Description#>
-    func testInitWithData() {
+    internal func testInitWithData() {
         // 1. Arrange
         let data = ["name": "name"]
 
@@ -19,7 +19,7 @@ class AccountTests: XCTestCase {
     }
 
     /// <#Description#>
-    func testUpdateWithNameFieldValue() {
+    internal func testUpdateWithNameFieldValue() {
         // 1. Arrange
         let field = "name"
         let value = "name"
@@ -35,7 +35,7 @@ class AccountTests: XCTestCase {
     }
 
     /// <#Description#>
-    func testUpdateWithAmountFieldValue() {
+    internal func testUpdateWithAmountFieldValue() {
         // 1. Arrange
         let field = "amount"
         let value = 10
@@ -51,7 +51,7 @@ class AccountTests: XCTestCase {
     }
 
     /// <#Description#>
-    func testUpdateWithTypeFieldValue() {
+    internal func testUpdateWithTypeFieldValue() {
         // 1. Arrange
         let field = "type"
         let value = 0
@@ -67,7 +67,7 @@ class AccountTests: XCTestCase {
     }
 
     /// <#Description#>
-    func testUpdateWithGroupsFieldValue() {
+    internal func testUpdateWithGroupsFieldValue() {
         // 1. Arrange
         let field = "groups"
         let value = ["group id": "group name"]
@@ -83,7 +83,7 @@ class AccountTests: XCTestCase {
     }
 
     /// <#Description#>
-    func testUpdateWithMinFieldValue() {
+    internal func testUpdateWithMinFieldValue() {
         // 1. Arrange
         let field = "min"
         let minDate = Date()
@@ -101,7 +101,7 @@ class AccountTests: XCTestCase {
     }
 
     /// <#Description#>
-    func testUpdateWithWrongFieldName() {
+    internal func testUpdateWithWrongFieldName() {
         // 1. Arrange
         let field = "wrong field name"
         let value = 0
@@ -116,7 +116,7 @@ class AccountTests: XCTestCase {
     }
 
     /// <#Description#>
-    func testUpdateWithWrongMinFieldName() {
+    internal func testUpdateWithWrongMinFieldName() {
         // 1. Arrange
         let field = "min"
         let value: [String: Any] = [:]

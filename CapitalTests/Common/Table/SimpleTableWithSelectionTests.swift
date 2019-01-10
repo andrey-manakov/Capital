@@ -1,9 +1,9 @@
 import XCTest
 @testable import Capital
 
-class SimpleTableWithSelectionTests: XCTestCase {
+internal class SimpleTableWithSelectionTests: XCTestCase {
 
-    func testInitWithCoder() {
+    internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 

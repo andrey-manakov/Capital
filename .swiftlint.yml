@@ -21,7 +21,7 @@ opt_in_rules:
 #  - explicit_enum_raw_value
   - fatal_error_message
   - first_where
-  - force_unwrapping
+  # - force_unwrapping
   - joined_default_parameter
   - let_var_whitespace
   - nimble_operator

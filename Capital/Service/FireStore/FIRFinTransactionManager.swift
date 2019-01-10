@@ -1,4 +1,4 @@
-protocol FIRFinTransactionManagerProtocol: class {
+internal protocol FIRFinTransactionManagerProtocol: class {
     // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(from: AccountInfo?, to: AccountInfo?,
                            amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?,
@@ -9,12 +9,13 @@ protocol FIRFinTransactionManagerProtocol: class {
 extension FIRFinTransactionManager: FireStoreCompletionProtocol {}
 extension FIRFinTransactionManager: FireStoreGettersProtocol, MiscFunctionsProtocol {}
 
-class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
+internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
     /// Singlton
-    static var shared: FIRFinTransactionManagerProtocol = FIRFinTransactionManager()
+    internal static var shared: FIRFinTransactionManagerProtocol = FIRFinTransactionManager()
+
     private override init() {}
 
-    // swiftlint:disable function_body_length identifier_name
+    // swiftlint:disable identifier_name
     /// Creates transaction in FireStore date base, including recurrent transactions,
     /// updates account values if transactions are in the past
     ///
@@ -36,12 +37,18 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
     ///     * read account amounts from FireStore
     ///     * create transactions
     ///     * update account amounts
-    func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?,
-                           date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
-                           recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
-                           completion: ((String?) -> Void)? = nil) {
+    internal func createTransaction(
+        from: AccountInfo?,
+        to: AccountInfo?, amount: Int?,
+        date: Date? = Date(),
+        approvalMode: FinTransaction.ApprovalMode? = nil,
+        recurrenceFrequency: RecurrenceFrequency? = nil,
+        recurrenceEnd: Date? = nil,
+        completion: ((String?) -> Void)? = nil) {
 
-        guard let ref = ref, let from = from, let to = to, let amount = amount else { return }
+        guard let ref = ref, let from = from, let to = to, let amount = amount else {
+            return
+        }
 
         let batch = self.fireDB.batch()
 
@@ -84,7 +91,7 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
             }
             i += 1
             if i == 366 {
-                fatalError()
+                fatalError("More thann 366 records")
             }
         }
 
@@ -103,8 +110,9 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
         batch.commit(completion: fireStoreCompletion)
     }
 
-    enum LogFields: String {
-        static let logCollection = "change"
+    internal enum LogFields: String {
+        internal static let logCollection = "change"
+
         case type
         case from
         case to
@@ -113,7 +121,7 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
         case approvedAmount
         case recurrenceChanges
         // swiftlint:disable nesting
-        enum LogType: String {
+        internal enum LogType: String {
             case approved
             case recurrence
         }

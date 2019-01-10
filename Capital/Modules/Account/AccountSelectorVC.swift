@@ -27,13 +27,21 @@ internal final class AccountSelectorVC: ViewController {
 
 extension AccountSelectorVC {
     private class Service: ClassService {
+
         private var accounts = [String: Account]()
-        private var dataModel: DataModelProtocol {return DataModel(self.accounts.map {DataModelRow(
-            id: $0.key,
-            name: $0.value.name,
-            desc: "\($0.value.amount ?? 0)",
-            filter: $0.value.type?.rawValue)
-        })}
+
+        private var dataModel: DataModelProtocol {
+//            let sourceForDataModel =
+            let dataModelSource = self.accounts.map {
+                DataModelRow(
+                    id: $0.key,
+                    name: $0.value.name,
+                    desc: "\($0.value.amount ?? 0)",
+                    filter: $0.value.type?.rawValue
+                )
+            }
+            return DataModel(dataModelSource)
+        }
 
         internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccounts(for: self.id) {[unowned self] data in

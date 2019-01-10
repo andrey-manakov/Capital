@@ -25,7 +25,7 @@ extension FireStoreCompletionProtocol {
     ///
     /// - Parameters:
     ///   - error: error passed from Transaction
-    func fireStoreCompletion(error: Error?) {
+    internal func fireStoreCompletion(error: Error?) {
         if let error = error {
             print("Error in working with firebase: \(error)")
         }

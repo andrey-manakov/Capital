@@ -1,4 +1,4 @@
-protocol FireAuthProtocol {
+internal protocol FireAuthProtocol {
     var currentUserUid: String? { get }
 
     func signOutUser(_ completion: ((Error?) -> Void)?)
@@ -8,11 +8,11 @@ protocol FireAuthProtocol {
 
 internal final class FIRAuth: FireAuthProtocol {
 
-    static var shared = FIRAuth()
+    internal static var shared = FIRAuth()
 
     internal var currentUser: User? { return Auth.auth().currentUser }
     internal var currentUserUid: String? { return currentUser?.uid }
-    lazy var getUpdatedUserInfo = [ObjectIdentifier: (String?) -> Void]()
+    lazy internal var getUpdatedUserInfo = [ObjectIdentifier: (String?) -> Void]()
 //    private let fs = FireStoreData.shared
 
     private init() {
@@ -33,7 +33,10 @@ internal final class FIRAuth: FireAuthProtocol {
         }
     }
 
-    internal func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
+    internal func createUser(
+        withEmail email: String,
+        password pwd: String,
+        completion: ((Error?) -> Void)? = nil) {
         Auth.auth().createUser(withEmail: email, password: pwd) {[unowned self] _, error in
             guard error == nil else {
                 print(error?.localizedDescription as Any)
@@ -43,7 +46,10 @@ internal final class FIRAuth: FireAuthProtocol {
         }
     }
 
-    internal func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
+    internal func signInUser(
+        withEmail email: String,
+        password pwd: String,
+        completion: ((Error?) -> Void)? = nil) {
         Auth.auth().signIn(withEmail: email, password: pwd) { _, error in completion?(error)
             // TODO: consider checking for capital account
         }

@@ -1,10 +1,10 @@
 extension FireStoreData: FireStoreGettersProtocol, FireStoreCompletionProtocol {}
 
-class FireStoreData: FIRDataProtocol {
+internal class FireStoreData: FIRDataProtocol {
 
 //    private let fa: FireAuthProtocol = FIRAuth.shared
-    let fireDB = Firestore.firestore()
-    var ref: DocumentReference? {
+    internal let fireDB = Firestore.firestore()
+    internal var ref: DocumentReference? {
         guard let user = Auth.auth().currentUser?.uid else {
             return nil
         }
@@ -13,10 +13,10 @@ class FireStoreData: FIRDataProtocol {
 //    lazy var data: DataProtocol = Data.shared
 
     /// Singleton variable
-    static var shared: FIRDataProtocol = FireStoreData()
+    internal static var shared: FIRDataProtocol = FireStoreData()
 
-    let capitalAccountName = "capital"
-    var capitalDoc: DocumentReference? {
+    private let capitalAccountName = "capital"
+    internal var capitalDoc: DocumentReference? {
         return ref?.collection(DataObjectType.account.rawValue).document(capitalAccountName)
     }
 

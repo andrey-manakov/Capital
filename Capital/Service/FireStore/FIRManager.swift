@@ -1,15 +1,17 @@
-class FIRManagerProtocol {
+internal final class FIRManagerProtocol {
 
 }
 
-class FIRManager {
-    let fireDB = Firestore.firestore()
-    var ref: DocumentReference? {
-        guard let user = FIRAuth.shared.currentUserUid else { return nil }
+internal class FIRManager {
+    internal let fireDB = Firestore.firestore()
+    internal var ref: DocumentReference? {
+        guard let user = FIRAuth.shared.currentUserUid else {
+            return nil
+        }
         return Firestore.firestore().document("users/\(user)")
     }
-    let capitalAccountName = "capital"
-    var capitalDoc: DocumentReference? {
+    internal let capitalAccountName = "capital"
+    internal var capitalDoc: DocumentReference? {
         return ref?.collection(DataObjectType.account.rawValue).document(capitalAccountName)
     }
 }

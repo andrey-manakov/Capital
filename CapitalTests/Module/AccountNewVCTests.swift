@@ -5,19 +5,19 @@ class AccountNewVCTests: XCTestCase {
 
     // MARK: Subject under test
 
-    var sut: AccountNewVC!
-    var view: UIView!
-    var window: UIWindow!
+    private var sut: AccountNewVC!
+    private var view: UIView!
+    private var window: UIWindow!
 
     // MARK: Test lifecycle
 
-    override func setUp() {
+    override internal func setUp() {
         super.setUp()
         window = UIWindow()
         setupVC()
     }
 
-    override func tearDown() {
+    override internal func tearDown() {
         window = nil
         sut = nil // TODO: Check if it is needed
         view = nil // TODO: Check if it is needed
@@ -26,7 +26,7 @@ class AccountNewVCTests: XCTestCase {
 
     // MARK: Test setup
 
-    func setupVC() {
+    internal func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = AccountNewVC()
         view = sut.view
@@ -34,12 +34,12 @@ class AccountNewVCTests: XCTestCase {
         self.window!.makeKeyAndVisible()
     }
 
-    func loadView() {
+    internal func loadView() {
         window.addSubview(view)
         RunLoop.current.run(until: Date())
     }
 
-    func testViewDidLoad() {
+    internal func testViewDidLoad() {
         XCTAssert(view.views["sc"] as? SegmentedControl != nil &&
             view.views["an"] as? SimpleTextField != nil &&
             view.views["aa"] as? SimpleTextField != nil)

@@ -1,9 +1,9 @@
 import XCTest
 @testable import Capital
 
-class SimpleSectionHeaderTests: XCTestCase {
+internal final class SimpleSectionHeaderTests: XCTestCase {
 
-    func testInitWithCoder() {
+    internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 

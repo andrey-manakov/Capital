@@ -1,4 +1,4 @@
-protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
+internal protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
     var service: AdvancedNewTransactionServiceProtocol { get set }
     var tableData: DataModel { get set }
 
@@ -8,7 +8,7 @@ protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
     func setAmountFieldFirstResponder()
 }
 
-protocol AdvancedNewTransactionTableProtocol: class { // TODO: compare with TemplateTableProtocol
+internal protocol AdvancedNewTransactionTableProtocol: class { // TODO: compare with TemplateTableProtocol
     func reloadRows(at indexPath: [IndexPath], with: UITableView.RowAnimation)
     func reloadData()
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)

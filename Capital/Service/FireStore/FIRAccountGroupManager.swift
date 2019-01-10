@@ -16,7 +16,8 @@ extension FIRAccountGroupManager: FireStoreCompletionProtocol, FireStoreGettersP
 internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
 
     /// Singlton
-    static internal var shared: FIRAccountGroupManagerProtocol = FIRAccountGroupManager()
+    internal static var shared: FIRAccountGroupManagerProtocol = FIRAccountGroupManager()
+
     private override init() {}
 
     /// Creates Account Group in FireStore data base, also updates accounts
@@ -46,9 +47,8 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             accountIds.forEach { id in
                 var newAccountGroup = [newRef.documentID: name]
                 if let oldAccountGroup = accounts[id]?.groups {
-                    newAccountGroup = newAccountGroup.merging(
-                        // swiftlint:disable identifier_name
-                        oldAccountGroup, uniquingKeysWith: { x, _ -> String in x })
+                    // swiftlint:disable identifier_name
+                    newAccountGroup = newAccountGroup.merging(oldAccountGroup) { x, _ -> String in x }
                 }
                 fsTransaction.updateData(
                     [Account.Fields.groups.rawValue: newAccountGroup as Any],
@@ -70,7 +70,7 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
     /// - Parameters:
     ///   - id: account group id
     ///   - completion: action on deletion completion
-    func delete(id: String, completion: (() -> Void)? = nil) {
+    internal func delete(id: String, completion: (() -> Void)? = nil) {
         guard let ref = ref else {
             return
         }

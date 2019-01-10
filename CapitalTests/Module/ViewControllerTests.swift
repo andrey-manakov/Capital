@@ -1,23 +1,23 @@
 import XCTest
 @testable import Capital
 
-class ViewControllerTests: XCTestCase {
+internal class ViewControllerTests: XCTestCase {
 
     // MARK: Subject under test
 
-    var sut: ViewController!
-    var view: UIView!
-    var window: UIWindow!
+    private var sut: ViewController!
+    private var view: UIView!
+    private var window: UIWindow!
 
     // MARK: Test lifecycle
 
-    override func setUp() {
+    override internal func setUp() {
         super.setUp()
         window = UIWindow()
         setupVC()
     }
 
-    override func tearDown() {
+    override internal func tearDown() {
         window = nil
         sut = nil // TODO: Check if it is needed
         view = nil // TODO: Check if it is needed
@@ -26,7 +26,7 @@ class ViewControllerTests: XCTestCase {
 
     // MARK: Test setup
 
-    func setupVC() {
+    private func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = ViewController("data")
         view = sut.view
@@ -34,7 +34,7 @@ class ViewControllerTests: XCTestCase {
         self.window!.makeKeyAndVisible()
     }
 
-    func loadView() {
+    private func loadView() {
         window.addSubview(view)
         RunLoop.current.run(until: Date())
     }

@@ -1,4 +1,4 @@
-protocol DataProtocol {
+internal protocol DataProtocol {
 
     func signOut(_ completion: ((Error?) -> Void)?)
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)

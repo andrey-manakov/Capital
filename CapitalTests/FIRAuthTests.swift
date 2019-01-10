@@ -1,23 +1,24 @@
 import XCTest
 @testable import Capital
 
-class FIRAuthTests: XCTestCase {
+internal final class FIRAuthTests: XCTestCase {
 
-    var sut: FireAuthProtocol!
-    let login = "\(String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }))@gmail.com"
-    let password = String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! })
+    private var sut: FireAuthProtocol!
+    private let login =
+    "\(String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }))@gmail.com"
+    private let password = String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! })
 
-    override func setUp() {
+    override internal func setUp() {
         super.setUp()
         sut = FIRAuth.shared
     }
 
-    override func tearDown() {
+    override internal func tearDown() {
         self.sut = nil
         super.tearDown()
     }
 
-    func testSignUp() {
+    internal func testSignUp() {
 
         // given
         let promise = expectation(description: "Completion handler invoked")
@@ -42,7 +43,7 @@ class FIRAuthTests: XCTestCase {
         XCTAssertNil(responseError)
     }
 
-    func testSignIn() {
+    internal func testSignIn() {
         // given
         let promise = expectation(description: "Completion handler invoked")
         var responseError: Error?

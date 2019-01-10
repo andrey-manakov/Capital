@@ -1,9 +1,9 @@
 import XCTest
 @testable import Capital
 
-class SimpleLabelTests: XCTestCase {
+internal class SimpleLabelTests: XCTestCase {
 
-    func testInitWithCoder() {
+    internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
@@ -14,7 +14,7 @@ class SimpleLabelTests: XCTestCase {
         XCTAssertNil(view)
     }
 
-    func testInitWithText() {
+    internal func testInitWithText() {
         // given
         let text = "1"
         // when
@@ -23,7 +23,7 @@ class SimpleLabelTests: XCTestCase {
         XCTAssertTrue(sample.text == text)
     }
 
-    func testInitWithStringAlignLines() {
+    internal func testInitWithStringAlignLines() {
         // given
         let text = "1"
         let alignment = NSTextAlignment.right

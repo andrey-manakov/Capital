@@ -1,9 +1,9 @@
 import XCTest
 @testable import Capital
 
-class TitleLabelTests: XCTestCase {
+internal class TitleLabelTests: XCTestCase {
 
-    func testInitWithCoder() {
+    internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
@@ -14,7 +14,7 @@ class TitleLabelTests: XCTestCase {
         XCTAssertNil(view)
     }
 
-    func testInitWithTest() {
+    internal func testInitWithTest() {
         // 1. Arrange
         let text = "title"
 

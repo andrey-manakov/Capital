@@ -1,5 +1,6 @@
-protocol FireAuthProtocol {
+internal protocol FireAuthProtocol {
     var currentUserUid: String? { get }
+
     func deleteUser(_ completion: ((Error?) -> Void)?)
     func signOutUser(_ completion: ((Error?) -> Void)?)
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
@@ -7,7 +8,7 @@ protocol FireAuthProtocol {
 }
 internal final class FIRAuth: FireAuthProtocol {
 
-    static internal var shared = FIRAuth()
+    internal static var shared = FIRAuth()
     private lazy var fireStorage: FIRDataProtocol = FireStoreData.shared // TODO: get rid of lazy
 
     internal var currentUser: User? { return Auth.auth().currentUser }
@@ -26,7 +27,10 @@ internal final class FIRAuth: FireAuthProtocol {
         }
     }
 
-    internal func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
+    internal func createUser(
+        withEmail email: String,
+        password pwd: String,
+        completion: ((Error?) -> Void)? = nil) {
         Auth.auth().createUser(withEmail: email, password: pwd) { _, error in
             if let error = error {
                 print("Error in user creation \(error.localizedDescription)")
@@ -54,7 +58,10 @@ internal final class FIRAuth: FireAuthProtocol {
         }
     }
 
-    internal func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
+    internal func signInUser(
+        withEmail email: String,
+        password pwd: String,
+        completion: ((Error?) -> Void)? = nil) {
         Auth.auth().signIn(withEmail: email, password: pwd) { _, error in completion?(error) }
     }
 

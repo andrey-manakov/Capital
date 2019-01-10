@@ -1,4 +1,4 @@
-protocol FIRDataProtocol {
+internal protocol FIRDataProtocol {
 
     func create(_ dataObject: DataObjectType, with data: [String: Any?], completion: ((String?) -> Void)?)
     func update(_ dataObject: DataObjectType, id: String?,

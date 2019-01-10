@@ -1,4 +1,4 @@
-protocol FIRListnersProtocol {
+internal protocol FIRListnersProtocol {
     func setListner(forObject objectId: ObjectIdentifier,
                     toPath path: String,
                     whereClause: (field: String, comparisonType: ComparisonType, value: Any)?,
@@ -39,7 +39,7 @@ internal final class FIRListners: FIRManager, FIRListnersProtocol {
     ///   - path: FireStore path
     ///   - whereClause: where clause
     ///   - completion: completion action to process acquired data
-    func setListner(
+    internal func setListner(
         forObject objectId: ObjectIdentifier,
         toPath path: String, whereClause: WhereClause?,
         completion: @escaping ([ListnerResult]) -> Void) {

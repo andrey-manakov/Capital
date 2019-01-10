@@ -5,19 +5,19 @@ class AccountDetailVCTests: XCTestCase {
 
     // MARK: Subject under test
 
-    var sut: AccountDetailVC!
-    var view: UIView!
-    var window: UIWindow!
+    internal var sut: AccountDetailVC!
+    internal var view: UIView!
+    internal var window: UIWindow!
 
     // MARK: Test lifecycle
 
-    override func setUp() {
+    override internal func setUp() {
         super.setUp()
         window = UIWindow()
         setupVC()
     }
 
-    override func tearDown() {
+    override internal func tearDown() {
         window = nil
         sut = nil // TODO: Check if it is needed
         view = nil // TODO: Check if it is needed
@@ -26,7 +26,7 @@ class AccountDetailVCTests: XCTestCase {
 
     // MARK: Test setup
 
-    func setupVC() {
+    internal func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = AccountDetailVC("account id")
         view = sut.view
@@ -34,12 +34,12 @@ class AccountDetailVCTests: XCTestCase {
         self.window!.makeKeyAndVisible()
     }
 
-    func loadView() {
+    internal func loadView() {
         window.addSubview(view)
         RunLoop.current.run(until: Date())
     }
 
-    func testAccountDelete() {
+    internal func testAccountDelete() {
         guard let views = view?.subviews else {
             XCTFail("problem with view controller view")
             return}
@@ -51,7 +51,7 @@ class AccountDetailVCTests: XCTestCase {
         XCTAssert(Data.sharedForUnitTests.deleteAccountCalled)
     }
 
-    func testViewDidLoad() {
+    internal func testViewDidLoad() {
         var result = true
         let viewsSet: Set<String> = ["accountName", "accountAmount", "deleteButton"]
 
@@ -66,7 +66,7 @@ class AccountDetailVCTests: XCTestCase {
         XCTAssert(result)
     }
 
-    func testDoneButton() {
+    internal func testDoneButton() {
         let item = sut.navigationItem.rightBarButtonItem
         item?.perform(item?.action)
         XCTAssert(Data.sharedForUnitTests.updateAccountCalled)

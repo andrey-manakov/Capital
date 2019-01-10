@@ -1,6 +1,4 @@
-import UIKit
-
-protocol AccountDetailViewControllerProtocol: ViewControllerProtocol {
+internal protocol AccountDetailViewControllerProtocol: ViewControllerProtocol {
 //    var service: AccountDetailServiceProtocol {get set}
     var title: String? { get set }
     var accountNameTextField: TextFieldProtocol { get set }

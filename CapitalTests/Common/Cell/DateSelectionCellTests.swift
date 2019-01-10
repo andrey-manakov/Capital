@@ -1,9 +1,9 @@
 import XCTest
 @testable import Capital
 
-class DateSelectionCellTests: XCTestCase {
+internal final class DateSelectionCellTests: XCTestCase {
 
-    func testInitWithCoder() {
+    internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 

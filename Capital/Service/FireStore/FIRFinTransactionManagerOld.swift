@@ -1,4 +1,4 @@
-protocol FIRFinTransactionManagerProtocolOld: class {
+internal protocol FIRFinTransactionManagerProtocolOld: class {
     // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(
         from: String?, to: String?, amount: Int?, date: Date?,
@@ -15,7 +15,7 @@ protocol FIRFinTransactionManagerProtocolOld: class {
 extension FIRFinTransactionManagerProtocolOld {
 
     // swiftlint:disable identifier_name
-    func sendFinTransaction(
+    internal func sendFinTransaction(
         to fsTransaction: Transaction,
         from: AccountInfo?,
         to: AccountInfo?,
@@ -42,7 +42,8 @@ extension FIRFinTransactionManagerOld: MiscFunctionsProtocol {}
 
 internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolOld {
     /// Singlton
-    static internal var shared: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld()
+    internal static var shared: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld()
+
     private override init() {}
 
     // swiftlint:disable identifier_name
@@ -121,10 +122,15 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
     ///     used to update account values
     /// - Returns: approvedAmount(Int) - the sum of amounts of approved transactions (in the past),
     ///     used to update account values
-    internal func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?,
-                            date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
-                            recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
-                            parent: String? = nil, approvedAmount: Int = 0) -> Int {
+    internal func sendFinTransaction(
+        to fsTransaction: Transaction, from: AccountInfo?,
+        to: AccountInfo?, amount: Int?,
+        date: Date? = Date(),
+        approvalMode: FinTransaction.ApprovalMode? = nil,
+        recurrenceFrequency: RecurrenceFrequency? = nil,
+        recurrenceEnd: Date? = nil,
+        parent: String? = nil,
+        approvedAmount: Int = 0) -> Int {
         guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
             let from = from, let to = to, let amount = amount else { return 0 }
         let date = date ?? Date()

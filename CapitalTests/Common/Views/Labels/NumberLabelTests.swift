@@ -1,9 +1,9 @@
 import XCTest
 @testable import Capital
 
-class NumberLabelTests: XCTestCase {
+internal final class NumberLabelTests: XCTestCase {
 
-    func testInitWithCoder() {
+    internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
@@ -14,7 +14,7 @@ class NumberLabelTests: XCTestCase {
         XCTAssertNil(view)
     }
 
-    func testInitWithText() {
+    internal func testInitWithText() {
         // given
         let text = "1"
         // when

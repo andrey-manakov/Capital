@@ -1,6 +1,6 @@
-class RecurrenceFrequencySelectorVC: ViewController {
+internal final class RecurrenceFrequencySelectorVC: ViewController {
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         let table: SimpleTableProtocol = SimpleTable()
         table.dataFormula = {

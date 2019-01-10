@@ -1,6 +1,6 @@
-class AccountGroupsViewController: ViewController {
+internal final class AccountGroupsViewController: ViewController {
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
         let table: SimpleTableWithSwipeProtocol = SimpleTableWithSwipe()

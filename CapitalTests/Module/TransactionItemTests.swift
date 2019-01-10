@@ -1,9 +1,9 @@
 import XCTest
 @testable import Capital
 
-class TransactionItemTests: XCTestCase {
+internal final class TransactionItemTests: XCTestCase {
 
-    func testName() {
+    internal func testName() {
         XCTAssertTrue(TransactionItem.amount.name == "amount" &&
         TransactionItem.approvalMode.name == "approval mode" &&
         TransactionItem.date.name == "date" &&
@@ -12,7 +12,7 @@ class TransactionItemTests: XCTestCase {
         TransactionItem.recurrenceFrequency.name == "repeat")
     }
 
-    func testHeight() {
+    internal func testHeight() {
         for item in TransactionItem.allCases {
             if (item == .dateSelection || item == .recurrenceEndDate) && item.height != 200 {
                 XCTFail("height is wrong")

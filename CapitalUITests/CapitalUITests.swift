@@ -3,26 +3,37 @@ import XCTest
 extension CapitalUITests {
     private enum AccountType: Int, CaseIterable {
         case asset, liability, revenue, expense, capital
-        static let all = ["asset", "liability", "revenue", "expense", "capital"]
+
+        internal static let all = ["asset", "liability", "revenue", "expense", "capital"]
         var name: String { return AccountType.all[self.rawValue] }
     }
 }
 
-class CapitalUITests: XCTestCase {
-    let app = XCUIApplication()
-    let login = "\(String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }))@gmail.com"
-    let password = String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! })
+// extension Date {
+//    internal var month: Int? { return Calendar.current.dateComponents([.month], from: self).month }
+//    internal var day: Int? { return Calendar.current.dateComponents([.day], from: self).day }
+//    internal var year: Int? { return Calendar.current.dateComponents([.year], from: self).year }
+//    //    var day: Int
+// }
 
-    override func setUp() {
+internal class CapitalUITests: XCTestCase {
+    private let app = XCUIApplication()
+    private let login =
+    "\(String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement() ?? "x" }))@gmail.com"
+    private let password = String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement() ?? "x" })
+
+    override internal func setUp() {
+        super.setUp()
         continueAfterFailure = false
         XCUIApplication().launch()
     }
 
-    override func tearDown() {
+    override internal func tearDown() {
+        super.tearDown()
         Springboard.deleteMyApp()
     }
 
-    func testSignIn() {
+    internal func testSignIn() {
         if app.navigationBars["DashBoard"].exists {
             XCTAssert(signOut())
         }
@@ -32,7 +43,7 @@ class CapitalUITests: XCTestCase {
         XCTAssert(deleteUser())
     }
 
-    func testSignUp() {
+    internal func testSignUp() {
         if app.navigationBars["DashBoard"].exists {
             XCTAssert(signOut())
         }
@@ -40,7 +51,7 @@ class CapitalUITests: XCTestCase {
         XCTAssert(deleteUser())
     }
 
-    func signUp(login: String, password: String) -> Bool {
+    private func signUp(login: String, password: String) -> Bool {
         app.textFields["loginTextField"].tap()
         _ = login.map { app.keys[String($0)].tap() }
         app.secureTextFields["passwordTextField"].tap()
@@ -49,7 +60,7 @@ class CapitalUITests: XCTestCase {
         return app.navigationBars["DashBoard"].waitForExistence(timeout: 10)
     }
 
-    func signIn(login: String, password: String) -> Bool {
+    private func signIn(login: String, password: String) -> Bool {
         app.textFields["loginTextField"].tap()
         _ = login.map { app.keys[String($0)].tap() }
         app.secureTextFields["passwordTextField"].tap()
@@ -58,19 +69,19 @@ class CapitalUITests: XCTestCase {
         return app.navigationBars["DashBoard"].waitForExistence(timeout: 10)
     }
 
-    func signOut() -> Bool {
+    private func signOut() -> Bool {
         app.tabBars.buttons["Settings"].tap()
         app.tables["v"].staticTexts["Log Out"].tap()
         return app.staticTexts["appTitle"].waitForExistence(timeout: 10)
     }
 
-    func deleteUser() -> Bool {
+    private func deleteUser() -> Bool {
         app.tabBars.buttons["Settings"].tap()
         app.tables["v"].staticTexts["Delete User"].tap()
         return app.staticTexts["appTitle"].waitForExistence(timeout: 10)
     }
 
-    func create(account: (name: String, type: String, amount: String)) -> Bool {
+    private func create(account: (name: String, type: String, amount: String)) -> Bool {
         app.tabBars.buttons["Accounts"].tap()
         app.buttons[account.type].tap()
         app.navigationBars["Accounts"].buttons["New"].tap()
@@ -88,7 +99,7 @@ class CapitalUITests: XCTestCase {
         // FIXME: change to unique name
     }
 
-    func testCreateAccount() {
+    internal func testCreateAccount() {
         if app.navigationBars["DashBoard"].exists {
             XCTAssert(signOut())
         }
@@ -97,13 +108,13 @@ class CapitalUITests: XCTestCase {
         XCTAssert(deleteUser())
     }
 
-    func randomAccount() -> (name: String, type: String, amount: String) {
+    private func randomAccount() -> (name: String, type: String, amount: String) {
         return (name: String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }),
                 type: ["asset", "liability", "revenue", "expense"].randomElement()!,
                 amount: String((0..<3).map { _ in "123456789".randomElement()! }))
     }
 
-    func testCreateAccountGroup() {
+    internal func testCreateAccountGroup() {
         if app.navigationBars["DashBoard"].exists {
             XCTAssert(signOut())
         }
@@ -115,7 +126,7 @@ class CapitalUITests: XCTestCase {
         XCTAssert(deleteUser())
     }
 
-    func create(
+    private func create(
         accountGroup name: String,
         with accounts: [(name: String, type: String, amount: String)]) -> Bool {
 
@@ -137,7 +148,7 @@ class CapitalUITests: XCTestCase {
 //        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
     }
 
-    func testSimpleTransaction() {
+    internal func testSimpleTransaction() {
         if app.navigationBars["DashBoard"].exists {
             XCTAssert(signOut())
         }
@@ -150,7 +161,7 @@ class CapitalUITests: XCTestCase {
         XCTAssert(deleteUser())
     }
 
-    func create(
+    private func create(
         transaction amount: String,
         with accounts: [(name: String, type: String, amount: String)]) -> Bool {
         print("create function without date")
@@ -191,9 +202,10 @@ class CapitalUITests: XCTestCase {
         return fromAccountIsCorrect && toAccountIsCorrect
     }
 
-    func create(transaction amount: String,
-                with accounts: [(name: String, type: String, amount: String)],
-                onDate date: Date) -> Bool {
+    private func create(
+        transaction amount: String,
+        with accounts: [(name: String, type: String, amount: String)],
+        onDate date: Date) -> Bool {
         app.tabBars.buttons["New Transaction"].tap()
         app.tables["v"].staticTexts["from"].tap()
         app.buttons[accounts[0].type].tap()
@@ -213,7 +225,7 @@ class CapitalUITests: XCTestCase {
 //        app.tables["v"].datePickers["v"].pickerWheels.element(
 //        boundBy: 1).adjust(toPickerWheelValue: date.day)
 //        datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2015")
-        print("transaction date \(date.day ?? 0)")
+//        print("transaction date \(date.day ?? 0)")
         app.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "\(date.day ?? 0)")
         app.navigationBars["New Transaction"].buttons["Done"].tap()
         app.tabBars.buttons["Accounts"].tap()

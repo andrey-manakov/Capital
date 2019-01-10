@@ -1,24 +1,9 @@
 import XCTest
 @testable import Capital
 
-class AppTitleTests: XCTestCase {
+internal class ButtonTest: XCTestCase {
 
-    func testInitWithCoder() {
-        // 1. Arrange
-        let archiver = NSKeyedArchiver(requiringSecureCoding: true)
-
-        // 2. Action
-        let view = AppTitle(coder: archiver)
-
-        // 3. Assert
-        XCTAssertNil(view)
-    }
-
-}
-
-class ButtonTest: XCTestCase {
-
-    func testInitWithCoder() {
+    internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
@@ -29,7 +14,7 @@ class ButtonTest: XCTestCase {
         XCTAssertNil(view)
     }
 
-    func testTapAction() {
+    internal func testTapAction() {
         // 1. Arrange
         var buttonActionWasCalled = false
         let action: (() -> Void)? = {

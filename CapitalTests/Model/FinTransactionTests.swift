@@ -1,10 +1,10 @@
 import XCTest
 @testable import Capital
 
-class FinTransactionTests: XCTestCase {
+internal class FinTransactionTests: XCTestCase {
 
     /// Test checks that object is correctly initialized with dictionary of [field: value]
-    func testInitWithData() {
+    internal func testInitWithData() {
         // 1. Arrange
         let data = ["amount": 10]
 
@@ -18,7 +18,7 @@ class FinTransactionTests: XCTestCase {
     }
 
     /// Test checks that code correctly updates amount, when ["amount": 10] is submitted
-    func testUpdateWithAmountFieldValue() {
+    internal func testUpdateWithAmountFieldValue() {
         // 1. Arrange
         let field = "amount"
         let value = 10
@@ -45,14 +45,14 @@ class FinTransactionTests: XCTestCase {
 //            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
 //    }
 
-    func testApprovalModeNames() {
+    internal func testApprovalModeNames() {
         XCTAssert(FinTransaction.ApprovalMode.autoApprove.name == "Auto Approve" &&
             FinTransaction.ApprovalMode.autoCancel.name == "Auto Cancel" &&
             FinTransaction.ApprovalMode.autoPostpone.name == "Auto Postpone" &&
             FinTransaction.ApprovalMode.manual.name == "Manual")
     }
 
-    func testDateText() {
+    internal func testDateText() {
         let currentDate = Date()
         let transaction = FinTransaction()
         transaction.date = currentDate

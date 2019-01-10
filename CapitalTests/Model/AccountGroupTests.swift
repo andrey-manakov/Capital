@@ -1,10 +1,10 @@
 import XCTest
 @testable import Capital
 
-class AccountGroupTests: XCTestCase {
+internal final class AccountGroupTests: XCTestCase {
 
     /// Test checks that object is correctly initialized with dictionary of [field: value]
-    func testInitWithData() {
+    internal func testInitWithData() {
         // 1. Arrange
         let data = ["name": "name"]
 
@@ -19,7 +19,7 @@ class AccountGroupTests: XCTestCase {
     }
 
     /// Test checks that code correctly updates name, when ["name": "some name"] is submitted
-    func testUpdateWithNameFieldValue() {
+    internal func testUpdateWithNameFieldValue() {
         // 1. Arrange
         let field = "name"
         let value = "name"
@@ -35,7 +35,7 @@ class AccountGroupTests: XCTestCase {
     }
 
     /// Test checks that code correctly updates amount, when ["amount": 10] is submitted
-    func testUpdateWithAmountFieldValue() {
+    internal func testUpdateWithAmountFieldValue() {
         // 1. Arrange
         let field = "amount"
         let value = 10
@@ -52,7 +52,7 @@ class AccountGroupTests: XCTestCase {
 
     /// Test checks that code correctly updates groups,
     /// when ["groups": ["group id": "group name"]]] is submitted
-    func testUpdateWithGroupsFieldValue() {
+    internal func testUpdateWithGroupsFieldValue() {
         // 1. Arrange
         let field = "accounts"
         let value = ["account id": "account name"]
@@ -69,7 +69,7 @@ class AccountGroupTests: XCTestCase {
 
     /// Test checks that code correctly updates min value and date,
     /// when ["min" : ["amount": 10, "date": {timestamp}]] is submitted
-    func testUpdateWithMinFieldValue() {
+    internal func testUpdateWithMinFieldValue() {
         // 1. Arrange
         let field = "min"
         let minDate = Date()
@@ -86,7 +86,7 @@ class AccountGroupTests: XCTestCase {
     }
 
     /// Test checks that code correctly doesn't change object, when some wrong field is submitted
-    func testUpdateWithWrongFieldName() {
+    internal func testUpdateWithWrongFieldName() {
         // 1. Arrange
         let field = "wrong field name"
         let value = 0
@@ -101,7 +101,7 @@ class AccountGroupTests: XCTestCase {
     }
 
     /// Test checks that code correctly doesn't change object, when wrong min field is submitted
-    func testUpdateWithWrongMinFieldName() {
+    internal func testUpdateWithWrongMinFieldName() {
         // 1. Arrange
         let field = "min"
         let value: [String: Any] = [:]

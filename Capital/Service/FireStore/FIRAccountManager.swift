@@ -8,11 +8,12 @@ extension FIRAccountManager: FireStoreCompletionProtocol, FireStoreGettersProtoc
 
 internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
 
-    static var shared: FIRAccountManagerProtocol = FIRAccountManager()
+    internal static var shared: FIRAccountManagerProtocol = FIRAccountManager()
 
     private override init() {}
     // FIXME: old reference
-    internal let finTransactionManager: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld.shared
+    internal let finTransactionManager: FIRFinTransactionManagerProtocolOld =
+        FIRFinTransactionManagerOld.shared
 
     /// Creates transaction in FireStore date base,
     /// creates transaction with capital account to define initial account amount,
@@ -24,8 +25,11 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
     ///   - amount: initial monetary account amount
     ///   - completion: action to perform after function finishes execution,
     ///     for now it only works for successes
-    func createAccount(_ name: String?, ofType type: AccountType?, withAmount amount: Int?,
-                       completion: ((String?) -> Void)?) {
+    internal func createAccount(
+        _ name: String?,
+        ofType type: AccountType?,
+        withAmount amount: Int?,
+        completion: ((String?) -> Void)?) {
         guard let ref = ref,
             let name = name,
             let type = type,
@@ -81,7 +85,11 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
     ///   - amount: new account amount if needed
     ///   - completion: action to perform after function finishes execution,
     ///     for now it only works for successes
-    internal func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)? = nil) {
+    internal func updateAccount(
+        withId id: String?,
+        name: String?,
+        amount: Int?,
+        completion: (() -> Void)? = nil) {
         guard let id = id,
             let accountDoc = ref?.collection(DataObjectType.account.rawValue).document(id),
             let capitalDoc = capitalDoc else { return }

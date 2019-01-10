@@ -1,23 +1,23 @@
 import XCTest
 @testable import Capital
 
-class AccountSelectorVCTests: XCTestCase {
+internal final class AccountSelectorVCTests: XCTestCase {
 
     // MARK: Subject under test
 
-    var sut: AccountSelectorVC!
-    var view: UIView!
-    var window: UIWindow!
+    private var sut: AccountSelectorVC!
+    private var view: UIView!
+    private var window: UIWindow!
 
     // MARK: Test lifecycle
 
-    override func setUp() {
+    override internal func setUp() {
         super.setUp()
         window = UIWindow()
         setupVC()
     }
 
-    override func tearDown() {
+    override internal func tearDown() {
         window = nil
         sut = nil // TODO: Check if it is needed
         view = nil // TODO: Check if it is needed
@@ -26,7 +26,7 @@ class AccountSelectorVCTests: XCTestCase {
 
     // MARK: Test setup
 
-    func setupVC() {
+    private func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = AccountSelectorVC()
         view = sut.view
@@ -34,12 +34,12 @@ class AccountSelectorVCTests: XCTestCase {
         self.window!.makeKeyAndVisible()
     }
 
-    func loadView() {
+    private func loadView() {
         window.addSubview(view)
         RunLoop.current.run(until: Date())
     }
 
-    func testViewDidLoad() {
+    internal func testViewDidLoad() {
         XCTAssert(view.views["t"] as? SimpleTableWithSwipe != nil &&
             view.views["sc"] as? SegmentedControl != nil)
     }

@@ -1,26 +1,31 @@
 import XCTest
 @testable import Capital
 
-class AccountTypeTests: XCTestCase {
+internal class AccountTypeTests: XCTestCase {
 
-    func testActiveAsset() {
+    internal func testActiveAsset() {
         for type in AccountType.allCases {
-            switch type {
-            case .asset, .expense: XCTAssert(type.active == true)
-            case .liability, .capital, .revenue: XCTAssert(type.active == false)
-            }
+            let result = type.active
+            return XCTAssertTrue(result)
         }
     }
 
-    func testNameTests() {
+    internal func testNameTests() {
         for type in AccountType.allCases {
+            let name: String
             switch type {
-            case .asset: XCTAssert(type.name == "asset")
-            case .expense: XCTAssert(type.name == "expense")
-            case .liability: XCTAssert(type.name == "liability")
-            case .capital: XCTAssert(type.name == "capital")
-            case .revenue: XCTAssert(type.name == "revenue")
+            case .asset:
+                name = "asset"
+            case .expense:
+                name = "expense"
+            case .liability:
+                name = "liability"
+            case .capital:
+                name = "capital"
+            case .revenue:
+                name = "revenue"
             }
+            return XCTAssert(type.name == name)
         }
     }
 

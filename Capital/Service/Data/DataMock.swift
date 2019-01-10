@@ -1,6 +1,6 @@
-class DataMock: DataProtocol {
+internal class DataMock: DataProtocol {
 
-    var updateAccountCalled = false
+    internal var updateAccountCalled = false
 
     internal func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)?) {
         updateAccountCalled = true
@@ -26,22 +26,36 @@ class DataMock: DataProtocol {
         deleteUserCalled = true
     }
 
-    internal func createAccount(_ name: String?, ofType type: AccountType?, withAmount amount: Int?,
-                       completion: ((String?) -> Void)?) {
+    internal func createAccount(
+        _ name: String?,
+        ofType type: AccountType?,
+        withAmount amount: Int?,
+        completion: ((String?) -> Void)?) {
 
     }
 
     internal func signOut(_ completion: ((Error?) -> Void)?) {}
 
-    internal func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {}
+    internal func signInUser(
+        withEmail email: String,
+        password pwd: String,
+        completion: ((Error?) -> Void)?) {}
 
-    internal func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {}
+    internal func signUpUser(
+        withEmail email: String,
+        password pwd: String,
+        completion: ((Error?) -> Void)?) {}
 
     // swiftlint:disable identifier_name function_parameter_count
-    internal func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?,
-                           approvalMode: FinTransaction.ApprovalMode?,
-                           recurrenceFrequency: RecurrenceFrequency?,
-                           recurrenceEnd: Date?, completion: ((String?) -> Void)?) {}
+    internal func createTransaction(
+        from: AccountInfo?,
+        to: AccountInfo?,
+        amount: Int?,
+        date: Date?,
+        approvalMode: FinTransaction.ApprovalMode?,
+        recurrenceFrequency: RecurrenceFrequency?,
+        recurrenceEnd: Date?,
+        completion: ((String?) -> Void)?) {}
 
     internal func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {}
 

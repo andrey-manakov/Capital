@@ -101,7 +101,7 @@
 		C1A027EF21BD54F300207FF7 /* FIRListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DF21BD54F300207FF7 /* FIRListners.swift */; };
 		C1CE083121BD216F000D28C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE083021BD216F000D28C9 /* AppDelegate.swift */; };
 		C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083721BD2170000D28C9 /* Assets.xcassets */; };
-		C1CE084621BD2170000D28C9 /* AppTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE084521BD2170000D28C9 /* AppTitleTests.swift */; };
+		C1CE084621BD2170000D28C9 /* ButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE084521BD2170000D28C9 /* ButtonTest.swift */; };
 		C1CE085121BD2170000D28C9 /* SpringBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE085021BD2170000D28C9 /* SpringBoard.swift */; };
 		C1CE085F21BD221A000D28C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1CE085E21BD221A000D28C9 /* GoogleService-Info.plist */; };
 		C1CE087521BD2640000D28C9 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE086121BD263F000D28C9 /* BoringSSL.framework */; };
@@ -122,6 +122,7 @@
 		C1CE088421BD2640000D28C9 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE087221BD263F000D28C9 /* Protobuf.framework */; };
 		C1CE088521BD2640000D28C9 /* gRPCCertificates-Firestore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1CE087421BD263F000D28C9 /* gRPCCertificates-Firestore.bundle */; };
 		C1D0960121E78FD30032BF8E /* DataModelRowEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960021E78FD30032BF8E /* DataModelRowEquatable.swift */; };
+		C1D0960321E7F6700032BF8E /* AppTitleTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */; };
 		C1DBCC5921C25B9E0003869A /* AccountGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5821C25B9E0003869A /* AccountGroup.swift */; };
 		C1DBCC5B21C25E840003869A /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5A21C25E840003869A /* AccountTests.swift */; };
 		C1DBCC5D21C261C20003869A /* AccountDetailsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5C21C261C20003869A /* AccountDetailsVCTests.swift */; };
@@ -265,7 +266,7 @@
 		C1CE083A21BD2170000D28C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1CE083C21BD2170000D28C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CE084121BD2170000D28C9 /* CapitalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapitalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1CE084521BD2170000D28C9 /* AppTitleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleTests.swift; sourceTree = "<group>"; };
+		C1CE084521BD2170000D28C9 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
 		C1CE084721BD2170000D28C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CE084C21BD2170000D28C9 /* CapitalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapitalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1CE085021BD2170000D28C9 /* SpringBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringBoard.swift; sourceTree = "<group>"; };
@@ -292,6 +293,7 @@
 		C1CE087421BD263F000D28C9 /* gRPCCertificates-Firestore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Firestore.bundle"; sourceTree = "<group>"; };
 		C1CE088621BD266D000D28C9 /* Capital-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Capital-Bridging-Header.h"; sourceTree = "<group>"; };
 		C1D0960021E78FD30032BF8E /* DataModelRowEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelRowEquatable.swift; sourceTree = "<group>"; };
+		C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleTests1.swift; sourceTree = "<group>"; };
 		C1DBCC5821C25B9E0003869A /* AccountGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroup.swift; sourceTree = "<group>"; };
 		C1DBCC5A21C25E840003869A /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		C1DBCC5C21C261C20003869A /* AccountDetailsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsVCTests.swift; sourceTree = "<group>"; };
@@ -801,7 +803,8 @@
 			children = (
 				C1E967AC21C83766005014E1 /* TextFields */,
 				C1E967A521C831F6005014E1 /* Labels */,
-				C1CE084521BD2170000D28C9 /* AppTitleTests.swift */,
+				C1CE084521BD2170000D28C9 /* ButtonTest.swift */,
+				C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1091,7 +1094,7 @@
 				C1E967AB21C836E6005014E1 /* TitleLabelTests.swift in Sources */,
 				C1E9679321C7FCB8005014E1 /* NavigationControllerTests.swift in Sources */,
 				C1913FB621C47C1F00D3DA3E /* AccountSelectorVCTests.swift in Sources */,
-				C1CE084621BD2170000D28C9 /* AppTitleTests.swift in Sources */,
+				C1CE084621BD2170000D28C9 /* ButtonTest.swift in Sources */,
 				C1913FAA21C4345B00D3DA3E /* AccountTypeTests.swift in Sources */,
 				C1DBCC5B21C25E840003869A /* AccountTests.swift in Sources */,
 				C1E967B321C83829005014E1 /* SimpleTableWithSelectionTests.swift in Sources */,
@@ -1109,6 +1112,7 @@
 				C1913FB021C462A000D3DA3E /* AccountListVCTests.swift in Sources */,
 				C1E967B721C8B367005014E1 /* ClassServiceTests.swift in Sources */,
 				C1E9679821C8016E005014E1 /* DataModelRowTests.swift in Sources */,
+				C1D0960321E7F6700032BF8E /* AppTitleTests1.swift in Sources */,
 				C16D36DD21C4078800690B7B /* AccountGroupTests.swift in Sources */,
 				C1E967B021C8379C005014E1 /* PasswordFieldTests.swift in Sources */,
 				C1E967B521C83909005014E1 /* TransactionItemTests.swift in Sources */,

@@ -37,8 +37,7 @@ extension AccountTransactionsVC {
             guard let id = id else {
                 return
             }
-            data.setListnersToTransactionsOfAccount(withId: id, for: self.id,
-                                                    completion: {[unowned self] data in
+            data.setListnersToTransactionsOfAccount(withId: id, for: self.id) {[unowned self] data in
                 for (id, transaction, changeType) in data {
                     switch changeType {
                     case .added, .modified:
@@ -54,7 +53,7 @@ extension AccountTransactionsVC {
                     down: $0.value.to?.name,
                     right: "\($0.value.amount ?? 0)")
                 }))
-            })
+            }
         }
 
         func deleteTransaction(withId id: String?, completion: (() -> Void)? = nil) {

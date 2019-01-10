@@ -1,23 +1,23 @@
 import XCTest
 @testable import Capital
 
-class AccountGroupDetailVCTests: XCTestCase {
+internal final class AccountGroupDetailVCTests: XCTestCase {
 
     // MARK: Subject under test
 
-    var sut: AccountGroupDetailVC!
-    var view: UIView!
-    var window: UIWindow!
+    internal var sut: AccountGroupDetailVC!
+    internal var view: UIView!
+    internal var window: UIWindow!
 
     // MARK: Test lifecycle
 
-    override func setUp() {
+    override internal func setUp() {
         super.setUp()
         window = UIWindow()
         setupVC()
     }
 
-    override func tearDown() {
+    override internal func tearDown() {
         window = nil
         sut = nil // TODO: Check if it is needed
         view = nil // TODO: Check if it is needed
@@ -26,7 +26,7 @@ class AccountGroupDetailVCTests: XCTestCase {
 
     // MARK: Test setup
 
-    func setupVC() {
+    internal func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = AccountGroupDetailVC("id")
         view = sut.view
@@ -34,12 +34,12 @@ class AccountGroupDetailVCTests: XCTestCase {
         self.window!.makeKeyAndVisible()
     }
 
-    func loadView() {
+    internal func loadView() {
         window.addSubview(view)
         RunLoop.current.run(until: Date())
     }
 
-    func testViewDidLoad() {
+    internal func testViewDidLoad() {
         XCTAssert(view.subviews.count == 1 && "\(type(of: view.subviews[0]))" == "SimpleTable")
     }
 

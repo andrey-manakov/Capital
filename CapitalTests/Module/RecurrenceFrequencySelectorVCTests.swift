@@ -1,23 +1,23 @@
 import XCTest
 @testable import Capital
 
-class RecurrenceFrequencySelectorVCTests: XCTestCase {
+internal class RecurrenceFrequencySelectorVCTests: XCTestCase {
 
     // MARK: Subject under test
 
-    var sut: RecurrenceFrequencySelectorVC!
-    var view: UIView!
-    var window: UIWindow!
+    private var sut: RecurrenceFrequencySelectorVC!
+    private var view: UIView!
+    private var window: UIWindow!
 
     // MARK: Test lifecycle
 
-    override func setUp() {
+    override internal func setUp() {
         super.setUp()
         window = UIWindow()
         setupVC()
     }
 
-    override func tearDown() {
+    override internal func tearDown() {
         window = nil
         sut = nil // TODO: Check if it is needed
         view = nil // TODO: Check if it is needed
@@ -26,7 +26,7 @@ class RecurrenceFrequencySelectorVCTests: XCTestCase {
 
     // MARK: Test setup
 
-    func setupVC() {
+    internal func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = RecurrenceFrequencySelectorVC()
         view = sut.view
@@ -34,12 +34,12 @@ class RecurrenceFrequencySelectorVCTests: XCTestCase {
         self.window!.makeKeyAndVisible()
     }
 
-    func loadView() {
+    internal func loadView() {
         window.addSubview(view)
         RunLoop.current.run(until: Date())
     }
 
-    func testViewDidLoad() {
+    internal func testViewDidLoad() {
         XCTAssert(view.views["v"] as? SimpleTable != nil)
     }
 

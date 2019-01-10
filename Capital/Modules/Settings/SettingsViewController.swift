@@ -1,4 +1,4 @@
-protocol SettingsViewControllerProtocol: ViewControllerProtocol {
+internal protocol SettingsViewControllerProtocol: ViewControllerProtocol {
     var service: SettingsServiceProtocol { get set }
     var table: SimpleTableProtocol { get set } // TODO: consider hiding subview
 
