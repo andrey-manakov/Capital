@@ -2,10 +2,11 @@ import UIKit
 
 @UIApplicationMain
 internal final class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-    var testing = false
+    internal var window: UIWindow?
+    internal var testing: Bool = false
 
-    func application(
+    // swiftlint:disable discouraged_optional_collection
+    internal func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
@@ -22,7 +23,7 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = LoginVC()
-        if let window = self.window {
+        if let window: UIWindow = self.window {
             window.makeKeyAndVisible()
             return true
         } else {

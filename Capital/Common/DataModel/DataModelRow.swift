@@ -1,6 +1,6 @@
 import UIKit
 
-protocol DataModelRowProtocol: BasicDataPropertiesProtocol {
+internal protocol DataModelRowProtocol: BasicDataPropertiesProtocol {
     var left: String? { get set }
     // swiftlint:disable identifier_name
     var up: String? { get set }
@@ -13,22 +13,22 @@ protocol DataModelRowProtocol: BasicDataPropertiesProtocol {
     var filter: Any? { get set }
 }
 
-struct DataModelRow: DataModelRowProtocol {
-    var id: String?
-    var name: String?
-    var desc: String?
-    var left: String?
+internal struct DataModelRow: DataModelRowProtocol {
+    internal var id: String?
+    internal var name: String?
+    internal var desc: String?
+    internal var left: String?
     // swiftlint:disable identifier_name
-    var up: String?
-    var down: String?
-    var right: String?
-    var height: CGFloat?
-    var style: CellStyle?
-    var selectAction: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)?
-    var accessory: Int?
-    var filter: Any?
+    internal var up: String?
+    internal var down: String?
+    internal var right: String?
+    internal var height: CGFloat?
+    internal var style: CellStyle?
+    internal var selectAction: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)?
+    internal var accessory: Int?
+    internal var filter: Any?
 
-    var description: String {
+    internal var description: String {
         return "name \(name ?? "nil") desc \(desc ?? "nil")"
     }
 
@@ -58,20 +58,5 @@ struct DataModelRow: DataModelRowProtocol {
         self.selectAction = action
         self.accessory = accessory
         self.filter = filter
-    }
-}
-
-extension DataModelRow: Equatable {
-    static func == (lhs: DataModelRow, rhs: DataModelRow) -> Bool {
-        return lhs.id == rhs.id &&
-            lhs.name == rhs.name &&
-            lhs.desc == rhs.desc &&
-            lhs.height == rhs.height &&
-            lhs.left == rhs.left &&
-            lhs.up == rhs.up &&
-            lhs.down == rhs.down &&
-            lhs.right == rhs.right &&
-            lhs.style == rhs.style &&
-            lhs.accessory == rhs.accessory
     }
 }

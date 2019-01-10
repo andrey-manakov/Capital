@@ -1,8 +1,9 @@
 import UIKit
 
 /// Parent protocol to all View Controllers protocol
-protocol ViewControllerProtocol: class {
+internal protocol ViewControllerProtocol: AnyObject {
     var data: Any? { get set }
+
     func dismiss(completion: (() -> Void)?)
     func dimissNavigationViewController(completion: (() -> Void)?)
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
@@ -16,22 +17,22 @@ extension ViewControllerProtocol {
         dimissNavigationViewController(completion: nil)
     }
 
-    func dismiss() {
+    internal func dismiss() {
         dismiss(completion: nil)
     }
 
-    func present(_ viewControllerToPresent: UIViewController, animated flag: Bool) {
+    internal func present(_ viewControllerToPresent: UIViewController, animated flag: Bool) {
         present(viewControllerToPresent, animated: flag, completion: nil)
     }
 
-    func present(_ viewControllerToPresent: UIViewController) {
+    internal func present(_ viewControllerToPresent: UIViewController) {
         present(viewControllerToPresent, animated: true, completion: nil)
     }
 
 }
 
 /// Class used for all View Controllers with common functionality
-class ViewController: UIViewController, ViewControllerProtocol {
+internal class ViewController: UIViewController, ViewControllerProtocol {
 
     /// Generic input info to the new controller
     var data: Any?
@@ -41,7 +42,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
         view.backgroundColor = .white
     }
 
-    convenience init(_ data: Any?) {
+    internal convenience init(_ data: Any?) {
         self.init()
         self.data = data
     }
@@ -57,11 +58,11 @@ class ViewController: UIViewController, ViewControllerProtocol {
         }
     }
 
-    func dimissNavigationViewController(completion: (() -> Void)? = nil) {
+    internal func dimissNavigationViewController(completion: (() -> Void)? = nil) {
         navigationController?.dismiss(animated: true, completion: completion)
     }
 
-    func push(_ viewController: UIViewController) {
+    internal func push(_ viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
@@ -69,22 +70,18 @@ class ViewController: UIViewController, ViewControllerProtocol {
         view.endEditing(force)
     }
 
-    func alert(_ title: String? = nil, message: String) {
+    internal func alert(_ title: String? = nil, message: String) {
         let alert = UIAlertController(title: title ?? "Alert", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             switch action.style {
             case .default:
                 print("default")
-
             case .cancel:
                 print("cancel")
-
             case .destructive:
                 print("destructive")
-
             }
         }))
         self.present(alert, animated: true, completion: nil)
     }
-
 }

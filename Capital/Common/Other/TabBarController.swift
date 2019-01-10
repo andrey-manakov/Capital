@@ -1,5 +1,4 @@
 protocol TabBarControllerProtocol {
-
 }
 
 /// Main viewcontroller shown upon successful login
@@ -14,15 +13,17 @@ protocol TabBarControllerProtocol {
 ///
 /// Called by:
 /// * `LoginVC`
-class TabBarController: UITabBarController, TabBarControllerProtocol {
+internal final class TabBarController: UITabBarController, TabBarControllerProtocol {
 
-    init() {
+    internal init() {
         super.init(nibName: nil, bundle: nil)
-        viewControllers = [NavigationController(AccountGroupsViewController()),
-                           NavigationController(AccountListVC()),
-                           NavigationController(AdvancedNewTransactionVC()),
-                           NavigationController(AccountListVC()),
-                           NavigationController(SettingsViewController())]
+        viewControllers = [
+            NavigationController(AccountGroupsViewController()),
+            NavigationController(AccountListVC()),
+            NavigationController(AdvancedNewTransactionVC()),
+            NavigationController(AccountListVC()),
+            NavigationController(SettingsViewController())
+        ]
 
         tabBar.items?[0].image = #imageLiteral(resourceName: "DashBoard")
         tabBar.items?[0].title = "DashBoard"
@@ -36,13 +37,12 @@ class TabBarController: UITabBarController, TabBarControllerProtocol {
         tabBar.items?[4].title = "Settings"
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         return nil
     }
 
     deinit { print("\(type(of: self)) deinit!") }
 
-    struct TabBarItem {
-
+    internal struct TabBarItem {
     }
 }

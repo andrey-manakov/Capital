@@ -1,7 +1,4 @@
-import UIKit
-
 // MARK: - functions add subViews to view easily with one command using Visual Format
-
 extension UIView {
 
     func add(subViews views: [String: UIView?], withConstraints constraints: [String]) {
@@ -16,8 +13,13 @@ extension UIView {
         }
 
         for index in 0..<constraints.count {
-            self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: constraints[index], options:
-                NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
+            self.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: constraints[index],
+                options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+                metrics: nil,
+                views: views
+                )
+            )
         }
     }
 
@@ -25,7 +27,7 @@ extension UIView {
         add(subViews: ["v": view], withConstraints: constraints)
     }
 
-    var views: [String: UIView] {
+    internal var views: [String: UIView] {
         var views = [String: UIView]()
         for view in self.subviews {
             guard let id = view.accessibilityIdentifier else { continue }
@@ -47,27 +49,25 @@ extension DateFormatter {
 }
 extension Date {
     var string: String { return DateFormatter("yyyy MMM-dd").string(from: self) }
-    var strFireBasePath: String { return DateFormatter("/yyyy/MM/dd").string(from: self) }
+    internal var strFireBasePath: String { return DateFormatter("/yyyy/MM/dd").string(from: self) }
 
-    func str(_ format: String) -> String {
+    internal func str(_ format: String) -> String {
         return DateFormatter(format).string(from: self)
     }
-
 }
 
 extension String {
     var date: Date? { return DateFormatter("yyyy MMM-dd").date(from: self) }
 
-    func date(withFormat format: String) -> Date? {
+    internal func date(withFormat format: String) -> Date? {
         return DateFormatter(format).date(from: self)
     }
-
 }
 
 extension Date {
-    var month: Int? { return Calendar.current.dateComponents([.month], from: self).month }
-    var day: Int? { return Calendar.current.dateComponents([.day], from: self).day }
-    var year: Int? { return Calendar.current.dateComponents([.year], from: self).year }
+    internal var month: Int? { return Calendar.current.dateComponents([.month], from: self).month }
+    internal var day: Int? { return Calendar.current.dateComponents([.day], from: self).day }
+    internal var year: Int? { return Calendar.current.dateComponents([.year], from: self).year }
 //    var day: Int
 }
 
@@ -77,7 +77,6 @@ extension String {
         let letters = "abcdefghijklmnopqrstuvwxyz"
         return String((0...length - 1).map { _ in letters.randomElement()! })
     }
-
 }
 
 // MARK: Compare dates
@@ -98,26 +97,24 @@ extension Date {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedDescending
     }
-
 }
 
 extension Date {
 
-    func dayNumberOfWeek() -> Int? {
+    internal func dayNumberOfWeek() -> Int? {
         return Calendar.current.dateComponents([.weekday], from: self).weekday
     }
 
-    func isWeekEnd() -> Bool {
+    internal func isWeekEnd() -> Bool {
         let weekDay = Calendar.current.dateComponents([.weekday], from: self).weekday
         return (weekDay == 1 || weekDay == 7) ? true : false
     }
-
 }
 
 // MARK: - Number fomatting
 
 extension Formatter {
-    static let withSeparator: NumberFormatter = {
+    static internal let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.groupingSeparator = " "
         formatter.numberStyle = .decimal
@@ -126,7 +123,7 @@ extension Formatter {
 }
 
 extension BinaryInteger {
-    var formattedWithSeparator: String {
+    internal var formattedWithSeparator: String {
         return Formatter.withSeparator.string(for: self) ?? ""
     }
 }

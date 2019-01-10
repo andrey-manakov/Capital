@@ -26,7 +26,7 @@ class BarButtonItem: UIBarButtonItem {
         self.action = #selector(didTap)
     }
 
-    private override init() {
+    override private init() {
         super.init()
     }
     required init?(coder aDecoder: NSCoder) {

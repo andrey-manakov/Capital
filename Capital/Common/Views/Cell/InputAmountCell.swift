@@ -16,5 +16,4 @@ class InputAmountCell: UITableViewCell, InputAmountCellProtocol {
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
-
 }

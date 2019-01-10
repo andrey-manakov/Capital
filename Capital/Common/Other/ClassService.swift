@@ -3,7 +3,7 @@ internal class ClassService {
     internal let data: DataProtocol
     internal var id: ObjectIdentifier { return ObjectIdentifier(self) }
 
-    init(_ data: DataProtocol = Data.shared) {
+    internal init(_ data: DataProtocol = Data.shared) {
         if (UIApplication.shared.delegate as? AppDelegate)?.testing ?? false {
             self.data = Data.sharedForUnitTests
         } else {

@@ -213,13 +213,13 @@ class CapitalUITests: XCTestCase {
 //        app.tables["v"].datePickers["v"].pickerWheels.element(
 //        boundBy: 1).adjust(toPickerWheelValue: date.day)
 //        datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2015")
-        print("transaction date \(date.day)")
-        app.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "\(date.day)")
+        print("transaction date \(date.day ?? 0)")
+        app.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "\(date.day ?? 0)")
         app.navigationBars["New Transaction"].buttons["Done"].tap()
         app.tabBars.buttons["Accounts"].tap()
 
         app.buttons[accounts[0].type].tap()
-        let newFromAccountValue =
+        let newFromAccountValue: String =
             String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
                 Int(accounts[0].amount)! - Int(amount)! :
                 Int(accounts[0].amount)! + Int(amount)!)
