@@ -1,7 +1,7 @@
 import XCTest
 @testable import Capital
 
-class AccountDetailVCTests: XCTestCase {
+internal final class AccountDetailVCTests: XCTestCase {
 
     // MARK: Subject under test
 
