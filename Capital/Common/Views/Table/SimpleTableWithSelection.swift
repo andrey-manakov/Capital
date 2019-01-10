@@ -1,7 +1,7 @@
 import UIKit
 
 protocol SimpleTableWithSelectionProtocol: SimpleTableProtocol {
-    var selectedRow: DataModelRowProtocol? {get set}
+    var selectedRow: DataModelRowProtocol? { get set }
 }
 
 class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {

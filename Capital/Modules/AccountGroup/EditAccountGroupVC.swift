@@ -8,15 +8,15 @@ class AccountGroupEditVC: ViewController {
         let table: SimpleTableProtocol = SimpleTable()
         let segmentedControl: SegmentedControlProtocol
         segmentedControl = SegmentedControl(
-        AccountType.allCases.map {$0.name}) {[unowned table] selelctedIndex in
-            table.filter = {$0.filter as? Int == selelctedIndex}
+        AccountType.allCases.map { $0.name }) {[unowned table] selelctedIndex in
+            table.filter = { $0.filter as? Int == selelctedIndex }
         }
-        table.filter = {$0.filter as? Int == 0}
+        table.filter = { $0.filter as? Int == 0 }
         if let data = data as? (id: String, name: String) {
             service.accountGroup = data.id
             nameTextField.text = data.name
         }
-        service.getData { dataModel in table.localData = dataModel}
+        service.getData { dataModel in table.localData = dataModel }
         view.add(
             subViews: ["nm": nameTextField as? UIView, "sc": segmentedControl as? UIView,
                        "tbl": table as? UIView],
@@ -33,7 +33,7 @@ class AccountGroupEditVC: ViewController {
     }
 
     @objc func didTapDone() {
-        service.didTapDone(name: nameTextField.text) {[unowned self] in self.dismiss()}
+        service.didTapDone(name: nameTextField.text) { [unowned self] in self.dismiss() }
     }
 
 }
@@ -73,7 +73,7 @@ extension AccountGroupEditVC {
         }
 
         func rowSelected(id: String?, completion: ((DataModelProtocol) -> Void)? = nil) {
-            guard let id = id else {return}
+            guard let id = id else { return }
             if selectedAccounts.contains(id) {
                 selectedAccounts.remove(id)
             } else {
@@ -83,10 +83,10 @@ extension AccountGroupEditVC {
         }
 
         func didTapDone(name: String?, completion: (() -> Void)? = nil) {
-            guard let name = name else {return}
+            guard let name = name else { return }
             let accounts = self.accounts.filter {
                 selectedAccounts.contains($0.key)
-                }.map {($0.key, $0.value.name ?? "")
+            }.map {($0.key, $0.value.name ?? "")
             }
             data.createAccountGroup(named: name, withAccounts: accounts)
             completion?()

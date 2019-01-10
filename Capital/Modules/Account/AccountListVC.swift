@@ -7,12 +7,12 @@ class AccountListVC: ViewController {
         title = "Accounts"
         let table: SimpleTableProtocol = SimpleTable()
         let segmentedControl: SegmentedControlProtocol =
-            SegmentedControl(AccountType.allCases.map {$0.name}) {[unowned table] segmentIndex in
-            table.filter = {$0.filter as? Int == segmentIndex}
+            SegmentedControl(AccountType.allCases.map { $0.name }) {[unowned table] segmentIndex in
+            table.filter = { $0.filter as? Int == segmentIndex }
             selectedSegment = segmentIndex
-        }
-        table.filter = {$0.filter as? Int == 0}
-        service.getData { dataModel in table.localData = dataModel}
+            }
+        table.filter = { $0.filter as? Int == 0 }
+        service.getData { dataModel in table.localData = dataModel }
         navigationItem.rightBarButtonItem = BarButtonItem(title: "New") {[unowned self] in
             self.navigationController?.pushViewController(AccountNewVC(selectedSegment), animated: true)
         }
@@ -50,7 +50,7 @@ extension AccountListVC {
         }
 
         func remove(_ row: DataModelRowProtocol?) {
-            guard let id = row?.id else {return}
+            guard let id = row?.id else { return }
             data.delete(.group, withId: id)
         }
 

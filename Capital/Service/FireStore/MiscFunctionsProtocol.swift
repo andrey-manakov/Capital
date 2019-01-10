@@ -12,7 +12,7 @@ extension MiscFunctionsProtocol {
     /// - Returns: next transaction date
     func nextDate(from date: Date?, recurrenceFrequency: RecurrenceFrequency?) -> Date? {
         // TODO: consider moving to sendFinTransaction
-        guard let recurrenceFrequency = recurrenceFrequency, let date = date else {return nil}
+        guard let recurrenceFrequency = recurrenceFrequency, let date = date else { return nil }
         let newDate: Date?
         switch recurrenceFrequency {
         case .never: newDate = nil

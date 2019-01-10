@@ -8,7 +8,7 @@ class SimpleTableWithSelectionTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  SimpleTableWithSelection(coder: archiver)
+        let view = SimpleTableWithSelection(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

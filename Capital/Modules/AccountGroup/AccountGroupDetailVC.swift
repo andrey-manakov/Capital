@@ -29,7 +29,7 @@ extension AccountGroupDetailVC {
         private var accounts = [String: Account]()
 
         func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
-            guard let id = id else {return}
+            guard let id = id else { return }
             data.setListnersToAccountsInGroup(withId: id, for: self.id, completion: { data in
                 for (id, account, changeType) in data {
                     switch changeType {

@@ -9,7 +9,7 @@ class SimpleSwitch: UISwitch, SwitchProtocol {
 }
 
 protocol SwitchCellProtocol {
-    var textLabel: UILabel? {get}
+    var textLabel: UILabel? { get }
 }
 
 class SwitchCell: UITableViewCell, SwitchCellProtocol {

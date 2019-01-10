@@ -1,7 +1,7 @@
 import UIKit
 
 protocol SimpleLabelProtocol {
-    var text: String? {get set}
+    var text: String? { get set }
 }
 
 class SimpleLabel: UILabel, SimpleLabelProtocol {

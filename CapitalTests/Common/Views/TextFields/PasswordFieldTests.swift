@@ -8,7 +8,7 @@ class PasswordFieldTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  PasswordField(coder: archiver)
+        let view = PasswordField(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

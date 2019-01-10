@@ -8,7 +8,7 @@ class TitleLabelTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  TitleLabel(coder: archiver)
+        let view = TitleLabel(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)
@@ -19,7 +19,7 @@ class TitleLabelTests: XCTestCase {
         let text = "title"
 
         // 2. Action
-        let view =  TitleLabel(text)
+        let view = TitleLabel(text)
 
         // 3. Assert
         XCTAssert(view.text == text &&

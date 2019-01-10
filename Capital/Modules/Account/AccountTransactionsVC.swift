@@ -7,7 +7,7 @@ class AccountTransactionsVC: ViewController {
         title = data?.name
         let table: TransactionsTableProtocol = TransactionsTable()
         let service = AccountTransactionsVC.Service()
-        service.getData(withId: id) { dataModel in table.localData = dataModel}
+        service.getData(withId: id) { dataModel in table.localData = dataModel }
 
         navigationItem.rightBarButtonItem = BarButtonItem(title: "Edit") {
             self.navigationController?.pushViewController(AccountDetailVC(id), animated: true)
@@ -34,7 +34,7 @@ extension AccountTransactionsVC {
         private var transactions = [String: FinTransaction]()
 
         func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
-            guard let id = id else {return}
+            guard let id = id else { return }
             data.setListnersToTransactionsOfAccount(withId: id, for: self.id,
                                                     completion: {[unowned self] data in
                 for (id, transaction, changeType) in data {

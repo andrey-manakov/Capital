@@ -13,7 +13,9 @@ final class FinTransaction: DataObject {
     /// serverTime - when transaction reecord is created in Online database
     var serverTime: Date?
     /// dateText  - date in text format, date converted to text in format yyyy MMM-dd
-    var dateText: String {return date == nil ? "" :  DateFormatter("yyyy MMM-dd").string(from: date! as Date)}
+    var dateText: String {
+        return date == nil ? "" :  DateFormatter("yyyy MMM-dd").string(from: date! as Date)
+    }
     /// isApproved - defines if transaction is approved,
     /// if it is actually took place and should it be taken into account value calculation
     var isApproved: Bool?
@@ -30,7 +32,7 @@ final class FinTransaction: DataObject {
     /// MARK: - Initialization
     required convenience init(_ data: [String: Any]) {
         self.init()
-        for (field, value) in data {self.update(field: field, value: value)}
+        for (field, value) in data { self.update(field: field, value: value) }
     }
 
     // swiftlint:disable identifier_name
@@ -49,31 +51,39 @@ final class FinTransaction: DataObject {
     ///   - field: field name
     ///   - value: value to use for field update
     func update(field: String, value: Any) {
-        guard let field = Fields.init(rawValue: field) else {return}
+        guard let field = Fields.init(rawValue: field) else {
+            return
+        }
 
         switch field {
         case .from:
             guard let value = value as? [String: Any],
                 let id = value[Fields.From.id.rawValue] as? String,
-                let name = value[Fields.From.name.rawValue] as? String else {return}
+                let name = value[Fields.From.name.rawValue] as? String else { return }
             self.from = (id, name)
         case .to:
             guard let value = value as? [String: Any],
                 let id = value[Fields.To.id.rawValue] as? String,
-                let name = value[Fields.To.name.rawValue] as? String else {return}
+                let name = value[Fields.To.name.rawValue] as? String else { return }
             self.to = (id, name)
-        case .amount: self.amount = value as? Int
-        case .date: self.date = (value as? Timestamp)?.dateValue()
-        case .serverTime: self.serverTime = (value as? Timestamp)?.dateValue()
-        case .isApproved: self.isApproved = value as? Bool
+        case .amount:
+            self.amount = value as? Int
+        case .date:
+            self.date = (value as? Timestamp)?.dateValue()
+        case .serverTime:
+            self.serverTime = (value as? Timestamp)?.dateValue()
+        case .isApproved:
+            self.isApproved = value as? Bool
         case .approvalMode:
-            if let rawValue = value as? Int {self.approvalMode = ApprovalMode(rawValue: rawValue)}
+            if let rawValue = value as? Int { self.approvalMode = ApprovalMode(rawValue: rawValue) }
         case .recurrenceFrequency:
             if let rawValue = value as? Int {
                 self.recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue)
             }
-        case .recurrenceEnd: self.recurrenceEnd = (value as? Timestamp)?.dateValue()
-        case .parent: self.parent = value as? String
+        case .recurrenceEnd:
+            self.recurrenceEnd = (value as? Timestamp)?.dateValue()
+        case .parent:
+            self.parent = value as? String
         }
     }
 }
@@ -113,7 +123,7 @@ extension FinTransaction: CustomStringConvertible, CustomDebugStringConvertible 
         """
     }
 
-    var debugDescription: String {return description}
+    var debugDescription: String { return description }
 
 }
 
@@ -132,9 +142,9 @@ extension FinTransaction {
         case recurrenceEnd
         case parent
         // swiftlint:disable nesting
-        enum From: String {case id, name}
+        enum From: String { case id, name }
         // swiftlint:disable nesting type_name
-        enum To: String {case id, name}
+        enum To: String { case id, name }
     }
 
 }

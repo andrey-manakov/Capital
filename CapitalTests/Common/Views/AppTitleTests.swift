@@ -8,7 +8,7 @@ class AppTitleTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  AppTitle(coder: archiver)
+        let view = AppTitle(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)
@@ -23,7 +23,7 @@ class ButtonTest: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  Button(coder: archiver)
+        let view = Button(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

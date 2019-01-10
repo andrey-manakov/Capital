@@ -28,7 +28,7 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
     }
 
     private func signIn() {
-        guard let login = self.loginTextField.text, let password = self.passwordTextField.text else {return}
+        guard let login = self.loginTextField.text, let password = self.passwordTextField.text else { return }
         cleanTextFields()
         self.service.didTapSignIn(withLogin: login, andPassword: password) { error in
             if let error = error {
@@ -38,7 +38,7 @@ class LoginVC: ViewController, LoginViewControllerProtocol {
     }
 
     private func signUp() {
-        guard let login = self.loginTextField.text, let password = self.passwordTextField.text else {return}
+        guard let login = self.loginTextField.text, let password = self.passwordTextField.text else { return }
         cleanTextFields()
         self.service.didTapSignUp(
             withLogin: login,
@@ -77,13 +77,13 @@ extension LoginVC {
 
         func didTapSignIn(withLogin login: String?, andPassword password: String?,
                           completion: ((Error?) -> Void)? = nil) {
-            guard let lgn = login, let pwd = password else {return}
+            guard let lgn = login, let pwd = password else { return }
             Data.shared.signInUser(withEmail: lgn, password: pwd, completion: completion)
         }
 
         func didTapSignUp(withLogin login: String?, andPassword password: String?,
                           completion: ((Error?) -> Void)? = nil) {
-            guard let lgn = login, let pwd = password else {return} // TODO: consider use UIAlertVC
+            guard let lgn = login, let pwd = password else { return } // TODO: consider use UIAlertVC
             Data.shared.signUpUser(withEmail: lgn, password: pwd, completion: completion)
         }
 

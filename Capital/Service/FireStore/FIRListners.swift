@@ -43,7 +43,7 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
         toPath path: String, whereClause: WhereClause?,
         completion: @escaping ([ListnerResult]) -> Void) {
 
-        guard let ref = ref else {return}
+        guard let ref = ref else { return }
         var query: Query = ref.collection(path)
         if let whereClause = whereClause {
             switch whereClause.comparisonType {
@@ -62,13 +62,13 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
             }
         }
         let listner = query.addSnapshotListener { snapshot, _ in
-            guard let docChanges = snapshot?.documentChanges else {return}
+            guard let docChanges = snapshot?.documentChanges else { return }
             completion(
                 docChanges.map {
                     (id: $0.document.documentID,
                      data: $0.document.data(),
                      changeType: ChangeType(rawValue: $0.type.rawValue) ?? .modified)
-            })
+                })
         }
 
         if listners[objectId] == nil {
@@ -81,7 +81,7 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
     ///
     /// - Parameter objectId: id of the instance being deinitialized
     func removeListners(ofObject objectId: ObjectIdentifier) {
-        guard let objListners = listners[objectId] else {return}
+        guard let objListners = listners[objectId] else { return }
         for listner in objListners {
             listner?.remove()
         }

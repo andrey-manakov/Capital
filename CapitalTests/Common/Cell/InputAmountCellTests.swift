@@ -8,7 +8,7 @@ class InputAmountCellTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  InputAmountCell(coder: archiver)
+        let view = InputAmountCell(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

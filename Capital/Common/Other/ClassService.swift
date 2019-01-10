@@ -1,8 +1,8 @@
 /// Parent to all "service" classes which accompany View Controllers
+internal class ClassService {
+    internal let data: DataProtocol
+    internal var id: ObjectIdentifier { return ObjectIdentifier(self) }
 
-class ClassService {
-    let data: DataProtocol
-    var id: ObjectIdentifier {return ObjectIdentifier(self)}
     init(_ data: DataProtocol = Data.shared) {
         if (UIApplication.shared.delegate as? AppDelegate)?.testing ?? false {
             self.data = Data.sharedForUnitTests

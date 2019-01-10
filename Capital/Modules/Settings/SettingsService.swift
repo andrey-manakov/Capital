@@ -1,5 +1,5 @@
 protocol SettingsServiceProtocol: class {
-    var view: SettingsViewControllerProtocol? {get set}
+    var view: SettingsViewControllerProtocol? { get set }
     func viewDidLoad(_ view: SettingsViewControllerProtocol)
     func didSelect(_ row: DataModelRowProtocol, at indexPath: IndexPath)
 }
@@ -19,7 +19,7 @@ class SettingsService: ClassService, SettingsServiceProtocol {
     }
 
     func didSelect(_ row: DataModelRowProtocol, at indexPath: IndexPath) {
-        guard let id = row.id, let idInt = Int(id), let settings = Settings(rawValue: idInt) else {return}
+        guard let id = row.id, let idInt = Int(id), let settings = Settings(rawValue: idInt) else { return }
         switch settings {
         case .logOut:
             data.signOut { error in

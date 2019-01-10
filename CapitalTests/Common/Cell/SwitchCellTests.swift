@@ -8,7 +8,7 @@ class SwitchCellTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  SwitchCell(coder: archiver)
+        let view = SwitchCell(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

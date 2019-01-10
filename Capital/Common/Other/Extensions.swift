@@ -28,13 +28,13 @@ extension UIView {
     var views: [String: UIView] {
         var views = [String: UIView]()
         for view in self.subviews {
-            guard let id = view.accessibilityIdentifier else {continue}
+            guard let id = view.accessibilityIdentifier else { continue }
             views[id] = view
         }
         return views
     }
 
-    var id: String {return ObjectIdentifier(self).debugDescription}
+    var id: String { return ObjectIdentifier(self).debugDescription }
 }
 
 // MARK: - Extension allows to initialize Date Formatter with one command
@@ -46,8 +46,8 @@ extension DateFormatter {
     }
 }
 extension Date {
-    var string: String {return DateFormatter("yyyy MMM-dd").string(from: self)}
-    var strFireBasePath: String {return DateFormatter("/yyyy/MM/dd").string(from: self)}
+    var string: String { return DateFormatter("yyyy MMM-dd").string(from: self) }
+    var strFireBasePath: String { return DateFormatter("/yyyy/MM/dd").string(from: self) }
 
     func str(_ format: String) -> String {
         return DateFormatter(format).string(from: self)
@@ -56,7 +56,7 @@ extension Date {
 }
 
 extension String {
-    var date: Date? {return DateFormatter("yyyy MMM-dd").date(from: self)}
+    var date: Date? { return DateFormatter("yyyy MMM-dd").date(from: self) }
 
     func date(withFormat format: String) -> Date? {
         return DateFormatter(format).date(from: self)
@@ -65,9 +65,9 @@ extension String {
 }
 
 extension Date {
-    var month: Int {return Calendar.current.dateComponents([.month], from: self).month!}
-    var day: Int {return Calendar.current.dateComponents([.day], from: self).day!}
-    var year: Int {return Calendar.current.dateComponents([.year], from: self).year!}
+    var month: Int? { return Calendar.current.dateComponents([.month], from: self).month }
+    var day: Int? { return Calendar.current.dateComponents([.day], from: self).day }
+    var year: Int? { return Calendar.current.dateComponents([.year], from: self).year }
 //    var day: Int
 }
 
@@ -75,7 +75,7 @@ extension String {
 
     static func randomWithSmallLetters(length: Int = 10) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyz"
-        return String((0...length-1).map { _ in letters.randomElement()! })
+        return String((0...length - 1).map { _ in letters.randomElement()! })
     }
 
 }

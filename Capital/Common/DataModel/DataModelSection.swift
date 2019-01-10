@@ -1,5 +1,5 @@
 protocol DataModelSectionProtocol: BasicDataPropertiesProtocol {
-    var rows: [DataModelRowProtocol] {get set}
+    var rows: [DataModelRowProtocol] { get set }
     func filter(_: ((DataModelRowProtocol) -> (Bool))) -> DataModelSectionProtocol
 }
 

@@ -41,7 +41,7 @@ class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerProtocol {
                            recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
                            completion: ((String?) -> Void)? = nil) {
 
-        guard let ref = ref, let from = from, let to = to, let amount = amount else {return}
+        guard let ref = ref, let from = from, let to = to, let amount = amount else { return }
 
         let batch = self.fireDB.batch()
 

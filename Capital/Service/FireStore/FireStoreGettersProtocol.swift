@@ -1,13 +1,13 @@
 /// Getters for FireStore Transactions (reads before atomic write)
 protocol FireStoreGettersProtocol {
-    var ref: DocumentReference? {get}
+    var ref: DocumentReference? { get }
 }
 
 extension FireStoreGettersProtocol {
 
     func getUserData(for fsTransaction: Transaction,
                      with errorPointer: NSErrorPointer = nil) -> DocumentSnapshot? {
-        guard let ref = ref else {return nil}
+        guard let ref = ref else { return nil }
         let doc: DocumentSnapshot
         do {
             try doc = fsTransaction.getDocument(ref)
@@ -22,7 +22,7 @@ extension FireStoreGettersProtocol {
              withId id: String?,
              for fsTransaction: Transaction,
              with errorPointer: NSErrorPointer = nil) -> DataObjectProtocol? {
-        guard let ref = ref, let id = id else {return nil}
+        guard let ref = ref, let id = id else { return nil }
         let doc: DocumentSnapshot
         do {
             try doc = fsTransaction.getDocument(ref.collection(dataObject.rawValue).document(id))
@@ -30,7 +30,7 @@ extension FireStoreGettersProtocol {
             errorPointer?.pointee = fetchError
             return nil
         }
-        guard let data = doc.data() else {return nil}
+        guard let data = doc.data() else { return nil }
 
         switch dataObject {
         case .account: return Account(data)

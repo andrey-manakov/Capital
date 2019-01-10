@@ -26,7 +26,7 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
     func createAccount(_ name: String?, ofType type: AccountType?, withAmount amount: Int?,
                        completion: ((String?) -> Void)?) {
         guard let ref = ref, let name = name, let type = type,
-            let newAccountRef = self.ref?.collection(DataObjectType.account.rawValue).document() else {return}
+            let newAccountRef = self.ref?.collection(DataObjectType.account.rawValue).document() else { return }
         let amount = amount ?? 0
         if amount == 0 {
             newAccountRef.setData(
@@ -79,14 +79,14 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
     func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)? = nil) {
         guard let id = id,
             let accountDoc = ref?.collection(DataObjectType.account.rawValue).document(id),
-            let capitalDoc  = capitalDoc else {return}
+            let capitalDoc = capitalDoc else { return }
 
         fireDB.runTransaction({[unowned self] fsTransaction, _ -> Any? in
             let account = self.getAccount(withId: id, for: fsTransaction)
             guard let oldAmount = account?.amount, let type = account?.type,
                 let capitalAmount = self.getAccount(
                     withId: self.capitalAccountName,
-                    for: fsTransaction)?.amount else {return false}
+                    for: fsTransaction)?.amount else { return false }
             let oldName = account?.name ?? ""
 
             let delta: Int

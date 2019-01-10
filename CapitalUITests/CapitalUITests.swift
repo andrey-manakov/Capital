@@ -4,7 +4,7 @@ extension CapitalUITests {
     private enum AccountType: Int, CaseIterable {
         case asset, liability, revenue, expense, capital
         static let all = ["asset", "liability", "revenue", "expense", "capital"]
-        var name: String {return AccountType.all[self.rawValue]}
+        var name: String { return AccountType.all[self.rawValue] }
     }
 }
 
@@ -42,18 +42,18 @@ class CapitalUITests: XCTestCase {
 
     func signUp(login: String, password: String) -> Bool {
         app.textFields["loginTextField"].tap()
-        _ = login.map {app.keys[String($0)].tap()}
+        _ = login.map { app.keys[String($0)].tap() }
         app.secureTextFields["passwordTextField"].tap()
-        _ = password.map {app.keys[String($0)].tap()}
+        _ = password.map { app.keys[String($0)].tap() }
         app.buttons["signUpButton"].tap()
         return app.navigationBars["DashBoard"].waitForExistence(timeout: 10)
     }
 
     func signIn(login: String, password: String) -> Bool {
         app.textFields["loginTextField"].tap()
-        _ = login.map {app.keys[String($0)].tap()}
+        _ = login.map { app.keys[String($0)].tap() }
         app.secureTextFields["passwordTextField"].tap()
-        _ = password.map {app.keys[String($0)].tap()}
+        _ = password.map { app.keys[String($0)].tap() }
         app.buttons["signInButton"].tap()
         return app.navigationBars["DashBoard"].waitForExistence(timeout: 10)
     }
@@ -75,9 +75,9 @@ class CapitalUITests: XCTestCase {
         app.buttons[account.type].tap()
         app.navigationBars["Accounts"].buttons["New"].tap()
         app.textFields["an"].tap()
-        _ = account.name.map {app.keys[String($0)].tap()}
+        _ = account.name.map { app.keys[String($0)].tap() }
         app.textFields["aa"].tap()
-        _ = account.amount.map {app.keys[String($0)].tap()}
+        _ = account.amount.map { app.keys[String($0)].tap() }
         app.navigationBars["New account"].buttons["Done"].tap()
         // Alternative way to call
 //        let myTable = app.tables.matching(identifier: "t")
@@ -110,7 +110,7 @@ class CapitalUITests: XCTestCase {
         let accounts = [randomAccount(), randomAccount()]
         let name = String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! })
         XCTAssert(signUp(login: login, password: password))
-        _ = accounts.map {XCTAssert(create(account: $0))}
+        _ = accounts.map { XCTAssert(create(account: $0)) }
         XCTAssert(create(accountGroup: name, with: accounts))
         XCTAssert(deleteUser())
     }
@@ -122,7 +122,7 @@ class CapitalUITests: XCTestCase {
         app.tabBars.buttons["DashBoard"].tap()
         app.navigationBars["DashBoard"].buttons["New"].tap()
         app.textFields["nm"].tap()
-        _ = name.map {app.keys[String($0)].tap()}
+        _ = name.map { app.keys[String($0)].tap() }
         _ = [0, 1].map {
             app.buttons[accounts[$0].type].tap()
             app.tables["tbl"].staticTexts[accounts[$0].name].tap()
@@ -142,10 +142,10 @@ class CapitalUITests: XCTestCase {
             XCTAssert(signOut())
         }
         let accounts = [randomAccount(), randomAccount()]
-        let amount = String((0..<3).map { _ in "123456789".randomElement()!})
+        let amount = String((0..<3).map { _ in "123456789".randomElement()! })
 
         XCTAssert(signUp(login: login, password: password))
-        _ = accounts.map {XCTAssert(create(account: $0))}
+        _ = accounts.map { XCTAssert(create(account: $0)) }
         XCTAssert(create(transaction: amount, with: accounts))
         XCTAssert(deleteUser())
     }
@@ -162,7 +162,7 @@ class CapitalUITests: XCTestCase {
         app.buttons[accounts[1].type].tap()
         app.tables["t"].staticTexts[accounts[1].name].tap()
         app.tables["v"].staticTexts["amount"].tap()
-        _ = amount.map {app.keys[String($0)].tap()}
+        _ = amount.map { app.keys[String($0)].tap() }
         app.navigationBars["New Transaction"].buttons["Done"].tap()
         app.tabBars.buttons["Accounts"].tap()
         app.buttons[accounts[0].type].tap()
@@ -202,7 +202,7 @@ class CapitalUITests: XCTestCase {
         app.buttons[accounts[1].type].tap()
         app.tables["t"].staticTexts[accounts[1].name].tap()
         app.tables["v"].staticTexts["amount"].tap()
-        _ = amount.map {app.keys[String($0)].tap()}
+        _ = amount.map { app.keys[String($0)].tap() }
         app.tables["v"].staticTexts["date"].tap()
 
 //        let datePickers = app.datePickers

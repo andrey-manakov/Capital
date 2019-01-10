@@ -45,7 +45,7 @@ class AccountDetailVCTests: XCTestCase {
             return}
         for view in views {
             guard let deleteButton = view as? Button,
-                deleteButton.accessibilityIdentifier == "deleteButton" else {continue}
+                deleteButton.accessibilityIdentifier == "deleteButton" else { continue }
             deleteButton.sendActions(for: UIControl.Event.touchUpInside)
         }
         XCTAssert(Data.sharedForUnitTests.deleteAccountCalled)
@@ -56,7 +56,7 @@ class AccountDetailVCTests: XCTestCase {
         let viewsSet: Set<String> = ["accountName", "accountAmount", "deleteButton"]
 
         if let views = view?.subviews {
-            let viewsNames = Set(views.map {$0.accessibilityIdentifier ?? ""})
+            let viewsNames = Set(views.map { $0.accessibilityIdentifier ?? "" })
             if viewsSet != viewsNames {
                 result = false
             }

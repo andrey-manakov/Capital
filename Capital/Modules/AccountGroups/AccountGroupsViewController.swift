@@ -4,13 +4,13 @@ class AccountGroupsViewController: ViewController {
         super.viewDidLoad()
         let service = Service()
         let table: SimpleTableWithSwipeProtocol = SimpleTableWithSwipe()
-        service.getData { dataModel in table.localData = dataModel}
+        service.getData { dataModel in table.localData = dataModel }
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
         self.title = "DashBoard"
         navigationItem.rightBarButtonItem = BarButtonItem(title: "New") {[unowned self] in
             self.navigationController?.pushViewController(AccountGroupEditVC(), animated: true)
         }
-        table.swipeLeftAction = {[unowned service] row in service.remove(row)}
+        table.swipeLeftAction = { [unowned service] row in service.remove(row) }
         table.swipeLeftLabel = "Delete"
         table.didSelect = {[unowned self] row, _ in
             self.navigationController?.pushViewController(
@@ -41,7 +41,7 @@ extension AccountGroupsViewController {
         }
 
         func remove(_ row: DataModelRowProtocol?) {
-            guard let id = row?.id else {return}
+            guard let id = row?.id else { return }
             data.delete(.group, withId: id)
         }
 

@@ -1,7 +1,7 @@
 import UIKit
 
 protocol SegmentedControlProtocol: class {
-    var selectedSegmentIndex: Int {get set}
+    var selectedSegmentIndex: Int { get set }
 }
 
 class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {

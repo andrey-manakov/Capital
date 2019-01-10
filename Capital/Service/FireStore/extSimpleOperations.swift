@@ -28,7 +28,7 @@ extension FireStoreData {
     ///   - completion: function to run after successful update
     func update(_ dataObject: DataObjectType, id: String?, with values: [String: Any?],
                 completion: (() -> Void)? = nil) {
-        guard let id = id else {return}
+        guard let id = id else { return }
         ref?.collection(dataObject.rawValue).document(id).updateData(values as [AnyHashable: Any]) { err in
             if let err = err {
                 print("Error updating document: \(err)")

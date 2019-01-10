@@ -8,7 +8,7 @@ class SimpleLabelTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  SimpleLabel(coder: archiver)
+        let view = SimpleLabel(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

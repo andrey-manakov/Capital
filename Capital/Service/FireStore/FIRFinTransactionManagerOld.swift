@@ -64,14 +64,14 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
         approvalMode: FinTransaction.ApprovalMode? = nil,
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
-        guard let ref = ref, let from = from, let to = to, let amount = amount else {return}
+        guard let ref = ref, let from = from, let to = to, let amount = amount else { return }
 
-        fireDB.runTransaction({ (fsTransaction, errorPointer) -> Any? in
+        fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
             // read account amounts from FireStore
             guard let fromAccount = self.getAccount(
                 withId: from, for: fsTransaction, with: errorPointer),
                 let toAccount = self.getAccount(
-                    withId: to, for: fsTransaction, with: errorPointer) else {return nil}
+                    withId: to, for: fsTransaction, with: errorPointer) else { return nil }
             // create transactions
             let approvedAmount = self.sendFinTransaction(
                 to: fsTransaction, from: (from, fromAccount.name ?? ""),
@@ -85,7 +85,7 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
                     [Account.Fields.amount.rawValue: (account.amount ?? 0) + coef * approvedAmount],
                     forDocument: ref.collection(DataObjectType.account.rawValue).document(id))
             }
-            return {print("Transaction created")}
+            return { print("Transaction created") }
         }, completion: fireStoreCompletion)
 
     }
@@ -115,7 +115,7 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
                             recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
                             parent: String? = nil, approvedAmount: Int = 0) -> Int {
         guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
-            let from = from, let to = to, let amount = amount else {return 0}
+            let from = from, let to = to, let amount = amount else { return 0 }
         let date = date ?? Date()
         fsTransaction.setData([
             FinTransaction.Fields.from.rawValue:

@@ -8,7 +8,7 @@ class EmailFieldTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  EmailField(coder: archiver)
+        let view = EmailField(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

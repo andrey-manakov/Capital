@@ -1,5 +1,5 @@
 protocol FireAuthProtocol {
-    var currentUserUid: String? {get}
+    var currentUserUid: String? { get }
     func signOutUser(_ completion: ((Error?) -> Void)?)
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
     func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
@@ -9,14 +9,14 @@ class FIRAuth: FireAuthProtocol {
 
     static var shared = FIRAuth()
 
-    var currentUser: User? {return Auth.auth().currentUser}
-    var currentUserUid: String? {return currentUser?.uid}
-    lazy var getUpdatedUserInfo = [ObjectIdentifier: (String?)->Void]()
+    var currentUser: User? { return Auth.auth().currentUser }
+    var currentUserUid: String? { return currentUser?.uid }
+    lazy var getUpdatedUserInfo = [ObjectIdentifier: (String?) -> Void]()
 //    private let fs = FireStoreData.shared
 
     private init() {
         Auth.auth().addStateDidChangeListener { auth, user in _ =
-            self.getUpdatedUserInfo.values.map {$0(Auth.auth().currentUser?.uid)}
+            self.getUpdatedUserInfo.values.map { $0(Auth.auth().currentUser?.uid) }
             if let user = user {
                 let newLog = Firestore.firestore().collection("users/\(user.uid)/log").document()
                 newLog.setData(["timestamp": FieldValue.serverTimestamp()]) { error in

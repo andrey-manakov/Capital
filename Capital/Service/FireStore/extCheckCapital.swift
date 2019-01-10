@@ -6,7 +6,7 @@ extension FireStoreData {
         // FIXME: get rid of text in quotes
         // FIXME: move to sign in sign up
         let capitalRef = ref?.collection(DataObjectType.account.rawValue).document("capital")
-        capitalRef?.getDocument { (doc, error) in
+        capitalRef?.getDocument { doc, error in
             if let error = error {
                 completion?(error)
             }

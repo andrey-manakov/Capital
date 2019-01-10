@@ -10,7 +10,7 @@ class AccountNewVC: ViewController {
         var selectedSegment = data as? Int ?? 0
 
         let segmentedControl: SegmentedControlProtocol
-        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) { segmentIndex in
+        segmentedControl = SegmentedControl(AccountType.allCases.map { $0.name }) { segmentIndex in
             selectedSegment = segmentIndex
         }
         segmentedControl.selectedSegmentIndex = selectedSegment

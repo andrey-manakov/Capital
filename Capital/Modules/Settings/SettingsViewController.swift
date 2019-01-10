@@ -2,8 +2,8 @@ import UIKit
 // FIXME: Switch to import Swift or Foundation
 
 protocol SettingsViewControllerProtocol: ViewControllerProtocol {
-    var service: SettingsServiceProtocol {get set}
-    var table: SimpleTableProtocol {get set} // TODO: consider hiding subview
+    var service: SettingsServiceProtocol { get set }
+    var table: SimpleTableProtocol { get set } // TODO: consider hiding subview
 
 }
 

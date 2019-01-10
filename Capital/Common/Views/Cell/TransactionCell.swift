@@ -1,11 +1,11 @@
 import UIKit
 
 protocol TransactionCellProtocol: class {
-    var date: SimpleLabelProtocol {get set}
-    var from: SimpleLabelProtocol {get set}
+    var date: SimpleLabelProtocol { get set }
+    var from: SimpleLabelProtocol { get set }
     // swiftlint:disable identifier_name
-    var to: SimpleLabelProtocol {get set}
-    var amount: SimpleLabelProtocol {get set}
+    var to: SimpleLabelProtocol { get set }
+    var amount: SimpleLabelProtocol { get set }
 }
 
 class TransactionCell: UITableViewCell, TransactionCellProtocol {

@@ -1,8 +1,8 @@
 import UIKit
 
 protocol SimpleSectionHeaderProtocol {
-    var title: UILabel {get}
-    var desc: UILabel {get}
+    var title: UILabel { get }
+    var desc: UILabel { get }
 }
 
 class SimpleSectionHeader: UITableViewHeaderFooterView, SimpleSectionHeaderProtocol {

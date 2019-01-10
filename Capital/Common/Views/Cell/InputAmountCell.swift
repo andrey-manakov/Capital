@@ -1,8 +1,8 @@
 import UIKit
 
 protocol InputAmountCellProtocol {
-    var amountTextField: TextFieldProtocol {get set}
-    var textLabel: UILabel? {get}
+    var amountTextField: TextFieldProtocol { get set }
+    var textLabel: UILabel? { get }
 }
 
 class InputAmountCell: UITableViewCell, InputAmountCellProtocol {

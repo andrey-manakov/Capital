@@ -1,8 +1,8 @@
 import UIKit
 
 protocol DatePickerProtocol: class {
-    var actionOnDateChange: ((_ date: Date) -> Void)? {get set}
-    var date: Date {get set}
+    var actionOnDateChange: ((_ date: Date) -> Void)? { get set }
+    var date: Date { get set }
 }
 
 class DatePicker: UIDatePicker, DatePickerProtocol {
@@ -15,7 +15,7 @@ class DatePicker: UIDatePicker, DatePickerProtocol {
         addTarget(self, action: #selector(dateChanged), for: UIControl.Event.valueChanged)
     }
 
-    required init?(coder aDecoder: NSCoder) {fatalError("")}
+    required init?(coder aDecoder: NSCoder) { fatalError("") }
 
-    @objc func dateChanged() {actionOnDateChange?(date)}
+    @objc func dateChanged() { actionOnDateChange?(date) }
 }

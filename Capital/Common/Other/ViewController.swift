@@ -2,7 +2,7 @@ import UIKit
 
 /// Parent protocol to all View Controllers protocol
 protocol ViewControllerProtocol: class {
-    var data: Any? {get set}
+    var data: Any? { get set }
     func dismiss(completion: (() -> Void)?)
     func dimissNavigationViewController(completion: (() -> Void)?)
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
@@ -47,7 +47,7 @@ class ViewController: UIViewController, ViewControllerProtocol {
     }
 
     /// Check that View Controller is deallocated - for debug purposes
-    deinit {print("\(type(of: self)) deinit!")}
+    deinit { print("\(type(of: self)) deinit!") }
 
     func dismiss(completion: (() -> Void)? = nil) {
         if let navigationController = navigationController {

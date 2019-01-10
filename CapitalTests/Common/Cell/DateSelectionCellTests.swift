@@ -8,7 +8,7 @@ class DateSelectionCellTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  DateSelectionCell(coder: archiver)
+        let view = DateSelectionCell(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

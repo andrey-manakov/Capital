@@ -1,18 +1,19 @@
 protocol BasicDataPropertiesProtocol: CustomStringConvertible, CustomDebugStringConvertible {
-    var id: String? {get set}
-    var name: String? {get set}
-    var desc: String? {get set}
+    var id: String? { get set }
+    var name: String? { get set }
+    var desc: String? { get set }
 
 }
 
 extension BasicDataPropertiesProtocol {
-    var description: String {return "\(type(of: self)) \(id ?? "nil") \(name ?? "nil") \(desc ?? "nil")"}
-    var debugDescription: String {return description}
+    var description: String { return "\(type(of: self)) \(id ?? "nil") \(name ?? "nil") \(desc ?? "nil")" }
+    var debugDescription: String { return description }
 }
 
 protocol DataModelProtocol: CustomStringConvertible, CustomDebugStringConvertible {
-    var sections: [DataModelSectionProtocol] {get set}
-    subscript(index: IndexPath) -> DataModelRowProtocol {get set}
+    var sections: [DataModelSectionProtocol] { get set }
+
+    subscript(index: IndexPath) -> DataModelRowProtocol { get set }
     func filter(_: (DataModelRowProtocol) -> (Bool)) -> DataModelProtocol
 }
 
@@ -28,7 +29,7 @@ struct DataModel: DataModelProtocol {
         return desc
     }
 
-    var debugDescription: String {return self.description}
+    var debugDescription: String { return self.description }
 
     subscript(sectionIndex: Int, rowIndex: Int) -> (name: String?, desc: String?) {
         let row = sections[sectionIndex].rows[rowIndex]
@@ -81,7 +82,7 @@ struct DataModel: DataModelProtocol {
     }
 
     func filter(_ filter: (DataModelRowProtocol) -> (Bool)) -> DataModelProtocol {
-        return DataModel(sections.map {$0.filter(filter)})
+        return DataModel(sections.map { $0.filter(filter) })
     }
 
 }

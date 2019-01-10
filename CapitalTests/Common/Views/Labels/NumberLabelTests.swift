@@ -8,7 +8,7 @@ class NumberLabelTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  NumberLabel(coder: archiver)
+        let view = NumberLabel(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

@@ -13,7 +13,7 @@ extension Account {
 /// Account - is the entity to record transactions (`FinTransaction`).
 final class Account: DataObject {
 
-    // MARK - Properties
+    // MARK: - Properties
 
     /// Account name
     var name: AccountName?
@@ -26,7 +26,7 @@ final class Account: DataObject {
     /// Computed tuple holding `Account.minAmount` and `Account.minDate`
     /// In that way the data regarding `Account.minAmount` and `Account.minDate` is stored in Firestore.
     var min: (amount: Int, date: Date)? {
-        guard let minAmount = minAmount, let minDate = minDate else {return nil}
+        guard let minAmount = minAmount, let minDate = minDate else { return nil }
         return (minAmount, minDate)
     }
     /// RawValue of Enum `AccountType`
@@ -34,13 +34,13 @@ final class Account: DataObject {
     var typeId: Int?
     /// Computed value of Enum `AccountType` based on rawValue
     var type: AccountType? {
-        guard let typeId = typeId, let accountType = AccountType(rawValue: typeId) else {return nil}
+        guard let typeId = typeId, let accountType = AccountType(rawValue: typeId) else { return nil }
         return accountType
     }
     /// Groups to which 'Account' belongs to
     var groups: [GroupId: GroupName]?
 
-    // MARK - Initializers
+    // MARK: - Initializers
 
     /// Initializer used to create instance of `Account` from data loaded from FireStore
     ///
@@ -51,7 +51,7 @@ final class Account: DataObject {
         }
     }
 
-    // MARK - Methods
+    // MARK: - Methods
 
     /// Updates instance field with new value
     ///
@@ -59,12 +59,12 @@ final class Account: DataObject {
     ///   - field: field name
     ///   - value: value of the field
     func update(field: String, value: Any) {
-        guard let property = Account.Fields(rawValue: field) else {return}
+        guard let property = Account.Fields(rawValue: field) else { return }
         switch property {
         case .name: self.name = value as? String
         case .amount: self.amount = value as? Int
         case .min:
-            guard let value = value as? [String: Any] else {return}
+            guard let value = value as? [String: Any] else { return }
             if let minAmount = value[Account.Fields.Min.amount.rawValue] as? Int {
                 self.minAmount = minAmount
             }
@@ -72,7 +72,7 @@ final class Account: DataObject {
                 self.minDate = minDate
             }
         case .type: self.typeId = value as? Int
-        case .groups: self.groups =  value as? [String: String]
+        case .groups: self.groups = value as? [String: String]
         }
     }
 
@@ -111,8 +111,8 @@ extension Account: Equatable {
 
 }
 
-/// MARK: - Extends  'Account' to CustomStringConvertible, CustomDebugStringConvertible protocols
+// MARK: - Extends  'Account' to CustomStringConvertible, CustomDebugStringConvertible protocols
 extension Account: CustomStringConvertible, CustomDebugStringConvertible {
-    var description: String {return json}
-    var debugDescription: String {return description}
+    var description: String { return json }
+    var debugDescription: String { return description }
 }

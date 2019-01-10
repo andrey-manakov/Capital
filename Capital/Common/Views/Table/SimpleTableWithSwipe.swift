@@ -1,10 +1,10 @@
 import UIKit
 
 protocol SimpleTableWithSwipeProtocol: SimpleTableProtocol {
-    var swipeLeftLabel: String? {get set}
-    var swipeRightLabel: String? {get set}
-    var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> Void)? {get set}
-    var swipeRightAction: ((_ row: DataModelRowProtocol?) -> Void)? {get set}
+    var swipeLeftLabel: String? { get set }
+    var swipeRightLabel: String? { get set }
+    var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> Void)? { get set }
+    var swipeRightAction: ((_ row: DataModelRowProtocol?) -> Void)? { get set }
 }
 
 class SimpleTableWithSwipe: SimpleTable, SimpleTableWithSwipeProtocol {

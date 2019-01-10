@@ -36,7 +36,7 @@ extension Data {
         completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
         listnersManager?.setListner(forObject: objectId,
                                     toPath: "/\(DataObjectType.account.rawValue)") { data in
-            completion(data.map {($0.id, Account($0.data), $0.changeType)})
+            completion(data.map { ($0.id, Account($0.data), $0.changeType) })
         }
     }
 
@@ -46,7 +46,7 @@ extension Data {
         ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))) {
         listnersManager?.setListner(
         forObject: objectId, toPath: "/\(DataObjectType.group.rawValue)") { data in
-            completion(data.map {($0.id, Account.Group($0.data), $0.changeType)})
+            completion(data.map { ($0.id, Account.Group($0.data), $0.changeType) })
         }
     }
 
@@ -58,7 +58,7 @@ extension Data {
         toPath: "/\(DataObjectType.account.rawValue)",
         whereClause: (
             field: "\(Account.Fields.groups.rawValue).\(id)", .isGreaterThan, value: "")) { data in
-            completion(data.map {($0.id, Account($0.data), $0.changeType)})
+            completion(data.map { ($0.id, Account($0.data), $0.changeType) })
         }
     }
 
@@ -73,14 +73,14 @@ extension Data {
             whereClause: (field:
                 "\(FinTransaction.Fields.from.rawValue).\(FinTransaction.Fields.From.id.rawValue)",
                 .isEqualTo, value: id)) { data in
-            completion(data.map {($0.id, FinTransaction($0.data), $0.changeType)})
+            completion(data.map { ($0.id, FinTransaction($0.data), $0.changeType) })
         }
         listnersManager?.setListner(
             forObject: objectId, toPath: path,
             whereClause: (field:
                 "\(FinTransaction.Fields.to.rawValue).\(FinTransaction.Fields.To.id.rawValue)",
                 .isEqualTo, value: id)) { data in
-            completion(data.map {($0.id, FinTransaction($0.data), $0.changeType)})
+            completion(data.map { ($0.id, FinTransaction($0.data), $0.changeType) })
         }
     }
 
@@ -124,7 +124,7 @@ extension Data { // Decide if these functions are needed at all
     ///   - id: id of data object to be deleted
     ///   - completion: function to run after successful deletion
     func delete(_ dataObject: DataObjectType, withId id: String?, completion: (() -> Void)? = nil) {
-        guard let id = id else {return}
+        guard let id = id else { return }
         switch dataObject {
         case .account: break// deleteAccount(withId: id, completion)
         case .group: accountGroupManager?.delete(id: id, completion: completion)
@@ -161,7 +161,7 @@ extension Data {
     }
 
     func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {
-        accountGroupManager?.create(name, withAccounts: accounts.map {$0.id})
+        accountGroupManager?.create(name, withAccounts: accounts.map { $0.id })
     }
 
     func deleteAccount(withId id: String, completion: (() -> Void)?) {

@@ -1,5 +1,5 @@
 protocol AdvancedNewTransactionServiceProtocol: class {
-    var view: AdvancedNewTransactionVCProtocol? {get set}
+    var view: AdvancedNewTransactionVCProtocol? { get set }
     func viewDidLoad(_ view: AdvancedNewTransactionVCProtocol)
     func didSelect(_ item: TransactionItem)
     func didChoose(transactionItem: TransactionItem, with value: Any?)
@@ -59,7 +59,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
     }
 
     func getData(for transactionItem: TransactionItem) {
-        guard let indexPath = transactionItems.firstIndex(of: transactionItem) else {return}
+        guard let indexPath = transactionItems.firstIndex(of: transactionItem) else { return }
         getData(for: IndexPath(row: indexPath, section: 0))
     }
 
@@ -137,12 +137,12 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
             getData(for: .date)
         case .approvalMode:
             guard let enumId = value as? String, let rawValue = Int(enumId),
-                let approvalMode = FinTransaction.ApprovalMode(rawValue: rawValue) else {return}
+                let approvalMode = FinTransaction.ApprovalMode(rawValue: rawValue) else { return }
             self.approvalMode = approvalMode
             getData(for: transactionItem)
         case .recurrenceFrequency:
             guard let enumId = value  as? String, let rawValue = Int(enumId),
-                let recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue) else {return}
+                let recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue) else { return }
             self.recurrenceFrequency = recurrenceFrequency
             getData(for: .recurrenceFrequency)
             if recurrenceFrequency == .never {
@@ -166,7 +166,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
         view?.endEditing(force: true)
         guard let fromId = fromAccountId, let fromName = transactionItemsDesc[.from],
             let toId = toAccountId, let toName = transactionItemsDesc[.to],
-            let amountV = amount  else {return}
+            let amountV = amount  else { return }
         data.createTransaction(from: (fromId, fromName), to: (toId, toName), amount: amountV,
                                date: date, approvalMode: approvalMode,
                                recurrenceFrequency: recurrenceFrequency,
@@ -182,14 +182,14 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
     }
 
     func insert(_ transactionItem: TransactionItem, after place: TransactionItem) {
-        guard let index = transactionItems.firstIndex(of: place) else {return}
-        transactionItems.insert(transactionItem, at: index+1)
+        guard let index = transactionItems.firstIndex(of: place) else { return }
+        transactionItems.insert(transactionItem, at: index + 1)
         view?.tableData = DataModel(tableData)
-        view?.insertRows(at: [IndexPath(row: index+1, section: 0)], with: .fade)
+        view?.insertRows(at: [IndexPath(row: index + 1, section: 0)], with: .fade)
     }
 
     func hide(_ item: TransactionItem) {
-        guard let index = transactionItems.firstIndex(of: item) else {return}
+        guard let index = transactionItems.firstIndex(of: item) else { return }
         transactionItems.remove(at: index)
         view?.tableData = DataModel(tableData)
         view?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)

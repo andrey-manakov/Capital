@@ -8,7 +8,7 @@ class SimpleSectionHeaderTests: XCTestCase {
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
 
         // 2. Action
-        let view =  SimpleSectionHeader(coder: archiver)
+        let view = SimpleSectionHeader(coder: archiver)
 
         // 3. Assert
         XCTAssertNil(view)

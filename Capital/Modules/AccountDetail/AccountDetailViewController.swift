@@ -2,10 +2,10 @@ import UIKit
 
 protocol AccountDetailViewControllerProtocol: ViewControllerProtocol {
 //    var service: AccountDetailServiceProtocol {get set}
-    var title: String? {get set}
-    var accountNameTextField: TextFieldProtocol {get set}
-    var accountAmountTextField: TextFieldProtocol {get set}
-    var id: String? {get set}
+    var title: String? { get set }
+    var accountNameTextField: TextFieldProtocol { get set }
+    var accountAmountTextField: TextFieldProtocol { get set }
+    var id: String? { get set }
 }
 
 class AccountDetailVC: ViewController, AccountDetailViewControllerProtocol {

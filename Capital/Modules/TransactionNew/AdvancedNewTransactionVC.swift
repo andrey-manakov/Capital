@@ -1,6 +1,6 @@
 protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
-    var service: AdvancedNewTransactionServiceProtocol {get set}
-    var tableData: DataModel {get set}
+    var service: AdvancedNewTransactionServiceProtocol { get set }
+    var tableData: DataModel { get set }
     func reloadData(for indexPath: IndexPath?)
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
     func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
@@ -164,7 +164,7 @@ extension AdvancedNewTransactionVC: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let id = tableData[indexPath].id, let item = TransactionItem(rawValue: id) else {return}
+        guard let id = tableData[indexPath].id, let item = TransactionItem(rawValue: id) else { return }
         service.didSelect(item)
     }
 

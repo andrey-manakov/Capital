@@ -9,10 +9,10 @@ import UIKit
 ///````
 
 protocol TemplateTableProtocol: class {
-    var localData: DataModelProtocol? {get set}
-    var dataFormula: (() -> (DataModel))? {get set}
-    var didSelect: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)? {get set}
-    var filter: ((DataModelRowProtocol) -> (Bool))? {get set}
+    var localData: DataModelProtocol? { get set }
+    var dataFormula: (() -> (DataModel))? { get set }
+    var didSelect: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)? { get set }
+    var filter: ((DataModelRowProtocol) -> (Bool))? { get set }
 
     func removeFromSuperview()
 
@@ -27,10 +27,10 @@ protocol TemplateTableProtocol: class {
 class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDataSource, UITableViewDelegate {
 
     var dataFormula: (() -> (DataModel))?
-    var localData: DataModelProtocol? {didSet {reloadData()}} //Check if this works fine
-    var dataBeforeFilter: DataModelProtocol {return dataFormula?() ?? localData ?? DataModel()}
-    var data: DataModelProtocol {return dataBeforeFilter.filter(self.filter ?? {_ in return true})}
-    var filter: ((DataModelRowProtocol) -> (Bool))? {didSet {reloadData()}} //Check if this works fine
+    var localData: DataModelProtocol? { didSet { reloadData() } } //Check if this works fine
+    var dataBeforeFilter: DataModelProtocol { return dataFormula?() ?? localData ?? DataModel() }
+    var data: DataModelProtocol { return dataBeforeFilter.filter(self.filter ?? { _ in return true }) }
+    var filter: ((DataModelRowProtocol) -> (Bool))? { didSet { reloadData() } } //Check if this works fine
 
     var didSelect: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)?
     private var selectedRow: DataModelRowProtocol?
@@ -41,9 +41,9 @@ class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDataSource, 
         self.delegate = self
     }
 
-    required init?(coder aDecoder: NSCoder) {fatalError()}
+    required init?(coder aDecoder: NSCoder) { fatalError() }
 
-    deinit {print("\(type(of: self)) deinit!")}
+    deinit { print("\(type(of: self)) deinit!") }
 
     // MARK: - Define sections
 
@@ -52,7 +52,7 @@ class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDataSource, 
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if data.sections[section].name == nil {return 0} else {return  44}
+        if data.sections[section].name == nil { return 0 } else { return  44 }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -29,26 +29,26 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
             let newRef = self.ref?.collection(DataObjectType.group.rawValue).document() else {
                 return
         }
-        fireDB.runTransaction({ (fsTransaction, errorPointer) -> Any? in
+        fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
             // get accounts from the group
             let accounts: [String: Account] = Dictionary(uniqueKeysWithValues:
                 accountIds.map {
                     (id: $0, (self.getAccount(withId: $0, for: fsTransaction, with: errorPointer))!)
-            })
+                })
             let amount = accounts.values.filter {
                 $0.type == AccountType.asset
-                }.map {
+            }.map {
                     $0.amount ?? 0
-                }.reduce(0, +) - accounts.values.filter {
+            }.reduce(0, +) - accounts.values.filter {
                     $0.type == AccountType.liability
-                    }.map {$0.amount ?? 0}.reduce(0, +)
+            }.map { $0.amount ?? 0 }.reduce(0, +)
             // write to each account information about its membership in group
             accountIds.forEach { id in
                 var newAccountGroup = [newRef.documentID: name]
                 if let oldAccountGroup = accounts[id]?.groups {
                     newAccountGroup = newAccountGroup.merging(
                         // swiftlint:disable identifier_name
-                        oldAccountGroup, uniquingKeysWith: { x, _ -> String in x})
+                        oldAccountGroup, uniquingKeysWith: { x, _ -> String in x })
                 }
                 fsTransaction.updateData(
                     [Account.Fields.groups.rawValue: newAccountGroup as Any],
@@ -59,7 +59,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
                 Account.Group.Fields.name.rawValue: name,
                 Account.Group.Fields.amount.rawValue: amount,
                 Account.Group.Fields.accounts.rawValue:
-                    accounts.mapValues { acc in acc.name}], forDocument: newRef)
+                    accounts.mapValues { acc in acc.name }], forDocument: newRef)
             return true
         }, completion: fireStoreCompletion)
 
@@ -71,13 +71,13 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
     ///   - id: account group id
     ///   - completion: action on deletion completion
     func delete(id: String, completion: (() -> Void)? = nil) {
-        guard let ref = ref else {return}
-        fireDB.runTransaction({[unowned self] (fsTransaction, errorPointer) -> Any? in
+        guard let ref = ref else { return }
+        fireDB.runTransaction({[unowned self] fsTransaction, errorPointer -> Any? in
             // Get account group data
             guard let group = self.get(.group,
                                        withId: id,
                                        for: fsTransaction,
-                                       with: errorPointer) as? Account.Group else {return nil}
+                                       with: errorPointer) as? Account.Group else { return nil }
             // Get accounts data
             if let uniqueKeysWithValues = group.accounts?.keys.map({
                 (id: $0, self.get(.account, withId: $0, for: fsTransaction) as? Account)

@@ -1,9 +1,9 @@
 import UIKit
 
 protocol LeftRightCellProtocol: class {
-    var textLabel: UILabel? {get}
-    var detailTextLabel: UILabel? {get}
-    var accessoryType: UITableViewCell.AccessoryType {get set}
+    var textLabel: UILabel? { get }
+    var detailTextLabel: UILabel? { get }
+    var accessoryType: UITableViewCell.AccessoryType { get set }
 }
 
 class LeftRightCell: UITableViewCell, LeftRightCellProtocol {

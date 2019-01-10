@@ -7,11 +7,11 @@ class AccountSelectorVC: ViewController {
 
         let table: SimpleTableWithSwipeProtocol = SimpleTableWithSwipe()
         let segmentedControl: SegmentedControlProtocol
-        segmentedControl = SegmentedControl(AccountType.allCases.map {$0.name}) { index in
-            table.filter = {$0.filter as? Int == index}
+        segmentedControl = SegmentedControl(AccountType.allCases.map { $0.name }) { index in
+            table.filter = { $0.filter as? Int == index }
         }
-        table.filter = {$0.filter as? Int == 0}
-        service.getData { dataModel in table.localData = dataModel}
+        table.filter = { $0.filter as? Int == 0 }
+        service.getData { dataModel in table.localData = dataModel }
 
         view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView],
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])

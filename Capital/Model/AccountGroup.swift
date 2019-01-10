@@ -43,7 +43,7 @@ extension Account {
         }
 
         func update(field: String, value: Any) {
-            guard let property = Account.Group.Fields(rawValue: field) else {return}
+            guard let property = Account.Group.Fields(rawValue: field) else { return }
             switch property {
             case .name: self.name = value as? String
             case .amount: self.amount = value as? Int

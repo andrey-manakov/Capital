@@ -1,5 +1,5 @@
 protocol FireAuthProtocol {
-    var currentUserUid: String? {get}
+    var currentUserUid: String? { get }
     func deleteUser(_ completion: ((Error?) -> Void)?)
     func signOutUser(_ completion: ((Error?) -> Void)?)
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
@@ -11,13 +11,13 @@ class FIRAuth: FireAuthProtocol {
     static var shared = FIRAuth()
     private lazy var fireStorage: FIRDataProtocol = FireStoreData.shared // TODO: get rid of lazy
 
-    var currentUser: User? {return Auth.auth().currentUser}
-    var currentUserUid: String? {return currentUser?.uid}
-    lazy var getUpdatedUserInfo = [ObjectIdentifier: (String?)->Void]()
+    var currentUser: User? { return Auth.auth().currentUser }
+    var currentUserUid: String? { return currentUser?.uid }
+    lazy var getUpdatedUserInfo = [ObjectIdentifier: (String?) -> Void]()
 
     private init() {
         Auth.auth().addStateDidChangeListener { auth, user in _ =
-            self.getUpdatedUserInfo.values.map {$0(Auth.auth().currentUser?.uid)}
+            self.getUpdatedUserInfo.values.map { $0(Auth.auth().currentUser?.uid) }
             if let user = user {
                 let newLog = Firestore.firestore().collection("log").document()
                 newLog.setData(["timestamp": FieldValue.serverTimestamp(),
@@ -56,7 +56,7 @@ class FIRAuth: FireAuthProtocol {
     }
 
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
-        Auth.auth().signIn(withEmail: email, password: pwd) { _, error in completion?(error)}
+        Auth.auth().signIn(withEmail: email, password: pwd) { _, error in completion?(error) }
     }
 
     func signOutUser(_ completion: ((Error?) -> Void)? = nil) {
