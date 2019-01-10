@@ -11,16 +11,14 @@ disabled_rules: # rule identifiers to exclude from running
 #  - type_name
   # - cyclomatic_complexity
 #  - function_parameter_count
-opt_in_rules: # some rules are only opt-in
-#  - empty_count
-  # Find all the available rules by running:
-  # swiftlint rules
-  - attributes
+opt_in_rules:
+  - explicit_acl
+  # - attributes
   - closure_end_indentation
   - closure_spacing 
   - conditional_returns_on_newline
   - empty_count
-  - explicit_enum_raw_value
+#  - explicit_enum_raw_value
   - fatal_error_message
   - first_where
   - force_unwrapping

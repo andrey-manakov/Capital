@@ -1,7 +1,12 @@
 // MARK: - functions add subViews to view easily with one command using Visual Format
 extension UIView {
 
-    func add(subViews views: [String: UIView?], withConstraints constraints: [String]) {
+    /// Adds subviews to UIView based on Visual Formatting
+    ///
+    /// - Parameters:
+    ///   - views: dictionary of views to add
+    ///   - constraints: array of Visual Formatting strings to apply
+    internal func add(subViews views: [String: UIView?], withConstraints constraints: [String]) {
         guard let views = views as? [String: UIView] else {
             print("error in addSubviewsWithConstraints")
             return
@@ -23,7 +28,7 @@ extension UIView {
         }
     }
 
-    func add(subView view: UIView?, withConstraints constraints: [String]) {
+    internal func add(subView view: UIView?, withConstraints constraints: [String]) {
         add(subViews: ["v": view], withConstraints: constraints)
     }
 
@@ -36,19 +41,19 @@ extension UIView {
         return views
     }
 
-    var id: String { return ObjectIdentifier(self).debugDescription }
+    internal var id: String { return ObjectIdentifier(self).debugDescription }
 }
 
 // MARK: - Extension allows to initialize Date Formatter with one command
 
 extension DateFormatter {
-    convenience init(_ format: String? = nil) {
+    convenience internal init(_ format: String? = nil) {
         self.init()
         self.dateFormat = format
     }
 }
 extension Date {
-    var string: String { return DateFormatter("yyyy MMM-dd").string(from: self) }
+    internal var string: String { return DateFormatter("yyyy MMM-dd").string(from: self) }
     internal var strFireBasePath: String { return DateFormatter("/yyyy/MM/dd").string(from: self) }
 
     internal func str(_ format: String) -> String {
@@ -57,7 +62,7 @@ extension Date {
 }
 
 extension String {
-    var date: Date? { return DateFormatter("yyyy MMM-dd").date(from: self) }
+    internal var date: Date? { return DateFormatter("yyyy MMM-dd").date(from: self) }
 
     internal func date(withFormat format: String) -> Date? {
         return DateFormatter(format).date(from: self)
@@ -73,9 +78,9 @@ extension Date {
 
 extension String {
 
-    static func randomWithSmallLetters(length: Int = 10) -> String {
+     internal static func randomWithSmallLetters(length: Int = 10) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyz"
-        return String((0...length - 1).map { _ in letters.randomElement()! })
+        return String((0...length - 1).map { _ in letters.randomElement() ?? Character("x") })
     }
 }
 
@@ -83,17 +88,17 @@ extension String {
 
 extension Date {
 
-    func isSameDate(_ comparisonDate: Date) -> Bool {
+    internal func isSameDate(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedSame
     }
 
-    func isBefore(_ comparisonDate: Date) -> Bool {
+    internal func isBefore(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedAscending
     }
 
-    func isAfter(_ comparisonDate: Date) -> Bool {
+    internal func isAfter(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedDescending
     }
@@ -114,7 +119,7 @@ extension Date {
 // MARK: - Number fomatting
 
 extension Formatter {
-    static internal let withSeparator: NumberFormatter = {
+    internal static let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.groupingSeparator = " "
         formatter.numberStyle = .decimal

@@ -1,5 +1,6 @@
-protocol AdvancedNewTransactionServiceProtocol: class {
+internal protocol AdvancedNewTransactionServiceProtocol: class {
     var view: AdvancedNewTransactionVCProtocol? { get set }
+
     func viewDidLoad(_ view: AdvancedNewTransactionVCProtocol)
     func didSelect(_ item: TransactionItem)
     func didChoose(transactionItem: TransactionItem, with value: Any?)
@@ -7,9 +8,9 @@ protocol AdvancedNewTransactionServiceProtocol: class {
     func didTapDone()
 }
 
-class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionServiceProtocol {
+internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionServiceProtocol {
 
-    weak var view: AdvancedNewTransactionVCProtocol?
+    weak internal var view: AdvancedNewTransactionVCProtocol?
     private var fromAccountId: String?
     private var toAccountId: String?
     private var amount: Int? {didSet {
@@ -48,22 +49,24 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
     }
 
     // MARK: - Setup methods
-    func viewDidLoad(_ view: AdvancedNewTransactionVCProtocol) {
+    internal func viewDidLoad(_ view: AdvancedNewTransactionVCProtocol) {
         self.view = view
         getData()
     }
 
-    func getData(for indexPath: IndexPath? = nil) {
+    internal func getData(for indexPath: IndexPath? = nil) {
         view?.tableData = DataModel(tableData)
         view?.reloadData(for: indexPath)
     }
 
-    func getData(for transactionItem: TransactionItem) {
-        guard let indexPath = transactionItems.firstIndex(of: transactionItem) else { return }
+    internal func getData(for transactionItem: TransactionItem) {
+        guard let indexPath = transactionItems.firstIndex(of: transactionItem) else {
+            return
+        }
         getData(for: IndexPath(row: indexPath, section: 0))
     }
 
-    func didSelect(_ item: TransactionItem) {
+    internal func didSelect(_ item: TransactionItem) {
         if item != .date {
             hide(.dateSelection)
         }
@@ -87,7 +90,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
                 insert(.dateSelection, after: .date)
             }
         case .dateSelection:
-            fatalError()
+            fatalError("date selection cell selected")
         case .approvalMode:
             let sourceData: () -> (DataModel) = {
                 return DataModel(FinTransaction.ApprovalMode.allCases.map {
@@ -104,13 +107,13 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
                 insert(.recurrenceEndDate, after: .recurrenceEnd)
             }
         case .recurrenceEndDate:
-            fatalError()
+            fatalError("recurrence end date cell selected")
         }
     }
 
     // swiftlint:disable function_body_length
     // MARK: - Actions on selection of Transaction items
-    func didChoose(transactionItem: TransactionItem, with value: Any?) {
+    internal func didChoose(transactionItem: TransactionItem, with value: Any?) {
         switch transactionItem {
         case .from:
             fromAccountId = (value as? AccountInfo)?.id
@@ -124,7 +127,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
             self.amount = Int(value as? String ?? "")
             getData(for: transactionItem)
         case .date:
-            fatalError()
+            fatalError("chosen date cell")
         case .dateSelection:
             self.date = value as? Date
             if let date = value as? Date, date > Date() {
@@ -153,7 +156,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
                 }
             }
         case .recurrenceEnd:
-            fatalError()
+            fatalError("chosen recurrence end cell")
         case .recurrenceEndDate:
             self.recurrenceEndDate = value as? Date
             getData(for: .recurrenceEnd)
@@ -162,7 +165,7 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
 
     // MARK: - Miscellaneous
 
-    func didTapDone() {
+    internal func didTapDone() {
         view?.endEditing(force: true)
         guard let fromId = fromAccountId, let fromName = transactionItemsDesc[.from],
             let toId = toAccountId, let toName = transactionItemsDesc[.to],
@@ -175,21 +178,25 @@ class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionService
 
     }
 
-    func didScroll() {
+    internal func didScroll() {
         // TODO: don't hide selected cell details
         hide(.dateSelection)
         view?.endEditing(force: true)
     }
 
-    func insert(_ transactionItem: TransactionItem, after place: TransactionItem) {
-        guard let index = transactionItems.firstIndex(of: place) else { return }
+    internal func insert(_ transactionItem: TransactionItem, after place: TransactionItem) {
+        guard let index = transactionItems.firstIndex(of: place) else {
+            return
+        }
         transactionItems.insert(transactionItem, at: index + 1)
         view?.tableData = DataModel(tableData)
         view?.insertRows(at: [IndexPath(row: index + 1, section: 0)], with: .fade)
     }
 
-    func hide(_ item: TransactionItem) {
-        guard let index = transactionItems.firstIndex(of: item) else { return }
+    internal func hide(_ item: TransactionItem) {
+        guard let index = transactionItems.firstIndex(of: item) else {
+            return
+        }
         transactionItems.remove(at: index)
         view?.tableData = DataModel(tableData)
         view?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)

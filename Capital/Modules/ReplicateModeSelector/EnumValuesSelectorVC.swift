@@ -1,7 +1,7 @@
-class EnumValuesSelectorVC: ViewController {
-    var table: SimpleTableProtocol = SimpleTable()
+internal final class EnumValuesSelectorVC: ViewController {
+    internal var table: SimpleTableProtocol = SimpleTable()
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
         guard let dataV = data as? (sourceData: () -> (DataModel), selectionAction: (Any?) -> Void) else {

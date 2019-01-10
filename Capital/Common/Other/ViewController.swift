@@ -13,7 +13,7 @@ internal protocol ViewControllerProtocol: AnyObject {
 
 extension ViewControllerProtocol {
 
-    func dismissNavigationViewController() {
+    internal func dismissNavigationViewController() {
         dimissNavigationViewController(completion: nil)
     }
 
@@ -35,9 +35,9 @@ extension ViewControllerProtocol {
 internal class ViewController: UIViewController, ViewControllerProtocol {
 
     /// Generic input info to the new controller
-    var data: Any?
+    internal var data: Any?
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
     }
@@ -50,7 +50,7 @@ internal class ViewController: UIViewController, ViewControllerProtocol {
     /// Check that View Controller is deallocated - for debug purposes
     deinit { print("\(type(of: self)) deinit!") }
 
-    func dismiss(completion: (() -> Void)? = nil) {
+    internal func dismiss(completion: (() -> Void)? = nil) {
         if let navigationController = navigationController {
             navigationController.popViewController(animated: true)
         } else {
@@ -66,13 +66,13 @@ internal class ViewController: UIViewController, ViewControllerProtocol {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
-    func endEditing(force: Bool) {
+    internal func endEditing(force: Bool) {
         view.endEditing(force)
     }
 
     internal func alert(_ title: String? = nil, message: String) {
         let alert = UIAlertController(title: title ?? "Alert", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+        let action = UIAlertAction(title: "OK", style: .default) { action in
             switch action.style {
             case .default:
                 print("default")
@@ -81,7 +81,8 @@ internal class ViewController: UIViewController, ViewControllerProtocol {
             case .destructive:
                 print("destructive")
             }
-        }))
+        }
+        alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
 }

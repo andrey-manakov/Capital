@@ -67,7 +67,7 @@ extension FireStoreData {
                 print(error.localizedDescription)
                 completion?()
             }
-            guard let snapshot = snapshot, snapshot.documents.count > 0 else {
+            guard let snapshot = snapshot, !snapshot.documents.isEmpty else {
                 print("\(dataObject) with 0 records")
                 completion?()
                 return

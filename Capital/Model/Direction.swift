@@ -2,7 +2,7 @@
 ///
 /// - from: direction from account
 /// - to: direction to account
-enum Direction: String {
+internal enum Direction: String {
     case from
     // swiftlint:disable identifier_name
     case to

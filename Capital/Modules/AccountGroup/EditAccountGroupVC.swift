@@ -1,8 +1,8 @@
-class AccountGroupEditVC: ViewController {
+internal final class AccountGroupEditVC: ViewController {
     private let service = Service()
     private let nameTextField: TextFieldProtocol = SimpleTextField("Account Group Name")
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
 
         let table: SimpleTableProtocol = SimpleTable()
@@ -32,14 +32,14 @@ class AccountGroupEditVC: ViewController {
         }
     }
 
-    @objc func didTapDone() {
+    @objc internal func didTapDone() {
         service.didTapDone(name: nameTextField.text) { [unowned self] in self.dismiss() }
     }
 
 }
 
 extension AccountGroupEditVC {
-    class Service: ClassService {
+    private class Service: ClassService {
 
         private var accounts = [String: Account]()
         private var dataModel: DataModelProtocol {
@@ -51,8 +51,8 @@ extension AccountGroupEditVC {
                 filter: $0.value.type?.rawValue)
             })
         }
-        var accountGroup: String?
-        var selectedAccounts: Set<String> = []
+        internal var accountGroup: String?
+        internal var selectedAccounts: Set<String> = []
 
         func getData(forId id: String? = nil, completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccounts(for: self.id) {[unowned self] data in
@@ -73,7 +73,9 @@ extension AccountGroupEditVC {
         }
 
         func rowSelected(id: String?, completion: ((DataModelProtocol) -> Void)? = nil) {
-            guard let id = id else { return }
+            guard let id = id else {
+                return
+            }
             if selectedAccounts.contains(id) {
                 selectedAccounts.remove(id)
             } else {
@@ -83,7 +85,9 @@ extension AccountGroupEditVC {
         }
 
         func didTapDone(name: String?, completion: (() -> Void)? = nil) {
-            guard let name = name else { return }
+            guard let name = name else {
+                return
+            }
             let accounts = self.accounts.filter {
                 selectedAccounts.contains($0.key)
             }.map {($0.key, $0.value.name ?? "")

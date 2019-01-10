@@ -5,7 +5,9 @@ internal protocol BasicDataPropertiesProtocol: CustomStringConvertible, CustomDe
 }
 
 extension BasicDataPropertiesProtocol {
-    internal var description: String { return "\(type(of: self)) \(id ?? "nil") \(name ?? "nil") \(desc ?? "nil")" }
+    internal var description: String {
+        return "\(type(of: self)) \(id ?? "nil") \(name ?? "nil") \(desc ?? "nil")"
+    }
     internal var debugDescription: String { return description }
 }
 
@@ -17,7 +19,6 @@ internal protocol DataModelProtocol: CustomStringConvertible, CustomDebugStringC
 }
 
 internal struct DataModel: DataModelProtocol {
-
     internal var sections: [DataModelSectionProtocol] = [DataModelSection]()
 
     internal var description: String {
@@ -28,14 +29,14 @@ internal struct DataModel: DataModelProtocol {
         return desc
     }
 
-    var debugDescription: String { return self.description }
+    internal var debugDescription: String { return self.description }
 
-    subscript(sectionIndex: Int, rowIndex: Int) -> (name: String?, desc: String?) {
+    internal subscript(sectionIndex: Int, rowIndex: Int) -> (name: String?, desc: String?) {
         let row = sections[sectionIndex].rows[rowIndex]
         return (row.name, row.desc)
     }
 
-    subscript(index: IndexPath) -> DataModelRowProtocol {
+    internal subscript(index: IndexPath) -> DataModelRowProtocol {
         get {
             return sections[index.section].rows[index.row]
         }

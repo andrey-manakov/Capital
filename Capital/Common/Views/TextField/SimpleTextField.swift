@@ -1,11 +1,9 @@
-import UIKit
+internal class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDelegate {
 
-class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDelegate {
+    private let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    internal var actionOnReturn: (() -> Void)?
 
-    let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-    var actionOnReturn: (() -> Void)?
-
-    init(_ placeholder: String? = nil, _ actionOnReturn: (() -> Void)? = nil) {
+    internal init(_ placeholder: String? = nil, _ actionOnReturn: (() -> Void)? = nil) {
         super.init(frame: CGRect.zero)
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1.0
@@ -16,11 +14,10 @@ class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDelegate {
         self.placeholder = placeholder
         self.actionOnReturn = actionOnReturn
         self.delegate = self
-//        becomeFirstResponder()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required internal init?(coder aDecoder: NSCoder) {
+        return nil
     }
 
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -39,7 +36,7 @@ class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDelegate {
         print("deinit \(type(of: self))")
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         actionOnReturn?()
         return true
     }

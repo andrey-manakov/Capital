@@ -1,26 +1,22 @@
-import UIKit
-
-protocol SwitchProtocol: class {
-
+internal protocol SwitchProtocol: class {
 }
 
-class SimpleSwitch: UISwitch, SwitchProtocol {
-
+internal class SimpleSwitch: UISwitch, SwitchProtocol {
 }
 
-protocol SwitchCellProtocol {
+internal protocol SwitchCellProtocol {
     var textLabel: UILabel? { get }
 }
 
-class SwitchCell: UITableViewCell, SwitchCellProtocol {
-    var switchControl: SwitchProtocol = SimpleSwitch()
+internal final class SwitchCell: UITableViewCell, SwitchCellProtocol {
+    internal var switchControl: SwitchProtocol = SimpleSwitch()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override internal init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         contentView.add(subView: switchControl as? UIView, withConstraints: ["H:[v(50)]-20-|", "V:|[v]|"])
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         return nil
     }
 

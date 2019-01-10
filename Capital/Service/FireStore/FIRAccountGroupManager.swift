@@ -1,11 +1,11 @@
-protocol FIRAccountGroupManagerProtocol: class {
+internal protocol FIRAccountGroupManagerProtocol: class {
     func create(_ name: String?, withAccounts accountIds: [String])
     func delete(id: String, completion: (() -> Void)?)
 }
 
 extension FIRAccountGroupManagerProtocol {
 
-    func delete(id: String) {
+    internal func delete(id: String) {
         delete(id: id, completion: nil)
     }
 
@@ -13,10 +13,10 @@ extension FIRAccountGroupManagerProtocol {
 
 extension FIRAccountGroupManager: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
 
-class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
+internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
 
     /// Singlton
-    static var shared: FIRAccountGroupManagerProtocol = FIRAccountGroupManager()
+    static internal var shared: FIRAccountGroupManagerProtocol = FIRAccountGroupManager()
     private override init() {}
 
     /// Creates Account Group in FireStore data base, also updates accounts
@@ -24,7 +24,7 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
     /// - Parameters:
     ///   - name: name of new account group
     ///   - accountIds: array of account ids members of the group
-    func create(_ name: String?, withAccounts accountIds: [String]) {
+    internal func create(_ name: String?, withAccounts accountIds: [String]) {
         guard let ref = ref, let name = name,
             let newRef = self.ref?.collection(DataObjectType.group.rawValue).document() else {
                 return
@@ -71,7 +71,9 @@ class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
     ///   - id: account group id
     ///   - completion: action on deletion completion
     func delete(id: String, completion: (() -> Void)? = nil) {
-        guard let ref = ref else { return }
+        guard let ref = ref else {
+            return
+        }
         fireDB.runTransaction({[unowned self] fsTransaction, errorPointer -> Any? in
             // Get account group data
             guard let group = self.get(.group,

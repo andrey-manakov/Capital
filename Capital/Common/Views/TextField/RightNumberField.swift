@@ -1,15 +1,13 @@
-import UIKit
+internal final class RightNumberField: UITextField, TextFieldProtocol {
+    internal var actionOnReturn: (() -> Void)?
 
-class RightNumberField: UITextField, TextFieldProtocol {
-    var actionOnReturn: (() -> Void)?
-
-    init(_ placeholder: String? = nil) {
+    internal init(_ placeholder: String? = nil) {
         super.init(frame: CGRect.zero)
         textAlignment = .right
         keyboardType = .numberPad
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

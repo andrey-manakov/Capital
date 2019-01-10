@@ -5,15 +5,14 @@ protocol FireAuthProtocol {
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
     func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
 }
+internal final class FIRAuth: FireAuthProtocol {
 
-class FIRAuth: FireAuthProtocol {
-
-    static var shared = FIRAuth()
+    static internal var shared = FIRAuth()
     private lazy var fireStorage: FIRDataProtocol = FireStoreData.shared // TODO: get rid of lazy
 
-    var currentUser: User? { return Auth.auth().currentUser }
-    var currentUserUid: String? { return currentUser?.uid }
-    lazy var getUpdatedUserInfo = [ObjectIdentifier: (String?) -> Void]()
+    internal var currentUser: User? { return Auth.auth().currentUser }
+    internal var currentUserUid: String? { return currentUser?.uid }
+    lazy internal var getUpdatedUserInfo = [ObjectIdentifier: (String?) -> Void]()
 
     private init() {
         Auth.auth().addStateDidChangeListener { auth, user in _ =
@@ -27,7 +26,7 @@ class FIRAuth: FireAuthProtocol {
         }
     }
 
-    func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
+    internal func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
         Auth.auth().createUser(withEmail: email, password: pwd) { _, error in
             if let error = error {
                 print("Error in user creation \(error.localizedDescription)")
@@ -55,11 +54,11 @@ class FIRAuth: FireAuthProtocol {
         }
     }
 
-    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
+    internal func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)? = nil) {
         Auth.auth().signIn(withEmail: email, password: pwd) { _, error in completion?(error) }
     }
 
-    func signOutUser(_ completion: ((Error?) -> Void)? = nil) {
+    internal func signOutUser(_ completion: ((Error?) -> Void)? = nil) {
         do {
             try Auth.auth().signOut()
             completion?(nil)
@@ -68,7 +67,7 @@ class FIRAuth: FireAuthProtocol {
         }
     }
 
-    func deleteUser(_ completion: ((Error?) -> Void)?) {
+    internal func deleteUser(_ completion: ((Error?) -> Void)?) {
 //        completion?(nil)
         fireStorage.deleteAll {
             if let uid = self.currentUserUid {

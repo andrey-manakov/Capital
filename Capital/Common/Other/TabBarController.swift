@@ -1,4 +1,4 @@
-protocol TabBarControllerProtocol {
+internal protocol TabBarControllerProtocol {
 }
 
 /// Main viewcontroller shown upon successful login

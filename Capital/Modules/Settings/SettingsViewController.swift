@@ -1,17 +1,14 @@
-import UIKit
-// FIXME: Switch to import Swift or Foundation
-
 protocol SettingsViewControllerProtocol: ViewControllerProtocol {
     var service: SettingsServiceProtocol { get set }
     var table: SimpleTableProtocol { get set } // TODO: consider hiding subview
 
 }
 
-class SettingsViewController: ViewController, SettingsViewControllerProtocol {
-    var service: SettingsServiceProtocol = SettingsService()
-    var table: SimpleTableProtocol = SimpleTable()
+internal final class SettingsViewController: ViewController, SettingsViewControllerProtocol {
+    internal var service: SettingsServiceProtocol = SettingsService()
+    internal var table: SimpleTableProtocol = SimpleTable()
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         service.viewDidLoad(self)
         title = "Settings"

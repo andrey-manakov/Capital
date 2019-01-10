@@ -1,6 +1,4 @@
-import UIKit
-
-protocol TransactionCellProtocol: class {
+internal protocol TransactionCellProtocol: class {
     var date: SimpleLabelProtocol { get set }
     var from: SimpleLabelProtocol { get set }
     // swiftlint:disable identifier_name
@@ -8,14 +6,14 @@ protocol TransactionCellProtocol: class {
     var amount: SimpleLabelProtocol { get set }
 }
 
-class TransactionCell: UITableViewCell, TransactionCellProtocol {
-    var date: SimpleLabelProtocol = SimpleLabel(alignment: .center, lines: 2)
-    var from: SimpleLabelProtocol = SimpleLabel()
+internal final class TransactionCell: UITableViewCell, TransactionCellProtocol {
+    internal var date: SimpleLabelProtocol = SimpleLabel(alignment: .center, lines: 2)
+    internal var from: SimpleLabelProtocol = SimpleLabel()
     // swiftlint:disable identifier_name
-    var to: SimpleLabelProtocol = SimpleLabel()
-    var amount: SimpleLabelProtocol = NumberLabel()
+    internal var to: SimpleLabelProtocol = SimpleLabel()
+    internal var amount: SimpleLabelProtocol = NumberLabel()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override internal init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         contentView.add(
             subViews: [
@@ -29,7 +27,7 @@ class TransactionCell: UITableViewCell, TransactionCellProtocol {
             ])
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

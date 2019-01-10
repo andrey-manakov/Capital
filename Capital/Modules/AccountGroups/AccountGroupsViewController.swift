@@ -21,16 +21,18 @@ class AccountGroupsViewController: ViewController {
 }
 
 extension AccountGroupsViewController {
-    class Service: ClassService {
+    internal final class Service: ClassService {
 
         private var accountGroups = [String: Account.Group]() // {didSet{print(accountGroups)}}
 
-        func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
+        internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccountGroup(for: self.id) { data in
                 for (id, accountGroup, changeType) in data {
                     switch changeType {
-                    case .added, .modified: self.accountGroups[id] = accountGroup
-                    case .removed: self.accountGroups.removeValue(forKey: id)
+                    case .added, .modified:
+                        self.accountGroups[id] = accountGroup
+                    case .removed:
+                        self.accountGroups.removeValue(forKey: id)
                     }
                 }
                 let dataModel = DataModel(self.accountGroups.map {
@@ -40,8 +42,10 @@ extension AccountGroupsViewController {
             }
         }
 
-        func remove(_ row: DataModelRowProtocol?) {
-            guard let id = row?.id else { return }
+        internal func remove(_ row: DataModelRowProtocol?) {
+            guard let id = row?.id else {
+                return
+            }
             data.delete(.group, withId: id)
         }
 

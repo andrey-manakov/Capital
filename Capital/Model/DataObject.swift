@@ -1,17 +1,17 @@
-protocol DataObjectProtocol {
+internal protocol DataObjectProtocol {
     init(_ data: [String: Any])
 }
 
-typealias AccountId = String
-typealias AccountName = String
-typealias AccountInfo = (id: AccountId, name: AccountName)
+internal typealias AccountId = String
+internal typealias AccountName = String
+internal typealias AccountInfo = (id: AccountId, name: AccountName)
 
-class DataObject: DataObjectProtocol, Codable {
-    typealias GroupId = String
-    typealias GroupName = String
-    typealias FieldName = String
+internal class DataObject: DataObjectProtocol, Codable {
+    internal typealias GroupId = String
+    internal typealias GroupName = String
+    internal typealias FieldName = String
 
-    init() {}
-    required init(_ data: [String: Any]) {
+    internal init() {}
+    required internal init(_ data: [String: Any]) {
     }
 }

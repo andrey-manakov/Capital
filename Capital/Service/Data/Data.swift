@@ -2,9 +2,9 @@ extension Data: MiscFunctionsProtocol {}
 
 /// Data is a singleton for all data operations,
 /// it is called only by Services: childs from ClassService, and other Services in Services folder
-class Data: DataProtocol {
+internal class Data: DataProtocol {
 
-    static var shared = Data()
+    static internal var shared = Data()
 //    : DataProtocol = {
 //        if (UIApplication.shared.delegate as! AppDelegate).testing {
 //            return DataMock()
@@ -13,7 +13,7 @@ class Data: DataProtocol {
 //        }
 //    }()
 
-    static var sharedForUnitTests = DataMock()
+    static internal var sharedForUnitTests = DataMock()
 
     private let fireStorage: FIRDataProtocol? = FireStoreData.shared
     private let fireAuth: FireAuthProtocol? = FIRAuth.shared
@@ -22,7 +22,7 @@ class Data: DataProtocol {
     private let accountManager: FIRAccountManagerProtocol? = FIRAccountManager.shared
     private let listnersManager: FIRListnersProtocol? = FIRListners.shared
 
-    let capitalAccountName = "capital"
+    private let capitalAccountName = "capital"
 
     private init() {}
 
@@ -31,7 +31,7 @@ class Data: DataProtocol {
 // MARK: - Set up listners
 extension Data {
 
-    func setListnerToAccounts(
+    internal func setListnerToAccounts(
         for objectId: ObjectIdentifier,
         completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
         listnersManager?.setListner(forObject: objectId,
@@ -40,7 +40,7 @@ extension Data {
         }
     }
 
-    func setListnerToAccountGroup(
+    internal func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
         ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))) {
@@ -50,7 +50,7 @@ extension Data {
         }
     }
 
-    func setListnersToAccountsInGroup(
+    internal func setListnersToAccountsInGroup(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
         listnersManager?.setListner(
@@ -62,7 +62,7 @@ extension Data {
         }
     }
 
-    func setListnersToTransactionsOfAccount(
+    internal func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping
         ((( [(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void))) {
@@ -84,7 +84,7 @@ extension Data {
         }
     }
 
-    func removeListners(ofObject objectId: ObjectIdentifier) {
+    internal func removeListners(ofObject objectId: ObjectIdentifier) {
         listnersManager?.removeListners(ofObject: objectId)
     }
 
@@ -95,19 +95,19 @@ extension Data {
 // MARK: - Sign In, Sign Out
 extension Data {
 
-    func signOut(_ completion: ((Error?) -> Void)? = nil) {
+    internal func signOut(_ completion: ((Error?) -> Void)? = nil) {
         fireAuth?.signOutUser(completion)
     }
 
-    func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {
+    internal func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {
         fireAuth?.signInUser(withEmail: email, password: pwd, completion: completion)
     }
 
-    func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {
+    internal func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?) {
         fireAuth?.createUser(withEmail: email, password: pwd, completion: completion)
     }
 
-    func deleteUser(completion: ((Error?) -> Void)?) {
+    internal func deleteUser(completion: ((Error?) -> Void)?) {
         fireAuth?.deleteUser(completion)
     }
 
@@ -123,13 +123,19 @@ extension Data { // Decide if these functions are needed at all
     ///   - dataObject: collection reference (Accounts, Transactions, etc.)
     ///   - id: id of data object to be deleted
     ///   - completion: function to run after successful deletion
-    func delete(_ dataObject: DataObjectType, withId id: String?, completion: (() -> Void)? = nil) {
-        guard let id = id else { return }
+    internal func delete(_ dataObject: DataObjectType, withId id: String?, completion: (() -> Void)? = nil) {
+        guard let id = id else {
+            return
+        }
         switch dataObject {
-        case .account: break// deleteAccount(withId: id, completion)
-        case .group: accountGroupManager?.delete(id: id, completion: completion)
-        case .transaction: break // deleteFinTransaction(withId: id, completion)
-        case .change: break // TODO: double check
+        case .account:
+        break// deleteAccount(withId: id, completion)
+        case .group:
+            accountGroupManager?.delete(id: id, completion: completion)
+        case .transaction:
+        break // deleteFinTransaction(withId: id, completion)
+        case .change:
+            break // TODO: double check
         }
     }
 
@@ -143,16 +149,24 @@ extension Data { // Decide if these functions are needed at all
 // MARK: - Public Data functions
 extension Data {
 
-    func createAccount(_ name: String?, ofType type: AccountType?,
-                       withAmount amount: Int?, completion: ((String?) -> Void)? = nil) {
+    internal func createAccount(
+        _ name: String?,
+        ofType type: AccountType?,
+        withAmount amount: Int?,
+        completion: ((String?) -> Void)? = nil) {
         accountManager?.createAccount(name, ofType: type, withAmount: amount, completion: completion)
     }
 
     // swiftlint:disable identifier_name
-    func createTransaction(from: AccountInfo?, to: AccountInfo?, amount: Int?,
-                           date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
-                           recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
-                           completion: ((String?) -> Void)? = nil) {
+    internal func createTransaction(
+        from: AccountInfo?,
+        to: AccountInfo?,
+        amount: Int?,
+        date: Date? = Date(),
+        approvalMode: FinTransaction.ApprovalMode? = nil,
+        recurrenceFrequency: RecurrenceFrequency? = nil,
+        recurrenceEnd: Date? = nil,
+        completion: ((String?) -> Void)? = nil) {
 
         finTransactionManager?.createTransaction(
             from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
@@ -160,18 +174,18 @@ extension Data {
             completion: completion)
     }
 
-    func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {
+    internal func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {
         accountGroupManager?.create(name, withAccounts: accounts.map { $0.id })
     }
 
-    func deleteAccount(withId id: String, completion: (() -> Void)?) {
+    internal func deleteAccount(withId id: String, completion: (() -> Void)?) {
     }
 
-    func deleteAccountGroup(withId id: String, completion: (() -> Void)?) {
+    internal func deleteAccountGroup(withId id: String, completion: (() -> Void)?) {
         // FIXME: add implementation
     }
 
-    func deleteTransaction(withId id: String) {
+    internal func deleteTransaction(withId id: String) {
 //        //FIXME: account value is not updated
 //        guard let accountFromId = transactions[id]?.from,
 //            let accountToId = transactions[id]?.to,
@@ -193,11 +207,15 @@ extension Data {
     ///   - name: New name (nil means no name update)
     ///   - amount: New account amount (nil means no amount update)
 
-    func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)? = nil) {
+    internal func updateAccount(
+        withId id: String?,
+        name: String?,
+        amount: Int?,
+        completion: (() -> Void)? = nil) {
         accountManager?.updateAccount(withId: id, name: name, amount: amount, completion: completion)
     }
 
-    func deleteAll(completion: (() -> Void)? = nil) {
+    internal func deleteAll(completion: (() -> Void)? = nil) {
         fireStorage?.deleteAll(completion)
     }
 

@@ -1,8 +1,6 @@
-import UIKit
+internal class AccountNewVC: ViewController {
 
-class AccountNewVC: ViewController {
-
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
         let accountNameTextField: TextFieldProtocol = SimpleTextField("new account name")

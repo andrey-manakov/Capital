@@ -1,8 +1,9 @@
-protocol TextFieldProtocol: class {
+internal protocol TextFieldProtocol: class {
     var text: String? { get set }
     var delegate: UITextFieldDelegate? { get set }
     var isFirstResponder: Bool { get }
+    var actionOnReturn: (() -> Void)? { get set }
+
     func resignFirstResponder() -> Bool
     func becomeFirstResponder() -> Bool
-    var actionOnReturn: (() -> Void)? { get set }
 }

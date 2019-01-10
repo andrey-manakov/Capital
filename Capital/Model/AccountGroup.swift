@@ -1,6 +1,6 @@
 // MARK: - Introduction of Account.Group class
 extension Account {
-    class Group: DataObject, Equatable {
+    internal final class Group: DataObject, Equatable {
         // swiftlint:disable nesting
         /// Fields names
         ///
@@ -8,23 +8,23 @@ extension Account {
         /// - name: name field
         /// - amount: amount field
         /// - min: amount and date of minimum value
-        enum Fields: String {
+        internal enum Fields: String {
             case accounts
             case name
             case amount
             case min
             // swiftlint:disable nesting
-            enum Min: String {
+            internal enum Min: String {
                 case amount, date
             }
         }
 
-        var name: String?
-        var amount: Int?
-        var min: (amount: Int, date: Date)?
-        var accounts: [AccountId: AccountName]?
+        internal var name: String?
+        internal var amount: Int?
+        internal var min: (amount: Int, date: Date)?
+        internal var accounts: [AccountId: AccountName]?
 
-        static func == (lhs: Account.Group, rhs: Account.Group) -> Bool {
+        internal static func == (lhs: Account.Group, rhs: Account.Group) -> Bool {
             let currentDate = Date()
             let lhsmin = lhs.min ?? (amount: 0, date: currentDate)
             let rhsmin = rhs.min ?? (amount: 0, date: currentDate)
@@ -35,18 +35,22 @@ extension Account {
                 lhs.name == rhs.name
         }
 
-        required convenience init(_ data: [String: Any]) {
+        required convenience internal init(_ data: [String: Any]) {
             self.init()
             for (field, value) in data {
                 update(field: field, value: value)
             }
         }
 
-        func update(field: String, value: Any) {
-            guard let property = Account.Group.Fields(rawValue: field) else { return }
+        internal func update(field: String, value: Any) {
+            guard let property = Account.Group.Fields(rawValue: field) else {
+                return
+            }
             switch property {
-            case .name: self.name = value as? String
-            case .amount: self.amount = value as? Int
+            case .name:
+                self.name = value as? String
+            case .amount:
+                self.amount = value as? Int
             case .min:
                 guard let value = value as? [String: Any],
                     let minAmount = value[Account.Fields.Min.amount.rawValue] as? Int,
@@ -54,7 +58,8 @@ extension Account {
                         return
                 }
                 self.min = (amount: minAmount, date: minDate)
-            case .accounts: self.accounts = value as? [String: String]
+            case .accounts:
+                self.accounts = value as? [String: String]
             }
         }
 

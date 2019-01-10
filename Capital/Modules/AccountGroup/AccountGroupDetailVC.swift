@@ -1,6 +1,6 @@
-class AccountGroupDetailVC: ViewController {
+internal final class AccountGroupDetailVC: ViewController {
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
 
@@ -29,12 +29,16 @@ extension AccountGroupDetailVC {
         private var accounts = [String: Account]()
 
         func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
-            guard let id = id else { return }
+            guard let id = id else {
+                return
+            }
             data.setListnersToAccountsInGroup(withId: id, for: self.id, completion: { data in
                 for (id, account, changeType) in data {
                     switch changeType {
-                    case .added, .modified: self.accounts[id] = account
-                    case .removed: self.accounts.removeValue(forKey: id)
+                    case .added, .modified:
+                        self.accounts[id] = account
+                    case .removed:
+                        self.accounts.removeValue(forKey: id)
                     }
                 }
                 let dataModel = DataModel(self.accounts.map {

@@ -1,6 +1,6 @@
-class AccountListVC: ViewController {
+internal final class AccountListVC: ViewController {
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
         var selectedSegment = 0
@@ -28,16 +28,18 @@ class AccountListVC: ViewController {
 }
 
 extension AccountListVC {
-    class Service: ClassService {
+    private class Service: ClassService {
 
         private var accounts = [String: Account]()
 
-        func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
+        internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccounts(for: self.id) { data in
                 for (id, account, changeType) in data {
                     switch changeType {
-                    case .added, .modified: self.accounts[id] = account
-                    case .removed: self.accounts.removeValue(forKey: id)
+                    case .added, .modified:
+                        self.accounts[id] = account
+                    case .removed:
+                        self.accounts.removeValue(forKey: id)
                     }
                 }
                 let dataModel = DataModel(self.accounts.map {
@@ -49,8 +51,10 @@ extension AccountListVC {
             }
         }
 
-        func remove(_ row: DataModelRowProtocol?) {
-            guard let id = row?.id else { return }
+        internal func remove(_ row: DataModelRowProtocol?) {
+            guard let id = row?.id else {
+                return
+            }
             data.delete(.group, withId: id)
         }
 

@@ -1,6 +1,6 @@
-class AccountTransactionsVC: ViewController {
+internal final class AccountTransactionsVC: ViewController {
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         let data = self.data as? AccountInfo
         let id = data?.id
@@ -34,13 +34,17 @@ extension AccountTransactionsVC {
         private var transactions = [String: FinTransaction]()
 
         func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
-            guard let id = id else { return }
+            guard let id = id else {
+                return
+            }
             data.setListnersToTransactionsOfAccount(withId: id, for: self.id,
                                                     completion: {[unowned self] data in
                 for (id, transaction, changeType) in data {
                     switch changeType {
-                    case .added, .modified: self.transactions[id] = transaction
-                    case .removed: self.transactions.removeValue(forKey: id)
+                    case .added, .modified:
+                        self.transactions[id] = transaction
+                    case .removed:
+                        self.transactions.removeValue(forKey: id)
                     }
                 }
                 completion(DataModel(self.transactions.map {(

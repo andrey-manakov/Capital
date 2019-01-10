@@ -1,13 +1,11 @@
-import UIKit
-
-protocol SimpleTableWithSelectionProtocol: SimpleTableProtocol {
+internal protocol SimpleTableWithSelectionProtocol: SimpleTableProtocol {
     var selectedRow: DataModelRowProtocol? { get set }
 }
 
-class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {
-    var selectedRow: DataModelRowProtocol?
+internal class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {
+    internal var selectedRow: DataModelRowProtocol?
 
-    override init() {
+    override internal init() {
         super.init()
         didSelect = {[unowned self] row, _ in
             self.selectedRow = row
@@ -15,7 +13,9 @@ class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {
         }
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override internal func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: LeftRightCell.self.description())
         cell?.textLabel?.text = data[indexPath].name
         cell?.detailTextLabel?.text = data[indexPath].desc
@@ -25,10 +25,10 @@ class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionProtocol {
         } else {
             cell?.accessoryType = .none
         }
-        return cell!
+        return cell ?? UITableViewCell()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

@@ -1,4 +1,4 @@
-protocol FIRAccountManagerProtocol {
+internal protocol FIRAccountManagerProtocol {
     func createAccount(_ name: String?, ofType type: AccountType?,
                        withAmount amount: Int?, completion: ((String?) -> Void)?)
     func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)?)
@@ -6,12 +6,13 @@ protocol FIRAccountManagerProtocol {
 
 extension FIRAccountManager: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
 
-final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
+internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
 
     static var shared: FIRAccountManagerProtocol = FIRAccountManager()
+
     private override init() {}
     // FIXME: old reference
-    let finTransactionManager: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld.shared
+    internal let finTransactionManager: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld.shared
 
     /// Creates transaction in FireStore date base,
     /// creates transaction with capital account to define initial account amount,
@@ -25,8 +26,12 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
     ///     for now it only works for successes
     func createAccount(_ name: String?, ofType type: AccountType?, withAmount amount: Int?,
                        completion: ((String?) -> Void)?) {
-        guard let ref = ref, let name = name, let type = type,
-            let newAccountRef = self.ref?.collection(DataObjectType.account.rawValue).document() else { return }
+        guard let ref = ref,
+            let name = name,
+            let type = type,
+            let newAccountRef = self.ref?.collection(DataObjectType.account.rawValue).document() else {
+                return
+        }
         let amount = amount ?? 0
         if amount == 0 {
             newAccountRef.setData(
@@ -76,7 +81,7 @@ final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
     ///   - amount: new account amount if needed
     ///   - completion: action to perform after function finishes execution,
     ///     for now it only works for successes
-    func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)? = nil) {
+    internal func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)? = nil) {
         guard let id = id,
             let accountDoc = ref?.collection(DataObjectType.account.rawValue).document(id),
             let capitalDoc = capitalDoc else { return }

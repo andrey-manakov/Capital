@@ -1,13 +1,11 @@
-import UIKit
-
-protocol SegmentedControlProtocol: class {
+internal protocol SegmentedControlProtocol: class {
     var selectedSegmentIndex: Int { get set }
 }
 
-class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {
-    var actionOnValueChange: ((Int) -> Void)?
+internal class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {
+    internal var actionOnValueChange: ((Int) -> Void)?
 
-    init(_ titles: [String], _ actionOnValueChange: ((Int) -> Void)? = nil) {
+    internal init(_ titles: [String], _ actionOnValueChange: ((Int) -> Void)? = nil) {
         super.init(frame: CGRect.zero)
         for index in 0..<AccountType.all.count {
             self.insertSegment(withTitle: AccountType.all[index], at: index, animated: false)
@@ -17,11 +15,11 @@ class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {
         self.actionOnValueChange = actionOnValueChange
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc func didChangeValue(sender: UISegmentedControl) {
+    @objc internal func didChangeValue(sender: UISegmentedControl) {
         actionOnValueChange?(selectedSegmentIndex)
     }
 

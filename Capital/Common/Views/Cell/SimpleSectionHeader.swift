@@ -1,13 +1,13 @@
 import UIKit
 
-protocol SimpleSectionHeaderProtocol {
+internal protocol SimpleSectionHeaderProtocol {
     var title: UILabel { get }
     var desc: UILabel { get }
 }
 
-class SimpleSectionHeader: UITableViewHeaderFooterView, SimpleSectionHeaderProtocol {
-    var title = UILabel()
-    var desc = UILabel()
+internal class SimpleSectionHeader: UITableViewHeaderFooterView, SimpleSectionHeaderProtocol {
+    internal var title = UILabel()
+    internal var desc = UILabel()
 
     override public init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -15,7 +15,7 @@ class SimpleSectionHeader: UITableViewHeaderFooterView, SimpleSectionHeaderProto
         contentView.add(subView: desc, withConstraints: ["H:[v(50)]-15-|", "V:|-7-[v(30)]"])
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 

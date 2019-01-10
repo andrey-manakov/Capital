@@ -1,7 +1,7 @@
-class AccountSelectorVC: ViewController {
-    let service = Service()
+internal final class AccountSelectorVC: ViewController {
+    private let service = Service()
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         title = "Select Account"
 
@@ -26,7 +26,7 @@ class AccountSelectorVC: ViewController {
 }
 
 extension AccountSelectorVC {
-    class Service: ClassService {
+    private class Service: ClassService {
         private var accounts = [String: Account]()
         private var dataModel: DataModelProtocol {return DataModel(self.accounts.map {DataModelRow(
             id: $0.key,
@@ -35,12 +35,14 @@ extension AccountSelectorVC {
             filter: $0.value.type?.rawValue)
         })}
 
-        func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
+        internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccounts(for: self.id) {[unowned self] data in
                 for (id, account, changeType) in data {
                     switch changeType {
-                    case .added, .modified: self.accounts[id] = account
-                    case .removed: self.accounts.removeValue(forKey: id)
+                    case .added, .modified:
+                        self.accounts[id] = account
+                    case .removed:
+                        self.accounts.removeValue(forKey: id)
                     }
                 }
                 completion(self.dataModel)

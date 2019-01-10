@@ -4,3 +4,7 @@ exclude:
 - CapitalTests/
 - CapitalUITests/
 - Firebase/
+
+# Tailor will check for violations to all rules except for the following ones
+except:
+  - function-whitespace

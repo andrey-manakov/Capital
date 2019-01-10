@@ -8,14 +8,14 @@ protocol AccountDetailViewControllerProtocol: ViewControllerProtocol {
     var id: String? { get set }
 }
 
-class AccountDetailVC: ViewController, AccountDetailViewControllerProtocol {
+internal final class AccountDetailVC: ViewController, AccountDetailViewControllerProtocol {
 
     private let service: AccountDetailServiceProtocol = AccountDetailService()
-    var accountNameTextField: TextFieldProtocol = SimpleTextField()
-    var accountAmountTextField: TextFieldProtocol = NumberField()
-    var id: String?
+    internal var accountNameTextField: TextFieldProtocol = SimpleTextField()
+    internal var accountAmountTextField: TextFieldProtocol = NumberField()
+    internal var id: String?
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         id = data as? String
         let button: ButtonProtocol = Button(name: "Delete") {[unowned self] in
@@ -36,7 +36,7 @@ class AccountDetailVC: ViewController, AccountDetailViewControllerProtocol {
 
     }
 
-    @objc func didTapDone() {
+    @objc internal func didTapDone() {
         service.didTapDone(with: id, name: accountNameTextField.text ?? "",
                            amount: accountAmountTextField.text ?? "")
         navigationController?.popViewController(animated: true)

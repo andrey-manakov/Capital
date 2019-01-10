@@ -21,9 +21,18 @@ extension FIRFinTransactionManagerProtocolOld {
         to: AccountInfo?,
         amount: Int?) -> Int {
 
-        return sendFinTransaction(to: fsTransaction, from: from, to: to,
-            amount: amount, date: nil, approvalMode: nil, recurrenceFrequency: nil,
-            recurrenceEnd: nil, parent: nil, approvedAmount: 0)
+        return sendFinTransaction(
+            to: fsTransaction,
+            from: from,
+            to: to,
+            amount: amount,
+            date: nil,
+            approvalMode: nil,
+            recurrenceFrequency: nil,
+            recurrenceEnd: nil,
+            parent: nil,
+            approvedAmount: 0
+        )
     }
 
 }
@@ -31,9 +40,9 @@ extension FIRFinTransactionManagerProtocolOld {
 extension FIRFinTransactionManagerOld: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
 extension FIRFinTransactionManagerOld: MiscFunctionsProtocol {}
 
-class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolOld {
+internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolOld {
     /// Singlton
-    static var shared: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld()
+    static internal var shared: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld()
     private override init() {}
 
     // swiftlint:disable identifier_name
@@ -59,12 +68,14 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
     ///     * read account amounts from FireStore
     ///     * create transactions
     ///     * update account amounts
-    func createTransaction(
+    internal func createTransaction(
         from: String?, to: String?, amount: Int?, date: Date? = Date(),
         approvalMode: FinTransaction.ApprovalMode? = nil,
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
-        guard let ref = ref, let from = from, let to = to, let amount = amount else { return }
+        guard let ref = ref, let from = from, let to = to, let amount = amount else {
+            return
+        }
 
         fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
             // read account amounts from FireStore
@@ -110,7 +121,7 @@ class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionManagerProtocolO
     ///     used to update account values
     /// - Returns: approvedAmount(Int) - the sum of amounts of approved transactions (in the past),
     ///     used to update account values
-    func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?,
+    internal func sendFinTransaction(to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?,
                             date: Date? = Date(), approvalMode: FinTransaction.ApprovalMode? = nil,
                             recurrenceFrequency: RecurrenceFrequency? = nil, recurrenceEnd: Date? = nil,
                             parent: String? = nil, approvedAmount: Int = 0) -> Int {

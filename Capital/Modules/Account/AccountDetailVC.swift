@@ -1,6 +1,6 @@
-class AccountDetailVC: ViewController {
+internal final class AccountDetailVC: ViewController {
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service() // should be private
         let accountNameTextField: TextFieldProtocol = SimpleTextField()
@@ -37,7 +37,6 @@ extension AccountDetailVC {
             if let id = id {
                 data.updateAccount(withId: id, name: name, amount: Int(amount), completion: nil)
             }
-
         }
 
         func didTapDelete(withId id: String) {

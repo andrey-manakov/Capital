@@ -1,13 +1,22 @@
-enum RecurrenceFrequency: Int, CaseIterable {
+internal enum RecurrenceFrequency: Int, CaseIterable {
     case never, everyDay, everyWorkingDay, everyWeek, everyMonth, everyYear
-    var name: String {
+
+    internal var name: String {
+        let name: String
         switch self {
-        case .never: return "Never"
-        case .everyDay: return "Every Day"
-        case .everyWorkingDay: return "Every Working Day"
-        case .everyWeek: return "Every Week"
-        case .everyMonth: return "Every Month"
-        case .everyYear: return "Every Year"
+        case .never:
+            name = "Never"
+        case .everyDay:
+            name = "Every Day"
+        case .everyWorkingDay:
+            name = "Every Working Day"
+        case .everyWeek:
+            name = "Every Week"
+        case .everyMonth:
+            name = "Every Month"
+        case .everyYear:
+            name = "Every Year"
         }
+        return name
     }
 }

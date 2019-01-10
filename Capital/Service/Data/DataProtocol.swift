@@ -40,7 +40,7 @@ protocol DataProtocol {
 
 extension DataProtocol {
 
-    func delete(_ dataObject: DataObjectType, withId id: String?) {
+    internal func delete(_ dataObject: DataObjectType, withId id: String?) {
         delete(dataObject, withId: id, completion: nil)
     }
 
@@ -49,7 +49,7 @@ extension DataProtocol {
 // MARK: - Extension to provide functions with default values
 extension DataProtocol {
 
-    func createAccount(_ name: String, ofType type: AccountType, withAmount amount: Int?) {
+    internal func createAccount(_ name: String, ofType type: AccountType, withAmount amount: Int?) {
         createAccount(name, ofType: type, withAmount: amount, completion: nil)
     }
 

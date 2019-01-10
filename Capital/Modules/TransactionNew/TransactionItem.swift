@@ -12,24 +12,37 @@ enum TransactionItem: String, CaseIterable {
     case recurrenceEnd
     case recurrenceEndDate
 
-    var name: String {
+    internal var name: String {
+        let name: String
         switch self {
-        case .from: return "from"
-        case .to: return "to"
-        case .amount: return "amount"
-        case .date: return "date"
-        case .dateSelection: return ""
-        case .approvalMode: return "approval mode"
-        case .recurrenceFrequency: return "repeat"
-        case .recurrenceEnd: return "end repeat"
-        case .recurrenceEndDate: return ""
+        case .from:
+            name = "from"
+        case .to:
+            name = "to"
+        case .amount:
+            name = "amount"
+        case .date:
+            name = "date"
+        case .dateSelection:
+            name = ""
+        case .approvalMode:
+            name = "approval mode"
+        case .recurrenceFrequency:
+            name = "repeat"
+        case .recurrenceEnd:
+            name = "end repeat"
+        case .recurrenceEndDate:
+            name = ""
         }
+        return name
     }
 
-    var height: CGFloat {
+    internal var height: CGFloat {
         switch self {
-        case .dateSelection, .recurrenceEndDate: return 200
-        default: return 45
+        case .dateSelection, .recurrenceEndDate:
+            return 200
+        default:
+            return 45
         }
     }
 

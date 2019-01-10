@@ -1,21 +1,21 @@
-import UIKit
-
-protocol TransactionsTableProtocol: SimpleTableWithSwipeProtocol {
+internal protocol TransactionsTableProtocol: SimpleTableWithSwipeProtocol {
 
 }
 
-class TransactionsTable: SimpleTableWithSwipe, TransactionsTableProtocol {
+internal class TransactionsTable: SimpleTableWithSwipe, TransactionsTableProtocol {
 
-    override init() {
+    override internal init() {
         super.init()
         register(TransactionCell.self, forCellReuseIdentifier: TransactionCell.self.description())
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         return nil
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override internal func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: TransactionCellProtocol = dequeueReusableCell(
             withIdentifier: TransactionCell.self.description()) as? TransactionCell else {
             return UITableViewCell()

@@ -9,7 +9,7 @@ protocol FIRListnersProtocol {
 
 extension FIRListnersProtocol {
 
-    func setListner(
+    internal func setListner(
         forObject objectId: ObjectIdentifier,
         toPath path: String,
         completion: @escaping
@@ -20,16 +20,17 @@ extension FIRListnersProtocol {
 }
 
 // MARK: - Observers
-final class FIRListners: FIRManager, FIRListnersProtocol {
-    typealias WhereClause = (field: String, comparisonType: ComparisonType, value: Any)
+internal final class FIRListners: FIRManager, FIRListnersProtocol {
+    internal typealias WhereClause = (field: String, comparisonType: ComparisonType, value: Any)
     // TODO: Consider moving to the upper level to use in protocols as well
-    typealias ListnerResult = (id: String, data: [String: Any], changeType: ChangeType)
+    internal typealias ListnerResult = (id: String, data: [String: Any], changeType: ChangeType)
     /// Singlton
-    static var shared: FIRListnersProtocol = FIRListners()
+    internal static var shared: FIRListnersProtocol = FIRListners()
+
     override private init() {
     }
 
-    var listners = [ObjectIdentifier: [ListenerRegistration?]]()
+    internal var listners = [ObjectIdentifier: [ListenerRegistration?]]()
 
     /// Sets listner to FireStore data base
     ///
@@ -43,7 +44,9 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
         toPath path: String, whereClause: WhereClause?,
         completion: @escaping ([ListnerResult]) -> Void) {
 
-        guard let ref = ref else { return }
+        guard let ref = ref else {
+            return
+        }
         var query: Query = ref.collection(path)
         if let whereClause = whereClause {
             switch whereClause.comparisonType {
@@ -62,7 +65,9 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
             }
         }
         let listner = query.addSnapshotListener { snapshot, _ in
-            guard let docChanges = snapshot?.documentChanges else { return }
+            guard let docChanges = snapshot?.documentChanges else {
+                return
+            }
             completion(
                 docChanges.map {
                     (id: $0.document.documentID,
@@ -74,14 +79,18 @@ final class FIRListners: FIRManager, FIRListnersProtocol {
         if listners[objectId] == nil {
             listners[objectId] = [ListenerRegistration?]()
         }
-        listners[objectId]!.append(listner)
+        if var listners = listners[objectId] {
+            listners.append(listner)
+        }
     }
 
     /// Removes listners is to be called from deinit of the instance
     ///
     /// - Parameter objectId: id of the instance being deinitialized
-    func removeListners(ofObject objectId: ObjectIdentifier) {
-        guard let objListners = listners[objectId] else { return }
+    internal func removeListners(ofObject objectId: ObjectIdentifier) {
+        guard let objListners = listners[objectId] else {
+            return
+        }
         for listner in objListners {
             listner?.remove()
         }

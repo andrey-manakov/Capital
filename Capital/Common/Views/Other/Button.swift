@@ -1,13 +1,10 @@
-import UIKit
-
-protocol ButtonProtocol {
-
+internal protocol ButtonProtocol {
 }
 
-class Button: UIButton, ButtonProtocol {
-    var action: (() -> Void)?
+internal final class Button: UIButton, ButtonProtocol {
+    internal var action: (() -> Void)?
 
-    init(name: String, action: @escaping () -> Void) {
+    internal init(name: String, action: @escaping () -> Void) {
         super.init(frame: CGRect.zero)
         self.action = action
         setTitle(name, for: UIControl.State.normal)
@@ -18,11 +15,11 @@ class Button: UIButton, ButtonProtocol {
         self.addTarget(self, action: #selector(tapAction), for: UIControl.Event.touchUpInside)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         return nil
     }
 
-    @objc func tapAction() {
+    @objc internal func tapAction() {
         action?()
     }
 

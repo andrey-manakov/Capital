@@ -1,25 +1,29 @@
-protocol SettingsServiceProtocol: class {
+internal protocol SettingsServiceProtocol: class {
     var view: SettingsViewControllerProtocol? { get set }
+
     func viewDidLoad(_ view: SettingsViewControllerProtocol)
     func didSelect(_ row: DataModelRowProtocol, at indexPath: IndexPath)
 }
 
-class SettingsService: ClassService, SettingsServiceProtocol {
-    weak var view: SettingsViewControllerProtocol?
+// TODO: Consider moving inside Settings View Controller
+internal final class SettingsService: ClassService, SettingsServiceProtocol {
+    weak internal var view: SettingsViewControllerProtocol?
 
-    func viewDidLoad(_ view: SettingsViewControllerProtocol) {
+    internal func viewDidLoad(_ view: SettingsViewControllerProtocol) {
         self.view = view
         getData()
     }
 
-    func getData() {
+    internal func getData() {
         view?.table.localData = DataModel(Settings.allCases.map {
             (id: "\($0.rawValue)", name: $0.name, desc: "")
         })
     }
 
-    func didSelect(_ row: DataModelRowProtocol, at indexPath: IndexPath) {
-        guard let id = row.id, let idInt = Int(id), let settings = Settings(rawValue: idInt) else { return }
+    internal func didSelect(_ row: DataModelRowProtocol, at indexPath: IndexPath) {
+        guard let id = row.id, let idInt = Int(id), let settings = Settings(rawValue: idInt) else {
+            return
+        }
         switch settings {
         case .logOut:
             data.signOut { error in
@@ -40,12 +44,15 @@ class SettingsService: ClassService, SettingsServiceProtocol {
         }
     }
 
-    enum Settings: Int, CaseIterable {
+    internal enum Settings: Int, CaseIterable {
         case logOut, deleteUser
-        var name: String {
+
+        internal var name: String {
             switch self {
-            case .logOut: return "Log Out"
-            case .deleteUser: return "Delete User"
+            case .logOut:
+                return "Log Out"
+            case .deleteUser:
+                return "Delete User"
             }
         }
     }
