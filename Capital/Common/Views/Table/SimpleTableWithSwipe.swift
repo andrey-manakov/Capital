@@ -12,8 +12,11 @@ internal class SimpleTableWithSwipe: SimpleTable, SimpleTableWithSwipeProtocol {
     internal var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> Void)?
     internal var swipeRightAction: ((_ row: DataModelRowProtocol?) -> Void)?
 
-    internal func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt
-        indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    internal func tableView(
+        _ tableView: UITableView,
+        leadingSwipeActionsConfigurationForRowAt
+        indexPath: IndexPath
+        ) -> UISwipeActionsConfiguration? {
         let handler = {[unowned self] (_:UIContextualAction, _:UIView, success: (Bool) -> Void) in
             self.swipeRightAction?(self.data[indexPath])
             success(true)
@@ -23,8 +26,11 @@ internal class SimpleTableWithSwipe: SimpleTable, SimpleTableWithSwipeProtocol {
         return UISwipeActionsConfiguration(actions: [rightSwipe])
     }
 
-    internal func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt
-        indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    internal func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt
+        indexPath: IndexPath
+        ) -> UISwipeActionsConfiguration? {
         let handler = {(_:UIContextualAction, _:UIView, success: (Bool) -> Void) in
             self.swipeLeftAction?(self.data[indexPath])
             success(true)

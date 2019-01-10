@@ -79,16 +79,22 @@ extension LoginVC {
             FIRAuth.shared.getUpdatedUserInfo[ObjectIdentifier(self)] = action
         }
 
-        func didTapSignIn(withLogin login: String?, andPassword password: String?,
-                          completion: ((Error?) -> Void)? = nil) {
+        func didTapSignIn(
+            withLogin login: String?,
+            andPassword password: String?,
+            completion: ((Error?) -> Void)? = nil
+            ) {
             guard let lgn = login, let pwd = password else {
                 return
             }
             Data.shared.signInUser(withEmail: lgn, password: pwd, completion: completion)
         }
 
-        func didTapSignUp(withLogin login: String?, andPassword password: String?,
-                          completion: ((Error?) -> Void)? = nil) {
+        func didTapSignUp(
+            withLogin login: String?,
+            andPassword password: String?,
+            completion: ((Error?) -> Void)? = nil
+            ) {
             guard let lgn = login, let pwd = password else {
                 return
             } // TODO: consider use UIAlertVC

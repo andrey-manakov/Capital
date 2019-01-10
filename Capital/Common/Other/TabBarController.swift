@@ -14,7 +14,6 @@ internal protocol TabBarControllerProtocol {
 /// Called by:
 /// * `LoginVC`
 internal final class TabBarController: UITabBarController, TabBarControllerProtocol {
-
     internal init() {
         super.init(nibName: nil, bundle: nil)
         viewControllers = [

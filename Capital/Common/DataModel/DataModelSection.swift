@@ -1,4 +1,4 @@
-protocol DataModelSectionProtocol: BasicDataPropertiesProtocol {
+internal protocol DataModelSectionProtocol: BasicDataPropertiesProtocol {
     var rows: [DataModelRowProtocol] { get set }
 
     func filter(_: ((DataModelRowProtocol) -> (Bool))) -> DataModelSectionProtocol
@@ -18,7 +18,7 @@ internal struct DataModelSection: DataModelSectionProtocol {
         return description
     }
 
-    subscript(rowIndex: Int) -> (name: String?, desc: String?) {
+    internal subscript(rowIndex: Int) -> (name: String?, desc: String?) {
         let row = rows[rowIndex]
         return (row.name, row.desc)
     }

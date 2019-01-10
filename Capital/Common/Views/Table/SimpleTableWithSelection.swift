@@ -15,7 +15,8 @@ internal class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionPr
 
     override internal func tableView(
         _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        cellForRowAt indexPath: IndexPath
+        ) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: LeftRightCell.self.description())
         cell?.textLabel?.text = data[indexPath].name
         cell?.detailTextLabel?.text = data[indexPath].desc

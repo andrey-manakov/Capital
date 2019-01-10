@@ -15,5 +15,7 @@ internal final class DateSelectionCell: UITableViewCell, DateSelectionCellProtoc
         contentView.add(subView: datePicker as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
     }
 
-    required internal init?(coder aDecoder: NSCoder) { return nil }
+    required internal init?(coder aDecoder: NSCoder) {
+        return nil
+    }
 }
