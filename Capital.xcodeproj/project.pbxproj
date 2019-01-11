@@ -121,7 +121,7 @@
 		C1CE088321BD2640000D28C9 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE087121BD263F000D28C9 /* nanopb.framework */; };
 		C1CE088421BD2640000D28C9 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE087221BD263F000D28C9 /* Protobuf.framework */; };
 		C1CE088521BD2640000D28C9 /* gRPCCertificates-Firestore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1CE087421BD263F000D28C9 /* gRPCCertificates-Firestore.bundle */; };
-		C1D0960121E78FD30032BF8E /* DataModelRowEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960021E78FD30032BF8E /* DataModelRowEquatable.swift */; };
+		C1D0960121E78FD30032BF8E /* DataModelRowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960021E78FD30032BF8E /* DataModelRowExtension.swift */; };
 		C1D0960321E7F6700032BF8E /* AppTitleTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */; };
 		C1DBCC5921C25B9E0003869A /* AccountGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5821C25B9E0003869A /* AccountGroup.swift */; };
 		C1DBCC5B21C25E840003869A /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5A21C25E840003869A /* AccountTests.swift */; };
@@ -292,7 +292,7 @@
 		C1CE087221BD263F000D28C9 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
 		C1CE087421BD263F000D28C9 /* gRPCCertificates-Firestore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Firestore.bundle"; sourceTree = "<group>"; };
 		C1CE088621BD266D000D28C9 /* Capital-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Capital-Bridging-Header.h"; sourceTree = "<group>"; };
-		C1D0960021E78FD30032BF8E /* DataModelRowEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelRowEquatable.swift; sourceTree = "<group>"; };
+		C1D0960021E78FD30032BF8E /* DataModelRowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelRowExtension.swift; sourceTree = "<group>"; };
 		C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleTests1.swift; sourceTree = "<group>"; };
 		C1DBCC5821C25B9E0003869A /* AccountGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroup.swift; sourceTree = "<group>"; };
 		C1DBCC5A21C25E840003869A /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -379,7 +379,7 @@
 				C1164D2A21BD6F2F00895A1B /* CellStyle.swift */,
 				C1164D2821BD6F2F00895A1B /* DataModel.swift */,
 				C1164D2721BD6F2F00895A1B /* DataModelRow.swift */,
-				C1D0960021E78FD30032BF8E /* DataModelRowEquatable.swift */,
+				C1D0960021E78FD30032BF8E /* DataModelRowExtension.swift */,
 				C1164D2921BD6F2F00895A1B /* DataModelSection.swift */,
 			);
 			path = DataModel;
@@ -996,7 +996,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint --enable-all-rules\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\nif hash tailor 2>/dev/null; then\ntailor\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\nif hash tailor 2>/dev/null; then\ntailor\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1048,7 +1048,7 @@
 				C1164D8521BD974F00895A1B /* AdvancedNewTransactionVC.swift in Sources */,
 				C1164D6221BD834A00895A1B /* NumberField.swift in Sources */,
 				C1164D2421BD6CAA00895A1B /* SettingsService.swift in Sources */,
-				C1D0960121E78FD30032BF8E /* DataModelRowEquatable.swift in Sources */,
+				C1D0960121E78FD30032BF8E /* DataModelRowExtension.swift in Sources */,
 				C1164D4621BD704800895A1B /* TransactionTable.swift in Sources */,
 				C16D36DB21C3B58A00690B7B /* BarButtonItem.swift in Sources */,
 				C1A027AC21BD4D1C00207FF7 /* Extensions.swift in Sources */,
