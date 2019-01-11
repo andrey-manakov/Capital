@@ -7,7 +7,8 @@ extension FireStoreGettersProtocol {
 
     internal func getUserData(
         for fsTransaction: Transaction,
-        with errorPointer: NSErrorPointer = nil) -> DocumentSnapshot? {
+        with errorPointer: NSErrorPointer = nil
+        ) -> DocumentSnapshot? {
         guard let ref = ref else {
             return nil
         }
@@ -25,7 +26,8 @@ extension FireStoreGettersProtocol {
         _ dataObject: DataObjectType,
         withId id: String?,
         for fsTransaction: Transaction,
-        with errorPointer: NSErrorPointer = nil) -> DataObjectProtocol? {
+        with errorPointer: NSErrorPointer = nil
+        ) -> DataObjectProtocol? {
         guard let ref = ref, let id = id else {
             return nil
         }
@@ -55,28 +57,32 @@ extension FireStoreGettersProtocol {
     internal func getAccountGroup(
         withId id: String?,
         for fsTransaction: Transaction,
-        with errorPointer: NSErrorPointer = nil) -> Account.Group? {
+        with errorPointer: NSErrorPointer = nil
+        ) -> Account.Group? {
         return get(.group, withId: id, for: fsTransaction, with: errorPointer) as? Account.Group
     }
 
     internal func getAccount(
         withId id: String?,
         for fsTransaction: Transaction,
-        with errorPointer: NSErrorPointer = nil) -> Account? {
+        with errorPointer: NSErrorPointer = nil
+        ) -> Account? {
         return get(.account, withId: id, for: fsTransaction, with: errorPointer) as? Account
     }
 
     internal func getTransaction(
         withId id: String?,
         for fsTransaction: Transaction,
-        with errorPointer: NSErrorPointer = nil) -> FinTransaction? {
+        with errorPointer: NSErrorPointer = nil
+        ) -> FinTransaction? {
         return get(.transaction, withId: id, for: fsTransaction, with: errorPointer) as? FinTransaction
     }
 
     internal func getAmount(
         ofAccount id: String?,
         for fsTransaction: Transaction,
-        with errorPointer: NSErrorPointer = nil) -> Int? {
+        with errorPointer: NSErrorPointer = nil
+        ) -> Int? {
         return getAccount(withId: id, for: fsTransaction, with: errorPointer)?.amount
     }
 

@@ -3,7 +3,7 @@ internal final class EmailField: SimpleTextField {
         super.init(placeholder, actionOnReturn)
         keyboardType = .emailAddress
     }
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

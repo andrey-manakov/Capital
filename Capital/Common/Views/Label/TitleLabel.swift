@@ -6,7 +6,7 @@ internal final class TitleLabel: UILabel, SimpleLabelProtocol {
         textAlignment = .center
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

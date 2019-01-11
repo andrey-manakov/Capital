@@ -18,7 +18,7 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
     /// Singlton
     internal static var shared: FIRAccountGroupManagerProtocol = FIRAccountGroupManager()
 
-    private override init() {}
+    override private init() {}
 
     /// Creates Account Group in FireStore data base, also updates accounts
     ///

@@ -128,7 +128,8 @@ internal class CapitalUITests: XCTestCase {
 
     private func create(
         accountGroup name: String,
-        with accounts: [(name: String, type: String, amount: String)]) -> Bool {
+        with accounts: [(name: String, type: String, amount: String)]
+        ) -> Bool {
 
         app.tabBars.buttons["DashBoard"].tap()
         app.navigationBars["DashBoard"].buttons["New"].tap()
@@ -163,7 +164,8 @@ internal class CapitalUITests: XCTestCase {
 
     private func create(
         transaction amount: String,
-        with accounts: [(name: String, type: String, amount: String)]) -> Bool {
+        with accounts: [(name: String, type: String, amount: String)]
+        ) -> Bool {
         print("create function without date")
         app.tabBars.buttons["New Transaction"].tap()
         app.tables["v"].staticTexts["from"].tap()
@@ -205,7 +207,8 @@ internal class CapitalUITests: XCTestCase {
     private func create(
         transaction amount: String,
         with accounts: [(name: String, type: String, amount: String)],
-        onDate date: Date) -> Bool {
+        onDate date: Date
+        ) -> Bool {
         app.tabBars.buttons["New Transaction"].tap()
         app.tables["v"].staticTexts["from"].tap()
         app.buttons[accounts[0].type].tap()

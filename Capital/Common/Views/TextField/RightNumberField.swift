@@ -7,7 +7,7 @@ internal final class RightNumberField: UITextField, TextFieldProtocol {
         keyboardType = .numberPad
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

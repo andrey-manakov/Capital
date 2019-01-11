@@ -4,7 +4,7 @@ internal final class NumberField: SimpleTextField {
         keyboardType = .numberPad
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

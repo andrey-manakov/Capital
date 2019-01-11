@@ -33,7 +33,8 @@ extension Data {
 
     internal func setListnerToAccounts(
         for objectId: ObjectIdentifier,
-        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
+        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))
+        ) {
         listnersManager?.setListner(forObject: objectId,
                                     toPath: "/\(DataObjectType.account.rawValue)") { data in
             completion(data.map { ($0.id, Account($0.data), $0.changeType) })
@@ -43,7 +44,8 @@ extension Data {
     internal func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))) {
+        ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))
+        ) {
         listnersManager?.setListner(
         forObject: objectId, toPath: "/\(DataObjectType.group.rawValue)") { data in
             completion(data.map { ($0.id, Account.Group($0.data), $0.changeType) })
@@ -52,7 +54,8 @@ extension Data {
 
     internal func setListnersToAccountsInGroup(
         withId id: String, for objectId: ObjectIdentifier,
-        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
+        completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))
+        ) {
         listnersManager?.setListner(
         forObject: objectId,
         toPath: "/\(DataObjectType.account.rawValue)",
@@ -65,7 +68,8 @@ extension Data {
     internal func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void))) {
+        ((( [(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void))
+        ) {
         let path = "/\(DataObjectType.transaction.rawValue)"
 
         listnersManager?.setListner(
@@ -139,8 +143,11 @@ extension Data { // Decide if these functions are needed at all
         }
     }
 
-    private func update(_ dataObject: DataObjectType, id: String,
-                        with values: [String: Any?], completion: (() -> Void)? = nil) {
+    private func update(
+        _ dataObject: DataObjectType,
+        id: String,
+        with values: [String: Any?], completion: (() -> Void)? = nil
+        ) {
         fireStorage?.update(dataObject, id: id, with: values, completion: completion)
     }
 
@@ -153,7 +160,8 @@ extension Data {
         _ name: String?,
         ofType type: AccountType?,
         withAmount amount: Int?,
-        completion: ((String?) -> Void)? = nil) {
+        completion: ((String?) -> Void)? = nil
+        ) {
         accountManager?.createAccount(name, ofType: type, withAmount: amount, completion: completion)
     }
 
@@ -166,7 +174,8 @@ extension Data {
         approvalMode: FinTransaction.ApprovalMode? = nil,
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil,
-        completion: ((String?) -> Void)? = nil) {
+        completion: ((String?) -> Void)? = nil
+        ) {
 
         finTransactionManager?.createTransaction(
             from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
@@ -211,7 +220,8 @@ extension Data {
         withId id: String?,
         name: String?,
         amount: Int?,
-        completion: (() -> Void)? = nil) {
+        completion: (() -> Void)? = nil
+        ) {
         accountManager?.updateAccount(withId: id, name: name, amount: amount, completion: completion)
     }
 

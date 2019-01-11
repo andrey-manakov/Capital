@@ -1,9 +1,11 @@
 internal protocol FIRListnersProtocol {
-    func setListner(forObject objectId: ObjectIdentifier,
-                    toPath path: String,
-                    whereClause: (field: String, comparisonType: ComparisonType, value: Any)?,
-                    completion: @escaping
-        ([(id: String, data: [String: Any], changeType: ChangeType)]) -> Void)
+    func setListner(
+        forObject objectId: ObjectIdentifier,
+        toPath path: String,
+        whereClause: (field: String, comparisonType: ComparisonType, value: Any)?,
+        completion: @escaping
+        ([(id: String, data: [String: Any], changeType: ChangeType)]
+        ) -> Void)
     func removeListners(ofObject objectId: ObjectIdentifier)
 }
 
@@ -13,7 +15,8 @@ extension FIRListnersProtocol {
         forObject objectId: ObjectIdentifier,
         toPath path: String,
         completion: @escaping
-        ([(id: String, data: [String: Any], changeType: ChangeType)]) -> Void) {
+        ([(id: String, data: [String: Any], changeType: ChangeType)]) -> Void
+        ) {
         setListner(forObject: objectId, toPath: path, whereClause: nil, completion: completion)
     }
 
@@ -42,7 +45,8 @@ internal final class FIRListners: FIRManager, FIRListnersProtocol {
     internal func setListner(
         forObject objectId: ObjectIdentifier,
         toPath path: String, whereClause: WhereClause?,
-        completion: @escaping ([ListnerResult]) -> Void) {
+        completion: @escaping ([ListnerResult]) -> Void
+        ) {
 
         guard let ref = ref else {
             return

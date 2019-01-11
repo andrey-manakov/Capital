@@ -7,7 +7,7 @@ internal protocol SettingsServiceProtocol: class {
 
 // TODO: Consider moving inside Settings View Controller
 internal final class SettingsService: ClassService, SettingsServiceProtocol {
-    weak internal var view: SettingsViewControllerProtocol?
+    internal weak var view: SettingsViewControllerProtocol?
 
     internal func viewDidLoad(_ view: SettingsViewControllerProtocol) {
         self.view = view

@@ -11,7 +11,7 @@ internal class SimpleTable: TemplateTable, SimpleTableProtocol {
                  forHeaderFooterViewReuseIdentifier: SimpleSectionHeader.self.description())
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 

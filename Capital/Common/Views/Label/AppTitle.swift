@@ -6,7 +6,7 @@ internal class AppTitle: UILabel {
         textAlignment = .center
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

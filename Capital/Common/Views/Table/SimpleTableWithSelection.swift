@@ -29,7 +29,7 @@ internal class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionPr
         return cell ?? UITableViewCell()
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

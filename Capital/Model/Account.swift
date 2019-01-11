@@ -11,7 +11,7 @@ extension Account {
 }
 
 /// Account - is the entity to record transactions (`FinTransaction`).
-final internal class Account: DataObject {
+internal final class Account: DataObject {
 
     // MARK: - Properties
 
@@ -49,7 +49,7 @@ final internal class Account: DataObject {
     /// Initializer used to create instance of `Account` from data loaded from FireStore
     ///
     /// - Parameter data: data as it is stored in FireStore
-    required internal convenience init(_ data: [String: Any]) {
+    internal required convenience init(_ data: [String: Any]) {
         self.init()
         for (key, value) in data {update(field: key, value: value)
         }

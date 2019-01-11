@@ -18,7 +18,7 @@ internal final class DatePicker: UIDatePicker, DatePickerProtocol {
     /// Required initializer returns nil
     ///
     /// - Parameter aDecoder: parameter for state preservation
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 

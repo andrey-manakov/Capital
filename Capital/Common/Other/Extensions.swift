@@ -48,7 +48,7 @@ extension UIView {
 // MARK: - Extension allows to initialize Date Formatter with one command
 
 extension DateFormatter {
-    convenience internal init(_ format: String? = nil) {
+    internal convenience init(_ format: String? = nil) {
         self.init()
         self.dateFormat = format
     }

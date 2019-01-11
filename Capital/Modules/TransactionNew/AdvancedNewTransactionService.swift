@@ -10,7 +10,7 @@ internal protocol AdvancedNewTransactionServiceProtocol: class {
 
 internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionServiceProtocol {
 
-    weak internal var view: AdvancedNewTransactionVCProtocol?
+    internal weak var view: AdvancedNewTransactionVCProtocol?
     private var fromAccountId: String?
     private var toAccountId: String?
     private var amount: Int? {didSet {

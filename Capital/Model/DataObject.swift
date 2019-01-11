@@ -12,6 +12,6 @@ internal class DataObject: DataObjectProtocol, Codable {
     internal typealias FieldName = String
 
     internal init() {}
-    required internal init(_ data: [String: Any]) {
+    internal required init(_ data: [String: Any]) {
     }
 }

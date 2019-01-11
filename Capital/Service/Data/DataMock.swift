@@ -30,7 +30,8 @@ internal class DataMock: DataProtocol {
         _ name: String?,
         ofType type: AccountType?,
         withAmount amount: Int?,
-        completion: ((String?) -> Void)?) {
+        completion: ((String?) -> Void)?
+        ) {
 
     }
 
@@ -39,12 +40,14 @@ internal class DataMock: DataProtocol {
     internal func signInUser(
         withEmail email: String,
         password pwd: String,
-        completion: ((Error?) -> Void)?) {}
+        completion: ((Error?) -> Void)?
+        ) {}
 
     internal func signUpUser(
         withEmail email: String,
         password pwd: String,
-        completion: ((Error?) -> Void)?) {}
+        completion: ((Error?) -> Void)?
+        ) {}
 
     // swiftlint:disable identifier_name function_parameter_count
     internal func createTransaction(
@@ -55,7 +58,8 @@ internal class DataMock: DataProtocol {
         approvalMode: FinTransaction.ApprovalMode?,
         recurrenceFrequency: RecurrenceFrequency?,
         recurrenceEnd: Date?,
-        completion: ((String?) -> Void)?) {}
+        completion: ((String?) -> Void)?
+        ) {}
 
     internal func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {}
 
@@ -64,23 +68,28 @@ internal class DataMock: DataProtocol {
     internal func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping
-        ((([(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void))) {}
+        ((([(id: String, account: FinTransaction, changeType: ChangeType)]
+        ) -> Void))
+        ) {}
 
     internal func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((([(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))) {}
+        ((([(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))
+        ) {}
 
     internal func setListnersToAccountsInGroup(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping
-        ((([(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
+        ((([(id: String, account: Account, changeType: ChangeType)]) -> Void))
+        ) {
     }
 
     internal func setListnerToAccounts(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((([(id: String, account: Account, changeType: ChangeType)]) -> Void))) {
+        ((([(id: String, account: Account, changeType: ChangeType)]) -> Void))
+        ) {
 
     }
 

@@ -35,7 +35,7 @@ extension Account {
                 lhs.name == rhs.name
         }
 
-        required convenience internal init(_ data: [String: Any]) {
+        internal required convenience init(_ data: [String: Any]) {
             self.init()
             for (field, value) in data {
                 update(field: field, value: value)

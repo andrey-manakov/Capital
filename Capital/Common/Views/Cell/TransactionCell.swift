@@ -1,4 +1,4 @@
-internal protocol TransactionCellProtocol: class {
+internal protocol TransactionCellProtocol: AnyObject {
     var date: SimpleLabelProtocol { get set }
     var from: SimpleLabelProtocol { get set }
     // swiftlint:disable identifier_name
@@ -27,7 +27,7 @@ internal final class TransactionCell: UITableViewCell, TransactionCellProtocol {
             ])
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

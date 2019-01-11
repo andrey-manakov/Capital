@@ -13,7 +13,7 @@ internal final class FIRAuth: FireAuthProtocol {
 
     internal var currentUser: User? { return Auth.auth().currentUser }
     internal var currentUserUid: String? { return currentUser?.uid }
-    lazy internal var getUpdatedUserInfo = [ObjectIdentifier: (String?) -> Void]()
+    internal lazy var getUpdatedUserInfo = [ObjectIdentifier: (String?) -> Void]()
 
     private init() {
         Auth.auth().addStateDidChangeListener { auth, user in _ =
@@ -30,7 +30,8 @@ internal final class FIRAuth: FireAuthProtocol {
     internal func createUser(
         withEmail email: String,
         password pwd: String,
-        completion: ((Error?) -> Void)? = nil) {
+        completion: ((Error?) -> Void)? = nil
+        ) {
         Auth.auth().createUser(withEmail: email, password: pwd) { _, error in
             if let error = error {
                 print("Error in user creation \(error.localizedDescription)")
@@ -61,7 +62,8 @@ internal final class FIRAuth: FireAuthProtocol {
     internal func signInUser(
         withEmail email: String,
         password pwd: String,
-        completion: ((Error?) -> Void)? = nil) {
+        completion: ((Error?) -> Void)? = nil
+        ) {
         Auth.auth().signIn(withEmail: email, password: pwd) { _, error in completion?(error) }
     }
 

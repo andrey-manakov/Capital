@@ -47,7 +47,7 @@ internal class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDat
         self.delegate = self
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 
@@ -74,7 +74,8 @@ internal class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDat
     // height def warning appears if i comment two functions below
     internal func tableView(
         _ tableView: UITableView,
-        estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        estimatedHeightForRowAt indexPath: IndexPath
+        ) -> CGFloat {
         return 45
     }
     internal func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

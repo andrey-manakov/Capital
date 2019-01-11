@@ -10,7 +10,8 @@ extension FireStoreData {
     internal func create(
         _ dataObject: DataObjectType,
         with data: [String: Any?],
-        completion: ((String?) -> Void)? = nil) {
+        completion: ((String?) -> Void)? = nil
+        ) {
         var docRef: DocumentReference?
         docRef = ref?.collection(dataObject.rawValue).addDocument(data: data as [String: Any]) { err in
             if let err = err {
@@ -32,7 +33,8 @@ extension FireStoreData {
         _ dataObject: DataObjectType,
         id: String?,
         with values: [String: Any?],
-        completion: (() -> Void)? = nil) {
+        completion: (() -> Void)? = nil
+        ) {
         guard let id = id else {
             return
         }

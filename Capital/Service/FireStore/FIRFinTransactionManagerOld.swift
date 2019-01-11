@@ -3,13 +3,15 @@ internal protocol FIRFinTransactionManagerProtocolOld: class {
     func createTransaction(
         from: String?, to: String?, amount: Int?, date: Date?,
         approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?,
-        recurrenceEnd: Date?, completion: ((String?) -> Void)?)
+        recurrenceEnd: Date?, completion: ((String?) -> Void)?
+    )
     // swiftlint:disable function_parameter_count
     func sendFinTransaction(
         to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?,
         date: Date?, approvalMode: FinTransaction.ApprovalMode?,
         recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String?,
-        approvedAmount: Int) -> Int
+        approvedAmount: Int
+        ) -> Int
 }
 
 extension FIRFinTransactionManagerProtocolOld {
@@ -19,7 +21,8 @@ extension FIRFinTransactionManagerProtocolOld {
         to fsTransaction: Transaction,
         from: AccountInfo?,
         to: AccountInfo?,
-        amount: Int?) -> Int {
+        amount: Int?
+        ) -> Int {
 
         return sendFinTransaction(
             to: fsTransaction,
@@ -44,7 +47,7 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
     /// Singlton
     internal static var shared: FIRFinTransactionManagerProtocolOld = FIRFinTransactionManagerOld()
 
-    private override init() {}
+    override private init() {}
 
     // swiftlint:disable identifier_name
     // TODO: consider add error processing to completion
@@ -73,7 +76,8 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
         from: String?, to: String?, amount: Int?, date: Date? = Date(),
         approvalMode: FinTransaction.ApprovalMode? = nil,
         recurrenceFrequency: RecurrenceFrequency? = nil,
-        recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil) {
+        recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil
+        ) {
         guard let ref = ref, let from = from, let to = to, let amount = amount else {
             return
         }
@@ -130,7 +134,8 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil,
         parent: String? = nil,
-        approvedAmount: Int = 0) -> Int {
+        approvedAmount: Int = 0
+        ) -> Int {
         guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
             let from = from, let to = to, let amount = amount else { return 0 }
         let date = date ?? Date()

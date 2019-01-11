@@ -33,13 +33,13 @@ internal final class FinTransaction: DataObject {
     internal var parent: String?
 
     /// MARK: - Initialization
-    required convenience internal init(_ data: [String: Any]) {
+    internal required convenience init(_ data: [String: Any]) {
         self.init()
         for (field, value) in data { self.update(field: field, value: value) }
     }
 
     // swiftlint:disable identifier_name
-    convenience internal init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date) {
+    internal convenience init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date) {
         self.init()
         self.from = from
         self.to = to

@@ -1,6 +1,10 @@
 internal protocol FIRAccountManagerProtocol {
-    func createAccount(_ name: String?, ofType type: AccountType?,
-                       withAmount amount: Int?, completion: ((String?) -> Void)?)
+    func createAccount(
+        _ name: String?,
+        ofType type: AccountType?,
+        withAmount amount: Int?,
+        completion: ((String?) -> Void)?
+    )
     func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)?)
 }
 
@@ -10,7 +14,7 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
 
     internal static var shared: FIRAccountManagerProtocol = FIRAccountManager()
 
-    private override init() {}
+    override private init() {}
     // FIXME: old reference
     internal let finTransactionManager: FIRFinTransactionManagerProtocolOld =
         FIRFinTransactionManagerOld.shared
@@ -29,7 +33,8 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
         _ name: String?,
         ofType type: AccountType?,
         withAmount amount: Int?,
-        completion: ((String?) -> Void)?) {
+        completion: ((String?) -> Void)?
+        ) {
         guard let ref = ref,
             let name = name,
             let type = type,
@@ -89,7 +94,8 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
         withId id: String?,
         name: String?,
         amount: Int?,
-        completion: (() -> Void)? = nil) {
+        completion: (() -> Void)? = nil
+        ) {
         guard let id = id,
             let accountDoc = ref?.collection(DataObjectType.account.rawValue).document(id),
             let capitalDoc = capitalDoc else { return }

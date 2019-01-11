@@ -1,8 +1,8 @@
 import XCTest
 
 internal class Springboard {
-    static private let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-    static private let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
+    private static let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+    private static let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
 
     /**
      Terminate and delete the app via springboard

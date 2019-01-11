@@ -1,9 +1,9 @@
 internal protocol DataProtocol {
-    
+
     func signOut(_ completion: ((Error?) -> Void)?)
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
     func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
-    
+
     func createAccount(
         _ name: String?,
         ofType type: AccountType?,
@@ -11,24 +11,26 @@ internal protocol DataProtocol {
         completion: ((String?) -> Void)?
     )
     // swiftlint:disable identifier_name function_parameter_count
-    func createTransaction(from: AccountInfo?,
-                           to: AccountInfo?,
-                           amount: Int?,
-                           date: Date?,
-                           approvalMode: FinTransaction.ApprovalMode?,
-                           recurrenceFrequency: RecurrenceFrequency?,
-                           recurrenceEnd: Date?,
-                           completion: ((String?) -> Void)?)
+    func createTransaction(
+        from: AccountInfo?,
+        to: AccountInfo?,
+        amount: Int?,
+        date: Date?,
+        approvalMode: FinTransaction.ApprovalMode?,
+        recurrenceFrequency: RecurrenceFrequency?,
+        recurrenceEnd: Date?,
+        completion: ((String?) -> Void)?
+    )
     func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo])
-    
+
     func delete(_ dataObject: DataObjectType, withId id: String?, completion: (() -> Void)?)
     func deleteAll(completion: (() -> Void)?)
     func deleteAccount(withId id: String, completion: (() -> Void)?)
     func deleteAccountGroup(withId id: String, completion: (() -> Void)?)
     func deleteUser(completion: ((Error?) -> Void)?)
-    
+
     func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)?)
-    
+
     func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping ((( [(id: String, account: FinTransaction, changeType: ChangeType)]
@@ -52,19 +54,19 @@ internal protocol DataProtocol {
 }
 
 extension DataProtocol {
-    
+
     internal func delete(_ dataObject: DataObjectType, withId id: String?) {
         delete(dataObject, withId: id, completion: nil)
     }
-    
+
 }
 
 // MARK: - Extension to provide functions with default values
 extension DataProtocol {
-    
+
     internal func createAccount(_ name: String, ofType type: AccountType, withAmount amount: Int?) {
         createAccount(name, ofType: type, withAmount: amount, completion: nil)
     }
-    
+
     // TODO: consider adding func createTransaction with default values
 }

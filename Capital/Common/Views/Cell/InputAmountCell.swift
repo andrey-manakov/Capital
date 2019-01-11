@@ -11,7 +11,7 @@ internal class InputAmountCell: UITableViewCell, InputAmountCellProtocol {
         contentView.add(subView: amountTextField as? UIView, withConstraints: ["H:[v(100)]-20-|", "V:|[v]|"])
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 }

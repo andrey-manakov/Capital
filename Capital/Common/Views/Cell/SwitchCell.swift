@@ -1,4 +1,4 @@
-internal protocol SwitchProtocol: class {
+internal protocol SwitchProtocol: AnyObject {
 }
 
 internal class SimpleSwitch: UISwitch, SwitchProtocol {
@@ -16,7 +16,7 @@ internal final class SwitchCell: UITableViewCell, SwitchCellProtocol {
         contentView.add(subView: switchControl as? UIView, withConstraints: ["H:[v(50)]-20-|", "V:|[v]|"])
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 

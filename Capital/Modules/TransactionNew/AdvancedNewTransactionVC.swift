@@ -60,7 +60,7 @@ extension AdvancedNewTransactionVC {
             self.dataSource = viewController
         }
 
-        required internal init?(coder aDecoder: NSCoder) {
+        internal required init?(coder aDecoder: NSCoder) {
             return nil
         }
     }
@@ -158,7 +158,8 @@ extension AdvancedNewTransactionVC: UITableViewDelegate {
 
     internal func tableView(
         _ tableView: UITableView,
-        estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        estimatedHeightForRowAt indexPath: IndexPath
+        ) -> CGFloat {
         return tableData[indexPath].height ?? 45
     }
 

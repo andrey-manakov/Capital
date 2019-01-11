@@ -20,8 +20,7 @@ internal class SimpleLabel: UILabel, SimpleLabelProtocol {
         }
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
-
 }

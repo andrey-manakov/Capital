@@ -16,7 +16,7 @@ internal class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDeleg
         self.delegate = self
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 

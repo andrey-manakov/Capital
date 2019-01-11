@@ -1,9 +1,11 @@
 internal protocol FIRFinTransactionManagerProtocol: class {
     // swiftlint:disable identifier_name function_parameter_count
-    func createTransaction(from: AccountInfo?, to: AccountInfo?,
-                           amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?,
-                           recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?,
-                           completion: ((String?) -> Void)?)
+    func createTransaction(
+        from: AccountInfo?, to: AccountInfo?,
+        amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?,
+        recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?,
+        completion: ((String?) -> Void)?
+    )
 }
 
 extension FIRFinTransactionManager: FireStoreCompletionProtocol {}
@@ -13,7 +15,7 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
     /// Singlton
     internal static var shared: FIRFinTransactionManagerProtocol = FIRFinTransactionManager()
 
-    private override init() {}
+    override private init() {}
 
     // swiftlint:disable identifier_name
     /// Creates transaction in FireStore date base, including recurrent transactions,
@@ -44,7 +46,8 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
         approvalMode: FinTransaction.ApprovalMode? = nil,
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil,
-        completion: ((String?) -> Void)? = nil) {
+        completion: ((String?) -> Void)? = nil
+        ) {
 
         guard let ref = ref, let from = from, let to = to, let amount = amount else {
             return

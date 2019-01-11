@@ -36,7 +36,7 @@ internal final class TabBarController: UITabBarController, TabBarControllerProto
         tabBar.items?[4].title = "Settings"
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 

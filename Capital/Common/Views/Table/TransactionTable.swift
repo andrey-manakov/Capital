@@ -9,13 +9,14 @@ internal class TransactionsTable: SimpleTableWithSwipe, TransactionsTableProtoco
         register(TransactionCell.self, forCellReuseIdentifier: TransactionCell.self.description())
     }
 
-    required internal init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
 
     override internal func tableView(
         _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        cellForRowAt indexPath: IndexPath
+        ) -> UITableViewCell {
         guard let cell: TransactionCellProtocol = dequeueReusableCell(
             withIdentifier: TransactionCell.self.description()) as? TransactionCell else {
             return UITableViewCell()
