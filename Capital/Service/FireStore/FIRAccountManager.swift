@@ -117,6 +117,7 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
                         to: fsTransaction,
                         from: (self.capitalAccountName, self.capitalAccountName),
                         to: (id, name ?? oldName), amount: abs(delta))
+
                 case (false, true), (true, false):
                     _ = self.finTransactionManager.sendFinTransaction(
                         to: fsTransaction,

@@ -20,15 +20,15 @@ internal class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDeleg
         return nil
     }
 
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+    override internal func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
 
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    override internal func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
 
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override internal func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
 
@@ -40,5 +40,4 @@ internal class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDeleg
         actionOnReturn?()
         return true
     }
-
 }

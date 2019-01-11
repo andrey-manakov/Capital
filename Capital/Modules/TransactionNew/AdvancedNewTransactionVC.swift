@@ -136,8 +136,10 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
         switch item {
         case .from, .to, .recurrenceFrequency, .approvalMode, .date, .recurrenceEnd:
             cell = leftRightCell(tableView, at: indexPath)
+
         case .amount:
             cell = inputAmountCell(tableView, at: indexPath)
+
         case .dateSelection, .recurrenceEndDate:
             cell = dateSelectionCell(tableView, at: indexPath)
         }

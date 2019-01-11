@@ -7,7 +7,6 @@ extension String {
 }
 
 extension String {
-
      internal static func randomWithSmallLetters(length: Int = 10) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyz"
         return String((0...length - 1).map { _ in letters.randomElement() ?? Character("x") })

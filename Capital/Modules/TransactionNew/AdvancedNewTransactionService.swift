@@ -81,16 +81,20 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
         case .from, .to:
             view?.push(AccountSelectorVC(action))
             hide(.dateSelection)
+
         case .amount:
             view?.setAmountFieldFirstResponder()
+
         case .date:
             if transactionItems.contains(.dateSelection) {
                 hide(.dateSelection)
             } else {
                 insert(.dateSelection, after: .date)
             }
+
         case .dateSelection:
             fatalError("date selection cell selected")
+
         case .approvalMode:
             let sourceData: () -> (DataModel) = {
                 return DataModel(FinTransaction.ApprovalMode.allCases.map {
@@ -98,14 +102,17 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
                 })
             }
             view?.push(EnumValuesSelectorVC((sourceData: sourceData, selectionAction: action)))
+
         case .recurrenceFrequency:
             view?.push(RecurrenceFrequencySelectorVC(action))
+
         case .recurrenceEnd:
             if transactionItems.contains(.recurrenceEndDate) {
                 hide(.recurrenceEndDate)
             } else {
                 insert(.recurrenceEndDate, after: .recurrenceEnd)
             }
+
         case .recurrenceEndDate:
             fatalError("recurrence end date cell selected")
         }
@@ -119,15 +126,19 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
             fromAccountId = (value as? AccountInfo)?.id
             transactionItemsDesc[.from] = (value as? AccountInfo)?.name
             getData(for: transactionItem)
+
         case .to:
             toAccountId = (value as? AccountInfo)?.id
             transactionItemsDesc[.to] = (value as? AccountInfo)?.name
             getData(for: transactionItem)
+
         case .amount:
             self.amount = Int(value as? String ?? "")
             getData(for: transactionItem)
+
         case .date:
             fatalError("chosen date cell")
+
         case .dateSelection:
             self.date = value as? Date
             if let date = value as? Date, date > Date() {
@@ -138,11 +149,13 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
                 hide(.approvalMode)
             }
             getData(for: .date)
+
         case .approvalMode:
             guard let enumId = value as? String, let rawValue = Int(enumId),
                 let approvalMode = FinTransaction.ApprovalMode(rawValue: rawValue) else { return }
             self.approvalMode = approvalMode
             getData(for: transactionItem)
+
         case .recurrenceFrequency:
             guard let enumId = value  as? String, let rawValue = Int(enumId),
                 let recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue) else { return }
@@ -155,8 +168,10 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
                     insert(.recurrenceEnd, after: .recurrenceFrequency)
                 }
             }
+
         case .recurrenceEnd:
             fatalError("chosen recurrence end cell")
+
         case .recurrenceEndDate:
             self.recurrenceEndDate = value as? Date
             getData(for: .recurrenceEnd)

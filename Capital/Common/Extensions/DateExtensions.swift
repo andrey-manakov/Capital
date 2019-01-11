@@ -25,7 +25,6 @@ extension Date {
 }
 
 extension Date {
-
     internal func dayNumberOfWeek() -> Int? {
         return Calendar.current.dateComponents([.weekday], from: self).weekday
     }

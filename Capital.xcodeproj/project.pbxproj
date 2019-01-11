@@ -28,7 +28,7 @@
 		C1164D4321BD704800895A1B /* SimpleTableWithSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D3E21BD704700895A1B /* SimpleTableWithSelection.swift */; };
 		C1164D4421BD704800895A1B /* SimpleTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D3F21BD704700895A1B /* SimpleTable.swift */; };
 		C1164D4521BD704800895A1B /* SimpleTableWithSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D4021BD704800895A1B /* SimpleTableWithSwipe.swift */; };
-		C1164D4621BD704800895A1B /* TransactionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D4121BD704800895A1B /* TransactionTable.swift */; };
+		C1164D4621BD704800895A1B /* TransactionsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D4121BD704800895A1B /* TransactionsTable.swift */; };
 		C1164D4B21BD762400895A1B /* NumberLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D4821BD762300895A1B /* NumberLabel.swift */; };
 		C1164D4C21BD762400895A1B /* SimpleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D4921BD762300895A1B /* SimpleLabel.swift */; };
 		C1164D4D21BD762400895A1B /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D4A21BD762300895A1B /* TitleLabel.swift */; };
@@ -59,15 +59,15 @@
 		C16D36DB21C3B58A00690B7B /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D36DA21C3B58A00690B7B /* BarButtonItem.swift */; };
 		C16D36DD21C4078800690B7B /* AccountGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D36DC21C4078800690B7B /* AccountGroupTests.swift */; };
 		C16D36DF21C4157700690B7B /* DataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D36DE21C4157700690B7B /* DataMock.swift */; };
-		C1913FA821C42A4A00D3DA3E /* AccountGroupDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FA721C42A4A00D3DA3E /* AccountGroupDetailTests.swift */; };
+		C1913FA821C42A4A00D3DA3E /* AccountGroupDetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FA721C42A4A00D3DA3E /* AccountGroupDetailVCTests.swift */; };
 		C1913FAA21C4345B00D3DA3E /* AccountTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FA921C4345B00D3DA3E /* AccountTypeTests.swift */; };
 		C1913FAC21C43CB200D3DA3E /* FinTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FAB21C43CB200D3DA3E /* FinTransactionTests.swift */; };
 		C1913FAE21C45F2A00D3DA3E /* RecurrenceFrequencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FAD21C45F2A00D3DA3E /* RecurrenceFrequencyTests.swift */; };
-		C1913FB021C462A000D3DA3E /* AccountListVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FAF21C462A000D3DA3E /* AccountListVCTests.swift */; };
+		C1913FB021C462A000D3DA3E /* AccountGroupListVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FAF21C462A000D3DA3E /* AccountGroupListVCTests.swift */; };
 		C1913FB221C462CB00D3DA3E /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FB121C462CB00D3DA3E /* ViewControllerTests.swift */; };
 		C1913FB421C4769400D3DA3E /* AccountNewVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FB321C4769400D3DA3E /* AccountNewVCTests.swift */; };
 		C1913FB621C47C1F00D3DA3E /* AccountSelectorVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FB521C47C1F00D3DA3E /* AccountSelectorVCTests.swift */; };
-		C1913FB821C47F2400D3DA3E /* AccountTransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FB721C47F2400D3DA3E /* AccountTransactionsVC.swift */; };
+		C1913FB821C47F2400D3DA3E /* AccountTransactionsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FB721C47F2400D3DA3E /* AccountTransactionsVCTests.swift */; };
 		C1913FBA21C575DF00D3DA3E /* FIRAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1913FB921C575DF00D3DA3E /* FIRAuthTests.swift */; };
 		C1A0279621BD428900207FF7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0279521BD428900207FF7 /* LoginVC.swift */; };
 		C1A0279A21BD43D200207FF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0279921BD43D200207FF7 /* ViewController.swift */; };
@@ -92,8 +92,7 @@
 		C1A027E221BD54F300207FF7 /* FIRAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D221BD54F200207FF7 /* FIRAccountManager.swift */; };
 		C1A027E521BD54F300207FF7 /* FIRFinTransactionManagerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */; };
 		C1A027E621BD54F300207FF7 /* MiscFunctionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D621BD54F200207FF7 /* MiscFunctionsProtocol.swift */; };
-		C1A027E721BD54F300207FF7 /* extSimpleOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D721BD54F200207FF7 /* extSimpleOperations.swift */; };
-		C1A027E821BD54F300207FF7 /* extCheckCapital.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D821BD54F200207FF7 /* extCheckCapital.swift */; };
+		C1A027E721BD54F300207FF7 /* FireStoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */; };
 		C1A027EA21BD54F300207FF7 /* FIRAccountGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DA21BD54F200207FF7 /* FIRAccountGroupManager.swift */; };
 		C1A027EB21BD54F300207FF7 /* FIRDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DB21BD54F200207FF7 /* FIRDataProtocol.swift */; };
 		C1A027EC21BD54F300207FF7 /* FIRFinTransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */; };
@@ -102,7 +101,7 @@
 		C1CE083121BD216F000D28C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE083021BD216F000D28C9 /* AppDelegate.swift */; };
 		C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083721BD2170000D28C9 /* Assets.xcassets */; };
 		C1CE084621BD2170000D28C9 /* ButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE084521BD2170000D28C9 /* ButtonTest.swift */; };
-		C1CE085121BD2170000D28C9 /* SpringBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE085021BD2170000D28C9 /* SpringBoard.swift */; };
+		C1CE085121BD2170000D28C9 /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE085021BD2170000D28C9 /* Springboard.swift */; };
 		C1CE085F21BD221A000D28C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1CE085E21BD221A000D28C9 /* GoogleService-Info.plist */; };
 		C1CE087521BD2640000D28C9 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE086121BD263F000D28C9 /* BoringSSL.framework */; };
 		C1CE087621BD2640000D28C9 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE086221BD263F000D28C9 /* FIRAnalyticsConnector.framework */; };
@@ -122,20 +121,20 @@
 		C1CE088421BD2640000D28C9 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CE087221BD263F000D28C9 /* Protobuf.framework */; };
 		C1CE088521BD2640000D28C9 /* gRPCCertificates-Firestore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1CE087421BD263F000D28C9 /* gRPCCertificates-Firestore.bundle */; };
 		C1D0960121E78FD30032BF8E /* DataModelRowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960021E78FD30032BF8E /* DataModelRowExtension.swift */; };
-		C1D0960321E7F6700032BF8E /* AppTitleTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */; };
+		C1D0960321E7F6700032BF8E /* AppTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960221E7F6700032BF8E /* AppTitleTests.swift */; };
 		C1D0960521E8A1F70032BF8E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960421E8A1F70032BF8E /* UIViewExtension.swift */; };
 		C1D0960721E8A2370032BF8E /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960621E8A2370032BF8E /* DateFormatterExtension.swift */; };
-		C1D0960921E8A27F0032BF8E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960821E8A27F0032BF8E /* DateExtension.swift */; };
+		C1D0960921E8A27F0032BF8E /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960821E8A27F0032BF8E /* DateExtensions.swift */; };
 		C1D0960B21E8A2A50032BF8E /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960A21E8A2A50032BF8E /* FormatterExtension.swift */; };
 		C1D0960D21E8A2C00032BF8E /* BinaryIntegerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960C21E8A2C00032BF8E /* BinaryIntegerExtension.swift */; };
 		C1D0961021E8A3030032BF8E /* BinaryIntegerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960C21E8A2C00032BF8E /* BinaryIntegerExtension.swift */; };
 		C1D0961121E8A3070032BF8E /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960A21E8A2A50032BF8E /* FormatterExtension.swift */; };
 		C1D0961221E8A30A0032BF8E /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960621E8A2370032BF8E /* DateFormatterExtension.swift */; };
-		C1D0961321E8A3100032BF8E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960821E8A27F0032BF8E /* DateExtension.swift */; };
+		C1D0961321E8A3100032BF8E /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960821E8A27F0032BF8E /* DateExtensions.swift */; };
 		C1D0961421E8A3130032BF8E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960421E8A1F70032BF8E /* UIViewExtension.swift */; };
 		C1DBCC5921C25B9E0003869A /* AccountGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5821C25B9E0003869A /* AccountGroup.swift */; };
 		C1DBCC5B21C25E840003869A /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5A21C25E840003869A /* AccountTests.swift */; };
-		C1DBCC5D21C261C20003869A /* AccountDetailsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5C21C261C20003869A /* AccountDetailsVCTests.swift */; };
+		C1DBCC5D21C261C20003869A /* AccountDetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5C21C261C20003869A /* AccountDetailVCTests.swift */; };
 		C1E9678F21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9678E21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift */; };
 		C1E9679321C7FCB8005014E1 /* NavigationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9679221C7FCB8005014E1 /* NavigationControllerTests.swift */; };
 		C1E9679521C7FFD1005014E1 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9679421C7FFD1005014E1 /* TabBarControllerTests.swift */; };
@@ -195,7 +194,7 @@
 		C1164D3E21BD704700895A1B /* SimpleTableWithSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTableWithSelection.swift; sourceTree = "<group>"; };
 		C1164D3F21BD704700895A1B /* SimpleTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTable.swift; sourceTree = "<group>"; };
 		C1164D4021BD704800895A1B /* SimpleTableWithSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTableWithSwipe.swift; sourceTree = "<group>"; };
-		C1164D4121BD704800895A1B /* TransactionTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTable.swift; sourceTree = "<group>"; };
+		C1164D4121BD704800895A1B /* TransactionsTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTable.swift; sourceTree = "<group>"; };
 		C1164D4821BD762300895A1B /* NumberLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberLabel.swift; sourceTree = "<group>"; };
 		C1164D4921BD762300895A1B /* SimpleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLabel.swift; sourceTree = "<group>"; };
 		C1164D4A21BD762300895A1B /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
@@ -229,15 +228,15 @@
 		C16D36DA21C3B58A00690B7B /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
 		C16D36DC21C4078800690B7B /* AccountGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroupTests.swift; sourceTree = "<group>"; };
 		C16D36DE21C4157700690B7B /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
-		C1913FA721C42A4A00D3DA3E /* AccountGroupDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroupDetailTests.swift; sourceTree = "<group>"; };
+		C1913FA721C42A4A00D3DA3E /* AccountGroupDetailVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroupDetailVCTests.swift; sourceTree = "<group>"; };
 		C1913FA921C4345B00D3DA3E /* AccountTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTypeTests.swift; sourceTree = "<group>"; };
 		C1913FAB21C43CB200D3DA3E /* FinTransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinTransactionTests.swift; sourceTree = "<group>"; };
 		C1913FAD21C45F2A00D3DA3E /* RecurrenceFrequencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequencyTests.swift; sourceTree = "<group>"; };
-		C1913FAF21C462A000D3DA3E /* AccountListVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVCTests.swift; sourceTree = "<group>"; };
+		C1913FAF21C462A000D3DA3E /* AccountGroupListVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroupListVCTests.swift; sourceTree = "<group>"; };
 		C1913FB121C462CB00D3DA3E /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		C1913FB321C4769400D3DA3E /* AccountNewVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNewVCTests.swift; sourceTree = "<group>"; };
 		C1913FB521C47C1F00D3DA3E /* AccountSelectorVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSelectorVCTests.swift; sourceTree = "<group>"; };
-		C1913FB721C47F2400D3DA3E /* AccountTransactionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTransactionsVC.swift; sourceTree = "<group>"; };
+		C1913FB721C47F2400D3DA3E /* AccountTransactionsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTransactionsVCTests.swift; sourceTree = "<group>"; };
 		C1913FB921C575DF00D3DA3E /* FIRAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRAuthTests.swift; sourceTree = "<group>"; };
 		C1A0279521BD428900207FF7 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C1A0279921BD43D200207FF7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -262,8 +261,7 @@
 		C1A027D221BD54F200207FF7 /* FIRAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAccountManager.swift; sourceTree = "<group>"; };
 		C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManagerOld.swift; sourceTree = "<group>"; };
 		C1A027D621BD54F200207FF7 /* MiscFunctionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctionsProtocol.swift; sourceTree = "<group>"; };
-		C1A027D721BD54F200207FF7 /* extSimpleOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extSimpleOperations.swift; sourceTree = "<group>"; };
-		C1A027D821BD54F200207FF7 /* extCheckCapital.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extCheckCapital.swift; sourceTree = "<group>"; };
+		C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreDataExtension.swift; sourceTree = "<group>"; };
 		C1A027DA21BD54F200207FF7 /* FIRAccountGroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAccountGroupManager.swift; sourceTree = "<group>"; };
 		C1A027DB21BD54F200207FF7 /* FIRDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRDataProtocol.swift; sourceTree = "<group>"; };
 		C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManager.swift; sourceTree = "<group>"; };
@@ -279,7 +277,7 @@
 		C1CE084521BD2170000D28C9 /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
 		C1CE084721BD2170000D28C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CE084C21BD2170000D28C9 /* CapitalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapitalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1CE085021BD2170000D28C9 /* SpringBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringBoard.swift; sourceTree = "<group>"; };
+		C1CE085021BD2170000D28C9 /* Springboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
 		C1CE085221BD2170000D28C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CE085E21BD221A000D28C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1CE086121BD263F000D28C9 /* BoringSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BoringSSL.framework; sourceTree = "<group>"; };
@@ -303,15 +301,15 @@
 		C1CE087421BD263F000D28C9 /* gRPCCertificates-Firestore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Firestore.bundle"; sourceTree = "<group>"; };
 		C1CE088621BD266D000D28C9 /* Capital-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Capital-Bridging-Header.h"; sourceTree = "<group>"; };
 		C1D0960021E78FD30032BF8E /* DataModelRowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelRowExtension.swift; sourceTree = "<group>"; };
-		C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleTests1.swift; sourceTree = "<group>"; };
+		C1D0960221E7F6700032BF8E /* AppTitleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleTests.swift; sourceTree = "<group>"; };
 		C1D0960421E8A1F70032BF8E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		C1D0960621E8A2370032BF8E /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
-		C1D0960821E8A27F0032BF8E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		C1D0960821E8A27F0032BF8E /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		C1D0960A21E8A2A50032BF8E /* FormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtension.swift; sourceTree = "<group>"; };
 		C1D0960C21E8A2C00032BF8E /* BinaryIntegerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryIntegerExtension.swift; sourceTree = "<group>"; };
 		C1DBCC5821C25B9E0003869A /* AccountGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroup.swift; sourceTree = "<group>"; };
 		C1DBCC5A21C25E840003869A /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
-		C1DBCC5C21C261C20003869A /* AccountDetailsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsVCTests.swift; sourceTree = "<group>"; };
+		C1DBCC5C21C261C20003869A /* AccountDetailVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailVCTests.swift; sourceTree = "<group>"; };
 		C1E9678E21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequencySelectorVCTests.swift; sourceTree = "<group>"; };
 		C1E9679221C7FCB8005014E1 /* NavigationControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerTests.swift; sourceTree = "<group>"; };
 		C1E9679421C7FFD1005014E1 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
@@ -407,7 +405,7 @@
 				C1164D3E21BD704700895A1B /* SimpleTableWithSelection.swift */,
 				C1164D4021BD704800895A1B /* SimpleTableWithSwipe.swift */,
 				C1164D3D21BD704700895A1B /* TemplateTable.swift */,
-				C1164D4121BD704800895A1B /* TransactionTable.swift */,
+				C1164D4121BD704800895A1B /* TransactionsTable.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -495,11 +493,11 @@
 		C1913FA621C42A2800D3DA3E /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				C1DBCC5C21C261C20003869A /* AccountDetailsVCTests.swift */,
-				C1913FA721C42A4A00D3DA3E /* AccountGroupDetailTests.swift */,
-				C1913FAF21C462A000D3DA3E /* AccountListVCTests.swift */,
+				C1DBCC5C21C261C20003869A /* AccountDetailVCTests.swift */,
+				C1913FA721C42A4A00D3DA3E /* AccountGroupDetailVCTests.swift */,
+				C1913FAF21C462A000D3DA3E /* AccountGroupListVCTests.swift */,
 				C1913FB321C4769400D3DA3E /* AccountNewVCTests.swift */,
-				C1913FB721C47F2400D3DA3E /* AccountTransactionsVC.swift */,
+				C1913FB721C47F2400D3DA3E /* AccountTransactionsVCTests.swift */,
 				C1913FB521C47C1F00D3DA3E /* AccountSelectorVCTests.swift */,
 				C1E9678E21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift */,
 				C1913FB121C462CB00D3DA3E /* ViewControllerTests.swift */,
@@ -608,8 +606,7 @@
 		C1A027A921BD4B1600207FF7 /* FireStore */ = {
 			isa = PBXGroup;
 			children = (
-				C1A027D821BD54F200207FF7 /* extCheckCapital.swift */,
-				C1A027D721BD54F200207FF7 /* extSimpleOperations.swift */,
+				C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */,
 				C1A027DA21BD54F200207FF7 /* FIRAccountGroupManager.swift */,
 				C1A027D221BD54F200207FF7 /* FIRAccountManager.swift */,
 				C1A027CD21BD541E00207FF7 /* FIRAuth.swift */,
@@ -730,7 +727,7 @@
 		C1CE084F21BD2170000D28C9 /* CapitalUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C1CE085021BD2170000D28C9 /* SpringBoard.swift */,
+				C1CE085021BD2170000D28C9 /* Springboard.swift */,
 				C1CE085221BD2170000D28C9 /* Info.plist */,
 				C1E967B821C8FA1B005014E1 /* CapitalUITests.swift */,
 			);
@@ -775,7 +772,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D0960421E8A1F70032BF8E /* UIViewExtension.swift */,
-				C1D0960821E8A27F0032BF8E /* DateExtension.swift */,
+				C1D0960821E8A27F0032BF8E /* DateExtensions.swift */,
 				C1D0960621E8A2370032BF8E /* DateFormatterExtension.swift */,
 				C1D0960A21E8A2A50032BF8E /* FormatterExtension.swift */,
 				C1D0960C21E8A2C00032BF8E /* BinaryIntegerExtension.swift */,
@@ -832,7 +829,7 @@
 				C1E967AC21C83766005014E1 /* TextFields */,
 				C1E967A521C831F6005014E1 /* Labels */,
 				C1CE084521BD2170000D28C9 /* ButtonTest.swift */,
-				C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */,
+				C1D0960221E7F6700032BF8E /* AppTitleTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1057,13 +1054,12 @@
 				C1A027A321BD495A00207FF7 /* AppTitle.swift in Sources */,
 				C1A027C621BD53AE00207FF7 /* AccountType.swift in Sources */,
 				C1D0960721E8A2370032BF8E /* DateFormatterExtension.swift in Sources */,
-				C1A027E821BD54F300207FF7 /* extCheckCapital.swift in Sources */,
 				C1D0960521E8A1F70032BF8E /* UIViewExtension.swift in Sources */,
 				C1A027C721BD53AE00207FF7 /* DataObject.swift in Sources */,
 				C1164D3821BD703A00895A1B /* SwitchCell.swift in Sources */,
 				C1A027B221BD4EB400207FF7 /* EmailField.swift in Sources */,
 				C1164D3C21BD703A00895A1B /* TransactionCell.swift in Sources */,
-				C1A027E721BD54F300207FF7 /* extSimpleOperations.swift in Sources */,
+				C1A027E721BD54F300207FF7 /* FireStoreDataExtension.swift in Sources */,
 				C16D36DF21C4157700690B7B /* DataMock.swift in Sources */,
 				C1164D2B21BD6F2F00895A1B /* DataModelRow.swift in Sources */,
 				C1164D4421BD704800895A1B /* SimpleTable.swift in Sources */,
@@ -1081,10 +1077,10 @@
 				C1164D6221BD834A00895A1B /* NumberField.swift in Sources */,
 				C1164D2421BD6CAA00895A1B /* SettingsService.swift in Sources */,
 				C1D0960121E78FD30032BF8E /* DataModelRowExtension.swift in Sources */,
-				C1164D4621BD704800895A1B /* TransactionTable.swift in Sources */,
+				C1164D4621BD704800895A1B /* TransactionsTable.swift in Sources */,
 				C16D36DB21C3B58A00690B7B /* BarButtonItem.swift in Sources */,
 				C1A027AC21BD4D1C00207FF7 /* StringExtension.swift in Sources */,
-				C1D0960921E8A27F0032BF8E /* DateExtension.swift in Sources */,
+				C1D0960921E8A27F0032BF8E /* DateExtensions.swift in Sources */,
 				C1240A9521CD708800A0E0BF /* EnumValuesSelectorVC.swift in Sources */,
 				C1164D2521BD6CAA00895A1B /* SettingsViewController.swift in Sources */,
 				C1164D7921BD958900895A1B /* EditAccountGroupVC.swift in Sources */,
@@ -1135,22 +1131,22 @@
 				C1E967A421C831BE005014E1 /* TransactionCellTests.swift in Sources */,
 				C1E9679E21C830CC005014E1 /* DateSelectionCellTests.swift in Sources */,
 				C1E967A921C832D8005014E1 /* SimpleLabelTests.swift in Sources */,
-				C1DBCC5D21C261C20003869A /* AccountDetailsVCTests.swift in Sources */,
+				C1DBCC5D21C261C20003869A /* AccountDetailVCTests.swift in Sources */,
 				C1913FAE21C45F2A00D3DA3E /* RecurrenceFrequencyTests.swift in Sources */,
 				C1913FB421C4769400D3DA3E /* AccountNewVCTests.swift in Sources */,
 				C1E967A221C83170005014E1 /* SwitchCellTests.swift in Sources */,
-				C1913FB821C47F2400D3DA3E /* AccountTransactionsVC.swift in Sources */,
+				C1913FB821C47F2400D3DA3E /* AccountTransactionsVCTests.swift in Sources */,
 				C1913FBA21C575DF00D3DA3E /* FIRAuthTests.swift in Sources */,
 				C1E9679C21C82FC0005014E1 /* InputAmountCellTests.swift in Sources */,
-				C1913FB021C462A000D3DA3E /* AccountListVCTests.swift in Sources */,
+				C1913FB021C462A000D3DA3E /* AccountGroupListVCTests.swift in Sources */,
 				C1E967B721C8B367005014E1 /* ClassServiceTests.swift in Sources */,
 				C1E9679821C8016E005014E1 /* DataModelRowTests.swift in Sources */,
-				C1D0960321E7F6700032BF8E /* AppTitleTests1.swift in Sources */,
+				C1D0960321E7F6700032BF8E /* AppTitleTests.swift in Sources */,
 				C16D36DD21C4078800690B7B /* AccountGroupTests.swift in Sources */,
 				C1E967B021C8379C005014E1 /* PasswordFieldTests.swift in Sources */,
 				C1E967B521C83909005014E1 /* TransactionItemTests.swift in Sources */,
 				C1913FAC21C43CB200D3DA3E /* FinTransactionTests.swift in Sources */,
-				C1913FA821C42A4A00D3DA3E /* AccountGroupDetailTests.swift in Sources */,
+				C1913FA821C42A4A00D3DA3E /* AccountGroupDetailVCTests.swift in Sources */,
 				C1E967AE21C83776005014E1 /* EmailFieldTests.swift in Sources */,
 				C1E967A721C83208005014E1 /* NumberLabelTests.swift in Sources */,
 				C1E9678F21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift in Sources */,
@@ -1162,8 +1158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1CE085121BD2170000D28C9 /* SpringBoard.swift in Sources */,
-				C1D0961321E8A3100032BF8E /* DateExtension.swift in Sources */,
+				C1CE085121BD2170000D28C9 /* Springboard.swift in Sources */,
+				C1D0961321E8A3100032BF8E /* DateExtensions.swift in Sources */,
 				C1D0961121E8A3070032BF8E /* FormatterExtension.swift in Sources */,
 				C1D0961221E8A30A0032BF8E /* DateFormatterExtension.swift in Sources */,
 				C125EBFC21D5932A00FB4F6F /* StringExtension.swift in Sources */,

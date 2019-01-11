@@ -134,8 +134,10 @@ extension Data { // Decide if these functions are needed at all
         switch dataObject {
         case .account:
         break// deleteAccount(withId: id, completion)
+
         case .group:
             accountGroupManager?.delete(id: id, completion: completion)
+
         case .transaction:
         break // deleteFinTransaction(withId: id, completion)
         case .change:

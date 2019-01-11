@@ -31,6 +31,7 @@ extension AccountGroupsViewController {
                     switch changeType {
                     case .added, .modified:
                         self.accountGroups[id] = accountGroup
+
                     case .removed:
                         self.accountGroups.removeValue(forKey: id)
                     }

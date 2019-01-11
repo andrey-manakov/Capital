@@ -33,6 +33,7 @@ internal final class SettingsService: ClassService, SettingsServiceProtocol {
                     self.view?.dismissNavigationViewController()
                 }
             }
+
         case .deleteUser:
             data.deleteUser { error in
                 if let error = error {

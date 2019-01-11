@@ -56,14 +56,19 @@ internal final class FIRListners: FIRManager, FIRListnersProtocol {
             switch whereClause.comparisonType {
             case .isGreaterThan:
                 query = query.whereField(whereClause.field, isGreaterThan: whereClause.value)
+
             case .isGreaterThanOrEqualTo:
                 query = query.whereField(whereClause.field, isGreaterThanOrEqualTo: whereClause.value)
+
             case .isEqualTo:
                 query = query.whereField(whereClause.field, isEqualTo: whereClause.value)
+
             case .arrayContains:
                 query = query.whereField(whereClause.field, arrayContains: whereClause.value)
+
             case .isLessThan:
                 query = query.whereField(whereClause.field, isLessThan: whereClause.value)
+
             case .isLessThanOrEqualTo:
                 query = query.whereField(whereClause.field, isLessThanOrEqualTo: whereClause.value)
             }

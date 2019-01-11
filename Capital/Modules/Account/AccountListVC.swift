@@ -38,6 +38,7 @@ extension AccountListVC {
                     switch changeType {
                     case .added, .modified:
                         self.accounts[id] = account
+
                     case .removed:
                         self.accounts.removeValue(forKey: id)
                     }

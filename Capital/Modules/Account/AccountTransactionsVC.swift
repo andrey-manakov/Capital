@@ -40,8 +40,10 @@ extension AccountTransactionsVC {
             data.setListnersToTransactionsOfAccount(withId: id, for: self.id) {[unowned self] data in
                 for (id, transaction, changeType) in data {
                     switch changeType {
+
                     case .added, .modified:
                         self.transactions[id] = transaction
+
                     case .removed:
                         self.transactions.removeValue(forKey: id)
                     }

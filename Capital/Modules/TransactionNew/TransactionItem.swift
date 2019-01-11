@@ -39,6 +39,7 @@ internal enum TransactionItem: String, CaseIterable {
         switch self {
         case .dateSelection, .recurrenceEndDate:
             return 200
+
         default:
             return 45
         }

@@ -69,8 +69,10 @@ internal final class Account: DataObject {
         switch property {
         case .name:
             self.name = value as? String
+
         case .amount:
             self.amount = value as? Int
+
         case .min:
             guard let value = value as? [String: Any] else {
                 return
@@ -81,8 +83,10 @@ internal final class Account: DataObject {
             if let minDate = (value[Account.Fields.Min.date.rawValue] as? Timestamp)?.dateValue() {
                 self.minDate = minDate
             }
+
         case .type:
             self.typeId = value as? Int
+
         case .groups:
             self.groups = value as? [String: String]
         }

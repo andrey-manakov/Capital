@@ -12,7 +12,6 @@ internal protocol ViewControllerProtocol: AnyObject {
 }
 
 extension ViewControllerProtocol {
-
     internal func dismissNavigationViewController() {
         dimissNavigationViewController(completion: nil)
     }
@@ -28,12 +27,10 @@ extension ViewControllerProtocol {
     internal func present(_ viewControllerToPresent: UIViewController) {
         present(viewControllerToPresent, animated: true, completion: nil)
     }
-
 }
 
 /// Class used for all View Controllers with common functionality
 internal class ViewController: UIViewController, ViewControllerProtocol {
-
     /// Generic input info to the new controller
     internal var data: Any?
 
@@ -76,8 +73,10 @@ internal class ViewController: UIViewController, ViewControllerProtocol {
             switch action.style {
             case .default:
                 print("default")
+
             case .cancel:
                 print("cancel")
+
             case .destructive:
                 print("destructive")
             }

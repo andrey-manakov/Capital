@@ -45,10 +45,13 @@ extension FireStoreGettersProtocol {
         switch dataObject {
         case .account:
             return Account(data)
+
         case .transaction:
             return FinTransaction(data)
+
         case .group:
             return Account.Group(data)
+
         case .change:
             return nil // TODO: double check
         }

@@ -8,7 +8,7 @@ import UIKit
 ///let sampleTemplateTable: TemplateTableProtocol = TemplateTable()
 ///````
 
-internal protocol TemplateTableProtocol: class {
+internal protocol TemplateTableProtocol: AnyObject {
     var localData: DataModelProtocol? { get set }
     var dataFormula: (() -> (DataModel))? { get set }
     var didSelect: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)? { get set }
@@ -20,12 +20,10 @@ internal protocol TemplateTableProtocol: class {
     func reloadRows(at indexPath: [IndexPath], with: UITableView.RowAnimation)
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
     func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
-
 }
 
 //TODO: consider merge with SimpleTable Class
 internal class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDataSource, UITableViewDelegate {
-
     internal var dataFormula: (() -> (DataModel))?
     internal var localData: DataModelProtocol? { didSet { reloadData() } } //Check if this works fine
     internal var dataBeforeFilter: DataModelProtocol { return dataFormula?() ?? localData ?? DataModel() }
@@ -90,5 +88,4 @@ internal class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDat
         didSelect?(data[indexPath], indexPath)
         data[indexPath].selectAction?(data[indexPath], indexPath)
     }
-
 }

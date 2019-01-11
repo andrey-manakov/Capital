@@ -63,6 +63,7 @@ extension AccountGroupEditVC {
                         if account.groups?[self.accountGroup ?? ""] != nil {
                             self.selectedAccounts.insert(id)
                         }
+
                     case .removed:
                         self.accounts.removeValue(forKey: id)
                         self.selectedAccounts.remove(id)

@@ -1,5 +1,4 @@
 internal final class BarButtonItem: UIBarButtonItem {
-
     internal var tapAction: (() -> Void)?
 
     internal convenience init(assetName: String, action: (() -> Void)?) {
@@ -36,5 +35,4 @@ internal final class BarButtonItem: UIBarButtonItem {
     @objc internal func didTap() {
         tapAction?()
     }
-
 }

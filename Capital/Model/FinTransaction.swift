@@ -64,27 +64,36 @@ internal final class FinTransaction: DataObject {
                 let id = value[Fields.From.id.rawValue] as? String,
                 let name = value[Fields.From.name.rawValue] as? String else { return }
             self.from = (id, name)
+
         case .to:
             guard let value = value as? [String: Any],
                 let id = value[Fields.To.id.rawValue] as? String,
                 let name = value[Fields.To.name.rawValue] as? String else { return }
             self.to = (id, name)
+
         case .amount:
             self.amount = value as? Int
+
         case .date:
             self.date = (value as? Timestamp)?.dateValue()
+
         case .serverTime:
             self.serverTime = (value as? Timestamp)?.dateValue()
+
         case .isApproved:
             self.isApproved = value as? Bool
+
         case .approvalMode:
             if let rawValue = value as? Int { self.approvalMode = ApprovalMode(rawValue: rawValue) }
+
         case .recurrenceFrequency:
             if let rawValue = value as? Int {
                 self.recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue)
             }
+
         case .recurrenceEnd:
             self.recurrenceEnd = (value as? Timestamp)?.dateValue()
+
         case .parent:
             self.parent = value as? String
         }

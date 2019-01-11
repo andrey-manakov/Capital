@@ -49,8 +49,10 @@ extension Account {
             switch property {
             case .name:
                 self.name = value as? String
+
             case .amount:
                 self.amount = value as? Int
+
             case .min:
                 guard let value = value as? [String: Any],
                     let minAmount = value[Account.Fields.Min.amount.rawValue] as? Int,
@@ -58,6 +60,7 @@ extension Account {
                         return
                 }
                 self.min = (amount: minAmount, date: minDate)
+
             case .accounts:
                 self.accounts = value as? [String: String]
             }
