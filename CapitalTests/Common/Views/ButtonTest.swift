@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class ButtonTest: XCTestCase {
-
     internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
@@ -28,5 +27,4 @@ internal class ButtonTest: XCTestCase {
         // 3. Assert
         XCTAssert(buttonActionWasCalled)
     }
-
 }

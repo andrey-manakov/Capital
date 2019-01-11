@@ -2,7 +2,6 @@ internal protocol MiscFunctionsProtocol {
 }
 
 extension MiscFunctionsProtocol {
-
     /// Calculates next transaction date based on previous transaction date and recurrence frequency
     ///
     /// - Parameters:
@@ -37,5 +36,4 @@ extension MiscFunctionsProtocol {
         }
         return newDate
     }
-
 }

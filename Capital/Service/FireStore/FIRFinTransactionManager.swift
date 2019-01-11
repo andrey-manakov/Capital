@@ -1,4 +1,4 @@
-internal protocol FIRFinTransactionManagerProtocol: class {
+internal protocol FIRFinTransactionManagerProtocol: AnyObject {
     // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(
         from: AccountInfo?, to: AccountInfo?,
@@ -48,7 +48,6 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
         recurrenceEnd: Date? = nil,
         completion: ((String?) -> Void)? = nil
         ) {
-
         guard let ref = ref, let from = from, let to = to, let amount = amount else {
             return
         }

@@ -1,9 +1,7 @@
 internal protocol SimpleTableProtocol: TemplateTableProtocol {
-
 }
 
 internal class SimpleTable: TemplateTable, SimpleTableProtocol {
-
     override internal init() {
         super.init()
         register(LeftRightCell.self, forCellReuseIdentifier: LeftRightCell.self.description())
@@ -27,5 +25,4 @@ internal class SimpleTable: TemplateTable, SimpleTableProtocol {
         print("cell?.accessibilityIdentifier  = \(cell?.accessibilityIdentifier ?? "")")
         return cell ?? UITableViewCell()
     }
-
 }

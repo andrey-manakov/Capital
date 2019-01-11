@@ -1,10 +1,8 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class DataModelRowTests: XCTestCase {
-
     internal func testInit() {
-
         var selectActionCalled = false
 
         let id = "id"

@@ -18,5 +18,4 @@ internal class SimpleSectionHeader: UITableViewHeaderFooterView, SimpleSectionHe
     internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
-
 }

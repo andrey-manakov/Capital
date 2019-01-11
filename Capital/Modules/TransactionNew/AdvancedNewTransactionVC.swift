@@ -8,7 +8,7 @@ internal protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
     func setAmountFieldFirstResponder()
 }
 
-internal protocol AdvancedNewTransactionTableProtocol: class { // TODO: compare with TemplateTableProtocol
+internal protocol AdvancedNewTransactionTableProtocol: AnyObject { // TODO: compare with TemplateTableProtocol
     func reloadRows(at indexPath: [IndexPath], with: UITableView.RowAnimation)
     func reloadData()
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
@@ -16,7 +16,6 @@ internal protocol AdvancedNewTransactionTableProtocol: class { // TODO: compare 
 }
 
 internal final class AdvancedNewTransactionVC: ViewController, AdvancedNewTransactionVCProtocol {
-
     internal var service: AdvancedNewTransactionServiceProtocol = AdvancedNewTransactionService()
     private lazy var table: AdvancedNewTransactionTableProtocol = AdvancedNewTransactionTable(self)
     internal var tableData = DataModel()
@@ -45,11 +44,9 @@ internal final class AdvancedNewTransactionVC: ViewController, AdvancedNewTransa
     internal func setAmountFieldFirstResponder() {
         _ = amountTextField?.becomeFirstResponder()
     }
-
 }
 
 extension AdvancedNewTransactionVC {
-
     internal class AdvancedNewTransactionTable: UITableView, AdvancedNewTransactionTableProtocol {
         internal init(_ viewController: AdvancedNewTransactionVC) {
             super.init(frame: CGRect.zero, style: UITableView.Style.plain)
@@ -67,7 +64,6 @@ extension AdvancedNewTransactionVC {
 }
 
 extension AdvancedNewTransactionVC: UITableViewDataSource {
-
     internal func reloadData(for indexPath: IndexPath? = nil) {
         if let indexPath = indexPath {
             table.reloadRows(at: [indexPath], with: .fade)
@@ -153,11 +149,9 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
     internal func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
         table.insertRows(at: indexPaths, with: animation)
     }
-
 }
 
 extension AdvancedNewTransactionVC: UITableViewDelegate {
-
     internal func tableView(
         _ tableView: UITableView,
         estimatedHeightForRowAt indexPath: IndexPath
@@ -183,7 +177,6 @@ extension AdvancedNewTransactionVC: UITableViewDelegate {
 }
 
 extension AdvancedNewTransactionVC: UITextFieldDelegate {
-
     internal func textFieldDidEndEditing(_ textField: UITextField) {
         service.didChoose(transactionItem: .amount, with: textField.text)
     }
@@ -191,5 +184,4 @@ extension AdvancedNewTransactionVC: UITextFieldDelegate {
     internal func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.selectAll(nil)
     }
-
 }

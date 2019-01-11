@@ -130,7 +130,6 @@ internal class CapitalUITests: XCTestCase {
         accountGroup name: String,
         with accounts: [(name: String, type: String, amount: String)]
         ) -> Bool {
-
         app.tabBars.buttons["DashBoard"].tap()
         app.navigationBars["DashBoard"].buttons["New"].tap()
         app.textFields["nm"].tap()

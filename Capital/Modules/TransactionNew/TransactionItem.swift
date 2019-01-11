@@ -44,5 +44,4 @@ internal enum TransactionItem: String, CaseIterable {
             return 45
         }
     }
-
 }

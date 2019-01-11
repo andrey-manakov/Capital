@@ -7,7 +7,6 @@ extension Date {
 // MARK: Compare dates
 
 extension Date {
-
     internal func isSameDate(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedSame

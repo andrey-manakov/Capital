@@ -1,9 +1,7 @@
 internal protocol TransactionsTableProtocol: SimpleTableWithSwipeProtocol {
-
 }
 
 internal class TransactionsTable: SimpleTableWithSwipe, TransactionsTableProtocol {
-
     override internal init() {
         super.init()
         register(TransactionCell.self, forCellReuseIdentifier: TransactionCell.self.description())
@@ -27,5 +25,4 @@ internal class TransactionsTable: SimpleTableWithSwipe, TransactionsTableProtoco
         cell.amount.text = data[indexPath].right
         return cell as? TransactionCell ?? UITableViewCell()
     }
-
 }

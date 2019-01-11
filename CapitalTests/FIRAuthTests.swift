@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class FIRAuthTests: XCTestCase {
-
     private var sut: FireAuthProtocol!
     private let login =
     "\(String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }))@gmail.com"
@@ -19,7 +18,6 @@ internal final class FIRAuthTests: XCTestCase {
     }
 
     internal func testSignUp() {
-
         // given
         let promise = expectation(description: "Completion handler invoked")
         var responseError: Error?
@@ -76,5 +74,4 @@ internal final class FIRAuthTests: XCTestCase {
         // then
         XCTAssertNil(responseError)
     }
-
 }

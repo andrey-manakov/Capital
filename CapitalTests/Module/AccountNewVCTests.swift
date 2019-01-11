@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class AccountNewVCTests: XCTestCase {
-
     // MARK: Subject under test
 
     private var sut: AccountNewVC!
@@ -44,5 +43,4 @@ internal final class AccountNewVCTests: XCTestCase {
             view.views["an"] as? SimpleTextField != nil &&
             view.views["aa"] as? SimpleTextField != nil)
     }
-
 }

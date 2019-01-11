@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class RecurrenceFrequencyTests: XCTestCase {
-
     internal func testName() {
         for item in RecurrenceFrequency.allCases {
             let nameIsCorrect: Bool
@@ -28,5 +27,4 @@ internal class RecurrenceFrequencyTests: XCTestCase {
             XCTAssert(nameIsCorrect)
         }
     }
-
 }

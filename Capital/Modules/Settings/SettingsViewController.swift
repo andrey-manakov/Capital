@@ -17,5 +17,4 @@ internal final class SettingsViewController: ViewController, SettingsViewControl
             self.service.didSelect(row, at: index)
         }
     }
-
 }

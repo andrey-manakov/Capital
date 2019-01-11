@@ -1,5 +1,4 @@
 internal final class AccountListVC: ViewController {
-
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -24,12 +23,10 @@ internal final class AccountListVC: ViewController {
         view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView],
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
     }
-
 }
 
 extension AccountListVC {
     private class Service: ClassService {
-
         private var accounts = [String: Account]()
 
         internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
@@ -58,7 +55,5 @@ extension AccountListVC {
             }
             data.delete(.group, withId: id)
         }
-
     }
-
 }

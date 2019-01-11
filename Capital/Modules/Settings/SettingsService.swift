@@ -1,4 +1,4 @@
-internal protocol SettingsServiceProtocol: class {
+internal protocol SettingsServiceProtocol: AnyObject {
     var view: SettingsViewControllerProtocol? { get set }
 
     func viewDidLoad(_ view: SettingsViewControllerProtocol)
@@ -57,5 +57,4 @@ internal final class SettingsService: ClassService, SettingsServiceProtocol {
             }
         }
     }
-
 }

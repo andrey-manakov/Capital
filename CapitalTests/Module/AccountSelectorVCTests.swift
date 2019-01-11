@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class AccountSelectorVCTests: XCTestCase {
-
     // MARK: Subject under test
 
     private var sut: AccountSelectorVC!
@@ -43,5 +42,4 @@ internal final class AccountSelectorVCTests: XCTestCase {
         XCTAssert(view.views["t"] as? SimpleTableWithSwipe != nil &&
             view.views["sc"] as? SegmentedControl != nil)
     }
-
 }

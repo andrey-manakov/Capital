@@ -1,4 +1,4 @@
-internal protocol FIRFinTransactionManagerProtocolOld: class {
+internal protocol FIRFinTransactionManagerProtocolOld: AnyObject {
     // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(
         from: String?, to: String?, amount: Int?, date: Date?,
@@ -15,7 +15,6 @@ internal protocol FIRFinTransactionManagerProtocolOld: class {
 }
 
 extension FIRFinTransactionManagerProtocolOld {
-
     // swiftlint:disable identifier_name
     internal func sendFinTransaction(
         to fsTransaction: Transaction,
@@ -23,7 +22,6 @@ extension FIRFinTransactionManagerProtocolOld {
         to: AccountInfo?,
         amount: Int?
         ) -> Int {
-
         return sendFinTransaction(
             to: fsTransaction,
             from: from,
@@ -37,7 +35,6 @@ extension FIRFinTransactionManagerProtocolOld {
             approvedAmount: 0
         )
     }
-
 }
 
 extension FIRFinTransactionManagerOld: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
@@ -103,7 +100,6 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             }
             return { print("Transaction created") }
         }, completion: fireStoreCompletion)
-
     }
 
     // swiftlint:disable identifier_name
@@ -154,7 +150,7 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
                 recurrenceFrequency == nil ? NSNull() : recurrenceFrequency!.rawValue,
             FinTransaction.Fields.recurrenceEnd.rawValue:
                 recurrenceEnd == nil ? NSNull() : Timestamp(date: recurrenceEnd!)
-            ], forDocument: newFinTransactionRef)
+        ], forDocument: newFinTransactionRef)
         let approvedAmount = date < Date() ? approvedAmount + amount : approvedAmount
         // TODO: consider default recurrence end
         if let recurrenceFrequency = recurrenceFrequency, recurrenceFrequency != .never,
@@ -169,5 +165,4 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             return approvedAmount
         }
     }
-
 }

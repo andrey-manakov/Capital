@@ -7,7 +7,6 @@ internal protocol AccountDetailViewControllerProtocol: ViewControllerProtocol {
 }
 
 internal final class AccountDetailVC: ViewController, AccountDetailViewControllerProtocol {
-
     private let service: AccountDetailServiceProtocol = AccountDetailService()
     internal var accountNameTextField: TextFieldProtocol = SimpleTextField()
     internal var accountAmountTextField: TextFieldProtocol = NumberField()
@@ -31,7 +30,6 @@ internal final class AccountDetailVC: ViewController, AccountDetailViewControlle
         service.viewDidLoad(self)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .SystemItem.done,
                                                             target: self, action: #selector(didTapDone))
-
     }
 
     @objc internal func didTapDone() {
@@ -39,5 +37,4 @@ internal final class AccountDetailVC: ViewController, AccountDetailViewControlle
                            amount: accountAmountTextField.text ?? "")
         navigationController?.popViewController(animated: true)
     }
-
 }

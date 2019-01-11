@@ -1,5 +1,4 @@
 internal final class RecurrenceFrequencySelectorVC: ViewController {
-
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let table: SimpleTableProtocol = SimpleTable()
@@ -13,5 +12,4 @@ internal final class RecurrenceFrequencySelectorVC: ViewController {
             self.dismiss()
         }
     }
-
 }

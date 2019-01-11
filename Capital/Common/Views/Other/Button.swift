@@ -22,5 +22,4 @@ internal final class Button: UIButton, ButtonProtocol {
     @objc internal func tapAction() {
         action?()
     }
-
 }

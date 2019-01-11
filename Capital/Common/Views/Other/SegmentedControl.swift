@@ -1,4 +1,4 @@
-internal protocol SegmentedControlProtocol: class {
+internal protocol SegmentedControlProtocol: AnyObject {
     var selectedSegmentIndex: Int { get set }
 }
 
@@ -22,5 +22,4 @@ internal class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {
     @objc internal func didChangeValue(sender: UISegmentedControl) {
         actionOnValueChange?(selectedSegmentIndex)
     }
-
 }

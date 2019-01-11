@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class ViewControllerTests: XCTestCase {
-
     // MARK: Subject under test
 
     private var sut: ViewController!
@@ -38,5 +37,4 @@ internal class ViewControllerTests: XCTestCase {
         window.addSubview(view)
         RunLoop.current.run(until: Date())
     }
-
 }

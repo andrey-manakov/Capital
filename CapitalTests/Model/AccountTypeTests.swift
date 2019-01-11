@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class AccountTypeTests: XCTestCase {
-
     internal func testActiveAsset() {
         for type in AccountType.allCases {
             let result = type.active
@@ -28,5 +27,4 @@ internal class AccountTypeTests: XCTestCase {
             return XCTAssert(type.name == name)
         }
     }
-
 }

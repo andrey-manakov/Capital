@@ -1,20 +1,17 @@
-internal protocol FIRAccountGroupManagerProtocol: class {
+internal protocol FIRAccountGroupManagerProtocol: AnyObject {
     func create(_ name: String?, withAccounts accountIds: [String])
     func delete(id: String, completion: (() -> Void)?)
 }
 
 extension FIRAccountGroupManagerProtocol {
-
     internal func delete(id: String) {
         delete(id: id, completion: nil)
     }
-
 }
 
 extension FIRAccountGroupManager: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
 
 internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerProtocol {
-
     /// Singlton
     internal static var shared: FIRAccountGroupManagerProtocol = FIRAccountGroupManager()
 
@@ -62,7 +59,6 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
                     accounts.mapValues { acc in acc.name }], forDocument: newRef)
             return true
         }, completion: fireStoreCompletion)
-
     }
 
     /// Deletes Account Group in FireStore data base, also updates accounts
@@ -105,5 +101,4 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             return true
         }, completion: fireStoreCompletion)
     }
-
 }

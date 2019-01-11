@@ -7,7 +7,6 @@ internal protocol FireAuthProtocol {
     func createUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
 }
 internal final class FIRAuth: FireAuthProtocol {
-
     internal static var shared = FIRAuth()
     private lazy var fireStorage: FIRDataProtocol = FireStoreData.shared // TODO: get rid of lazy
 
@@ -23,7 +22,6 @@ internal final class FIRAuth: FireAuthProtocol {
                 newLog.setData(["timestamp": FieldValue.serverTimestamp(),
                                 "user": user.uid])
             }
-
         }
     }
 
@@ -71,7 +69,7 @@ internal final class FIRAuth: FireAuthProtocol {
         do {
             try Auth.auth().signOut()
             completion?(nil)
-        } catch let error {
+        } catch {
             print("Auth sign out failed: \(error)")
         }
     }
@@ -94,5 +92,4 @@ internal final class FIRAuth: FireAuthProtocol {
 //            }
         }
     }
-
 }

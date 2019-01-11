@@ -1,5 +1,4 @@
 internal protocol DataProtocol {
-
     func signOut(_ completion: ((Error?) -> Void)?)
     func signInUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
     func signUpUser(withEmail email: String, password pwd: String, completion: ((Error?) -> Void)?)
@@ -54,16 +53,13 @@ internal protocol DataProtocol {
 }
 
 extension DataProtocol {
-
     internal func delete(_ dataObject: DataObjectType, withId id: String?) {
         delete(dataObject, withId: id, completion: nil)
     }
-
 }
 
 // MARK: - Extension to provide functions with default values
 extension DataProtocol {
-
     internal func createAccount(_ name: String, ofType type: AccountType, withAmount amount: Int?) {
         createAccount(name, ofType: type, withAmount: amount, completion: nil)
     }

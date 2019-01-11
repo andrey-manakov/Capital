@@ -1,5 +1,4 @@
 internal final class FIRManagerProtocol {
-
 }
 
 internal class FIRManager {

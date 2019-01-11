@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class FinTransactionTests: XCTestCase {
-
     /// Test checks that object is correctly initialized with dictionary of [field: value]
     internal func testInitWithData() {
         // 1. Arrange
@@ -58,5 +57,4 @@ internal class FinTransactionTests: XCTestCase {
         transaction.date = currentDate
         XCTAssert(transaction.dateText == DateFormatter("yyyy MMM-dd").string(from: currentDate))
     }
-
 }

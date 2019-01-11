@@ -3,7 +3,6 @@ extension Data: MiscFunctionsProtocol {}
 /// Data is a singleton for all data operations,
 /// it is called only by Services: childs from ClassService, and other Services in Services folder
 internal class Data: DataProtocol {
-
     internal static var shared = Data()
 //    : DataProtocol = {
 //        if (UIApplication.shared.delegate as! AppDelegate).testing {
@@ -25,12 +24,10 @@ internal class Data: DataProtocol {
     private let capitalAccountName = "capital"
 
     private init() {}
-
 }
 
 // MARK: - Set up listners
 extension Data {
-
     internal func setListnerToAccounts(
         for objectId: ObjectIdentifier,
         completion: @escaping ((( [(id: String, account: Account, changeType: ChangeType)]) -> Void))
@@ -91,14 +88,12 @@ extension Data {
     internal func removeListners(ofObject objectId: ObjectIdentifier) {
         listnersManager?.removeListners(ofObject: objectId)
     }
-
 }
 
 // typealias whereClause = (field: String, com) //FIXME: where clause typealias
 
 // MARK: - Sign In, Sign Out
 extension Data {
-
     internal func signOut(_ completion: ((Error?) -> Void)? = nil) {
         fireAuth?.signOutUser(completion)
     }
@@ -114,7 +109,6 @@ extension Data {
     internal func deleteUser(completion: ((Error?) -> Void)?) {
         fireAuth?.deleteUser(completion)
     }
-
 }
 
 // MARK: - Private Data Functions, the only reason to have these functions is
@@ -152,12 +146,10 @@ extension Data { // Decide if these functions are needed at all
         ) {
         fireStorage?.update(dataObject, id: id, with: values, completion: completion)
     }
-
 }
 
 // MARK: - Public Data functions
 extension Data {
-
     internal func createAccount(
         _ name: String?,
         ofType type: AccountType?,
@@ -178,7 +170,6 @@ extension Data {
         recurrenceEnd: Date? = nil,
         completion: ((String?) -> Void)? = nil
         ) {
-
         finTransactionManager?.createTransaction(
             from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
             recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd,
@@ -230,5 +221,4 @@ extension Data {
     internal func deleteAll(completion: (() -> Void)? = nil) {
         fireStorage?.deleteAll(completion)
     }
-
 }

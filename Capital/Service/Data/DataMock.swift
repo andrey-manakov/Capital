@@ -1,5 +1,4 @@
 internal class DataMock: DataProtocol {
-
     internal var updateAccountCalled = false
 
     internal func updateAccount(withId id: String?, name: String?, amount: Int?, completion: (() -> Void)?) {
@@ -32,7 +31,6 @@ internal class DataMock: DataProtocol {
         withAmount amount: Int?,
         completion: ((String?) -> Void)?
         ) {
-
     }
 
     internal func signOut(_ completion: ((Error?) -> Void)?) {}
@@ -90,11 +88,8 @@ internal class DataMock: DataProtocol {
         completion: @escaping
         ((([(id: String, account: Account, changeType: ChangeType)]) -> Void))
         ) {
-
     }
 
     internal func removeListners(ofObject objectId: ObjectIdentifier) {
-
     }
-
 }

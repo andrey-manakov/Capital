@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class AccountTransactionsVCTests: XCTestCase {
-
     // MARK: Subject under test
 
     private var sut: AccountTransactionsVC!
@@ -42,5 +41,4 @@ internal class AccountTransactionsVCTests: XCTestCase {
     internal func testViewDidLoad() {
         XCTAssert(view.views["v"] as? SimpleTable != nil)
     }
-
 }

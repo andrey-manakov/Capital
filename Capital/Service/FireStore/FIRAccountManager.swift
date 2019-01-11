@@ -11,7 +11,6 @@ internal protocol FIRAccountManagerProtocol {
 extension FIRAccountManager: FireStoreCompletionProtocol, FireStoreGettersProtocol {}
 
 internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
-
     internal static var shared: FIRAccountManagerProtocol = FIRAccountManager()
 
     override private init() {}
@@ -138,5 +137,4 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
             return true
             }, completion: fireStoreCompletion)
     }
-
 }

@@ -7,7 +7,6 @@ internal protocol FireAuthProtocol {
 }
 
 internal final class FIRAuth: FireAuthProtocol {
-
     internal static var shared = FIRAuth()
 
     internal var currentUser: User? { return Auth.auth().currentUser }
@@ -26,7 +25,6 @@ internal final class FIRAuth: FireAuthProtocol {
                     }
                 }
             }
-
         }
         if Auth.auth().currentUser != nil {
             //            FIXME: checkAndSetupCapitalAccount(){Data.shared.cleanCoreDataAndSetUpObservers()}
@@ -62,9 +60,8 @@ internal final class FIRAuth: FireAuthProtocol {
         do {
             try Auth.auth().signOut()
             completion?(nil)
-        } catch let error {
+        } catch {
             print("Auth sign out failed: \(error)")
         }
     }
-
 }

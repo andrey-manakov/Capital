@@ -1,5 +1,4 @@
 internal final class AccountDetailVC: ViewController {
-
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service() // should be private
@@ -27,12 +26,10 @@ internal final class AccountDetailVC: ViewController {
                                 "H:|-20-[accountName]-20-|", "H:|-20-[accountAmount]-20-|",
                                 "V:|-120-[accountName(31)]-20-[accountAmount(31)]"])
     }
-
 }
 
 extension AccountDetailVC {
     private class Service: ClassService {
-
         func didTapDone(with id: String?, name: String, amount: String) {
             if let id = id {
                 data.updateAccount(withId: id, name: name, amount: Int(amount), completion: nil)
@@ -42,6 +39,5 @@ extension AccountDetailVC {
         func didTapDelete(withId id: String) {
             data.deleteAccount(withId: id, completion: nil)
         }
-
     }
 }

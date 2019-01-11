@@ -19,5 +19,4 @@ internal final class SwitchCell: UITableViewCell, SwitchCellProtocol {
     internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
-
 }

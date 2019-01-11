@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class AccountDetailVCTests: XCTestCase {
-
     // MARK: Subject under test
 
     internal var sut: AccountDetailVC!
@@ -71,5 +70,4 @@ internal final class AccountDetailVCTests: XCTestCase {
         item?.perform(item?.action)
         XCTAssert(Data.sharedForUnitTests.updateAccountCalled)
     }
-
 }

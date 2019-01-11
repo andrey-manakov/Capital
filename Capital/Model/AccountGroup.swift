@@ -65,6 +65,5 @@ extension Account {
                 self.accounts = value as? [String: String]
             }
         }
-
     }
 }

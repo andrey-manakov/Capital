@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class TitleLabelTests: XCTestCase {
-
     internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
@@ -26,5 +25,4 @@ internal class TitleLabelTests: XCTestCase {
             view.font == UIFont(name: "HelveticaNeue-Bold", size: 20) &&
             view.textAlignment == .center)
     }
-
 }

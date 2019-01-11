@@ -1,5 +1,4 @@
 internal protocol FIRDataProtocol {
-
     func create(
         _ dataObject: DataObjectType,
         with data: [String: Any?],

@@ -4,7 +4,6 @@ internal protocol FireStoreCompletionProtocol {
 }
 
 extension FireStoreCompletionProtocol {
-
     /// Used as completion action for FireStore runTransaction
     ///
     /// - Parameters:
@@ -30,5 +29,4 @@ extension FireStoreCompletionProtocol {
             print("Error in working with firebase: \(error)")
         }
     }
-
 }

@@ -67,13 +67,10 @@ internal final class LoginVC: ViewController, LoginViewControllerProtocol {
         self.loginTextField.text = ""
         self.passwordTextField.text = ""
     }
-
 }
 
 extension LoginVC {
-
     private class Service: ClassService {
-
         func listenToAuthUpdates(withAction action: ((String?) -> Void)?) {
             // TODO: don't call Firebase directly
             FIRAuth.shared.getUpdatedUserInfo[ObjectIdentifier(self)] = action
@@ -100,6 +97,5 @@ extension LoginVC {
             } // TODO: consider use UIAlertVC
             Data.shared.signUpUser(withEmail: lgn, password: pwd, completion: completion)
         }
-
     }
 }

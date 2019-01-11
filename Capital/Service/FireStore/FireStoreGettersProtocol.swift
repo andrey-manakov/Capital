@@ -4,7 +4,6 @@ internal protocol FireStoreGettersProtocol {
 }
 
 extension FireStoreGettersProtocol {
-
     internal func getUserData(
         for fsTransaction: Transaction,
         with errorPointer: NSErrorPointer = nil
@@ -88,5 +87,4 @@ extension FireStoreGettersProtocol {
         ) -> Int? {
         return getAccount(withId: id, for: fsTransaction, with: errorPointer)?.amount
     }
-
 }

@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class TransactionItemTests: XCTestCase {
-
     internal func testName() {
         XCTAssertTrue(TransactionItem.amount.name == "amount" &&
         TransactionItem.approvalMode.name == "approval mode" &&
@@ -22,7 +21,6 @@ internal final class TransactionItemTests: XCTestCase {
             }
         }
     }
-
 }
 
 // var name: String {

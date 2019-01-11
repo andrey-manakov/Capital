@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class SimpleLabelTests: XCTestCase {
-
     internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
@@ -37,5 +36,4 @@ internal class SimpleLabelTests: XCTestCase {
             sample.textAlignment == alignment &&
             sample.numberOfLines == lines)
     }
-
 }

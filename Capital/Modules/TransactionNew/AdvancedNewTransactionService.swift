@@ -1,4 +1,4 @@
-internal protocol AdvancedNewTransactionServiceProtocol: class {
+internal protocol AdvancedNewTransactionServiceProtocol: AnyObject {
     var view: AdvancedNewTransactionVCProtocol? { get set }
 
     func viewDidLoad(_ view: AdvancedNewTransactionVCProtocol)
@@ -9,7 +9,6 @@ internal protocol AdvancedNewTransactionServiceProtocol: class {
 }
 
 internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTransactionServiceProtocol {
-
     internal weak var view: AdvancedNewTransactionVCProtocol?
     private var fromAccountId: String?
     private var toAccountId: String?
@@ -190,7 +189,6 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
                                recurrenceFrequency: recurrenceFrequency,
                                recurrenceEnd: recurrenceEndDate) { _ in
         }
-
     }
 
     internal func didScroll() {
@@ -216,5 +214,4 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
         view?.tableData = DataModel(tableData)
         view?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
     }
-
 }

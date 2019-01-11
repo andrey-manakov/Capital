@@ -63,5 +63,4 @@ internal class Springboard {
             settings.terminate()
         }
     }
-
 }

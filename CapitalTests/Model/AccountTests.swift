@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal class AccountTests: XCTestCase {
-
     /// <#Description#>
     internal func testInitWithData() {
         // 1. Arrange
@@ -15,7 +14,6 @@ internal class AccountTests: XCTestCase {
         let rightAccount = Account()
         rightAccount.name = "name"
         XCTAssertEqual(account, rightAccount)
-
     }
 
     /// <#Description#>
@@ -129,5 +127,4 @@ internal class AccountTests: XCTestCase {
         let rightAccount = Account()
         XCTAssertEqual(account, rightAccount)
     }
-
 }

@@ -10,7 +10,6 @@ internal protocol FIRListnersProtocol {
 }
 
 extension FIRListnersProtocol {
-
     internal func setListner(
         forObject objectId: ObjectIdentifier,
         toPath path: String,
@@ -19,7 +18,6 @@ extension FIRListnersProtocol {
         ) {
         setListner(forObject: objectId, toPath: path, whereClause: nil, completion: completion)
     }
-
 }
 
 // MARK: - Observers
@@ -47,7 +45,6 @@ internal final class FIRListners: FIRManager, FIRListnersProtocol {
         toPath path: String, whereClause: WhereClause?,
         completion: @escaping ([ListnerResult]) -> Void
         ) {
-
         guard let ref = ref else {
             return
         }
@@ -105,5 +102,4 @@ internal final class FIRListners: FIRManager, FIRListnersProtocol {
         }
         listners.removeValue(forKey: objectId)
     }
-
 }

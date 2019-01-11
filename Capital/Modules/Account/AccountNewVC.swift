@@ -1,5 +1,4 @@
 internal class AccountNewVC: ViewController {
-
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -28,16 +27,13 @@ internal class AccountNewVC: ViewController {
                                    "H:|-20-[sc]-20-|",
                                    "V:|-80-[sc(31)]-20-[an(31)]-20-[aa(31)]"])
     }
-
 }
 
 extension AccountNewVC {
     private class Service: ClassService {
-
         func didTapDoneWith(name: String?, amount: String?, type accountType: Int) {
             data.createAccount(name, ofType: AccountType(rawValue: accountType),
                                withAmount: Int(amount ?? ""), completion: nil)
         }
-
     }
 }

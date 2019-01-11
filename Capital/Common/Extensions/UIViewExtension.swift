@@ -1,5 +1,4 @@
 extension UIView {
-
     /// Adds subviews to UIView based on Visual Formatting
     ///
     /// - Parameters:

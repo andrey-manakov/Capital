@@ -7,5 +7,4 @@ internal final class NumberLabel: SimpleLabel {
     internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
-
 }

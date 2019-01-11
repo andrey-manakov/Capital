@@ -1,7 +1,6 @@
 extension FireStoreData: FireStoreGettersProtocol, FireStoreCompletionProtocol {}
 
 internal class FireStoreData: FIRDataProtocol {
-
 //    private let fa: FireAuthProtocol = FIRAuth.shared
     internal let fireDB = Firestore.firestore()
     internal var ref: DocumentReference? {

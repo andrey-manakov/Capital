@@ -1,5 +1,4 @@
 internal final class AccountGroupsViewController: ViewController {
-
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -17,12 +16,10 @@ internal final class AccountGroupsViewController: ViewController {
                 AccountGroupDetailVC((row.id, row.name)), animated: true)
         }
     }
-
 }
 
 extension AccountGroupsViewController {
     internal final class Service: ClassService {
-
         private var accountGroups = [String: Account.Group]() // {didSet{print(accountGroups)}}
 
         internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
@@ -49,7 +46,5 @@ extension AccountGroupsViewController {
             }
             data.delete(.group, withId: id)
         }
-
     }
-
 }

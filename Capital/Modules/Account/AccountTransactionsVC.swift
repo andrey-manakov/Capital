@@ -1,5 +1,4 @@
 internal final class AccountTransactionsVC: ViewController {
-
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let data = self.data as? AccountInfo
@@ -24,9 +23,7 @@ internal final class AccountTransactionsVC: ViewController {
             row in service.deleteTransaction(withId: row?.id)
         }
         table.swipeRightLabel = "Approve"
-
     }
-
 }
 
 extension AccountTransactionsVC {
@@ -40,7 +37,6 @@ extension AccountTransactionsVC {
             data.setListnersToTransactionsOfAccount(withId: id, for: self.id) {[unowned self] data in
                 for (id, transaction, changeType) in data {
                     switch changeType {
-
                     case .added, .modified:
                         self.transactions[id] = transaction
 
@@ -65,6 +61,5 @@ extension AccountTransactionsVC {
         func approveTransaction(withId id: String?, completion: (() -> Void)? = nil) {
             // FIXME: Add implementation
         }
-
     }
 }

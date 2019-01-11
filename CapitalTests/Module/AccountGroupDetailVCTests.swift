@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class AccountGroupDetailVCTests: XCTestCase {
-
     // MARK: Subject under test
 
     internal var sut: AccountGroupDetailVC!

@@ -12,7 +12,6 @@ extension Account {
 
 /// Account - is the entity to record transactions (`FinTransaction`).
 internal final class Account: DataObject {
-
     // MARK: - Properties
 
     /// Account name
@@ -91,7 +90,6 @@ internal final class Account: DataObject {
             self.groups = value as? [String: String]
         }
     }
-
 }
 
 // MARK: - Extends 'Account' to Equatable protocol
@@ -124,7 +122,6 @@ extension Account: Equatable {
             lhs.name == rhs.name &&
             lhs.type == rhs.type
     }
-
 }
 
 // MARK: - Extends  'Account' to CustomStringConvertible, CustomDebugStringConvertible protocols

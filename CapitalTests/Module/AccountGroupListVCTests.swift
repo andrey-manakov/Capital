@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class AccountGroupListVCTests: XCTestCase {
-
     // MARK: Subject under test
 
     internal var sut: AccountListVC!
@@ -42,5 +41,4 @@ internal final class AccountGroupListVCTests: XCTestCase {
     internal func testViewDidLoad() {
         XCTAssert(view.views["t"] as? SimpleTable != nil && view.views["sc"] as? SegmentedControl != nil)
     }
-
 }

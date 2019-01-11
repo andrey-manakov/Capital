@@ -1,5 +1,4 @@
 internal class SimpleTextField: UITextField, TextFieldProtocol, UITextFieldDelegate {
-
     private let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     internal var actionOnReturn: (() -> Void)?
 

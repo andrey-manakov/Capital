@@ -1,5 +1,4 @@
 internal final class AccountGroupDetailVC: ViewController {
-
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -21,7 +20,6 @@ internal final class AccountGroupDetailVC: ViewController {
         }
         view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
     }
-
 }
 
 extension AccountGroupDetailVC {
@@ -52,6 +50,5 @@ extension AccountGroupDetailVC {
         func deleteAccountGroup(id: String) {
             data.deleteAccountGroup(withId: id, completion: nil)
         }
-
     }
 }

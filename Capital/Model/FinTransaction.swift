@@ -54,7 +54,7 @@ internal final class FinTransaction: DataObject {
     ///   - field: field name
     ///   - value: value to use for field update
     internal func update(field: String, value: Any) {
-        guard let field = Fields.init(rawValue: field) else {
+        guard let field = Fields(rawValue: field) else {
             return
         }
 
@@ -102,7 +102,6 @@ internal final class FinTransaction: DataObject {
 
 // MARK: - Introduction of ApprovalMode enum
 extension FinTransaction {
-
     /// Enum defines the approach for transactionы scheduled on FUTURE date:
     /// what to do when the transaction date comes.
     internal enum ApprovalMode: Int, CaseIterable {
@@ -143,7 +142,6 @@ extension FinTransaction: CustomStringConvertible, CustomDebugStringConvertible 
     }
 
     internal var debugDescription: String { return description }
-
 }
 
 // MARK: Definition of Fields enum - names of the FinTransaction class properties EXCEPT calculated fields
@@ -165,7 +163,6 @@ extension FinTransaction {
         // swiftlint:disable nesting type_name
         internal enum To: String { case id, name }
     }
-
 }
 
 extension FinTransaction: Equatable {

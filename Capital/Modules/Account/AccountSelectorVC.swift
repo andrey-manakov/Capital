@@ -22,12 +22,10 @@ internal final class AccountSelectorVC: ViewController {
             self.dismiss()
         }
     }
-
 }
 
 extension AccountSelectorVC {
     private class Service: ClassService {
-
         private var accounts = [String: Account]()
 
         private var dataModel: DataModelProtocol {
@@ -57,7 +55,5 @@ extension AccountSelectorVC {
                 completion(self.dataModel)
             }
         }
-
     }
-
 }

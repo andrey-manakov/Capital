@@ -1,6 +1,5 @@
 // MARK: - Simple create, update, delete oprations on FireStore DataBase
 extension FireStoreData {
-
     /// Creates data object in FireStore DataBase
     ///
     /// - Parameters:
@@ -47,12 +46,10 @@ extension FireStoreData {
             }
         }
     }
-
 }
 
 // MARK: - Capital Account Creation if needed
 extension FireStoreData {
-
     /// Creates Capital account if doesn't exist
     internal func checkIfCapitalAccountExist(completion: ((Error?) -> Void)? = nil) {
         // FIXME: get rid of text in quotes
@@ -109,7 +106,6 @@ extension FireStoreData {
         group.notify(queue: .main) {
             completion?()
         }
-
     }
 
     private func deleteAll(_ dataObject: DataObjectType, _ completion: (() -> Void)? = nil) {
@@ -140,5 +136,4 @@ extension FireStoreData {
             }
         }
     }
-
 }

@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class SimpleSectionHeaderTests: XCTestCase {
-
     internal func testInitWithCoder() {
         // 1. Arrange
         let archiver = NSKeyedArchiver(requiringSecureCoding: true)
@@ -13,5 +12,4 @@ internal final class SimpleSectionHeaderTests: XCTestCase {
         // 3. Assert
         XCTAssertNil(view)
     }
-
 }

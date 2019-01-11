@@ -6,7 +6,6 @@ internal protocol SimpleTableWithSwipeProtocol: SimpleTableProtocol {
 }
 
 internal class SimpleTableWithSwipe: SimpleTable, SimpleTableWithSwipeProtocol {
-
     internal var swipeLeftLabel: String?
     internal var swipeRightLabel: String?
     internal var swipeLeftAction: ((_ row: DataModelRowProtocol?) -> Void)?

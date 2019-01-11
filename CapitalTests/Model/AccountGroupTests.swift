@@ -1,8 +1,7 @@
-import XCTest
 @testable import Capital
+import XCTest
 
 internal final class AccountGroupTests: XCTestCase {
-
     /// Test checks that object is correctly initialized with dictionary of [field: value]
     internal func testInitWithData() {
         // 1. Arrange
@@ -15,7 +14,6 @@ internal final class AccountGroupTests: XCTestCase {
         let master = Account.Group()
         master.name = "name"
         XCTAssertEqual(master, sample)
-
     }
 
     /// Test checks that code correctly updates name, when ["name": "some name"] is submitted
@@ -114,5 +112,4 @@ internal final class AccountGroupTests: XCTestCase {
         let master = Account.Group()
         XCTAssertEqual(master, sample)
     }
-
 }

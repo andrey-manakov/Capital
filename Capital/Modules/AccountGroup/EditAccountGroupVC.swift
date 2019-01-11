@@ -35,12 +35,10 @@ internal final class AccountGroupEditVC: ViewController {
     @objc internal func didTapDone() {
         service.didTapDone(name: nameTextField.text) { [unowned self] in self.dismiss() }
     }
-
 }
 
 extension AccountGroupEditVC {
     private class Service: ClassService {
-
         private var accounts = [String: Account]()
         private var dataModel: DataModelProtocol {
             return DataModel(self.accounts.map {DataModelRow(
@@ -96,7 +94,5 @@ extension AccountGroupEditVC {
             data.createAccountGroup(named: name, withAccounts: accounts)
             completion?()
         }
-
     }
-
 }
