@@ -58,7 +58,6 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
                 inTransaction: fsTransaction,
                 withErrorPointer: errorPointer
             )
-
             let amount: Int = self.calcAmountGroupAmount(withAccounts: Array(accounts.values))
             // write to each account information about its membership in group
             accountIds.forEach { id in
