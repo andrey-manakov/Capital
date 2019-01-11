@@ -28,7 +28,7 @@ internal class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDat
     internal var localData: DataModelProtocol? { didSet { reloadData() } } //Check if this works fine
     internal var dataBeforeFilter: DataModelProtocol { return dataFormula?() ?? localData ?? DataModel() }
     internal var data: DataModelProtocol {
-        return dataBeforeFilter.filter(self.filter ?? { _ in return true })
+        return dataBeforeFilter.filter(self.filter ?? { _ in true })
     }
     internal var filter: ((DataModelRowProtocol) -> (Bool))? {
         didSet {

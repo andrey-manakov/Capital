@@ -96,7 +96,7 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
 
         case .approvalMode:
             let sourceData: () -> (DataModel) = {
-                return DataModel(FinTransaction.ApprovalMode.allCases.map {
+                DataModel(FinTransaction.ApprovalMode.allCases.map {
                     (id: "\($0.rawValue)", name: $0.name)
                 })
             }
