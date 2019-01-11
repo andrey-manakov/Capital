@@ -27,19 +27,50 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             let newRef = self.ref?.collection(DataObjectType.group.rawValue).document() else {
                 return
         }
-        fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
-            // get accounts from the group
-            let accounts: [String: Account] = Dictionary(uniqueKeysWithValues:
+
+        func calcAmountGroupAmount(withAccounts accounts: [Account]) -> Int {
+            let positiveAmount: Int = accounts.filter {
+                $0.type == AccountType.asset
+                }.map {
+                    $0.amount ?? 0
+                }.reduce(0, +)
+            let negativeAmount: Int = accounts.filter {
+                $0.type == AccountType.liability
+                }.map { $0.amount ?? 0 }.reduce(0, +)
+            return  positiveAmount - negativeAmount
+        }
+
+        func getAccounts(
+            withIds id: [String],
+            inTransaction fsTransaction: Transaction,
+            withErrorPointer errorPointer: NSErrorPointer
+            ) -> [String: Account] {
+            return Dictionary(uniqueKeysWithValues:
                 accountIds.map {
                     (id: $0, (self.getAccount(withId: $0, for: fsTransaction, with: errorPointer))!)
-                })
-            let amount = accounts.values.filter {
-                $0.type == AccountType.asset
-            }.map {
-                    $0.amount ?? 0
-            }.reduce(0, +) - accounts.values.filter {
-                    $0.type == AccountType.liability
-            }.map { $0.amount ?? 0 }.reduce(0, +)
+            })
+        }
+
+        fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
+            // get accounts from the group
+            let accounts: [String: Account] = getAccounts(
+                withIds: accountIds,
+                inTransaction: fsTransaction,
+                withErrorPointer: errorPointer
+            )
+
+            let amount: Int = calcAmountGroupAmount(withAccounts: Array(accounts.values))
+//            let accounts: [String: Account] = Dictionary(uniqueKeysWithValues:
+//                accountIds.map {
+//                    (id: $0, (self.getAccount(withId: $0, for: fsTransaction, with: errorPointer))!)
+//                })
+//            let amount: Int = accounts.values.filter {
+//                $0.type == AccountType.asset
+//            }.map {
+//                    $0.amount ?? 0
+//            }.reduce(0, +) - accounts.values.filter {
+//                    $0.type == AccountType.liability
+//            }.map { $0.amount ?? 0 }.reduce(0, +)
             // write to each account information about its membership in group
             accountIds.forEach { id in
                 var newAccountGroup = [newRef.documentID: name]

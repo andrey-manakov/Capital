@@ -53,7 +53,8 @@ extension AccountGroupEditVC {
         internal var selectedAccounts: Set<String> = []
 
         func getData(forId id: String? = nil, completion: @escaping ((DataModelProtocol) -> Void)) {
-            data.setListnerToAccounts(for: self.id) {[unowned self] data in
+            // check whether unowned self is needed in closure
+            data.setListnerToAccounts(for: self.id) { data in
                 for (id, account, changeType) in data {
                     switch changeType {
                     case .added, .modified:

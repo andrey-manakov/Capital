@@ -1,3 +1,4 @@
+import Foundation
 // MARK: - Number fomatting
 extension Formatter {
     internal static let withSeparator: NumberFormatter = {

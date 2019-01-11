@@ -58,12 +58,12 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
         var approvedAmount = 0
         var amountChange = [String: Int]()
         var i = 0
-//        var originalTransaction: DocumentReference?
+        var originalTransaction: DocumentReference?
         while date != nil {
             let newRef = ref.collection(DataObjectType.transaction.rawValue).document()
-//            if i == 0 {
-//                originalTransaction = newRef
-//            }
+            if i == 0 {
+                originalTransaction = newRef
+            }
             let approved = date ?? Date() <= Date()
             batch.setData([
                 FinTransaction.Fields.amount.rawValue: amount,
@@ -97,18 +97,18 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
             }
         }
 
-//        batch.setData([
-//            LogFields.from.rawValue: [
-//                FinTransaction.Fields.From.id.rawValue: from.id,
-//                FinTransaction.Fields.From.name.rawValue: from.name],
-//            LogFields.to.rawValue: [
-//                FinTransaction.Fields.To.id.rawValue: to.id,
-//                FinTransaction.Fields.To.name.rawValue: to.name],
-//            LogFields.timestamp.rawValue: FieldValue.serverTimestamp(),
-//            LogFields.transaction.rawValue: originalTransaction as Any,
-//            LogFields.approvedAmount.rawValue: approvedAmount,
-//            LogFields.recurrenceChanges.rawValue: amountChange],
-//                      forDocument: ref.collection(LogFields.logCollection).document())
+        batch.setData([
+            LogFields.from.rawValue: [
+                FinTransaction.Fields.From.id.rawValue: from.id,
+                FinTransaction.Fields.From.name.rawValue: from.name],
+            LogFields.to.rawValue: [
+                FinTransaction.Fields.To.id.rawValue: to.id,
+                FinTransaction.Fields.To.name.rawValue: to.name],
+            LogFields.timestamp.rawValue: FieldValue.serverTimestamp(),
+            LogFields.transaction.rawValue: originalTransaction as Any,
+            LogFields.approvedAmount.rawValue: approvedAmount,
+            LogFields.recurrenceChanges.rawValue: amountChange],
+                      forDocument: ref.collection(LogFields.logCollection).document())
         batch.commit(completion: fireStoreCompletion)
     }
 

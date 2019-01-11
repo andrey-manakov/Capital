@@ -1,3 +1,5 @@
+import Foundation
+
 extension String {
     internal var date: Date? { return DateFormatter("yyyy MMM-dd").date(from: self) }
 

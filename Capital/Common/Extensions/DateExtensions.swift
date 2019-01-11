@@ -1,3 +1,5 @@
+import Foundation
+
 extension Date {
     internal var month: Int? { return Calendar.current.dateComponents([.month], from: self).month }
     internal var day: Int? { return Calendar.current.dateComponents([.day], from: self).day }
