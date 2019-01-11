@@ -11,6 +11,6 @@ internal final class LeftRightCell: UITableViewCell, LeftRightCellProtocol {
     }
 
     internal required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 }

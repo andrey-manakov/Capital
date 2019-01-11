@@ -606,13 +606,13 @@
 		C1A027A921BD4B1600207FF7 /* FireStore */ = {
 			isa = PBXGroup;
 			children = (
-				C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */,
 				C1A027DA21BD54F200207FF7 /* FIRAccountGroupManager.swift */,
 				C1A027D221BD54F200207FF7 /* FIRAccountManager.swift */,
 				C1A027CD21BD541E00207FF7 /* FIRAuth.swift */,
 				C1A027DB21BD54F200207FF7 /* FIRDataProtocol.swift */,
 				C1164D1921BD5CC500895A1B /* FireStoreCompletionProtocol.swift */,
 				C1164D1E21BD5D0900895A1B /* FireStoreData.swift */,
+				C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */,
 				C1164D1B21BD5CDF00895A1B /* FireStoreGettersProtocol.swift */,
 				C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */,
 				C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */,

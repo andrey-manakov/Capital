@@ -16,7 +16,7 @@ internal class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {
     }
 
     internal required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     @objc internal func didChangeValue(sender: UISegmentedControl) {

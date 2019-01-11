@@ -70,11 +70,11 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
                 FinTransaction.Fields.approvalMode.rawValue: approvalMode?.rawValue as Any,
                 FinTransaction.Fields.date.rawValue: date as Any,
                 FinTransaction.Fields.from.rawValue: [
-                    FinTransaction.Fields.From.id.rawValue:
-                        from.id, FinTransaction.Fields.From.name.rawValue: from.name],
+                    FinTransaction.Fields.From.id.rawValue: from.id,
+                    FinTransaction.Fields.From.name.rawValue: from.name],
                 FinTransaction.Fields.to.rawValue: [
-                    FinTransaction.Fields.To.id.rawValue:
-                        to.id, FinTransaction.Fields.To.name.rawValue: to.name],
+                    FinTransaction.Fields.To.id.rawValue: to.id,
+                    FinTransaction.Fields.To.name.rawValue: to.name],
                 FinTransaction.Fields.isApproved.rawValue: approved,
                 FinTransaction.Fields.parent.rawValue: NSNull(),
                 FinTransaction.Fields.recurrenceEnd.rawValue: recurrenceEnd ?? NSNull(),
