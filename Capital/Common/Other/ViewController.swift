@@ -67,7 +67,7 @@ internal class ViewController: UIViewController, ViewControllerProtocol {
         view.endEditing(force)
     }
 
-    internal func alert(_ title: String? = nil, message: String) {
+    internal func alert(message: String, title: String? = nil) {
         let alert = UIAlertController(title: title ?? "Alert", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { action in
             switch action.style {

@@ -9,7 +9,7 @@ internal class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionPr
         super.init()
         didSelect = {[unowned self] row, _ in
             self.selectedRow = row
-            self.reloadData() // TODO: consider not updating ALL the rows
+            self.reloadData()
         }
     }
 

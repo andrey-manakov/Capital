@@ -22,7 +22,6 @@ internal protocol TemplateTableProtocol: AnyObject {
     func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
 }
 
-//TODO: consider merge with SimpleTable Class
 internal class TemplateTable: UITableView, TemplateTableProtocol, UITableViewDataSource, UITableViewDelegate {
     internal var dataFormula: (() -> (DataModel))?
     internal var localData: DataModelProtocol? { didSet { reloadData() } } //Check if this works fine

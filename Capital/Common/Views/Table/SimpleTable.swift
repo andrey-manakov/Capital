@@ -5,8 +5,10 @@ internal class SimpleTable: TemplateTable, SimpleTableProtocol {
     override internal init() {
         super.init()
         register(LeftRightCell.self, forCellReuseIdentifier: LeftRightCell.self.description())
-        register(SimpleSectionHeader.self,
-                 forHeaderFooterViewReuseIdentifier: SimpleSectionHeader.self.description())
+        register(
+            SimpleSectionHeader.self,
+            forHeaderFooterViewReuseIdentifier: SimpleSectionHeader.self.description()
+        )
     }
 
     internal required init?(coder aDecoder: NSCoder) {

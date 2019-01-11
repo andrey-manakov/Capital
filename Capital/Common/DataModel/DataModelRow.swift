@@ -1,5 +1,3 @@
-import UIKit
-
 internal protocol DataModelRowProtocol: BasicDataPropertiesProtocol {
     var left: String? { get set }
     // swiftlint:disable identifier_name

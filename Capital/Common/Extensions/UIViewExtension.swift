@@ -16,7 +16,8 @@ extension UIView {
         }
 
         for index in 0..<constraints.count {
-            self.addConstraints(NSLayoutConstraint.constraints(
+            self.addConstraints(
+                NSLayoutConstraint.constraints(
                 withVisualFormat: constraints[index],
                 options: NSLayoutConstraint.FormatOptions(rawValue: 0),
                 metrics: nil,
