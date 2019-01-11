@@ -51,7 +51,7 @@
 		C1164D9421BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D9021BD986E00895A1B /* RecurrenceFrequencySelectorVC.swift */; };
 		C116861A21DF4B67003D3ADA /* Main.md in Resources */ = {isa = PBXBuildFile; fileRef = C116861921DF4B67003D3ADA /* Main.md */; };
 		C1240A9521CD708800A0E0BF /* EnumValuesSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8D21BD986E00895A1B /* EnumValuesSelectorVC.swift */; };
-		C125EBFC21D5932A00FB4F6F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027AB21BD4D1C00207FF7 /* Extensions.swift */; };
+		C125EBFC21D5932A00FB4F6F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027AB21BD4D1C00207FF7 /* StringExtension.swift */; };
 		C125EC0421D671E200FB4F6F /* Architecture.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0021D671E200FB4F6F /* Architecture.md */; };
 		C125EC0521D671E200FB4F6F /* GeneralAppDesc.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0121D671E200FB4F6F /* GeneralAppDesc.md */; };
 		C125EC0621D671E200FB4F6F /* TestingAlgorithm.md in Resources */ = {isa = PBXBuildFile; fileRef = C125EC0221D671E200FB4F6F /* TestingAlgorithm.md */; };
@@ -75,7 +75,7 @@
 		C1A027A121BD47F700207FF7 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027A021BD47F700207FF7 /* SimpleTextField.swift */; };
 		C1A027A321BD495A00207FF7 /* AppTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027A221BD495A00207FF7 /* AppTitle.swift */; };
 		C1A027A721BD4ACC00207FF7 /* ClassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027A621BD4ACC00207FF7 /* ClassService.swift */; };
-		C1A027AC21BD4D1C00207FF7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027AB21BD4D1C00207FF7 /* Extensions.swift */; };
+		C1A027AC21BD4D1C00207FF7 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027AB21BD4D1C00207FF7 /* StringExtension.swift */; };
 		C1A027AE21BD4D9B00207FF7 /* TextFieldProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027AD21BD4D9B00207FF7 /* TextFieldProtocol.swift */; };
 		C1A027B121BD4EB400207FF7 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027AF21BD4EB400207FF7 /* PasswordField.swift */; };
 		C1A027B221BD4EB400207FF7 /* EmailField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027B021BD4EB400207FF7 /* EmailField.swift */; };
@@ -123,12 +123,22 @@
 		C1CE088521BD2640000D28C9 /* gRPCCertificates-Firestore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1CE087421BD263F000D28C9 /* gRPCCertificates-Firestore.bundle */; };
 		C1D0960121E78FD30032BF8E /* DataModelRowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960021E78FD30032BF8E /* DataModelRowExtension.swift */; };
 		C1D0960321E7F6700032BF8E /* AppTitleTests1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */; };
+		C1D0960521E8A1F70032BF8E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960421E8A1F70032BF8E /* UIViewExtension.swift */; };
+		C1D0960721E8A2370032BF8E /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960621E8A2370032BF8E /* DateFormatterExtension.swift */; };
+		C1D0960921E8A27F0032BF8E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960821E8A27F0032BF8E /* DateExtension.swift */; };
+		C1D0960B21E8A2A50032BF8E /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960A21E8A2A50032BF8E /* FormatterExtension.swift */; };
+		C1D0960D21E8A2C00032BF8E /* BinaryIntegerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960C21E8A2C00032BF8E /* BinaryIntegerExtension.swift */; };
+		C1D0961021E8A3030032BF8E /* BinaryIntegerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960C21E8A2C00032BF8E /* BinaryIntegerExtension.swift */; };
+		C1D0961121E8A3070032BF8E /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960A21E8A2A50032BF8E /* FormatterExtension.swift */; };
+		C1D0961221E8A30A0032BF8E /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960621E8A2370032BF8E /* DateFormatterExtension.swift */; };
+		C1D0961321E8A3100032BF8E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960821E8A27F0032BF8E /* DateExtension.swift */; };
+		C1D0961421E8A3130032BF8E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0960421E8A1F70032BF8E /* UIViewExtension.swift */; };
 		C1DBCC5921C25B9E0003869A /* AccountGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5821C25B9E0003869A /* AccountGroup.swift */; };
 		C1DBCC5B21C25E840003869A /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5A21C25E840003869A /* AccountTests.swift */; };
 		C1DBCC5D21C261C20003869A /* AccountDetailsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBCC5C21C261C20003869A /* AccountDetailsVCTests.swift */; };
 		C1E9678F21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9678E21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift */; };
 		C1E9679321C7FCB8005014E1 /* NavigationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9679221C7FCB8005014E1 /* NavigationControllerTests.swift */; };
-		C1E9679521C7FFD1005014E1 /* TabBarControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9679421C7FFD1005014E1 /* TabBarControllerTest.swift */; };
+		C1E9679521C7FFD1005014E1 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9679421C7FFD1005014E1 /* TabBarControllerTests.swift */; };
 		C1E9679821C8016E005014E1 /* DataModelRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9679721C8016E005014E1 /* DataModelRowTests.swift */; };
 		C1E9679C21C82FC0005014E1 /* InputAmountCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9679B21C82FC0005014E1 /* InputAmountCellTests.swift */; };
 		C1E9679E21C830CC005014E1 /* DateSelectionCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9679D21C830CC005014E1 /* DateSelectionCellTests.swift */; };
@@ -235,7 +245,7 @@
 		C1A027A021BD47F700207FF7 /* SimpleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTextField.swift; sourceTree = "<group>"; };
 		C1A027A221BD495A00207FF7 /* AppTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTitle.swift; sourceTree = "<group>"; };
 		C1A027A621BD4ACC00207FF7 /* ClassService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassService.swift; sourceTree = "<group>"; };
-		C1A027AB21BD4D1C00207FF7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C1A027AB21BD4D1C00207FF7 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C1A027AD21BD4D9B00207FF7 /* TextFieldProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldProtocol.swift; sourceTree = "<group>"; };
 		C1A027AF21BD4EB400207FF7 /* PasswordField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		C1A027B021BD4EB400207FF7 /* EmailField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailField.swift; sourceTree = "<group>"; };
@@ -294,12 +304,17 @@
 		C1CE088621BD266D000D28C9 /* Capital-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Capital-Bridging-Header.h"; sourceTree = "<group>"; };
 		C1D0960021E78FD30032BF8E /* DataModelRowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelRowExtension.swift; sourceTree = "<group>"; };
 		C1D0960221E7F6700032BF8E /* AppTitleTests1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitleTests1.swift; sourceTree = "<group>"; };
+		C1D0960421E8A1F70032BF8E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		C1D0960621E8A2370032BF8E /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
+		C1D0960821E8A27F0032BF8E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		C1D0960A21E8A2A50032BF8E /* FormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtension.swift; sourceTree = "<group>"; };
+		C1D0960C21E8A2C00032BF8E /* BinaryIntegerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryIntegerExtension.swift; sourceTree = "<group>"; };
 		C1DBCC5821C25B9E0003869A /* AccountGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroup.swift; sourceTree = "<group>"; };
 		C1DBCC5A21C25E840003869A /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		C1DBCC5C21C261C20003869A /* AccountDetailsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsVCTests.swift; sourceTree = "<group>"; };
 		C1E9678E21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequencySelectorVCTests.swift; sourceTree = "<group>"; };
 		C1E9679221C7FCB8005014E1 /* NavigationControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerTests.swift; sourceTree = "<group>"; };
-		C1E9679421C7FFD1005014E1 /* TabBarControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTest.swift; sourceTree = "<group>"; };
+		C1E9679421C7FFD1005014E1 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
 		C1E9679721C8016E005014E1 /* DataModelRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelRowTests.swift; sourceTree = "<group>"; };
 		C1E9679B21C82FC0005014E1 /* InputAmountCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAmountCellTests.swift; sourceTree = "<group>"; };
 		C1E9679D21C830CC005014E1 /* DateSelectionCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionCellTests.swift; sourceTree = "<group>"; };
@@ -525,6 +540,7 @@
 		C1A0279721BD42E800207FF7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C1D0960F21E8A2F70032BF8E /* Extensions */,
 				C1164D2621BD6F0B00895A1B /* DataModel */,
 				C1A0279B21BD465D00207FF7 /* Views */,
 				C1A0279821BD43C100207FF7 /* Other */,
@@ -536,7 +552,6 @@
 			isa = PBXGroup;
 			children = (
 				C1A027B321BD4F1600207FF7 /* TabBarController.swift */,
-				C1A027AB21BD4D1C00207FF7 /* Extensions.swift */,
 				C1164D4E21BD779500895A1B /* NavigationController.swift */,
 				C1A027A621BD4ACC00207FF7 /* ClassService.swift */,
 				C1A0279921BD43D200207FF7 /* ViewController.swift */,
@@ -756,6 +771,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C1D0960F21E8A2F70032BF8E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0960421E8A1F70032BF8E /* UIViewExtension.swift */,
+				C1D0960821E8A27F0032BF8E /* DateExtension.swift */,
+				C1D0960621E8A2370032BF8E /* DateFormatterExtension.swift */,
+				C1D0960A21E8A2A50032BF8E /* FormatterExtension.swift */,
+				C1D0960C21E8A2C00032BF8E /* BinaryIntegerExtension.swift */,
+				C1A027AB21BD4D1C00207FF7 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C1DBCC5721C256020003869A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,7 +812,7 @@
 			isa = PBXGroup;
 			children = (
 				C1E9679221C7FCB8005014E1 /* NavigationControllerTests.swift */,
-				C1E9679421C7FFD1005014E1 /* TabBarControllerTest.swift */,
+				C1E9679421C7FFD1005014E1 /* TabBarControllerTests.swift */,
 				C1E967B621C8B367005014E1 /* ClassServiceTests.swift */,
 			);
 			path = Other;
@@ -1005,6 +1033,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D0960B21E8A2A50032BF8E /* FormatterExtension.swift in Sources */,
 				C1A0279E21BD467700207FF7 /* Button.swift in Sources */,
 				C1164D6E21BD94BA00895A1B /* AccountGroupDetailVC.swift in Sources */,
 				C1A027BD21BD521C00207FF7 /* Data.swift in Sources */,
@@ -1027,7 +1056,9 @@
 				C1A027C821BD53AE00207FF7 /* Account.swift in Sources */,
 				C1A027A321BD495A00207FF7 /* AppTitle.swift in Sources */,
 				C1A027C621BD53AE00207FF7 /* AccountType.swift in Sources */,
+				C1D0960721E8A2370032BF8E /* DateFormatterExtension.swift in Sources */,
 				C1A027E821BD54F300207FF7 /* extCheckCapital.swift in Sources */,
+				C1D0960521E8A1F70032BF8E /* UIViewExtension.swift in Sources */,
 				C1A027C721BD53AE00207FF7 /* DataObject.swift in Sources */,
 				C1164D3821BD703A00895A1B /* SwitchCell.swift in Sources */,
 				C1A027B221BD4EB400207FF7 /* EmailField.swift in Sources */,
@@ -1040,6 +1071,7 @@
 				C1164D4D21BD762400895A1B /* TitleLabel.swift in Sources */,
 				C1A027EC21BD54F300207FF7 /* FIRFinTransactionManager.swift in Sources */,
 				C1164D3B21BD703A00895A1B /* InputAmountCell.swift in Sources */,
+				C1D0960D21E8A2C00032BF8E /* BinaryIntegerExtension.swift in Sources */,
 				C1164D4221BD704800895A1B /* TemplateTable.swift in Sources */,
 				C1164D3A21BD703A00895A1B /* DateSelectionCell.swift in Sources */,
 				C1A0279621BD428900207FF7 /* LoginVC.swift in Sources */,
@@ -1051,7 +1083,8 @@
 				C1D0960121E78FD30032BF8E /* DataModelRowExtension.swift in Sources */,
 				C1164D4621BD704800895A1B /* TransactionTable.swift in Sources */,
 				C16D36DB21C3B58A00690B7B /* BarButtonItem.swift in Sources */,
-				C1A027AC21BD4D1C00207FF7 /* Extensions.swift in Sources */,
+				C1A027AC21BD4D1C00207FF7 /* StringExtension.swift in Sources */,
+				C1D0960921E8A27F0032BF8E /* DateExtension.swift in Sources */,
 				C1240A9521CD708800A0E0BF /* EnumValuesSelectorVC.swift in Sources */,
 				C1164D2521BD6CAA00895A1B /* SettingsViewController.swift in Sources */,
 				C1164D7921BD958900895A1B /* EditAccountGroupVC.swift in Sources */,
@@ -1121,7 +1154,7 @@
 				C1E967AE21C83776005014E1 /* EmailFieldTests.swift in Sources */,
 				C1E967A721C83208005014E1 /* NumberLabelTests.swift in Sources */,
 				C1E9678F21C7D51A005014E1 /* RecurrenceFrequencySelectorVCTests.swift in Sources */,
-				C1E9679521C7FFD1005014E1 /* TabBarControllerTest.swift in Sources */,
+				C1E9679521C7FFD1005014E1 /* TabBarControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,8 +1163,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1CE085121BD2170000D28C9 /* SpringBoard.swift in Sources */,
-				C125EBFC21D5932A00FB4F6F /* Extensions.swift in Sources */,
+				C1D0961321E8A3100032BF8E /* DateExtension.swift in Sources */,
+				C1D0961121E8A3070032BF8E /* FormatterExtension.swift in Sources */,
+				C1D0961221E8A30A0032BF8E /* DateFormatterExtension.swift in Sources */,
+				C125EBFC21D5932A00FB4F6F /* StringExtension.swift in Sources */,
 				C1E967B921C8FA1B005014E1 /* CapitalUITests.swift in Sources */,
+				C1D0961421E8A3130032BF8E /* UIViewExtension.swift in Sources */,
+				C1D0961021E8A3030032BF8E /* BinaryIntegerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
