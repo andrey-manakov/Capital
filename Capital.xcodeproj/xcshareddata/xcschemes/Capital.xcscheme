@@ -53,11 +53,6 @@
                BlueprintName = "CapitalUITests"
                ReferencedContainer = "container:Capital.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "CapitalUITests/testSimpleTransaction()">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

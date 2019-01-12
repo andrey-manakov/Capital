@@ -1,7 +1,7 @@
 internal protocol FIRFinTransactionManagerProtocolOld: AnyObject {
     // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(
-        from: String?, to: String?, amount: Int?, date: Date?,
+        from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?,
         approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?,
         recurrenceEnd: Date?, completion: ((String?) -> Void)?
     )
@@ -70,7 +70,7 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
     ///     * create transactions
     ///     * update account amounts
     internal func createTransaction(
-        from: String?, to: String?, amount: Int?, date: Date? = Date(),
+        from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date? = Date(),
         approvalMode: FinTransaction.ApprovalMode? = nil,
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil, completion: ((String?) -> Void)? = nil
@@ -82,18 +82,18 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
         fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
             // read account amounts from FireStore
             guard let fromAccount = self.getAccount(
-                withId: from, for: fsTransaction, with: errorPointer),
+                withId: from.id, for: fsTransaction, with: errorPointer),
                 let toAccount = self.getAccount(
-                    withId: to, for: fsTransaction, with: errorPointer) else { return nil }
+                    withId: to.id, for: fsTransaction, with: errorPointer) else { return nil }
             // create transactions
             let approvedAmount = self.sendFinTransaction(
-                to: fsTransaction, from: (from, fromAccount.name ?? ""),
-                to: (to, toAccount.name ?? ""), amount: amount, date: date,
+                to: fsTransaction, from: (from.id, fromAccount.name ?? ""),
+                to: (to.id, toAccount.name ?? ""), amount: amount, date: date,
                 approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency,
                 recurrenceEnd: recurrenceEnd)
             // update account amounts
-            for (id, account) in [from: fromAccount, to: toAccount] {
-                let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to ? 1 : -1)
+            for (id, account) in [from.id: fromAccount, to.id: toAccount] {
+                let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to.id ? 1 : -1)
                 fsTransaction.updateData(
                     [Account.Fields.amount.rawValue: (account.amount ?? 0) + coef * approvedAmount],
                     forDocument: ref.collection(DataObjectType.account.rawValue).document(id))

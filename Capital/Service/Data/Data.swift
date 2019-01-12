@@ -170,6 +170,10 @@ extension Data {
         recurrenceEnd: Date? = nil,
         completion: ((String?) -> Void)? = nil
         ) {
+        FIRFinTransactionManagerOld.shared.createTransaction(
+            from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
+            recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd,
+            completion: completion)
         finTransactionManager?.createTransaction(
             from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
             recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd,
