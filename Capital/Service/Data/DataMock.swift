@@ -73,7 +73,7 @@ internal class DataMock: DataProtocol {
     internal func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((([(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))
+        ((([(id: String, accountGroup: Account.AccountGroup, changeType: ChangeType)]) -> Void))
         ) {}
 
     internal func setListnersToAccountsInGroup(

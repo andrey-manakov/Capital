@@ -41,11 +41,11 @@ extension Data {
     internal func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))
+        ((( [(id: String, accountGroup: Account.AccountGroup, changeType: ChangeType)]) -> Void))
         ) {
         listnersManager?.setListner(
         forObject: objectId, toPath: "/\(DataObjectType.group.rawValue)") { data in
-            completion(data.map { ($0.id, Account.Group($0.data), $0.changeType) })
+            completion(data.map { ($0.id, Account.AccountGroup($0.data), $0.changeType) })
         }
     }
 

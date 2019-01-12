@@ -49,7 +49,7 @@ extension FireStoreGettersProtocol {
             return FinTransaction(data)
 
         case .group:
-            return Account.Group(data)
+            return Account.AccountGroup(data)
 
         case .change:
             return nil // TODO: double check
@@ -60,8 +60,8 @@ extension FireStoreGettersProtocol {
         withId id: String?,
         for fsTransaction: Transaction,
         with errorPointer: NSErrorPointer = nil
-        ) -> Account.Group? {
-        return get(.group, withId: id, for: fsTransaction, with: errorPointer) as? Account.Group
+        ) -> Account.AccountGroup? {
+        return get(.group, withId: id, for: fsTransaction, with: errorPointer) as? Account.AccountGroup
     }
 
     internal func getAccount(

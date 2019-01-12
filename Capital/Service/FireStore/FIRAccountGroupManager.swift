@@ -20,12 +20,12 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
     private func calcAmountGroupAmount(withAccounts accounts: [Account]) -> Int {
         let positiveAmount: Int = accounts.filter {
             $0.type == AccountType.asset
-            }.map {
+        }.map {
                 $0.amount ?? 0
-            }.reduce(0, +)
+        }.reduce(0, +)
         let negativeAmount: Int = accounts.filter {
             $0.type == AccountType.liability
-            }.map { $0.amount ?? 0 }.reduce(0, +)
+        }.map { $0.amount ?? 0 }.reduce(0, +)
         return  positiveAmount - negativeAmount
     }
 
@@ -37,7 +37,7 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
         return Dictionary(uniqueKeysWithValues:
             id.map {
                 (id: $0, (self.getAccount(withId: $0, for: fsTransaction, with: errorPointer))!)
-        })
+            })
     }
 
     /// Creates Account Group in FireStore data base, also updates accounts
@@ -72,9 +72,9 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             }
             // create account group
             fsTransaction.setData([
-                Account.Group.Fields.name.rawValue: name,
-                Account.Group.Fields.amount.rawValue: amount,
-                Account.Group.Fields.accounts.rawValue:
+                Account.AccountGroup.Fields.name.rawValue: name,
+                Account.AccountGroup.Fields.amount.rawValue: amount,
+                Account.AccountGroup.Fields.accounts.rawValue:
                     accounts.mapValues { acc in acc.name }], forDocument: newRef)
             return true
         }, completion: fireStoreCompletion)
@@ -94,7 +94,7 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             guard let group = self.get(.group,
                                        withId: id,
                                        for: fsTransaction,
-                                       with: errorPointer) as? Account.Group else { return nil }
+                                       with: errorPointer) as? Account.AccountGroup else { return nil }
             // Get accounts data
             if let uniqueKeysWithValues = group.accounts?.keys.map({
                 (id: $0, self.get(.account, withId: $0, for: fsTransaction) as? Account)

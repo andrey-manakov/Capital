@@ -1,6 +1,6 @@
 // MARK: - Introduction of Account.Group class
 extension Account {
-    internal final class Group: DataObject, Equatable {
+    internal final class AccountGroup: DataObject, Equatable {
         // swiftlint:disable nesting
         /// Fields names
         ///
@@ -24,7 +24,7 @@ extension Account {
         internal var min: (amount: Int, date: Date)?
         internal var accounts: [AccountId: AccountName]?
 
-        internal static func == (lhs: Account.Group, rhs: Account.Group) -> Bool {
+        internal static func == (lhs: Account.AccountGroup, rhs: Account.AccountGroup) -> Bool {
             let currentDate = Date()
             let lhsmin = lhs.min ?? (amount: 0, date: currentDate)
             let rhsmin = rhs.min ?? (amount: 0, date: currentDate)
@@ -43,7 +43,7 @@ extension Account {
         }
 
         internal func update(field: String, value: Any) {
-            guard let property = Account.Group.Fields(rawValue: field) else {
+            guard let property = Account.AccountGroup.Fields(rawValue: field) else {
                 return
             }
             switch property {

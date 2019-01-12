@@ -38,7 +38,7 @@ internal protocol DataProtocol {
     func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, accountGroup: Account.Group, changeType: ChangeType)]) -> Void))
+        ((( [(id: String, accountGroup: Account.AccountGroup, changeType: ChangeType)]) -> Void))
     )
     func setListnersToAccountsInGroup(
         withId id: String, for objectId: ObjectIdentifier,
