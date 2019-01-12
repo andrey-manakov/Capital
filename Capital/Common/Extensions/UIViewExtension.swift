@@ -5,8 +5,8 @@ extension UIView {
     /// - Parameters:
     ///   - views: dictionary of views to add
     ///   - constraints: array of Visual Formatting strings to apply
-    internal func add(subViews views: [String: UIView?], withConstraints constraints: [String]) {
-        guard let views = views as? [String: UIView] else {
+    internal func add(subViews: [String: UIView?], withConstraints constraints: [String]) {
+        guard let views = subViews as? [String: UIView] else {
             print("error in addSubviewsWithConstraints")
             return
         }

@@ -99,14 +99,15 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
             let accountDoc = ref?.collection(DataObjectType.account.rawValue).document(id),
             let capitalDoc = capitalDoc else { return }
 
-        fireDB.runTransaction({[unowned self] fsTransaction, _ -> Any? in
-            let account = self.getAccount(withId: id, for: fsTransaction)
-            guard let oldAmount = account?.amount, let type = account?.type,
-                let capitalAmount = self.getAccount(
-                    withId: self.capitalAccountName,
-                    for: fsTransaction)?.amount else { return false }
-            let oldName = account?.name ?? ""
+        func updateBlock(fsTransaction: Transaction, errorPointer: NSErrorPointer) -> Any? {
+            guard
+                let account = self.getAccount(withId: id, for: fsTransaction),
+                let oldAmount = account.amount,
+                let type = account.type,
+                let capitalAccount = self.getAccount(withId: self.capitalAccountName, for: fsTransaction),
+                let capitalAmount = capitalAccount.amount else { return false }
 
+            let oldName = account.name ?? ""
             let delta: Int
             if let newAmount = amount {
                 delta = newAmount - oldAmount
@@ -135,6 +136,7 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
                     [Account.Fields.name.rawValue: name ?? oldName], forDocument: accountDoc)
             }
             return true
-            }, completion: fireStoreCompletion)
+        }
+        fireDB.runTransaction(updateBlock(fsTransaction:errorPointer:), completion: fireStoreCompletion)
     }
 }
