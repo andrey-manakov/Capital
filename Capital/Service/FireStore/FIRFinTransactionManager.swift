@@ -17,7 +17,7 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
 
     override private init() {}
 
-    // swiftlint:disable identifier_name
+    // swiftlint:disable identifier_name function_body_length
     /// Creates transaction in FireStore date base, including recurrent transactions,
     /// updates account values if transactions are in the past
     ///
