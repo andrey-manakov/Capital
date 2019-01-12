@@ -1,7 +1,6 @@
 internal protocol TransactionCellProtocol: AnyObject {
     var date: SimpleLabelProtocol { get set }
     var from: SimpleLabelProtocol { get set }
-    // swiftlint:disable identifier_name
     var to: SimpleLabelProtocol { get set }
     var amount: SimpleLabelProtocol { get set }
 }
@@ -9,7 +8,6 @@ internal protocol TransactionCellProtocol: AnyObject {
 internal final class TransactionCell: UITableViewCell, TransactionCellProtocol {
     internal var date: SimpleLabelProtocol = SimpleLabel(alignment: .center, lines: 2)
     internal var from: SimpleLabelProtocol = SimpleLabel()
-    // swiftlint:disable identifier_name
     internal var to: SimpleLabelProtocol = SimpleLabel()
     internal var amount: SimpleLabelProtocol = NumberLabel()
 

@@ -63,7 +63,6 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             accountIds.forEach { id in
                 var newAccountGroup = [newRef.documentID: name]
                 if let oldAccountGroup = accounts[id]?.groups {
-                    // swiftlint:disable identifier_name
                     newAccountGroup = newAccountGroup.merging(oldAccountGroup) { x, _ -> String in x }
                 }
                 fsTransaction.updateData(
@@ -72,9 +71,9 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             }
             // create account group
             fsTransaction.setData([
-                Account.AccountGroup.Fields.name.rawValue: name,
-                Account.AccountGroup.Fields.amount.rawValue: amount,
-                Account.AccountGroup.Fields.accounts.rawValue:
+                AccountGroup.Fields.name.rawValue: name,
+                AccountGroup.Fields.amount.rawValue: amount,
+                AccountGroup.Fields.accounts.rawValue:
                     accounts.mapValues { acc in acc.name }], forDocument: newRef)
             return true
         }, completion: fireStoreCompletion)
@@ -94,7 +93,7 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             guard let group = self.get(.group,
                                        withId: id,
                                        for: fsTransaction,
-                                       with: errorPointer) as? Account.AccountGroup else { return nil }
+                                       with: errorPointer) as? AccountGroup else { return nil }
             // Get accounts data
             if let uniqueKeysWithValues = group.accounts?.keys.map({
                 (id: $0, self.get(.account, withId: $0, for: fsTransaction) as? Account)

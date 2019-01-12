@@ -1,5 +1,4 @@
 internal protocol FIRFinTransactionManagerProtocol: AnyObject {
-    // swiftlint:disable identifier_name function_parameter_count
     func createTransaction(
         from: AccountInfo?, to: AccountInfo?,
         amount: Int?, date: Date?, approvalMode: FinTransaction.ApprovalMode?,
@@ -17,7 +16,6 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
 
     override private init() {}
 
-    // swiftlint:disable identifier_name function_body_length
     /// Creates transaction in FireStore date base, including recurrent transactions,
     /// updates account values if transactions are in the past
     ///
@@ -122,7 +120,6 @@ internal class FIRFinTransactionManager: FIRManager, FIRFinTransactionManagerPro
         case transaction
         case approvedAmount
         case recurrenceChanges
-        // swiftlint:disable nesting
         internal enum LogType: String {
             case approved
             case recurrence

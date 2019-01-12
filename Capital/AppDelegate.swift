@@ -5,7 +5,6 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var window: UIWindow?
     internal var testing: Bool = false
 
-    // swiftlint:disable discouraged_optional_collection
     internal func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?

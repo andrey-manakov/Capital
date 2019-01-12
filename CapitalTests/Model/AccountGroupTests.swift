@@ -8,10 +8,10 @@ internal final class AccountGroupTests: XCTestCase {
         let data = ["name": "name"]
 
         // 2. Action
-        let sample = Account.AccountGroup(data)
+        let sample = AccountGroup(data)
 
         // 3. Assert
-        let master = Account.AccountGroup()
+        let master = AccountGroup()
         master.name = "name"
         XCTAssertEqual(master, sample)
     }
@@ -21,13 +21,13 @@ internal final class AccountGroupTests: XCTestCase {
         // 1. Arrange
         let field = "name"
         let value = "name"
-        let sample = Account.AccountGroup()
+        let sample = AccountGroup()
 
         // 2. Action
         sample.update(field: field, value: value)
 
         // 3. Assert
-        let master = Account.AccountGroup()
+        let master = AccountGroup()
         master.name = "name"
         XCTAssertEqual(master, sample)
     }
@@ -37,13 +37,13 @@ internal final class AccountGroupTests: XCTestCase {
         // 1. Arrange
         let field = "amount"
         let value = 10
-        let sample = Account.AccountGroup()
+        let sample = AccountGroup()
 
         // 2. Action
         sample.update(field: field, value: value)
 
         // 3. Assert
-        let master = Account.AccountGroup()
+        let master = AccountGroup()
         master.amount = 10
         XCTAssertEqual(master, sample)
     }
@@ -54,13 +54,13 @@ internal final class AccountGroupTests: XCTestCase {
         // 1. Arrange
         let field = "accounts"
         let value = ["account id": "account name"]
-        let sample = Account.AccountGroup()
+        let sample = AccountGroup()
 
         // 2. Action
         sample.update(field: field, value: value)
 
         // 3. Assert
-        let master = Account.AccountGroup()
+        let master = AccountGroup()
         master.accounts = ["account id": "account name"]
         XCTAssertEqual(master, sample)
     }
@@ -72,13 +72,13 @@ internal final class AccountGroupTests: XCTestCase {
         let field = "min"
         let minDate = Date()
         let value: [String: Any] = ["amount": 10, "date": Timestamp(date: minDate)]
-        let sample = Account.AccountGroup()
+        let sample = AccountGroup()
 
         // 2. Action
         sample.update(field: field, value: value)
 
         // 3. Assert
-        let master = Account.AccountGroup()
+        let master = AccountGroup()
         master.min = (10, minDate)
         XCTAssertEqual(master, sample)
     }
@@ -88,13 +88,13 @@ internal final class AccountGroupTests: XCTestCase {
         // 1. Arrange
         let field = "wrong field name"
         let value = 0
-        let sample = Account.AccountGroup()
+        let sample = AccountGroup()
 
         // 2. Action
         sample.update(field: field, value: value)
 
         // 3. Assert
-        let master = Account.AccountGroup()
+        let master = AccountGroup()
         XCTAssertEqual(master, sample)
     }
 
@@ -103,13 +103,13 @@ internal final class AccountGroupTests: XCTestCase {
         // 1. Arrange
         let field = "min"
         let value: [String: Any] = [:]
-        let sample = Account.AccountGroup()
+        let sample = AccountGroup()
 
         // 2. Action
         sample.update(field: field, value: value)
 
         // 3. Assert
-        let master = Account.AccountGroup()
+        let master = AccountGroup()
         XCTAssertEqual(master, sample)
     }
 }

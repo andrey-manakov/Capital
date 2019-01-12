@@ -2,7 +2,7 @@
 extension Account {
     internal enum Fields: String {
         case name, amount, min, type, groups
-        // swiftlint:disable nesting
+
         internal enum Min: String {
             case amount
             case date

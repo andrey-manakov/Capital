@@ -117,7 +117,6 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
         }
     }
 
-    // swiftlint:disable function_body_length
     // MARK: - Actions on selection of Transaction items
     internal func didChoose(transactionItem: TransactionItem, with value: Any?) {
         switch transactionItem {

@@ -20,7 +20,7 @@ internal final class AccountGroupsViewController: ViewController {
 
 extension AccountGroupsViewController {
     internal final class Service: ClassService {
-        private var accountGroups = [String: Account.AccountGroup]() // {didSet{print(accountGroups)}}
+        private var accountGroups = [String: AccountGroup]() // {didSet{print(accountGroups)}}
 
         internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccountGroup(for: self.id) { data in

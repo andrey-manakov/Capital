@@ -41,11 +41,11 @@ extension Data {
     internal func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, accountGroup: Account.AccountGroup, changeType: ChangeType)]) -> Void))
+        ((( [(id: String, accountGroup: AccountGroup, changeType: ChangeType)]) -> Void))
         ) {
         listnersManager?.setListner(
         forObject: objectId, toPath: "/\(DataObjectType.group.rawValue)") { data in
-            completion(data.map { ($0.id, Account.AccountGroup($0.data), $0.changeType) })
+            completion(data.map { ($0.id, AccountGroup($0.data), $0.changeType) })
         }
     }
 
@@ -159,7 +159,6 @@ extension Data {
         accountManager?.createAccount(name, ofType: type, withAmount: amount, completion: completion)
     }
 
-    // swiftlint:disable identifier_name
     internal func createTransaction(
         from: AccountInfo?,
         to: AccountInfo?,
@@ -174,10 +173,10 @@ extension Data {
             from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
             recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd,
             completion: completion)
-        finTransactionManager?.createTransaction(
-            from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
-            recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd,
-            completion: completion)
+//        finTransactionManager?.createTransaction(
+//            from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
+//            recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd,
+//            completion: completion)
     }
 
     internal func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {

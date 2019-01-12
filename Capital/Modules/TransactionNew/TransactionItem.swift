@@ -1,6 +1,5 @@
 internal enum TransactionItem: String, CaseIterable {
     case from
-    // swiftlint:disable identifier_name
     case to
     case amount
     case date

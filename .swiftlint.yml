@@ -138,6 +138,10 @@ identifier_name:
     error: 3 # only error
   excluded: # excluded via string array
     - id
+    - up
+    - ix
+    - to
+    - row
     - URL
     - GlobalAPIKey
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)

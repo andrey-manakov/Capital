@@ -1,6 +1,5 @@
 internal protocol DataModelRowProtocol: BasicDataPropertiesProtocol {
     var left: String? { get set }
-    // swiftlint:disable identifier_name
     var up: String? { get set }
     var down: String? { get set }
     var right: String? { get set }
@@ -16,7 +15,6 @@ internal struct DataModelRow: DataModelRowProtocol {
     internal var name: String?
     internal var desc: String?
     internal var left: String?
-    // swiftlint:disable identifier_name
     internal var up: String?
     internal var down: String?
     internal var right: String?

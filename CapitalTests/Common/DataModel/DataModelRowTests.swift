@@ -9,7 +9,6 @@ internal class DataModelRowTests: XCTestCase {
         let name = "name"
         let desc = "desc"
         let left = "left"
-        //swiftlint:disable identifier_name
         let up = "up"
         let down = "down"
         let right = "right"

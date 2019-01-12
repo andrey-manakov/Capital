@@ -3,7 +3,6 @@ internal final class FinTransaction: DataObject {
     /// MARK: - Properties
     /// account **from** which is the transfer of funds - reference to `Account` instance
     internal var from: AccountInfo?
-    // swiftlint:disable identifier_name
     /// to - account **to** which is the transfer of funds
     internal var to: AccountInfo?
     /// amount - amount of funds transferred
@@ -38,7 +37,6 @@ internal final class FinTransaction: DataObject {
         for (field, value) in data { self.update(field: field, value: value) }
     }
 
-    // swiftlint:disable identifier_name
     internal convenience init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date) {
         self.init()
         self.from = from
@@ -148,7 +146,6 @@ extension FinTransaction: CustomStringConvertible, CustomDebugStringConvertible 
 extension FinTransaction {
     internal enum Fields: String, CaseIterable {
         case from
-        // swiftlint:disable identifier_name
         case to
         case amount
         case date
@@ -158,9 +155,8 @@ extension FinTransaction {
         case recurrenceFrequency
         case recurrenceEnd
         case parent
-        // swiftlint:disable nesting
+
         internal enum From: String { case id, name }
-        // swiftlint:disable nesting type_name
         internal enum To: String { case id, name }
     }
 }

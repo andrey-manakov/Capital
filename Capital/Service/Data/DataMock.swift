@@ -47,7 +47,6 @@ internal class DataMock: DataProtocol {
         completion: ((Error?) -> Void)?
         ) {}
 
-    // swiftlint:disable identifier_name function_parameter_count
     internal func createTransaction(
         from: AccountInfo?,
         to: AccountInfo?,
@@ -73,7 +72,7 @@ internal class DataMock: DataProtocol {
     internal func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((([(id: String, accountGroup: Account.AccountGroup, changeType: ChangeType)]) -> Void))
+        ((([(id: String, accountGroup: AccountGroup, changeType: ChangeType)]) -> Void))
         ) {}
 
     internal func setListnersToAccountsInGroup(

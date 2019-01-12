@@ -9,7 +9,7 @@ internal protocol DataProtocol {
         withAmount amount: Int?,
         completion: ((String?) -> Void)?
     )
-    // swiftlint:disable identifier_name function_parameter_count
+
     func createTransaction(
         from: AccountInfo?,
         to: AccountInfo?,
@@ -38,7 +38,7 @@ internal protocol DataProtocol {
     func setListnerToAccountGroup(
         for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, accountGroup: Account.AccountGroup, changeType: ChangeType)]) -> Void))
+        ((( [(id: String, accountGroup: AccountGroup, changeType: ChangeType)]) -> Void))
     )
     func setListnersToAccountsInGroup(
         withId id: String, for objectId: ObjectIdentifier,
