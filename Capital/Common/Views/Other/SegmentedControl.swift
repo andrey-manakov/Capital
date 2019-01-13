@@ -19,7 +19,8 @@ internal class SegmentedControl: UISegmentedControl, SegmentedControlProtocol {
         return nil
     }
 
-    @objc internal func didChangeValue(sender: UISegmentedControl) {
+    @objc
+    internal func didChangeValue(sender: UISegmentedControl) {
         actionOnValueChange?(selectedSegmentIndex)
     }
 }

@@ -14,7 +14,7 @@ internal final class TransactionCell: UITableViewCell, TransactionCellProtocol {
     override internal init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         contentView.add(
-            subViews: [
+            views: [
                 "date": date as? UIView, "from": from as? UIView,
                 "to": to as? UIView, "amount": amount as? UIView
             ],

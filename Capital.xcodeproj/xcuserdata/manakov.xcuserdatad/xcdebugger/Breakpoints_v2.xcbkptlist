@@ -2,4 +2,70 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capital/Modules/Account/AccountTransactionsVC.swift"
+            timestampString = "569088972.327736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "getData(withId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;(id: Swift.String, transaction: Capital.FinTransaction, changeType: Capital.ChangeType)&gt;) -&gt; () in Capital.AccountTransactionsVC.(Service in _B194A36E3E88E0E896347F1F360C1569).getData(withId: Swift.Optional&lt;Swift.String&gt;, completion: (Capital.DataModelProtocol) -&gt; ()) -&gt; ()"
+                  moduleName = "Capital"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/hdd/swift%20dec%202018/Capital/Capital/Modules/Account/AccountTransactionsVC.swift"
+                  timestampString = "569088972.402023"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "1790">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((key: Swift.String, value: Capital.FinTransaction)) -&gt; (id: Swift.Optional&lt;Swift.String&gt;, left: Swift.Optional&lt;Swift.String&gt;, up: Swift.Optional&lt;Swift.String&gt;, down: Swift.Optional&lt;Swift.String&gt;, right: Swift.Optional&lt;Swift.String&gt;) in closure #1 (Swift.Array&lt;(id: Swift.String, transaction: Capital.FinTransaction, changeType: Capital.ChangeType)&gt;) -&gt; () in Capital.AccountTransactionsVC.(Service in _B194A36E3E88E0E896347F1F360C1569).getData(withId: Swift.Optional&lt;Swift.String&gt;, completion: (Capital.DataModelProtocol) -&gt; ()) -&gt; ()"
+                  moduleName = "Capital"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/hdd/swift%20dec%202018/Capital/Capital/Modules/Account/AccountTransactionsVC.swift"
+                  timestampString = "569088972.405133"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capital/Modules/Account/AccountTransactionsVC.swift"
+            timestampString = "569088972.327895"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getData(withId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

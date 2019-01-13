@@ -20,7 +20,7 @@ internal final class AccountGroup: DataObject, Equatable {
     internal var name: String?
     internal var amount: Int?
     internal var min: (amount: Int, date: Date)?
-    internal var accounts: [AccountId: AccountName]?
+    internal var accounts = [AccountId: AccountName]()
 
     internal static func == (lhs: AccountGroup, rhs: AccountGroup) -> Bool {
         let currentDate = Date()
@@ -60,7 +60,7 @@ internal final class AccountGroup: DataObject, Equatable {
             self.min = (amount: minAmount, date: minDate)
 
         case .accounts:
-            self.accounts = value as? [String: String]
+            self.accounts = (value as? [String: String]) ?? [String: String]()
         }
     }
 }

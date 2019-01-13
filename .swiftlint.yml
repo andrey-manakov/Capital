@@ -1,88 +1,92 @@
 disabled_rules: # rule identifiers to exclude from running
  - large_tuple
  - todo
+ - function_parameter_count
+ - nesting
+ - function_body_length
+ - line_length
 opt_in_rules:
  - anyobject_protocol
  - array_init
- # - attributes
+ - attributes
  - closure_body_length
  - closure_end_indentation
- # - closure_spacing
- # - collection_alignment
- # - conditional_returns_on_newline
- # - contains_over_first_not_nil
- # - convenience_type
- # - discouraged_object_literal
- # - discouraged_optional_boolean
- # - discouraged_optional_collection
- # - empty_count
- # - empty_string
- # - empty_xctest_method
- # - explicit_acl
+ - closure_spacing
+ - collection_alignment
+ - conditional_returns_on_newline
+ - contains_over_first_not_nil
+ - convenience_type
+ - discouraged_object_literal
+ - discouraged_optional_boolean
+ - discouraged_optional_collection
+ - empty_count
+ - empty_string
+ - empty_xctest_method
+ - explicit_acl
  # - explicit_enum_raw_value
- # - explicit_init
- # - explicit_top_level_acl
+ - explicit_init
+ - explicit_top_level_acl
  # - explicit_type_interface
- # - extension_access_modifier
- # - fallthrough
- # - fatal_error_message
- # - file_header
- # - file_name
- # - first_where
+ - extension_access_modifier
+ - fallthrough
+ - fatal_error_message
+ - file_header
+ - file_name
+ - first_where
  # - force_unwrapping
- # - function_default_parameter_at_end
- # - identical_operands
- # - implicit_return
+ - function_default_parameter_at_end
+ - identical_operands
+ - implicit_return
  # - implicitly_unwrapped_optional
- # - joined_default_parameter
- # - legacy_random
- # - let_var_whitespace
- # - literal_expression_end_indentation
- # - lower_acl_than_parent
- # - missing_docs
- # - modifier_order
+ - joined_default_parameter
+ - legacy_random
+ - let_var_whitespace
+ - literal_expression_end_indentation
+ - lower_acl_than_parent
+ - missing_docs
+ - modifier_order
  # - multiline_arguments
  # - multiline_arguments_brackets
  # - multiline_function_chains
  # - multiline_literal_brackets
  # - multiline_parameters
  # - multiline_parameters_brackets
- # - nimble_operator
- # - no_extension_access_modifier
+ - nimble_operator
+ - no_extension_access_modifier
  # - no_grouping_extension
- # - number_separator
- # - object_literal
- # - operator_usage_whitespace
- # - overridden_super_call
- # - override_in_extension
- # - pattern_matching_keywords
- # - prefixed_toplevel_constant
- # - private_action
- # - private_outlet
- # - prohibited_interface_builder
- # - prohibited_super_call
- # - quick_discouraged_call
- # - quick_discouraged_focused_test
- # - quick_discouraged_pending_test
- # - redundant_nil_coalescing
- # - redundant_type_annotation
- # - required_enum_case
- # - single_test_class
- # - sorted_first_last
- # - sorted_imports
- # - static_operator
- # - strict_fileprivate
- # - switch_case_on_newline
- # - toggle_bool
- # - trailing_closure
- # - unavailable_function
- # - unneeded_parentheses_in_closure_argument
- # - untyped_error_in_catch
- # - vertical_parameter_alignment_on_call
- # - vertical_whitespace_between_cases
- # - vertical_whitespace_closing_braces
- # - vertical_whitespace_opening_braces
- # - yoda_condition
+ - number_separator
+ - object_literal
+ - operator_usage_whitespace
+ - overridden_super_call
+ - override_in_extension
+ - pattern_matching_keywords
+ - prefixed_toplevel_constant
+ - private_action
+ - private_outlet
+ - prohibited_interface_builder
+ - prohibited_super_call
+ - quick_discouraged_call
+ - quick_discouraged_focused_test
+ - quick_discouraged_pending_test
+ - redundant_nil_coalescing
+ - redundant_type_annotation
+ - required_enum_case
+ - single_test_class
+ - sorted_first_last
+ - sorted_imports
+ - static_operator
+ - strict_fileprivate
+ - switch_case_on_newline
+ - toggle_bool
+ - trailing_closure
+ - unavailable_function
+ - unneeded_parentheses_in_closure_argument
+ - untyped_error_in_catch
+ - vertical_parameter_alignment_on_call
+ - vertical_whitespace_between_cases
+ - vertical_whitespace_closing_braces
+ - vertical_whitespace_opening_braces
+ - yoda_condition
 analyzer_rules:
   - unused_import
   - unused_private_declaration
@@ -131,12 +135,16 @@ type_name:
   max_length: # warning and error
     warning: 40
     error: 50
-  excluded: iPhone # excluded via string
+  excluded: 
+   - iPhone # excluded via string
+   - To
 
 identifier_name:
   min_length: # only min_length
     error: 3 # only error
   excluded: # excluded via string array
+    - x
+    - i
     - id
     - up
     - ix
@@ -144,6 +152,22 @@ identifier_name:
     - row
     - URL
     - GlobalAPIKey
+
+attributes:
+  always_on_line_above:
+    - "@objc"
+    - "@nonobjc"
+    - "@available"
+    - "@discardableResult"
+  always_on_same_line:
+    - "@IBOutlet"
+    - "@IBAction"
+    - "@NSManaged"
+    - "@testable"
+
+object_literal:
+  image_literal: false
+
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
 
 custom_rules:
@@ -167,4 +191,9 @@ custom_rules:
     message: Rule Test Function mustn't end with `rule`
     regex: func\s*test\w+(r|R)ule\(\)
     severity: error
+  discouraged_image_literal:
+    name: "Discouraged Image Literal"
+    regex: "#imageLiteral"
+    message: "Please use UIImage(named:) instead"
+    severity: warning
 

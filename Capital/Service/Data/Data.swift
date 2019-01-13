@@ -65,7 +65,7 @@ extension Data {
     internal func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping
-        ((( [(id: String, account: FinTransaction, changeType: ChangeType)]) -> Void))
+        ((( [(id: String, transaction: FinTransaction, changeType: ChangeType)]) -> Void))
         ) {
         let path = "/\(DataObjectType.transaction.rawValue)"
 

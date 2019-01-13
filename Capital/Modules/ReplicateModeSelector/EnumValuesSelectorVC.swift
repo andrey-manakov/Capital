@@ -3,7 +3,7 @@ internal final class EnumValuesSelectorVC: ViewController {
 
     override internal func viewDidLoad() {
         super.viewDidLoad()
-        view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
+        view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
         guard let dataV = data as? (sourceData: () -> (DataModel), selectionAction: (Any?) -> Void) else {
             return
         }

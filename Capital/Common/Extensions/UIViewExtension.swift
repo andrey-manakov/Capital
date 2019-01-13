@@ -5,8 +5,8 @@ extension UIView {
     /// - Parameters:
     ///   - views: dictionary of views to add
     ///   - constraints: array of Visual Formatting strings to apply
-    internal func add(subViews: [String: UIView?], withConstraints constraints: [String]) {
-        guard let views = subViews as? [String: UIView] else {
+    internal func add(views: [String: UIView?], withConstraints constraints: [String]) {
+        guard let views = views as? [String: UIView] else {
             print("error in addSubviewsWithConstraints")
             return
         }
@@ -28,8 +28,8 @@ extension UIView {
         }
     }
 
-    internal func add(subView view: UIView?, withConstraints constraints: [String]) {
-        add(subViews: ["v": view], withConstraints: constraints)
+    internal func add(view: UIView?, withConstraints constraints: [String]) {
+        add(views: ["v": view], withConstraints: constraints)
     }
 
     internal var views: [String: UIView] {

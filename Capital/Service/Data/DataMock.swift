@@ -65,7 +65,7 @@ internal class DataMock: DataProtocol {
     internal func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
         completion: @escaping
-        ((([(id: String, account: FinTransaction, changeType: ChangeType)]
+        ((([(id: String, transaction: FinTransaction, changeType: ChangeType)]
         ) -> Void))
         ) {}
 

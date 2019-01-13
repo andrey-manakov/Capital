@@ -11,8 +11,8 @@ internal final class LoginVC: ViewController, LoginViewControllerProtocol {
         setListners()
         let signInButton: ButtonProtocol = Button(name: "Sign In", action: signIn)
         let signUpButton: ButtonProtocol = Button(name: "Sign Up", action: signUp)
-        // swiftlint:disable line_length
-        view.add(subViews:
+
+        view.add(views:
             ["appTitle": AppTitle(),
              "loginTextField": loginTextField as? UIView,
              "passwordTextField": passwordTextField as? UIView,

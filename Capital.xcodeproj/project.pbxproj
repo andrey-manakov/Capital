@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C10A1A4D21EB8D54005A66E1 /* BinaryIntegerExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A1A4C21EB8D54005A66E1 /* BinaryIntegerExtensionTest.swift */; };
+		C10A1A4F21EB8FE8005A66E1 /* FormatterExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A1A4E21EB8FE8005A66E1 /* FormatterExtensionTest.swift */; };
+		C10A1A5121EB94ED005A66E1 /* StringExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A1A5021EB94ED005A66E1 /* StringExtensionTest.swift */; };
+		C10A1A5321EB974C005A66E1 /* EnumValuesSelectorVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A1A5221EB974C005A66E1 /* EnumValuesSelectorVCTests.swift */; };
 		C1164D1621BD56B700895A1B /* RecurrenceFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D1521BD56B700895A1B /* RecurrenceFrequency.swift */; };
 		C1164D1821BD570900895A1B /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D1721BD570900895A1B /* Direction.swift */; };
 		C1164D1A21BD5CC500895A1B /* FireStoreCompletionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D1921BD5CC500895A1B /* FireStoreCompletionProtocol.swift */; };
@@ -42,7 +46,7 @@
 		C1164D6921BD93B600895A1B /* AccountGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6721BD93B600895A1B /* AccountGroupsViewController.swift */; };
 		C1164D6E21BD94BA00895A1B /* AccountGroupDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6B21BD94BA00895A1B /* AccountGroupDetailVC.swift */; };
 		C1164D7521BD952100895A1B /* AccountTransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D7321BD952100895A1B /* AccountTransactionsVC.swift */; };
-		C1164D7921BD958900895A1B /* EditAccountGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D7721BD958900895A1B /* EditAccountGroupVC.swift */; };
+		C1164D7921BD958900895A1B /* AccountGroupEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D7721BD958900895A1B /* AccountGroupEditVC.swift */; };
 		C1164D7E21BD95DC00895A1B /* AccountDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D7C21BD95DC00895A1B /* AccountDetailVC.swift */; };
 		C1164D8421BD974F00895A1B /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8121BD974F00895A1B /* TransactionItem.swift */; };
 		C1164D8521BD974F00895A1B /* AdvancedNewTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D8221BD974F00895A1B /* AdvancedNewTransactionVC.swift */; };
@@ -173,6 +177,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C10A1A4C21EB8D54005A66E1 /* BinaryIntegerExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryIntegerExtensionTest.swift; sourceTree = "<group>"; };
+		C10A1A4E21EB8FE8005A66E1 /* FormatterExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtensionTest.swift; sourceTree = "<group>"; };
+		C10A1A5021EB94ED005A66E1 /* StringExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
+		C10A1A5221EB974C005A66E1 /* EnumValuesSelectorVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumValuesSelectorVCTests.swift; sourceTree = "<group>"; };
 		C1164D1521BD56B700895A1B /* RecurrenceFrequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurrenceFrequency.swift; sourceTree = "<group>"; };
 		C1164D1721BD570900895A1B /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		C1164D1921BD5CC500895A1B /* FireStoreCompletionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreCompletionProtocol.swift; sourceTree = "<group>"; };
@@ -208,7 +216,7 @@
 		C1164D6721BD93B600895A1B /* AccountGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupsViewController.swift; sourceTree = "<group>"; };
 		C1164D6B21BD94BA00895A1B /* AccountGroupDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupDetailVC.swift; sourceTree = "<group>"; };
 		C1164D7321BD952100895A1B /* AccountTransactionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTransactionsVC.swift; sourceTree = "<group>"; };
-		C1164D7721BD958900895A1B /* EditAccountGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountGroupVC.swift; sourceTree = "<group>"; };
+		C1164D7721BD958900895A1B /* AccountGroupEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupEditVC.swift; sourceTree = "<group>"; };
 		C1164D7C21BD95DC00895A1B /* AccountDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailVC.swift; sourceTree = "<group>"; };
 		C1164D8121BD974F00895A1B /* TransactionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		C1164D8221BD974F00895A1B /* AdvancedNewTransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedNewTransactionVC.swift; sourceTree = "<group>"; };
@@ -377,6 +385,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C10A1A4B21EB8D40005A66E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C10A1A4C21EB8D54005A66E1 /* BinaryIntegerExtensionTest.swift */,
+				C10A1A4E21EB8FE8005A66E1 /* FormatterExtensionTest.swift */,
+				C10A1A5021EB94ED005A66E1 /* StringExtensionTest.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C1164D2121BD6C6D00895A1B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,7 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				C1164D6B21BD94BA00895A1B /* AccountGroupDetailVC.swift */,
-				C1164D7721BD958900895A1B /* EditAccountGroupVC.swift */,
+				C1164D7721BD958900895A1B /* AccountGroupEditVC.swift */,
 			);
 			path = AccountGroup;
 			sourceTree = "<group>";
@@ -493,6 +511,7 @@
 		C1913FA621C42A2800D3DA3E /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C10A1A5221EB974C005A66E1 /* EnumValuesSelectorVCTests.swift */,
 				C1DBCC5C21C261C20003869A /* AccountDetailVCTests.swift */,
 				C1913FA721C42A4A00D3DA3E /* AccountGroupDetailVCTests.swift */,
 				C1913FAF21C462A000D3DA3E /* AccountGroupListVCTests.swift */,
@@ -796,6 +815,7 @@
 		C1E9679021C7FC83005014E1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C10A1A4B21EB8D40005A66E1 /* Extensions */,
 				C1E967B121C83815005014E1 /* Table */,
 				C1E9679A21C82FAC005014E1 /* Cell */,
 				C1E9679921C82F4F005014E1 /* Views */,
@@ -1083,7 +1103,7 @@
 				C1D0960921E8A27F0032BF8E /* DateExtensions.swift in Sources */,
 				C1240A9521CD708800A0E0BF /* EnumValuesSelectorVC.swift in Sources */,
 				C1164D2521BD6CAA00895A1B /* SettingsViewController.swift in Sources */,
-				C1164D7921BD958900895A1B /* EditAccountGroupVC.swift in Sources */,
+				C1164D7921BD958900895A1B /* AccountGroupEditVC.swift in Sources */,
 				C1A027ED21BD54F300207FF7 /* FIRManager.swift in Sources */,
 				C1A027BE21BD521C00207FF7 /* DataProtocol.swift in Sources */,
 				C1164D6921BD93B600895A1B /* AccountGroupsViewController.swift in Sources */,
@@ -1119,6 +1139,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10A1A4D21EB8D54005A66E1 /* BinaryIntegerExtensionTest.swift in Sources */,
+				C10A1A5321EB974C005A66E1 /* EnumValuesSelectorVCTests.swift in Sources */,
 				C1913FB221C462CB00D3DA3E /* ViewControllerTests.swift in Sources */,
 				C1E967AB21C836E6005014E1 /* TitleLabelTests.swift in Sources */,
 				C1E9679321C7FCB8005014E1 /* NavigationControllerTests.swift in Sources */,
@@ -1138,6 +1160,8 @@
 				C1913FB821C47F2400D3DA3E /* AccountTransactionsVCTests.swift in Sources */,
 				C1913FBA21C575DF00D3DA3E /* FIRAuthTests.swift in Sources */,
 				C1E9679C21C82FC0005014E1 /* InputAmountCellTests.swift in Sources */,
+				C10A1A5121EB94ED005A66E1 /* StringExtensionTest.swift in Sources */,
+				C10A1A4F21EB8FE8005A66E1 /* FormatterExtensionTest.swift in Sources */,
 				C1913FB021C462A000D3DA3E /* AccountGroupListVCTests.swift in Sources */,
 				C1E967B721C8B367005014E1 /* ClassServiceTests.swift in Sources */,
 				C1E9679821C8016E005014E1 /* DataModelRowTests.swift in Sources */,

@@ -12,7 +12,7 @@ internal final class AccountDetailVC: ViewController {
                 self.navigationController?.popViewController(animated: true)
             }
             let constraints = ["H:|-20-[deleteButton]-20-|", "V:[deleteButton(44)]-60-|"]
-            view.add(subViews: ["deleteButton": button as? UIView], withConstraints: constraints)
+            view.add(views: ["deleteButton": button as? UIView], withConstraints: constraints)
         }
 
         navigationItem.rightBarButtonItem = BarButtonItem(title: "Done") {[unowned self] in
@@ -21,10 +21,16 @@ internal final class AccountDetailVC: ViewController {
                 self.navigationController?.popViewController(animated: true)
         }
 
-        view.add(subViews: ["accountName": accountNameTextField as? UIView,
-                            "accountAmount": accountAmountTextField as? UIView], withConstraints: [
-                                "H:|-20-[accountName]-20-|", "H:|-20-[accountAmount]-20-|",
-                                "V:|-120-[accountName(31)]-20-[accountAmount(31)]"])
+        view.add(views:
+            [
+                "accountName": accountNameTextField as? UIView,
+                "accountAmount": accountAmountTextField as? UIView
+            ],
+                 withConstraints:
+            [
+                "H:|-20-[accountName]-20-|", "H:|-20-[accountAmount]-20-|",
+                "V:|-120-[accountName(31)]-20-[accountAmount(31)]"
+            ])
     }
 }
 

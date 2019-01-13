@@ -13,7 +13,7 @@ internal final class SwitchCell: UITableViewCell, SwitchCellProtocol {
 
     override internal init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
-        contentView.add(subView: switchControl as? UIView, withConstraints: ["H:[v(50)]-20-|", "V:|[v]|"])
+        contentView.add(view: switchControl as? UIView, withConstraints: ["H:[v(50)]-20-|", "V:|[v]|"])
     }
 
     internal required init?(coder aDecoder: NSCoder) {

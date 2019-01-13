@@ -95,18 +95,17 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
                                        for: fsTransaction,
                                        with: errorPointer) as? AccountGroup else { return nil }
             // Get accounts data
-            if let uniqueKeysWithValues = group.accounts?.keys.map({
+            let uniqueKeysWithValues = group.accounts.keys.map {
                 (id: $0, self.get(.account, withId: $0, for: fsTransaction) as? Account)
-            }) {
-                let accounts = Dictionary(uniqueKeysWithValues: uniqueKeysWithValues)
-                accounts.forEach {
-                    if let groups = $0.value?.groups {
-                        var newGroups = groups
-                        newGroups.removeValue(forKey: id)
-                        fsTransaction.updateData(
-                            [Account.Fields.groups.rawValue: newGroups],
-                            forDocument: ref.collection(DataObjectType.account.rawValue).document($0.key))
-                    }
+            }
+            let accounts = Dictionary(uniqueKeysWithValues: uniqueKeysWithValues)
+            accounts.forEach {
+                if let groups = $0.value?.groups {
+                    var newGroups = groups
+                    newGroups.removeValue(forKey: id)
+                    fsTransaction.updateData(
+                        [Account.Fields.groups.rawValue: newGroups],
+                        forDocument: ref.collection(DataObjectType.account.rawValue).document($0.key))
                 }
             }
 

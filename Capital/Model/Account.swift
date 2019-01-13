@@ -1,4 +1,5 @@
 // MARK: - Fields enum - to name all the fields of Account class
+
 extension Account {
     internal enum Fields: String {
         case name, amount, min, type, groups
@@ -10,8 +11,24 @@ extension Account {
     }
 }
 
+private enum AccountFieldEnum: String {
+    case name
+    case amount
+    case minAmount
+    case minDate
+    case typeId
+    case groups
+}
+
+internal struct AccountFields {
+    internal let name = AccountFieldEnum.name.rawValue
+    internal let amount = AccountFieldEnum.amount.rawValue
+}
+
 /// Account - is the entity to record transactions (`FinTransaction`).
 internal final class Account: DataObject {
+    // MARK: - Static Properties
+    internal static let fields = AccountFields()
     // MARK: - Properties
 
     /// Account name
@@ -41,7 +58,7 @@ internal final class Account: DataObject {
         return accountType
     }
     /// Groups to which 'Account' belongs to
-    internal var groups: [GroupId: GroupName]?
+    internal var groups = [GroupId: GroupName]()
 
     // MARK: - Initializers
 
@@ -87,7 +104,7 @@ internal final class Account: DataObject {
             self.typeId = value as? Int
 
         case .groups:
-            self.groups = value as? [String: String]
+            self.groups = (value as? [String: String]) ?? [String: String]()
         }
     }
 }

@@ -17,11 +17,16 @@ internal final class AccountGroupEditVC: ViewController {
             nameTextField.text = data.name
         }
         service.getData { dataModel in table.localData = dataModel }
-        view.add(
-            subViews: ["nm": nameTextField as? UIView, "sc": segmentedControl as? UIView,
-                       "tbl": table as? UIView],
-            withConstraints: ["H:|-15-[nm]-15-|", "H:|-20-[sc]-20-|", "H:|[tbl]|",
-                              "V:|-80-[nm(31)]-20-[sc]-10-[tbl]|"])
+        view.add(views:
+            [
+                "nm": nameTextField as? UIView, "sc": segmentedControl as? UIView,
+                "tbl": table as? UIView
+            ],
+                 withConstraints:
+            [
+                "H:|-15-[nm]-15-|", "H:|-20-[sc]-20-|", "H:|[tbl]|",
+                "V:|-80-[nm(31)]-20-[sc]-10-[tbl]|"
+            ])
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
                                                             target: self, action: #selector(didTapDone))
         table.didSelect = {[unowned self] row, _ in
@@ -32,7 +37,8 @@ internal final class AccountGroupEditVC: ViewController {
         }
     }
 
-    @objc internal func didTapDone() {
+    @objc
+    internal func didTapDone() {
         service.didTapDone(name: nameTextField.text) { [unowned self] in self.dismiss() }
     }
 }
@@ -59,7 +65,7 @@ extension AccountGroupEditVC {
                     switch changeType {
                     case .added, .modified:
                         self.accounts[id] = account
-                        if account.groups?[self.accountGroup ?? ""] != nil {
+                        if account.groups[self.accountGroup ?? ""] != nil {
                             self.selectedAccounts.insert(id)
                         }
 

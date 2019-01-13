@@ -19,6 +19,20 @@ alt="Build Status">
 <a href="https://swift.org/blog/swift-4-2-released/"><img src="https://img.shields.io/badge/swift-4.2-blue.svg" /></a>
 <a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." /></a>
 </p>
+## Description
 
-[Documentation](https://andrey-manakov.github.io/Capital/index.html)
+This is iOS app for personal finance accounting. The main idea behind this app is to concentrate on one single question: can I spend today X amount, taking into account all the current balances and planed transaction.
 
+**Important note:** I created this app along with studying Swift as a hobby. Despite that fact I hope to publish that to App Store some day.
+
+###Some notes to be described in the future in greater detail
+
+- The app implements [double-entry record principle](https://en.wikipedia.org/wiki/Double-entry_bookkeeping_system). 
+
+- The app uses [Firestore](https://firebase.google.com/docs/firestore/) for storage database
+
+[Refer Full Documentation](https://andrey-manakov.github.io/Capital/index.html)
+
+## License
+
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)

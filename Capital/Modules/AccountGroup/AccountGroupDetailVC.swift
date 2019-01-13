@@ -18,7 +18,7 @@ internal final class AccountGroupDetailVC: ViewController {
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         }
-        view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
+        view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
     }
 }
 

@@ -32,7 +32,8 @@ internal final class BarButtonItem: UIBarButtonItem {
         return nil
     }
 
-    @objc internal func didTap() {
+    @objc
+    internal func didTap() {
         tapAction?()
     }
 }

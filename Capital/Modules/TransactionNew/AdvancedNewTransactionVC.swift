@@ -27,17 +27,19 @@ internal final class AdvancedNewTransactionVC: ViewController, AdvancedNewTransa
 
         service.viewDidLoad(self)
         title = "New Transaction"
-        view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
+        view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonItem.SystemItem.done,
             target: self, action: #selector(didTapDone))
     }
 
-    @objc internal func didTapCancel() {
+    @objc
+    internal func didTapCancel() {
         dismissNavigationViewController()
     }
 
-    @objc internal func didTapDone() {
+    @objc
+    internal func didTapDone() {
         service.didTapDone()
     }
 

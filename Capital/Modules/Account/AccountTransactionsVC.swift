@@ -12,7 +12,7 @@ internal final class AccountTransactionsVC: ViewController {
             self.navigationController?.pushViewController(AccountDetailVC(id), animated: true)
         }
 
-        view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
+        view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
 
         // MARK: transaction table setup
         table.swipeLeftAction = {
@@ -44,6 +44,10 @@ extension AccountTransactionsVC {
                         self.transactions.removeValue(forKey: id)
                     }
                 }
+//                let rows: [DataModelRowProtocol] = self.transactions.map {
+//                    DataModelRow(id: $0.key, left: $0.value.dateText, up: $0.value.from?.name, down: $0.value.to?.name, right: "\($0.value.amount ?? 0)")
+//                }
+//                completion(DataModel(rows))
                 completion(DataModel(self.transactions.map {(
                     id: $0.key,
                     left: $0.value.dateText,

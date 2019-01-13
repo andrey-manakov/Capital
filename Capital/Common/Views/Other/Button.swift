@@ -19,7 +19,8 @@ internal final class Button: UIButton, ButtonProtocol {
         return nil
     }
 
-    @objc internal func tapAction() {
+    @objc
+    internal func tapAction() {
         action?()
     }
 }

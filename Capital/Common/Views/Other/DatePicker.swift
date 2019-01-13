@@ -21,7 +21,8 @@ internal final class DatePicker: UIDatePicker, DatePickerProtocol {
         return nil
     }
 
-    @objc internal func dateChanged() {
+    @objc
+    internal func dateChanged() {
         actionOnDateChange?(date)
     }
 }

@@ -1,13 +1,13 @@
 import XCTest
 
-internal class Springboard {
+internal enum Springboard {
     private static let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
     private static let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
 
     /**
      Terminate and delete the app via springboard
      */
-    internal final class func deleteMyApp() {
+    internal static func deleteMyApp() {
         XCUIApplication().terminate()
 
         // Resolve the query for the springboard rather than launching it

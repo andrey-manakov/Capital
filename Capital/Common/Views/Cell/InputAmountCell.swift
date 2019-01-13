@@ -8,7 +8,7 @@ internal class InputAmountCell: UITableViewCell, InputAmountCellProtocol {
 
     override internal init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
-        contentView.add(subView: amountTextField as? UIView, withConstraints: ["H:[v(100)]-20-|", "V:|[v]|"])
+        contentView.add(view: amountTextField as? UIView, withConstraints: ["H:[v(100)]-20-|", "V:|[v]|"])
     }
 
     internal required init?(coder aDecoder: NSCoder) {

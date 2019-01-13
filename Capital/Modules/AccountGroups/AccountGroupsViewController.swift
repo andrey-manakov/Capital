@@ -4,7 +4,7 @@ internal final class AccountGroupsViewController: ViewController {
         let service = Service()
         let table: SimpleTableWithSwipeProtocol = SimpleTableWithSwipe()
         service.getData { dataModel in table.localData = dataModel }
-        view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
+        view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
         self.title = "DashBoard"
         navigationItem.rightBarButtonItem = BarButtonItem(title: "New") {[unowned self] in
             self.navigationController?.pushViewController(AccountGroupEditVC(), animated: true)

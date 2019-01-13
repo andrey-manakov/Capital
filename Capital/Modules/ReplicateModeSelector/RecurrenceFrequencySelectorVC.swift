@@ -5,7 +5,7 @@ internal final class RecurrenceFrequencySelectorVC: ViewController {
         table.dataFormula = {
             DataModel(RecurrenceFrequency.allCases.map { (id: "\($0.rawValue)", name: $0.name) })
         }
-        view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
+        view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
         let selectionAction = data as? ((Any?) -> Void)
         table.didSelect = {[unowned self] row, _ in
             selectionAction?(row.id)

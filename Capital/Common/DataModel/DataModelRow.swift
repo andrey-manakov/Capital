@@ -11,13 +11,42 @@ internal protocol DataModelRowProtocol: BasicDataPropertiesProtocol {
 }
 
 internal struct DataModelRow: DataModelRowProtocol {
-    internal var id: String?
-    internal var name: String?
-    internal var desc: String?
-    internal var left: String?
-    internal var up: String?
-    internal var down: String?
-    internal var right: String?
+    internal var texts = [DataModelRowText: String]()
+    internal var id: String? {
+        didSet {
+            self.texts[.id] = self.id
+        }
+    }
+    internal var name: String? {
+        didSet {
+            self.texts[.name] = self.name
+        }
+    }
+    internal var desc: String? {
+        didSet {
+            self.texts[.desc] = self.desc
+        }
+    }
+    internal var left: String? {
+        didSet {
+            self.texts[.left] = self.left
+        }
+    }
+    internal var up: String? {
+        didSet {
+            self.texts[.up] = self.up
+        }
+    }
+    internal var down: String? {
+        didSet {
+            self.texts[.down] = self.down
+        }
+    }
+    internal var right: String? {
+        didSet {
+            self.texts[.right] = self.right
+        }
+    }
     internal var height: CGFloat?
     internal var style: CellStyle?
     internal var selectAction: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)?
@@ -55,4 +84,29 @@ internal struct DataModelRow: DataModelRowProtocol {
         self.accessory = accessory
         self.filter = filter
     }
+
+    internal init(
+        texts: [DataModelRowText: String] = [DataModelRowText: String](),
+        height: CGFloat? = nil,
+        style: CellStyle? = nil,
+        accessory: Int? = nil,
+        filter: Any? = nil,
+        action: ((_ row: DataModelRowProtocol, _ ix: IndexPath) -> Void)? = nil
+         ) {
+        self.texts = texts
+        self.height = height
+        self.accessory = accessory
+        self.filter = filter
+        self.selectAction = action
+    }
+}
+
+internal enum DataModelRowText: String, CaseIterable {
+    case id
+    case name
+    case desc
+    case left
+    case up
+    case down
+    case right
 }

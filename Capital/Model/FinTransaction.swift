@@ -20,7 +20,7 @@ internal final class FinTransaction: DataObject {
     }
     /// isApproved - defines if transaction is approved,
     /// if it is actually took place and should it be taken into account value calculation
-    internal var isApproved: Bool?
+    internal var isApproved = false
     /// approvalMode - defines what happens when transaction date comes
     internal var approvalMode: ApprovalMode?
     /// recurrenceFrequency - defines whether transaction should repeat, nil means no repeating
@@ -79,7 +79,7 @@ internal final class FinTransaction: DataObject {
             self.serverTime = (value as? Timestamp)?.dateValue()
 
         case .isApproved:
-            self.isApproved = value as? Bool
+            self.isApproved = (value as? Bool) ?? false
 
         case .approvalMode:
             if let rawValue = value as? Int { self.approvalMode = ApprovalMode(rawValue: rawValue) }

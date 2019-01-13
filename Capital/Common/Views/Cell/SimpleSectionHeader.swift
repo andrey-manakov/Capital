@@ -11,8 +11,8 @@ internal class SimpleSectionHeader: UITableViewHeaderFooterView, SimpleSectionHe
 
     override internal init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        contentView.add(subView: title, withConstraints: ["H:|-15-[v]-65-|", "V:|-7-[v(30)]"])
-        contentView.add(subView: desc, withConstraints: ["H:[v(50)]-15-|", "V:|-7-[v(30)]"])
+        contentView.add(view: title, withConstraints: ["H:|-15-[v]-65-|", "V:|-7-[v(30)]"])
+        contentView.add(view: desc, withConstraints: ["H:[v(50)]-15-|", "V:|-7-[v(30)]"])
     }
 
     internal required init?(coder aDecoder: NSCoder) {

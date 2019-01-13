@@ -32,7 +32,7 @@ internal protocol DataProtocol {
 
     func setListnersToTransactionsOfAccount(
         withId id: String, for objectId: ObjectIdentifier,
-        completion: @escaping ((( [(id: String, account: FinTransaction, changeType: ChangeType)]
+        completion: @escaping ((( [(id: String, transaction: FinTransaction, changeType: ChangeType)]
         ) -> Void))
     )
     func setListnerToAccountGroup(

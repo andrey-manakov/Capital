@@ -12,7 +12,7 @@ internal final class SettingsViewController: ViewController, SettingsViewControl
         super.viewDidLoad()
         service.viewDidLoad(self)
         title = "Settings"
-        view.add(subView: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
+        view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
         table.didSelect = {[unowned self] row, index in
             self.service.didSelect(row, at: index)
         }

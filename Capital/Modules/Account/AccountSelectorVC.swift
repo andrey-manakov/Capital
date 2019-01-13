@@ -13,7 +13,7 @@ internal final class AccountSelectorVC: ViewController {
         table.filter = { $0.filter as? Int == 0 }
         service.getData { dataModel in table.localData = dataModel }
 
-        view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView],
+        view.add(views: ["t": table as? UIView, "sc": segmentedControl as? UIView],
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
 
         let selectionAction = data as? ((Any?) -> Void)

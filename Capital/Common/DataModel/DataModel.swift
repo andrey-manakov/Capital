@@ -19,6 +19,8 @@ internal protocol DataModelProtocol: CustomStringConvertible, CustomDebugStringC
 }
 
 internal struct DataModel: DataModelProtocol {
+    // MARK: - Properties
+    /// Sections for the UITableView
     internal var sections: [DataModelSectionProtocol] = [DataModelSection]()
 
     internal var description: String {
@@ -45,12 +47,14 @@ internal struct DataModel: DataModelProtocol {
         }
     }
 
+    // MARK: - Initializers
+
     internal init() {}
     internal init(_ labels: [(id: String?, name: String?, desc: String?)]) {
         self.init()
         sections.append(DataModelSection(labels))
     }
-
+// remove first
     internal init(_ labels: [(id: String?, name: String?, desc: String?, filter: Any?)]) {
         self.init()
         sections.append(DataModelSection(labels))
@@ -68,6 +72,7 @@ internal struct DataModel: DataModelProtocol {
         self.init()
         sections.append(DataModelSection(labels))
     }
+
     internal init(_ labels: [(id: String?, left: String?, up: String?, down: String?, right: String?)]) {
         self.init()
         sections.append(DataModelSection(labels))
@@ -80,6 +85,8 @@ internal struct DataModel: DataModelProtocol {
     internal init(_ rows: [DataModelRowProtocol]) {
         self.sections.append(DataModelSection(rows))
     }
+
+    // MARK: - Functions
 
     internal func filter(_ filter: (DataModelRowProtocol) -> (Bool)) -> DataModelProtocol {
         return DataModel(sections.map { $0.filter(filter) })

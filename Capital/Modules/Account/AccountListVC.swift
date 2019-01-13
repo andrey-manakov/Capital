@@ -20,7 +20,7 @@ internal final class AccountListVC: ViewController {
             let viewController = AccountTransactionsVC((row.id, row.name))
             self.navigationController?.pushViewController(viewController, animated: true)
         }
-        view.add(subViews: ["t": table as? UIView, "sc": segmentedControl as? UIView],
+        view.add(views: ["t": table as? UIView, "sc": segmentedControl as? UIView],
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
     }
 }
@@ -40,12 +40,10 @@ extension AccountListVC {
                         self.accounts.removeValue(forKey: id)
                     }
                 }
-                let dataModel = DataModel(self.accounts.map {
-                    (id: $0.key, name: $0.value.name,
-                     desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))",
-                        filter: $0.value.typeId ?? 4)
-                })
-                completion(dataModel)
+                let rows: [DataModelRowProtocol] = self.accounts.map {
+                    DataModelRow(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))", filter: $0.value.typeId ?? 4)
+                }
+                completion(DataModel(rows))
             }
         }
 
