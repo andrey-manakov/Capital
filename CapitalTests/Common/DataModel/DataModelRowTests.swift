@@ -21,17 +21,29 @@ internal class DataModelRowTests: XCTestCase {
         let filter = "Any?"
 
         let sample = DataModelRow(
-            id: id, name: name, desc: desc, height: height, left: left, up: up, down: down,
-            right: right, style: style, action: action, accessory: accessory, filter: filter)
+            texts: [
+                .id: id,
+                .name: name,
+                .desc: desc,
+                .left: left,
+                .up: up,
+                .down: down,
+                .right: right
+            ],
+            height: height,
+            style: style,
+            accessory: accessory,
+            filter: filter,
+            action: action)
         var master = DataModelRow()
-        master.id = id
-        master.name = name
-        master.desc = desc
+        master.texts[.id] = id
+        master.texts[.name] = name
+        master.texts[.desc] = desc
         master.height = height
-        master.left = left
-        master.up = up
-        master.down = down
-        master.right = right
+        master.texts[.left] = left
+        master.texts[.up] = up
+        master.texts[.down] = down
+        master.texts[.right] = right
         master.style = style
         master.selectAction = action
         master.accessory = accessory

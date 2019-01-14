@@ -16,11 +16,11 @@ internal final class AccountTransactionsVC: ViewController {
 
         // MARK: transaction table setup
         table.swipeLeftAction = {
-            row in service.deleteTransaction(withId: row?.id)
+            row in service.deleteTransaction(withId: row?.texts[.id])
         }
         table.swipeLeftLabel = "Delete"
         table.swipeRightAction = {
-            row in service.deleteTransaction(withId: row?.id)
+            row in service.deleteTransaction(withId: row?.texts[.id])
         }
         table.swipeRightLabel = "Approve"
     }
@@ -44,17 +44,25 @@ extension AccountTransactionsVC {
                         self.transactions.removeValue(forKey: id)
                     }
                 }
-//                let rows: [DataModelRowProtocol] = self.transactions.map {
+                let rows: [DataModelRowProtocol] = self.transactions.map {
+                    DataModelRow(texts:
+                        [
+                        .id: $0.key,
+                        .left: $0.value.dateText,
+                        .up: $0.value.from?.name ?? "",
+                        .down: $0.value.to?.name ?? "",
+                        .right: "\($0.value.amount ?? 0)"
+                        ])
 //                    DataModelRow(id: $0.key, left: $0.value.dateText, up: $0.value.from?.name, down: $0.value.to?.name, right: "\($0.value.amount ?? 0)")
-//                }
-//                completion(DataModel(rows))
-                completion(DataModel(self.transactions.map {(
-                    id: $0.key,
-                    left: $0.value.dateText,
-                    up: $0.value.from?.name,
-                    down: $0.value.to?.name,
-                    right: "\($0.value.amount ?? 0)")
-                }))
+                }
+                completion(DataModel(rows))
+//                completion(DataModel(self.transactions.map {(
+//                    id: $0.key,
+//                    left: $0.value.dateText,
+//                    up: $0.value.from?.name,
+//                    down: $0.value.to?.name,
+//                    right: "\($0.value.amount ?? 0)")
+//                }))
             }
         }
 

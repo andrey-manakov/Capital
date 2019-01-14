@@ -18,10 +18,10 @@ internal class SimpleTableWithSelection: SimpleTable, SimpleTableWithSelectionPr
         cellForRowAt indexPath: IndexPath
         ) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: LeftRightCell.self.description())
-        cell?.textLabel?.text = data[indexPath].name
-        cell?.detailTextLabel?.text = data[indexPath].desc
+        cell?.textLabel?.text = data[indexPath].texts[.name]
+        cell?.detailTextLabel?.text = data[indexPath].texts[.desc]
         cell?.selectionStyle = .none
-        if data[indexPath].id == selectedRow?.id {
+        if data[indexPath].texts[.id] == selectedRow?.texts[.id] {
             cell?.accessoryType = .checkmark
         } else {
             cell?.accessoryType = .none

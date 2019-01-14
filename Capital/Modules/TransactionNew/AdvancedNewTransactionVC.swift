@@ -79,7 +79,7 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
     }
 
     private func getTransactionItem(at indexPath: IndexPath) -> TransactionItem? {
-        if let id = tableData[indexPath].id {
+        if let id = tableData[indexPath].texts[.id] {
             return TransactionItem(rawValue: id)
         } else {
             return nil
@@ -92,8 +92,8 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
                 withIdentifier: LeftRightCell.self.description()) as? LeftRightCell else {
                     return UITableViewCell()
         }
-        cell.textLabel?.text = tableData[indexPath].name
-        cell.detailTextLabel?.text = tableData[indexPath].desc
+        cell.textLabel?.text = tableData[indexPath].texts[.name]
+        cell.detailTextLabel?.text = tableData[indexPath].texts[.desc]
         cell.detailTextLabel?.textColor = .red
         return cell as? UITableViewCell ?? UITableViewCell()
     }
@@ -104,10 +104,10 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
                 withIdentifier: InputAmountCell.self.description()) as? InputAmountCell else {
                     return UITableViewCell()
         }
-        cell.textLabel?.text = tableData[indexPath].name
+        cell.textLabel?.text = tableData[indexPath].texts[.name]
         amountTextField = cell.amountTextField
         cell.amountTextField.delegate = self
-        amountTextField?.text = tableData[indexPath].desc
+        amountTextField?.text = tableData[indexPath].texts[.desc]
         return cell as? UITableViewCell ?? UITableViewCell()
     }
 
@@ -117,7 +117,7 @@ extension AdvancedNewTransactionVC: UITableViewDataSource {
                 withIdentifier: DateSelectionCell.self.description()) as? DateSelectionCell else {
                     return UITableViewCell()
         }
-        cell.date = tableData[indexPath].desc?.date
+        cell.date = tableData[indexPath].texts[.desc]?.date
         if let item = getTransactionItem(at: indexPath) {
             cell.actionOnDateChange = {[unowned self] date in
                 self.service.didChoose(transactionItem: item, with: date)
@@ -166,7 +166,7 @@ extension AdvancedNewTransactionVC: UITableViewDelegate {
     }
 
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let id = tableData[indexPath].id, let item = TransactionItem(rawValue: id) else {
+        guard let id = tableData[indexPath].texts[.id], let item = TransactionItem(rawValue: id) else {
             return
         }
         service.didSelect(item)

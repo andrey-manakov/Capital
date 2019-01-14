@@ -17,7 +17,7 @@ internal final class AccountListVC: ViewController {
         }
 
         table.didSelect = {[unowned self] row, _ in
-            let viewController = AccountTransactionsVC((row.id, row.name))
+            let viewController = AccountTransactionsVC((row.texts[.id], row.texts[.name]))
             self.navigationController?.pushViewController(viewController, animated: true)
         }
         view.add(views: ["t": table as? UIView, "sc": segmentedControl as? UIView],
@@ -41,14 +41,22 @@ extension AccountListVC {
                     }
                 }
                 let rows: [DataModelRowProtocol] = self.accounts.map {
-                    DataModelRow(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))", filter: $0.value.typeId ?? 4)
+                    DataModelRow(
+                        texts: [
+                            .id: $0.key,
+                            .name: $0.value.name ?? "",
+                            .desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))"
+                        ],
+                        filter: $0.value.typeId ?? 4
+                    )
+//                    DataModelRow(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))", filter: $0.value.typeId ?? 4)
                 }
                 completion(DataModel(rows))
             }
         }
 
         internal func remove(_ row: DataModelRowProtocol?) {
-            guard let id = row?.id else {
+            guard let id = row?.texts[.id] else {
                 return
             }
             data.delete(.group, withId: id)

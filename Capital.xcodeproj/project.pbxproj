@@ -43,7 +43,7 @@
 		C1164D5B21BD818D00895A1B /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D5A21BD818D00895A1B /* SegmentedControl.swift */; };
 		C1164D6021BD82B100895A1B /* AccountNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D5E21BD82B100895A1B /* AccountNewVC.swift */; };
 		C1164D6221BD834A00895A1B /* NumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6121BD834A00895A1B /* NumberField.swift */; };
-		C1164D6921BD93B600895A1B /* AccountGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6721BD93B600895A1B /* AccountGroupsViewController.swift */; };
+		C1164D6921BD93B600895A1B /* AccountGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6721BD93B600895A1B /* AccountGroupsVC.swift */; };
 		C1164D6E21BD94BA00895A1B /* AccountGroupDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D6B21BD94BA00895A1B /* AccountGroupDetailVC.swift */; };
 		C1164D7521BD952100895A1B /* AccountTransactionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D7321BD952100895A1B /* AccountTransactionsVC.swift */; };
 		C1164D7921BD958900895A1B /* AccountGroupEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1164D7721BD958900895A1B /* AccountGroupEditVC.swift */; };
@@ -213,7 +213,7 @@
 		C1164D5A21BD818D00895A1B /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		C1164D5E21BD82B100895A1B /* AccountNewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNewVC.swift; sourceTree = "<group>"; };
 		C1164D6121BD834A00895A1B /* NumberField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberField.swift; sourceTree = "<group>"; };
-		C1164D6721BD93B600895A1B /* AccountGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupsViewController.swift; sourceTree = "<group>"; };
+		C1164D6721BD93B600895A1B /* AccountGroupsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupsVC.swift; sourceTree = "<group>"; };
 		C1164D6B21BD94BA00895A1B /* AccountGroupDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupDetailVC.swift; sourceTree = "<group>"; };
 		C1164D7321BD952100895A1B /* AccountTransactionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTransactionsVC.swift; sourceTree = "<group>"; };
 		C1164D7721BD958900895A1B /* AccountGroupEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountGroupEditVC.swift; sourceTree = "<group>"; };
@@ -645,7 +645,7 @@
 		C1A027B521BD502300207FF7 /* AccountGroups */ = {
 			isa = PBXGroup;
 			children = (
-				C1164D6721BD93B600895A1B /* AccountGroupsViewController.swift */,
+				C1164D6721BD93B600895A1B /* AccountGroupsVC.swift */,
 			);
 			path = AccountGroups;
 			sourceTree = "<group>";
@@ -1106,7 +1106,7 @@
 				C1164D7921BD958900895A1B /* AccountGroupEditVC.swift in Sources */,
 				C1A027ED21BD54F300207FF7 /* FIRManager.swift in Sources */,
 				C1A027BE21BD521C00207FF7 /* DataProtocol.swift in Sources */,
-				C1164D6921BD93B600895A1B /* AccountGroupsViewController.swift in Sources */,
+				C1164D6921BD93B600895A1B /* AccountGroupsVC.swift in Sources */,
 				C1A027CF21BD541E00207FF7 /* ChangeType.swift in Sources */,
 				C1A0279A21BD43D200207FF7 /* ViewController.swift in Sources */,
 				C1CE083121BD216F000D28C9 /* AppDelegate.swift in Sources */,
@@ -1362,6 +1362,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -warn-long-function-bodies=100 -Xfrontend -warn-long-expression-type-checking=100";
 				PRODUCT_BUNDLE_IDENTIFIER = manakov.Capital;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Capital/Capital-Bridging-Header.h";

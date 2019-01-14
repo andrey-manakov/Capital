@@ -1,4 +1,4 @@
-internal final class AccountGroupsViewController: ViewController {
+internal final class AccountGroupsVC: ViewController {
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -13,12 +13,12 @@ internal final class AccountGroupsViewController: ViewController {
         table.swipeLeftLabel = "Delete"
         table.didSelect = {[unowned self] row, _ in
             self.navigationController?.pushViewController(
-                AccountGroupDetailVC((row.id, row.name)), animated: true)
+                AccountGroupDetailVC((row.texts[.id], row.texts[.name])), animated: true)
         }
     }
 }
 
-extension AccountGroupsViewController {
+extension AccountGroupsVC {
     internal final class Service: ClassService {
         private var accountGroups = [String: AccountGroup]() // {didSet{print(accountGroups)}}
 
@@ -33,15 +33,23 @@ extension AccountGroupsViewController {
                         self.accountGroups.removeValue(forKey: id)
                     }
                 }
-                let dataModel = DataModel(self.accountGroups.map {
-                    (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
-                })
-                completion(dataModel)
+//                let dataModel = DataModel(self.accountGroups.map {
+//                    (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
+//                })
+                let rows = self.accountGroups.map {
+                    DataModelRow(texts:
+                        [
+                        .id: $0.key,
+                        .name: $0.value.name ?? "",
+                        .desc: "\($0.value.amount ?? 0)"
+                        ])
+                }
+                completion(DataModel(rows))
             }
         }
 
         internal func remove(_ row: DataModelRowProtocol?) {
-            guard let id = row?.id else {
+            guard let id = row?.texts[.id] else {
                 return
             }
             data.delete(.group, withId: id)

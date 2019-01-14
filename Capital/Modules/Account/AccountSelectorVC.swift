@@ -18,7 +18,7 @@ internal final class AccountSelectorVC: ViewController {
 
         let selectionAction = data as? ((Any?) -> Void)
         table.didSelect = { row, _ in
-            selectionAction?((row.id, row.name))
+            selectionAction?((row.texts[.id], row.texts[.name]))
             self.dismiss()
         }
     }
@@ -32,11 +32,19 @@ extension AccountSelectorVC {
 //            let sourceForDataModel =
             let dataModelSource = self.accounts.map {
                 DataModelRow(
-                    id: $0.key,
-                    name: $0.value.name,
-                    desc: "\($0.value.amount ?? 0)",
+                    texts: [
+                    .id: $0.key,
+                    .name: $0.value.name ?? "",
+                    .desc: "\($0.value.amount ?? 0)"
+                    ],
                     filter: $0.value.type?.rawValue
                 )
+//                DataModelRow(
+//                    id: $0.key,
+//                    name: $0.value.name,
+//                    desc: "\($0.value.amount ?? 0)",
+//                    filter: $0.value.type?.rawValue
+//                )
             }
             return DataModel(dataModelSource)
         }

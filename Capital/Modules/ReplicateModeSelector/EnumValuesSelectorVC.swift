@@ -9,7 +9,7 @@ internal final class EnumValuesSelectorVC: ViewController {
         }
         table.dataFormula = dataV.sourceData
         table.didSelect = {[unowned self] row, _ in
-            dataV.selectionAction(row.id)
+            dataV.selectionAction(row.texts[.id])
             self.dismiss()
         }
     }

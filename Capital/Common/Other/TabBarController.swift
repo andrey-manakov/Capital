@@ -17,7 +17,7 @@ internal final class TabBarController: UITabBarController, TabBarControllerProto
     internal init() {
         super.init(nibName: nil, bundle: nil)
         viewControllers = [
-            NavigationController(AccountGroupsViewController()),
+            NavigationController(AccountGroupsVC()),
             NavigationController(AccountListVC()),
             NavigationController(AdvancedNewTransactionVC()),
             NavigationController(AccountListVC()),

@@ -19,10 +19,10 @@ internal class TransactionsTable: SimpleTableWithSwipe, TransactionsTableProtoco
             withIdentifier: TransactionCell.self.description()) as? TransactionCell else {
             return UITableViewCell()
         }
-        cell.date.text = "\(data[indexPath].left ?? "")"
-        cell.from.text = "from: \(data[indexPath].up ?? "")"
-        cell.to.text = "to: \(data[indexPath].down ?? "")"
-        cell.amount.text = data[indexPath].right
+        cell.date.text = "\(data[indexPath].texts[.left] ?? "")"
+        cell.from.text = "from: \(data[indexPath].texts[.up] ?? "")"
+        cell.to.text = "to: \(data[indexPath].texts[.down] ?? "")"
+        cell.amount.text = data[indexPath].texts[.right]
         return cell as? TransactionCell ?? UITableViewCell()
     }
 }

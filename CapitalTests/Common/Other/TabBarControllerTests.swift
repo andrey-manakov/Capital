@@ -7,7 +7,7 @@ internal class TabBarControllerTests: XCTestCase {
     internal func testInitWithVC() {
         let tabVC = TabBarController()
         let navVC = tabVC.viewControllers?[0] as? NavigationController
-        XCTAssertTrue(navVC?.viewControllers[0] as? AccountGroupsViewController != nil)
+        XCTAssertTrue(navVC?.viewControllers[0] as? AccountGroupsVC != nil)
         // FIXME: add the rest VCs
     }
 }

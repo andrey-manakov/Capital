@@ -35,7 +35,7 @@ internal struct DataModel: DataModelProtocol {
 
     internal subscript(sectionIndex: Int, rowIndex: Int) -> (name: String?, desc: String?) {
         let row = sections[sectionIndex].rows[rowIndex]
-        return (row.name, row.desc)
+        return (row.texts[.name], row.texts[.desc])
     }
 
     internal subscript(index: IndexPath) -> DataModelRowProtocol {
@@ -50,33 +50,6 @@ internal struct DataModel: DataModelProtocol {
     // MARK: - Initializers
 
     internal init() {}
-    internal init(_ labels: [(id: String?, name: String?, desc: String?)]) {
-        self.init()
-        sections.append(DataModelSection(labels))
-    }
-// remove first
-    internal init(_ labels: [(id: String?, name: String?, desc: String?, filter: Any?)]) {
-        self.init()
-        sections.append(DataModelSection(labels))
-    }
-
-    internal init(_ labels: [(id: String?, name: String?, desc: String?, accessory: Int?)]) {
-        self.init()
-        sections.append(DataModelSection(labels))
-    }
-    internal init(_ labels: [(id: String?, name: String?)]) {
-        self.init()
-        sections.append(DataModelSection(labels))
-    }
-    internal init(_ labels: [(id: String?, name: String?, desc: String?, height: CGFloat?)]) {
-        self.init()
-        sections.append(DataModelSection(labels))
-    }
-
-    internal init(_ labels: [(id: String?, left: String?, up: String?, down: String?, right: String?)]) {
-        self.init()
-        sections.append(DataModelSection(labels))
-    }
 
     internal init(_ sections: [DataModelSectionProtocol]) {
         self.sections = sections

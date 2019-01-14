@@ -31,7 +31,7 @@ internal final class AccountGroupEditVC: ViewController {
                                                             target: self, action: #selector(didTapDone))
         table.didSelect = {[unowned self] row, _ in
             // TODO: reload only one
-            self.service.rowSelected(id: row.id) { dataModel in
+            self.service.rowSelected(id: row.texts[.id]) { dataModel in
                 table.localData = dataModel
             }
         }
@@ -47,12 +47,21 @@ extension AccountGroupEditVC {
     private class Service: ClassService {
         private var accounts = [String: Account]()
         private var dataModel: DataModelProtocol {
-            return DataModel(self.accounts.map {DataModelRow(
-                id: $0.key,
-                name: $0.value.name,
-                desc: "\($0.value.amount ?? 0)",
-                accessory: self.selectedAccounts.contains($0.key) ? 3 : 0,
-                filter: $0.value.type?.rawValue)
+            return DataModel(self.accounts.map {
+                DataModelRow(
+                    texts: [
+                        .id: $0.key,
+                        .name: $0.value.name ?? "",
+                        .desc: "\($0.value.amount ?? 0)"
+                    ],
+                    accessory: self.selectedAccounts.contains($0.key) ? 3 : 0,
+                    filter: $0.value.type?.rawValue)
+//                DataModelRow(
+//                    id: $0.key,
+//                    name: $0.value.name,
+//                    desc: "\($0.value.amount ?? 0)",
+//                    accessory: self.selectedAccounts.contains($0.key) ? 3 : 0,
+//                    filter: $0.value.type?.rawValue)
             })
         }
         internal var accountGroup: String?

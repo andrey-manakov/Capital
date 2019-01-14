@@ -19,6 +19,8 @@ alt="Build Status">
 <a href="https://swift.org/blog/swift-4-2-released/"><img src="https://img.shields.io/badge/swift-4.2-blue.svg" /></a>
 <a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." /></a>
 </p>
+----------------
+
 ## Description
 
 This is iOS app for personal finance accounting. The main idea behind this app is to concentrate on one single question: can I spend today X amount, taking into account all the current balances and planed transaction.

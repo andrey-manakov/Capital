@@ -15,13 +15,14 @@ internal final class SettingsService: ClassService, SettingsServiceProtocol {
     }
 
     internal func getData() {
-        view?.table.localData = DataModel(Settings.allCases.map {
-            (id: "\($0.rawValue)", name: $0.name, desc: "")
-        })
+        let rows = Settings.allCases.map {
+            DataModelRow(texts: [.id: "\($0.rawValue)", .name: $0.name])
+        }
+        view?.table.localData = DataModel(rows)
     }
 
     internal func didSelect(_ row: DataModelRowProtocol, at indexPath: IndexPath) {
-        guard let id = row.id, let idInt = Int(id), let settings = Settings(rawValue: idInt) else {
+        guard let id = row.texts[.id], let idInt = Int(id), let settings = Settings(rawValue: idInt) else {
             return
         }
         switch settings {

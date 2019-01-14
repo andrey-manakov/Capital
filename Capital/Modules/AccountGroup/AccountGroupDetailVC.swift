@@ -9,7 +9,7 @@ internal final class AccountGroupDetailVC: ViewController {
                 table.localData = dataModel
             }
             table.didSelect = {[unowned self] row, _ in
-                let viewController = AccountTransactionsVC((row.id, row.name))
+                let viewController = AccountTransactionsVC((row.texts[.id], row.texts[.name]))
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
             title = data.name
@@ -40,10 +40,13 @@ extension AccountGroupDetailVC {
                         self.accounts.removeValue(forKey: id)
                     }
                 }
-                let dataModel = DataModel(self.accounts.map {
-                    (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
-                })
-                completion(dataModel)
+                let rows = self.accounts.map {
+                    DataModelRow(texts: [.id: $0.key, .name: $0.value.name ?? "", .desc: "\($0.value.amount ?? 0)"])
+                }
+//                let dataModel = DataModel(self.accounts.map {
+//                    (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
+//                })
+                completion(DataModel(rows))
             }
         }
 

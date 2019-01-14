@@ -41,9 +41,10 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
     /// Provides description (label / text field to the right in the cell) for the transaction items
     private var transactionItemsDesc = [TransactionItem: String]()
     /// Provides date suitable for DataModel initialization
-    private var tableData: [(id: String?, name: String?, desc: String?, height: CGFloat?)] {
+    private var tableData: [DataModelRowProtocol] {
         return transactionItems.map {
-            (id: $0.rawValue, name: $0.name, desc: transactionItemsDesc[$0], height: $0.height)
+            DataModelRow(texts: [.id: $0.rawValue, .name: $0.name, .desc: self.transactionItemsDesc[$0] ?? ""], height: $0.height)
+//            (id: $0.rawValue, name: $0.name, desc: transactionItemsDesc[$0], height: $0.height)
         }
     }
 
@@ -97,8 +98,14 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
         case .approvalMode:
             let sourceData: () -> (DataModel) = {
                 DataModel(FinTransaction.ApprovalMode.allCases.map {
-                    (id: "\($0.rawValue)", name: $0.name)
+                    DataModelRow(texts: [.id: "\($0.rawValue)", .name: $0.name])
                 })
+//                let rows = FinTransaction.ApprovalMode.allCases.map {
+//                    DataModelRow(texts: [.id: "\($0.rawValue)", .name: $0.name])
+//                }
+//                DataModel(FinTransaction.ApprovalMode.allCases.map {
+//                    (id: "\($0.rawValue)", name: $0.name)
+//                })
             }
             view?.push(EnumValuesSelectorVC((sourceData: sourceData, selectionAction: action)))
 
