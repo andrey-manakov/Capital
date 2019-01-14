@@ -1,5 +1,5 @@
 disabled_rules: # rule identifiers to exclude from running
- - large_tuple
+ # - large_tuple
  - todo
  - function_parameter_count
  - nesting
@@ -119,7 +119,12 @@ force_try:
   severity: warning # explicitly
 # rules that have both warning and error levels, can set just the warning level
 # implicitly
-line_length: 110
+line_length:
+  warning: 120
+  error: 200
+  ignores_urls: true
+  ignores_function_declarations: true
+  ignores_comments: true
 # they can set both implicitly with an array
 type_body_length:
   - 300 # warning
@@ -167,6 +172,10 @@ attributes:
 
 object_literal:
   image_literal: false
+
+large_tuple:
+  warning: 3 # it was 2 initially
+  error: 4
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
 

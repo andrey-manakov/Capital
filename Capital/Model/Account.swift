@@ -23,14 +23,18 @@ private enum AccountFieldEnum: String {
 internal struct AccountFields {
     internal let name = AccountFieldEnum.name.rawValue
     internal let amount = AccountFieldEnum.amount.rawValue
+    internal let minAmount = AccountFieldEnum.minAmount.rawValue
+    internal let minDate = AccountFieldEnum.minDate.rawValue
+    internal let typeId = AccountFieldEnum.typeId.rawValue
+    internal let groups = AccountFieldEnum.groups.rawValue
 }
 
 /// Account - is the entity to record transactions (`FinTransaction`).
 internal final class Account: DataObject {
     // MARK: - Static Properties
     internal static let fields = AccountFields()
-    // MARK: - Properties
 
+    // MARK: - Properties
     /// Account name
     internal var name: AccountName?
     /// Account current balance
