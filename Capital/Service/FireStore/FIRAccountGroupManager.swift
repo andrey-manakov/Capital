@@ -71,9 +71,9 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
             }
             // create account group
             fsTransaction.setData([
-                AccountGroup.Fields.name.rawValue: name,
-                AccountGroup.Fields.amount.rawValue: amount,
-                AccountGroup.Fields.accounts.rawValue:
+                AccountGroup.fields.name: name,
+                AccountGroup.fields.amount: amount,
+                AccountGroup.fields.accounts:
                     accounts.mapValues { acc in acc.name }], forDocument: newRef)
             return true
         }, completion: fireStoreCompletion)

@@ -65,12 +65,10 @@ internal final class AccountGroupTests: XCTestCase {
         XCTAssertEqual(master, sample)
     }
 
-    /// Test checks that code correctly updates min value and date,
-    /// when ["min" : ["amount": 10, "date": {timestamp}]] is submitted
+    /// Test checks that code correctly updates min value and date, when ["min" : ["amount": 10, "date": {timestamp}]] is submitted
     internal func testUpdateWithMinAmountFieldValue() {
         // 1. Arrange
         let field = "minAmount"
-        let minDate = Date()
         let value: [String: Any] = ["amount": 10]
         let sample = AccountGroup()
 
@@ -83,8 +81,7 @@ internal final class AccountGroupTests: XCTestCase {
         XCTAssertEqual(master, sample)
     }
 
-    /// Test checks that code correctly updates min value and date,
-    /// when ["min" : ["amount": 10, "date": {timestamp}]] is submitted
+    /// Test checks that code correctly updates min value and date, when ["min" : ["amount": 10, "date": {timestamp}]] is submitted
     internal func testUpdateWithMinDateFieldValue() {
         // 1. Arrange
         let field = "minDate"

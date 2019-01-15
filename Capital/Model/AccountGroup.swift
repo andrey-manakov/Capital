@@ -1,3 +1,19 @@
+private enum AccountGroupField: String, CaseIterable {
+    case accounts
+    case name
+    case amount
+    case minAmount
+    case minDate
+}
+
+internal struct AccountGroupFields {
+    internal let accounts = AccountGroupField.accounts.rawValue
+    internal let name = AccountGroupField.name.rawValue
+    internal let amount = AccountGroupField.amount.rawValue
+    internal let minAmount = AccountGroupField.minAmount.rawValue
+    internal let minDate = AccountGroupField.minDate.rawValue
+}
+
 // MARK: - Introduction of Account.Group class
 internal final class AccountGroup: DataObject, Equatable {
     /// Fields names
@@ -6,17 +22,20 @@ internal final class AccountGroup: DataObject, Equatable {
     /// - name: name field
     /// - amount: amount field
     /// - min: amount and date of minimum value
-    internal enum Fields: String {
-        case accounts
-        case name
-        case amount
-        case minAmount
-        case minDate
+//    internal enum Fields: String {
+//        case accounts
+//        case name
+//        case amount
+//        case minAmount
+//        case minDate
+//
+////        internal enum Min: String {
+////            case amount, date
+////        }
+//    }
 
-//        internal enum Min: String {
-//            case amount, date
-//        }
-    }
+    // MARK: - Static properties
+    internal static var fields = AccountGroupFields()
 
     internal var name: String?
     internal var amount: Int?
@@ -49,7 +68,7 @@ internal final class AccountGroup: DataObject, Equatable {
     }
 
     internal func update(field: String, value: Any) {
-        guard let property = AccountGroup.Fields(rawValue: field) else {
+        guard let property = AccountGroupField(rawValue: field) else {
             return
         }
         switch property {
@@ -61,6 +80,7 @@ internal final class AccountGroup: DataObject, Equatable {
 
         case .minAmount:
             self.minAmount = value as? Int
+
         case .minDate:
             self.minDate = (value as? Timestamp)?.dateValue()
 //            guard let value = value as? [String: Any],
