@@ -84,7 +84,7 @@ internal class AccountTests: XCTestCase {
     internal func testUpdateWithMinAmountFieldValue() {
         // 1. Arrange
         let field = "minAmount"
-        let value: [String: Any] = ["amount": 10]
+        let value = 10
         let account = Account()
 
         // 2. Action
@@ -101,7 +101,8 @@ internal class AccountTests: XCTestCase {
         // 1. Arrange
         let field = "min"
         let minDate = Date()
-        let value: [String: Any] = ["date": Timestamp(date: minDate)]
+//        let value: [String: Any] = ["date": Timestamp(date: minDate)]
+        let value = minDate
         let account = Account()
 
         // 2. Action
