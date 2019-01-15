@@ -66,7 +66,7 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
                     newAccountGroup = newAccountGroup.merging(oldAccountGroup) { x, _ -> String in x }
                 }
                 fsTransaction.updateData(
-                    [Account.Fields.groups.rawValue: newAccountGroup as Any],
+                    [Account.fields.groups: newAccountGroup as Any],
                     forDocument: ref.collection(DataObjectType.account.rawValue).document(id))
             }
             // create account group
@@ -104,7 +104,7 @@ internal final class FIRAccountGroupManager: FIRManager, FIRAccountGroupManagerP
                     var newGroups = groups
                     newGroups.removeValue(forKey: id)
                     fsTransaction.updateData(
-                        [Account.Fields.groups.rawValue: newGroups],
+                        [Account.fields.groups: newGroups],
                         forDocument: ref.collection(DataObjectType.account.rawValue).document($0.key))
                 }
             }

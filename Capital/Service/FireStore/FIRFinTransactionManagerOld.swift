@@ -92,7 +92,7 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             for (id, account) in [from.id: fromAccount, to.id: toAccount] {
                 let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to.id ? 1 : -1)
                 fsTransaction.updateData(
-                    [Account.Fields.amount.rawValue: (account.amount ?? 0) + coef * approvedAmount],
+                    [Account.fields.amount: (account.amount ?? 0) + coef * approvedAmount],
                     forDocument: ref.collection(DataObjectType.account.rawValue).document(id))
             }
             return { print("Transaction created") }

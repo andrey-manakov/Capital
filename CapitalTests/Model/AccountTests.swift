@@ -51,7 +51,7 @@ internal class AccountTests: XCTestCase {
     /// <#Description#>
     internal func testUpdateWithTypeFieldValue() {
         // 1. Arrange
-        let field = "type"
+        let field = "typeId"
         let value = 0
         let account = Account()
 
@@ -81,11 +81,10 @@ internal class AccountTests: XCTestCase {
     }
 
     /// <#Description#>
-    internal func testUpdateWithMinFieldValue() {
+    internal func testUpdateWithMinAmountFieldValue() {
         // 1. Arrange
-        let field = "min"
-        let minDate = Date()
-        let value: [String: Any] = ["amount": 10, "date": Timestamp(date: minDate)]
+        let field = "minAmount"
+        let value: [String: Any] = ["amount": 10]
         let account = Account()
 
         // 2. Action
@@ -94,6 +93,22 @@ internal class AccountTests: XCTestCase {
         // 3. Assert
         let rightAccount = Account()
         rightAccount.minAmount = 10
+        XCTAssertEqual(account, rightAccount)
+    }
+
+    /// <#Description#>
+    internal func testUpdateWithMinDateFieldValue() {
+        // 1. Arrange
+        let field = "min"
+        let minDate = Date()
+        let value: [String: Any] = ["date": Timestamp(date: minDate)]
+        let account = Account()
+
+        // 2. Action
+        account.update(field: field, value: value)
+
+        // 3. Assert
+        let rightAccount = Account()
         rightAccount.minDate = minDate
         XCTAssertEqual(account, rightAccount)
     }

@@ -1,17 +1,17 @@
 // MARK: - Fields enum - to name all the fields of Account class
 
-extension Account {
-    internal enum Fields: String {
-        case name, amount, min, type, groups
+//extension Account {
+//    internal enum Fields: String {
+//        case name, amount, min, type, groups
+//
+//        internal enum Min: String {
+//            case amount
+//            case date
+//        }
+//    }
+//}
 
-        internal enum Min: String {
-            case amount
-            case date
-        }
-    }
-}
-
-private enum AccountFieldEnum: String {
+private enum AccountField: String {
     case name
     case amount
     case minAmount
@@ -21,12 +21,12 @@ private enum AccountFieldEnum: String {
 }
 
 internal struct AccountFields {
-    internal let name = AccountFieldEnum.name.rawValue
-    internal let amount = AccountFieldEnum.amount.rawValue
-    internal let minAmount = AccountFieldEnum.minAmount.rawValue
-    internal let minDate = AccountFieldEnum.minDate.rawValue
-    internal let typeId = AccountFieldEnum.typeId.rawValue
-    internal let groups = AccountFieldEnum.groups.rawValue
+    internal let name = AccountField.name.rawValue
+    internal let amount = AccountField.amount.rawValue
+    internal let minAmount = AccountField.minAmount.rawValue
+    internal let minDate = AccountField.minDate.rawValue
+    internal let typeId = AccountField.typeId.rawValue
+    internal let groups = AccountField.groups.rawValue
 }
 
 /// Account - is the entity to record transactions (`FinTransaction`).
@@ -83,7 +83,7 @@ internal final class Account: DataObject {
     ///   - field: field name
     ///   - value: value of the field
     internal func update(field: String, value: Any) {
-        guard let property = Account.Fields(rawValue: field) else {
+        guard let property = AccountField(rawValue: field) else {
             return
         }
         switch property {
@@ -93,18 +93,23 @@ internal final class Account: DataObject {
         case .amount:
             self.amount = value as? Int
 
-        case .min:
-            guard let value = value as? [String: Any] else {
-                return
-            }
-            if let minAmount = value[Account.Fields.Min.amount.rawValue] as? Int {
-                self.minAmount = minAmount
-            }
-            if let minDate = (value[Account.Fields.Min.date.rawValue] as? Timestamp)?.dateValue() {
-                self.minDate = minDate
-            }
+        case .minDate:
+            self.minDate = (value as? Timestamp)?.dateValue()
 
-        case .type:
+        case .minAmount:
+            self.minAmount = value as? Int
+//        case .min:
+//            guard let value = value as? [String: Any] else {
+//                return
+//            }
+//            if let minAmount = value[Account.Fields.Min.amount.rawValue] as? Int {
+//                self.minAmount = minAmount
+//            }
+//            if let minDate = (value[Account.Fields.Min.date.rawValue] as? Timestamp)?.dateValue() {
+//                self.minDate = minDate
+//            }
+
+        case .typeId:
             self.typeId = value as? Int
 
         case .groups:

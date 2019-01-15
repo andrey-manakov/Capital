@@ -10,16 +10,24 @@ internal final class AccountGroup: DataObject, Equatable {
         case accounts
         case name
         case amount
-        case min
+        case minAmount
+        case minDate
 
-        internal enum Min: String {
-            case amount, date
-        }
+//        internal enum Min: String {
+//            case amount, date
+//        }
     }
 
     internal var name: String?
     internal var amount: Int?
-    internal var min: (amount: Int, date: Date)?
+    internal var minAmount: Int?
+    internal var minDate: Date?
+    internal var min: (amount: Int, date: Date)? {
+        guard let minAmount = minAmount, let minDate = minDate else {
+            return nil
+        }
+        return (minAmount, minDate)
+    }
     internal var accounts = [AccountId: AccountName]()
 
     internal static func == (lhs: AccountGroup, rhs: AccountGroup) -> Bool {
@@ -51,13 +59,18 @@ internal final class AccountGroup: DataObject, Equatable {
         case .amount:
             self.amount = value as? Int
 
-        case .min:
-            guard let value = value as? [String: Any],
-                let minAmount = value[Account.Fields.Min.amount.rawValue] as? Int,
-                let minDate = (value[Account.Fields.Min.date.rawValue] as? Timestamp)?.dateValue() else {
-                    return
-            }
-            self.min = (amount: minAmount, date: minDate)
+        case .minAmount:
+            self.minAmount = value as? Int
+        case .minDate:
+            self.minDate = (value as? Timestamp)?.dateValue()
+//            guard let value = value as? [String: Any],
+//                 // CRITICAL!!!
+//                let minAmount = value[Account.fields.minAmount] as? Int,
+//                // CRITICAL!!!
+//                let minDate = (value[Account.fields.minDate] as? Timestamp)?.dateValue() else {
+//                    return
+//            }
+//            self.min = (amount: minAmount, date: minDate)
 
         case .accounts:
             self.accounts = (value as? [String: String]) ?? [String: String]()

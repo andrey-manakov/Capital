@@ -43,9 +43,9 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
         let amount = amount ?? 0
         if amount == 0 {
             newAccountRef.setData(
-                [Account.Fields.name.rawValue: name,
-                 Account.Fields.amount.rawValue: amount,
-                 Account.Fields.type.rawValue: type.rawValue],
+                [Account.fields.name: name,
+                 Account.fields.amount: amount,
+                 Account.fields.typeId: type.rawValue],
                 completion: fireStoreCompletion)
             return
         }
@@ -56,9 +56,9 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
                 ofAccount: "capital", for: fsTransaction, with: errorPointer) ?? 0
             // Create of the new account
             fsTransaction.setData([
-                Account.Fields.name.rawValue: name,
-                Account.Fields.amount.rawValue: amount,
-                Account.Fields.type.rawValue: type.rawValue], forDocument: newAccountRef)
+                Account.fields.name: name,
+                Account.fields.amount: amount,
+                Account.fields.typeId: type.rawValue], forDocument: newAccountRef)
             // Create transaction
 
             let transactionFrom = type.active ? (self.capitalAccountName, self.capitalAccountName) :
@@ -69,7 +69,7 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
                 to: fsTransaction, from: transactionFrom, to: transactionTo, amount: amount)
             // Update capital account
             fsTransaction.updateData([
-                Account.Fields.amount.rawValue:
+                Account.fields.amount:
                     type.active ? (capitalAmount + amount) : (capitalAmount - amount)],
                                      forDocument: capitalReference)
 
@@ -126,14 +126,14 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
                 }
                 // Update account amount and name
                 fsTransaction.updateData(
-                    [Account.Fields.amount.rawValue: newAmount,
-                     Account.Fields.name.rawValue: name ?? oldName], forDocument: accountDoc)
+                    [Account.fields.amount: newAmount,
+                     Account.fields.name: name ?? oldName], forDocument: accountDoc)
                 // Update Capital account amount
                 fsTransaction.updateData(
-                    [Account.Fields.amount.rawValue: capitalAmount + delta], forDocument: capitalDoc)
+                    [Account.fields.amount: capitalAmount + delta], forDocument: capitalDoc)
             } else {
                 fsTransaction.updateData(
-                    [Account.Fields.name.rawValue: name ?? oldName], forDocument: accountDoc)
+                    [Account.fields.name: name ?? oldName], forDocument: accountDoc)
             }
             return true
         }

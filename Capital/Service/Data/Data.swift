@@ -17,7 +17,7 @@ internal class Data: DataProtocol {
     private let fireStorage: FIRDataProtocol? = FireStoreData.shared
     private let fireAuth: FireAuthProtocol? = FIRAuth.shared
     private let accountGroupManager: FIRAccountGroupManagerProtocol? = FIRAccountGroupManager.shared
-    private let finTransactionManager: FIRFinTransactionManagerProtocol? = FIRFinTransactionManager.shared
+//    private let finTransactionManager: FIRFinTransactionManagerProtocol? = FIRFinTransactionManager.shared
     private let accountManager: FIRAccountManagerProtocol? = FIRAccountManager.shared
     private let listnersManager: FIRListnersProtocol? = FIRListners.shared
 
@@ -57,7 +57,7 @@ extension Data {
         forObject: objectId,
         toPath: "/\(DataObjectType.account.rawValue)",
         whereClause: (
-            field: "\(Account.Fields.groups.rawValue).\(id)", .isGreaterThan, value: "")) { data in
+            field: "\(Account.fields.groups).\(id)", .isGreaterThan, value: "")) { data in
             completion(data.map { ($0.id, Account($0.data), $0.changeType) })
         }
     }
