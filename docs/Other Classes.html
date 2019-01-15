@@ -60,19 +60,16 @@
                 <a class="nav-group-task-link" href="Classes/FinTransaction.html">FinTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/FinTransaction/ApprovalMode.html">– ApprovalMode</a>
+                <a class="nav-group-task-link" href="Classes/FinTransaction/Fields.html">– Fields</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/FinTransaction/Fields.html">– Fields</a>
+                <a class="nav-group-task-link" href="Classes/FinTransaction/ApprovalMode.html">– ApprovalMode</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/Account.html">Account</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/Account/Fields.html">– Fields</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/Account/Group.html">– Group</a>
+                <a class="nav-group-task-link" href="Classes/AccountGroup.html">AccountGroup</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/AccountType.html">AccountType</a>
@@ -136,10 +133,10 @@
                 <a class="nav-group-task-link" href="Classes/AccountGroupEditVC/Service.html">– Service</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/AccountGroupsViewController.html">AccountGroupsViewController</a>
+                <a class="nav-group-task-link" href="Classes/AccountGroupsVC.html">AccountGroupsVC</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/AccountGroupsViewController/Service.html">– Service</a>
+                <a class="nav-group-task-link" href="Classes/AccountGroupsVC/Service.html">– Service</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/AccountListVC.html">AccountListVC</a>
@@ -215,12 +212,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/FIRAuth.html">FIRAuth</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/FIRFinTransactionManager.html">FIRFinTransactionManager</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/FIRFinTransactionManager/LogFields.html">– LogFields</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/FIRFinTransactionManagerOld.html">FIRFinTransactionManagerOld</a>
@@ -330,6 +321,12 @@
             <a class="nav-group-name-link" href="Other Enums.html">Other Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/AccountField.html">AccountField</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/AccountGroupField.html">AccountGroupField</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/CellStyle.html">CellStyle</a>
               </li>
               <li class="nav-group-task">
@@ -339,7 +336,13 @@
                 <a class="nav-group-task-link" href="Enums/ComparisonType.html">ComparisonType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/DataModelRowText.html">DataModelRowText</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/DataObjectType.html">DataObjectType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/FinTransactionField.html">FinTransactionField</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/TransactionItem.html">TransactionItem</a>
@@ -416,9 +419,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/FIRDataProtocol.html">FIRDataProtocol</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/FIRFinTransactionManagerProtocol.html">FIRFinTransactionManagerProtocol</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/FIRFinTransactionManagerProtocolOld.html">FIRFinTransactionManagerProtocolOld</a>
@@ -501,6 +501,12 @@
             <a class="nav-group-name-link" href="Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/AccountFields.html">AccountFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/AccountGroupFields.html">AccountGroupFields</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/DataModel.html">DataModel</a>
               </li>
               <li class="nav-group-task">
@@ -508,6 +514,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/DataModelSection.html">DataModelSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/FinTransactionFields.html">FinTransactionFields</a>
               </li>
             </ul>
           </li>
@@ -563,7 +572,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@UIApplicationMain</span>
-<span class="kd">class</span> <span class="kt">AppDelegate</span> <span class="p">:</span> <span class="kt">UIResponder</span><span class="p">,</span> <span class="kt">UIApplicationDelegate</span></code></pre>
+<span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AppDelegate</span> <span class="p">:</span> <span class="kt">UIResponder</span><span class="p">,</span> <span class="kt">UIApplicationDelegate</span></code></pre>
 
                         </div>
                       </div>
@@ -595,7 +604,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ClassService</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">ClassService</span></code></pre>
 
                         </div>
                       </div>
@@ -619,7 +628,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Cutomized UINavigationController class with common features for the app</p>
 
                         <a href="Classes/NavigationController.html" class="slightly-smaller">See more</a>
                       </div>
@@ -627,7 +636,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NavigationController</span> <span class="p">:</span> <span class="kt">UINavigationController</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">NavigationController</span> <span class="p">:</span> <span class="kt">UINavigationController</span></code></pre>
 
                         </div>
                       </div>
@@ -656,7 +665,7 @@
 <p>Calls:</p>
 
 <ul>
-<li><code><a href="Classes/AccountGroupsViewController.html">AccountGroupsViewController</a></code></li>
+<li><code>AccountGroupsViewController</code></li>
 <li><code><a href="Classes/AccountListVC.html">AccountListVC</a></code></li>
 <li><code><a href="Classes/AdvancedNewTransactionVC.html">AdvancedNewTransactionVC</a></code></li>
 <li><code><a href="Classes/AdvancedNewTransactionVC.html">AdvancedNewTransactionVC</a></code></li>
@@ -676,7 +685,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TabBarController</span> <span class="p">:</span> <span class="kt">UITabBarController</span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital24TabBarControllerProtocolP">TabBarControllerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">TabBarController</span> <span class="p">:</span> <span class="kt">UITabBarController</span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital24TabBarControllerProtocolP">TabBarControllerProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -708,7 +717,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt"><a href="Protocols/ViewControllerProtocol.html">ViewControllerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">ViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt"><a href="Protocols/ViewControllerProtocol.html">ViewControllerProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -740,7 +749,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">DateSelectionCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/DateSelectionCellProtocol.html">DateSelectionCellProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">DateSelectionCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/DateSelectionCellProtocol.html">DateSelectionCellProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -772,7 +781,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">InputAmountCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/InputAmountCellProtocol.html">InputAmountCellProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">InputAmountCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/InputAmountCellProtocol.html">InputAmountCellProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -804,7 +813,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">LeftRightCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/LeftRightCellProtocol.html">LeftRightCellProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">LeftRightCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/LeftRightCellProtocol.html">LeftRightCellProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -836,7 +845,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimpleSectionHeader</span> <span class="p">:</span> <span class="kt">UITableViewHeaderFooterView</span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleSectionHeaderProtocol.html">SimpleSectionHeaderProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">SimpleSectionHeader</span> <span class="p">:</span> <span class="kt">UITableViewHeaderFooterView</span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleSectionHeaderProtocol.html">SimpleSectionHeaderProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -867,7 +876,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimpleSwitch</span> <span class="p">:</span> <span class="kt">UISwitch</span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital14SwitchProtocolP">SwitchProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">SimpleSwitch</span> <span class="p">:</span> <span class="kt">UISwitch</span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital14SwitchProtocolP">SwitchProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -895,7 +904,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SwitchCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/SwitchCellProtocol.html">SwitchCellProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwitchCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/SwitchCellProtocol.html">SwitchCellProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -927,7 +936,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TransactionCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/TransactionCellProtocol.html">TransactionCellProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">TransactionCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="Protocols/TransactionCellProtocol.html">TransactionCellProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -959,7 +968,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AppTitle</span> <span class="p">:</span> <span class="kt">UILabel</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">AppTitle</span> <span class="p">:</span> <span class="kt">UILabel</span></code></pre>
 
                         </div>
                       </div>
@@ -991,7 +1000,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NumberLabel</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleLabel.html">SimpleLabel</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">NumberLabel</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleLabel.html">SimpleLabel</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1023,7 +1032,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimpleLabel</span> <span class="p">:</span> <span class="kt">UILabel</span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleLabelProtocol.html">SimpleLabelProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">SimpleLabel</span> <span class="p">:</span> <span class="kt">UILabel</span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleLabelProtocol.html">SimpleLabelProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1055,7 +1064,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TitleLabel</span> <span class="p">:</span> <span class="kt">UILabel</span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleLabelProtocol.html">SimpleLabelProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">TitleLabel</span> <span class="p">:</span> <span class="kt">UILabel</span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleLabelProtocol.html">SimpleLabelProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1087,7 +1096,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">BarButtonItem</span> <span class="p">:</span> <span class="kt">UIBarButtonItem</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">BarButtonItem</span> <span class="p">:</span> <span class="kt">UIBarButtonItem</span></code></pre>
 
                         </div>
                       </div>
@@ -1119,7 +1128,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Button</span> <span class="p">:</span> <span class="kt">UIButton</span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital14ButtonProtocolP">ButtonProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Button</span> <span class="p">:</span> <span class="kt">UIButton</span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital14ButtonProtocolP">ButtonProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1151,7 +1160,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">DatePicker</span> <span class="p">:</span> <span class="kt">UIDatePicker</span><span class="p">,</span> <span class="kt"><a href="Protocols/DatePickerProtocol.html">DatePickerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">DatePicker</span> <span class="p">:</span> <span class="kt">UIDatePicker</span><span class="p">,</span> <span class="kt"><a href="Protocols/DatePickerProtocol.html">DatePickerProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1183,7 +1192,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SegmentedControl</span> <span class="p">:</span> <span class="kt">UISegmentedControl</span><span class="p">,</span> <span class="kt"><a href="Protocols/SegmentedControlProtocol.html">SegmentedControlProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">SegmentedControl</span> <span class="p">:</span> <span class="kt">UISegmentedControl</span><span class="p">,</span> <span class="kt"><a href="Protocols/SegmentedControlProtocol.html">SegmentedControlProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1215,7 +1224,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimpleTable</span> <span class="p">:</span> <span class="kt"><a href="Classes/TemplateTable.html">TemplateTable</a></span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital19SimpleTableProtocolP">SimpleTableProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">SimpleTable</span> <span class="p">:</span> <span class="kt"><a href="Classes/TemplateTable.html">TemplateTable</a></span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital19SimpleTableProtocolP">SimpleTableProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1247,7 +1256,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimpleTableWithSelection</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTable.html">SimpleTable</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleTableWithSelectionProtocol.html">SimpleTableWithSelectionProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">SimpleTableWithSelection</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTable.html">SimpleTable</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleTableWithSelectionProtocol.html">SimpleTableWithSelectionProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1279,7 +1288,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimpleTableWithSwipe</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTable.html">SimpleTable</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleTableWithSwipeProtocol.html">SimpleTableWithSwipeProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">SimpleTableWithSwipe</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTable.html">SimpleTable</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/SimpleTableWithSwipeProtocol.html">SimpleTableWithSwipeProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1311,7 +1320,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TemplateTable</span> <span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="kt"><a href="Protocols/TemplateTableProtocol.html">TemplateTableProtocol</a></span><span class="p">,</span> <span class="kt">UITableViewDataSource</span><span class="p">,</span> <span class="kt">UITableViewDelegate</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">TemplateTable</span> <span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="kt"><a href="Protocols/TemplateTableProtocol.html">TemplateTableProtocol</a></span><span class="p">,</span> <span class="kt">UITableViewDataSource</span><span class="p">,</span> <span class="kt">UITableViewDelegate</span></code></pre>
 
                         </div>
                       </div>
@@ -1343,7 +1352,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TransactionsTable</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTableWithSwipe.html">SimpleTableWithSwipe</a></span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital25TransactionsTableProtocolP">TransactionsTableProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">TransactionsTable</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTableWithSwipe.html">SimpleTableWithSwipe</a></span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital25TransactionsTableProtocolP">TransactionsTableProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1375,7 +1384,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">EmailField</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTextField.html">SimpleTextField</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">EmailField</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTextField.html">SimpleTextField</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1407,7 +1416,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">NumberField</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTextField.html">SimpleTextField</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">NumberField</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTextField.html">SimpleTextField</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1439,7 +1448,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PasswordField</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTextField.html">SimpleTextField</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">PasswordField</span> <span class="p">:</span> <span class="kt"><a href="Classes/SimpleTextField.html">SimpleTextField</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1471,7 +1480,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">RightNumberField</span> <span class="p">:</span> <span class="kt">UITextField</span><span class="p">,</span> <span class="kt"><a href="Protocols/TextFieldProtocol.html">TextFieldProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">RightNumberField</span> <span class="p">:</span> <span class="kt">UITextField</span><span class="p">,</span> <span class="kt"><a href="Protocols/TextFieldProtocol.html">TextFieldProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1503,7 +1512,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SimpleTextField</span> <span class="p">:</span> <span class="kt">UITextField</span><span class="p">,</span> <span class="kt"><a href="Protocols/TextFieldProtocol.html">TextFieldProtocol</a></span><span class="p">,</span> <span class="kt">UITextFieldDelegate</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">SimpleTextField</span> <span class="p">:</span> <span class="kt">UITextField</span><span class="p">,</span> <span class="kt"><a href="Protocols/TextFieldProtocol.html">TextFieldProtocol</a></span><span class="p">,</span> <span class="kt">UITextFieldDelegate</span></code></pre>
 
                         </div>
                       </div>
@@ -1535,7 +1544,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AccountDetailVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountDetailVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1567,7 +1576,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AccountListVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountListVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1599,7 +1608,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AccountNewVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">AccountNewVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1631,7 +1640,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AccountSelectorVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountSelectorVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1663,7 +1672,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AccountTransactionsVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountTransactionsVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1695,7 +1704,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AccountGroupDetailVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountGroupDetailVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1727,7 +1736,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AccountGroupEditVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountGroupEditVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1741,9 +1750,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Capital@objc(cs)AccountGroupsViewController"></a>
-                    <a name="//apple_ref/swift/Class/AccountGroupsViewController" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Capital@objc(cs)AccountGroupsViewController">AccountGroupsViewController</a>
+                    <a name="/c:@M@Capital@objc(cs)AccountGroupsVC"></a>
+                    <a name="//apple_ref/swift/Class/AccountGroupsVC" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Capital@objc(cs)AccountGroupsVC">AccountGroupsVC</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1753,13 +1762,13 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Classes/AccountGroupsViewController.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/AccountGroupsVC.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AccountGroupsViewController</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountGroupsVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1791,7 +1800,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">LoginVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital27LoginViewControllerProtocolP">LoginViewControllerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">LoginVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span><span class="p">,</span> <span class="kt"><a href="Other Protocols.html#/s:7Capital27LoginViewControllerProtocolP">LoginViewControllerProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1823,7 +1832,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">EnumValuesSelectorVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">EnumValuesSelectorVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1855,7 +1864,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">RecurrenceFrequencySelectorVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">RecurrenceFrequencySelectorVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1887,7 +1896,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SettingsService</span> <span class="p">:</span> <span class="kt"><a href="Classes/ClassService.html">ClassService</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/SettingsServiceProtocol.html">SettingsServiceProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SettingsService</span> <span class="p">:</span> <span class="kt"><a href="Classes/ClassService.html">ClassService</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/SettingsServiceProtocol.html">SettingsServiceProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1919,7 +1928,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SettingsViewController</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/SettingsViewControllerProtocol.html">SettingsViewControllerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SettingsViewController</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/SettingsViewControllerProtocol.html">SettingsViewControllerProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1951,7 +1960,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AdvancedNewTransactionService</span> <span class="p">:</span> <span class="kt"><a href="Classes/ClassService.html">ClassService</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/AdvancedNewTransactionServiceProtocol.html">AdvancedNewTransactionServiceProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AdvancedNewTransactionService</span> <span class="p">:</span> <span class="kt"><a href="Classes/ClassService.html">ClassService</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/AdvancedNewTransactionServiceProtocol.html">AdvancedNewTransactionServiceProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1983,7 +1992,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AdvancedNewTransactionVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/AdvancedNewTransactionVCProtocol.html">AdvancedNewTransactionVCProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AdvancedNewTransactionVC</span> <span class="p">:</span> <span class="kt"><a href="Classes/ViewController.html">ViewController</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/AdvancedNewTransactionVCProtocol.html">AdvancedNewTransactionVCProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2016,7 +2025,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Data</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DataProtocol.html">DataProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">Data</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DataProtocol.html">DataProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2048,7 +2057,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">DataMock</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DataProtocol.html">DataProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">DataMock</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DataProtocol.html">DataProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2080,7 +2089,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">FIRAccountGroupManager</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRAccountGroupManagerProtocol.html">FIRAccountGroupManagerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">FIRAccountGroupManager</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRAccountGroupManagerProtocol.html">FIRAccountGroupManagerProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2112,7 +2121,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">FIRAccountManager</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRAccountManagerProtocol.html">FIRAccountManagerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">FIRAccountManager</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRAccountManagerProtocol.html">FIRAccountManagerProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2144,39 +2153,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">FIRAuth</span> <span class="p">:</span> <span class="kt"><a href="Protocols/FireAuthProtocol.html">FireAuthProtocol</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7Capital24FIRFinTransactionManagerC"></a>
-                    <a name="//apple_ref/swift/Class/FIRFinTransactionManager" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Capital24FIRFinTransactionManagerC">FIRFinTransactionManager</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/FIRFinTransactionManager.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">FIRFinTransactionManager</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRFinTransactionManagerProtocol.html">FIRFinTransactionManagerProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">FIRAuth</span> <span class="p">:</span> <span class="kt"><a href="Protocols/FireAuthProtocol.html">FireAuthProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2208,7 +2185,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">FIRFinTransactionManagerOld</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRFinTransactionManagerProtocolOld.html">FIRFinTransactionManagerProtocolOld</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">FIRFinTransactionManagerOld</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRFinTransactionManagerProtocolOld.html">FIRFinTransactionManagerProtocolOld</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2247,7 +2224,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">FIRListners</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRListnersProtocol.html">FIRListnersProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">FIRListners</span> <span class="p">:</span> <span class="kt"><a href="Classes/FIRManager.html">FIRManager</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/FIRListnersProtocol.html">FIRListnersProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2278,7 +2255,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">FIRManagerProtocol</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">FIRManagerProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -2306,7 +2283,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">FIRManager</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">FIRManager</span></code></pre>
 
                         </div>
                       </div>
@@ -2338,7 +2315,7 @@ it is called only by Services: childs from ClassService, and other Services in S
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">FireStoreData</span> <span class="p">:</span> <span class="kt"><a href="Protocols/FIRDataProtocol.html">FIRDataProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">FireStoreData</span> <span class="p">:</span> <span class="kt"><a href="Protocols/FIRDataProtocol.html">FIRDataProtocol</a></span></code></pre>
 
                         </div>
                       </div>
