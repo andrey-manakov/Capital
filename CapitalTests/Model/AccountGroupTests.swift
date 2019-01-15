@@ -2,6 +2,22 @@
 import XCTest
 
 internal final class AccountGroupTests: XCTestCase {
+
+    /// Test that AccountGroup.update[AccountGroupField] processes all the non computed fields
+//    internal func testUpdateAllVariables() {
+        // 1. Arrange
+//        let accountGroup = AccountGroup([String : Any])
+//        let fieldNames = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { $0.label })
+//        let fieldTypes =
+//    }
+
+    internal func testFieldsImplementation() {
+        var sample = Set(Mirror(reflecting: AccountGroup()).children.compactMap { $0.label })
+        let master = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { $0.label })
+        sample.remove("update.storage")
+        XCTAssertEqual(master, sample)
+    }
+
     /// Test checks that object is correctly initialized with dictionary of [field: value]
     internal func testInitWithData() {
         // 1. Arrange

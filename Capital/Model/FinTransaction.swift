@@ -1,3 +1,38 @@
+private enum FinTransactionFields {
+    case from
+    case to
+    case amount
+    case date
+    case serverTime
+    case isApproved
+    case approvalMode
+    case recurrenceFrequency
+    case recurrenceEnd
+    case parent
+    /// Account id for from and to variables. Data in Firestore is stored like
+    /// `["from": ["id": <account if>, name: <>]]`
+    case id
+    case name
+}
+// MARK: Definition of Fields enum - names of the FinTransaction class properties EXCEPT calculated fields
+extension FinTransaction {
+    internal enum Fields: String, CaseIterable {
+        case from
+        case to
+        case amount
+        case date
+        case serverTime
+        case isApproved
+        case approvalMode
+        case recurrenceFrequency
+        case recurrenceEnd
+        case parent
+
+        internal enum From: String { case id, name }
+        internal enum To: String { case id, name }
+    }
+}
+
 /// Transaction is operation of moving of funds from one Account to another
 internal final class FinTransaction: DataObject {
     /// MARK: - Properties
@@ -142,24 +177,7 @@ extension FinTransaction: CustomStringConvertible, CustomDebugStringConvertible 
     internal var debugDescription: String { return description }
 }
 
-// MARK: Definition of Fields enum - names of the FinTransaction class properties EXCEPT calculated fields
-extension FinTransaction {
-    internal enum Fields: String, CaseIterable {
-        case from
-        case to
-        case amount
-        case date
-        case serverTime
-        case isApproved
-        case approvalMode
-        case recurrenceFrequency
-        case recurrenceEnd
-        case parent
 
-        internal enum From: String { case id, name }
-        internal enum To: String { case id, name }
-    }
-}
 
 extension FinTransaction: Equatable {
     internal static func == (lhs: FinTransaction, rhs: FinTransaction) -> Bool {
