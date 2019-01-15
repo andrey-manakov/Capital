@@ -5,7 +5,7 @@
 /// - amount: `AccountGroup.amount` field name constant
 /// - minAmount: `AccountGroup.minAmount` field name constant
 /// - minDate: `AccountGroup.minDate` field name constant
-private enum AccountGroupField: String, CaseIterable {
+internal enum AccountGroupField: String, CaseIterable {
     case accounts
     case name
     case amount
@@ -23,7 +23,7 @@ internal struct AccountGroupFields {
 }
 
 // MARK: - Introduction of Account.Group class
-internal final class AccountGroup: DataObject, Equatable {
+internal final class AccountGroup: DataObject {
     // MARK: - Static properties
     internal static var fields = AccountGroupFields()
 
@@ -40,24 +40,14 @@ internal final class AccountGroup: DataObject, Equatable {
     }
     internal var accounts = [AccountId: AccountName]()
 
-    internal static func == (lhs: AccountGroup, rhs: AccountGroup) -> Bool {
-        let currentDate = Date()
-        let lhsmin = lhs.min ?? (amount: 0, date: currentDate)
-        let rhsmin = rhs.min ?? (amount: 0, date: currentDate)
-        return lhs.amount == rhs.amount &&
-            lhs.accounts == rhs.accounts &&
-            lhsmin.amount == rhsmin.amount &&
-            rhsmin.date.isSameDate(lhsmin.date) &&
-            lhs.name == rhs.name
-    }
     // TODO: consider unowned self, check if instance is correctly deinitialized
     // TODO: create test which check that all the fields are processed
-    private lazy var update: [AccountGroupField: (Any) -> Void] = [
-        AccountGroupField.name: { self.name = $0 as? String },
-        AccountGroupField.amount: { self.amount = $0 as? Int },
-        AccountGroupField.minDate: { self.minDate = ($0 as? Timestamp)?.dateValue() },
-        AccountGroupField.minAmount: { self.minAmount = $0 as? Int },
-        AccountGroupField.accounts: { self.accounts = ($0 as? [String: String]) ?? [String: String]() }]
+    internal lazy var update: [AccountGroupField: (Any) -> Void] = [
+        .name: { self.name = $0 as? String },
+        .amount: { self.amount = $0 as? Int },
+        .minDate: { self.minDate = ($0 as? Timestamp)?.dateValue() },
+        .minAmount: { self.minAmount = $0 as? Int },
+        .accounts: { self.accounts = ($0 as? [String: String]) ?? [String: String]() }]
 
     internal required convenience init(_ data: [String: Any]) {
         self.init()
@@ -67,9 +57,23 @@ internal final class AccountGroup: DataObject, Equatable {
     }
 
     internal func update(field: String, value: Any) {
-        guard let property = AccountGroupField(rawValue: field) else {
-            return
+        if let field = AccountGroupField(rawValue: field) {
+            update[field]?(value)
+        } else {
+            fatalError("Unknown field name")
         }
-        update[property]?(value)
+    }
+}
+
+extension AccountGroup: Equatable {
+    internal static func == (lhs: AccountGroup, rhs: AccountGroup) -> Bool {
+        let currentDate = Date()
+        let lhsmin = lhs.min ?? (amount: 0, date: currentDate)
+        let rhsmin = rhs.min ?? (amount: 0, date: currentDate)
+        return lhs.amount == rhs.amount &&
+            lhs.accounts == rhs.accounts &&
+            lhsmin.amount == rhsmin.amount &&
+            rhsmin.date.isSameDate(lhsmin.date) &&
+            lhs.name == rhs.name
     }
 }

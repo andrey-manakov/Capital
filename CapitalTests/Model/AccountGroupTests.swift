@@ -2,20 +2,17 @@
 import XCTest
 
 internal final class AccountGroupTests: XCTestCase {
-
-    /// Test that AccountGroup.update[AccountGroupField] processes all the non computed fields
-//    internal func testUpdateAllVariables() {
-        // 1. Arrange
-//        let accountGroup = AccountGroup([String : Any])
-//        let fieldNames = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { $0.label })
-//        let fieldTypes =
-//    }
-
+    /// Test that properties list of `AccountGroup` is correctly treated
     internal func testFieldsImplementation() {
-        var sample = Set(Mirror(reflecting: AccountGroup()).children.compactMap { $0.label })
-        let master = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { $0.label })
-        sample.remove("update.storage")
-        XCTAssertEqual(master, sample)
+        let accountGroup = AccountGroup()
+        var fieldNamesFromIntance = Set(Mirror(reflecting: accountGroup).children.compactMap { $0.label })
+        let fieldNamesFromNamesStruct = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { $0.label })
+        let fieldNamesFromEnum = Set(AccountGroupField.allCases.map { $0.rawValue })
+        let fieldNamesFromUpdateDict = Set(accountGroup.update.keys.map { $0.rawValue })
+        fieldNamesFromIntance.remove("update.storage")
+        XCTAssertTrue(fieldNamesFromIntance == fieldNamesFromNamesStruct &&
+        fieldNamesFromNamesStruct == fieldNamesFromEnum &&
+        fieldNamesFromEnum == fieldNamesFromUpdateDict)
     }
 
     /// Test checks that object is correctly initialized with dictionary of [field: value]

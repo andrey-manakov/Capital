@@ -1,17 +1,12 @@
-// MARK: - Fields enum - to name all the fields of Account class
-
-//extension Account {
-//    internal enum Fields: String {
-//        case name, amount, min, type, groups
-//
-//        internal enum Min: String {
-//            case amount
-//            case date
-//        }
-//    }
-//}
-
-private enum AccountField: String {
+/// Stores name constants for the `AccountFields` struct
+///
+/// - name: `Account.name` field name constant
+/// - amount: `Account.amount` field name constant
+/// - minAmount: `Account.minAmount` field name constant
+/// - minDate: `Account.minDate` field name constant
+/// - typeId: `Account.typeId` field name constant
+/// - groups: `Account.groups` field name constant
+internal enum AccountField: String, CaseIterable {
     case name
     case amount
     case minAmount
@@ -31,6 +26,16 @@ internal struct AccountFields {
 
 /// Account - is the entity to record transactions (`FinTransaction`).
 internal final class Account: DataObject {
+    // TODO: consider unowned self, check if instance is correctly deinitialized
+    // TODO: create test which check that all the fields are processed
+    internal lazy var update: [AccountField: (Any) -> Void] = [
+        .name: { self.name = $0 as? String },
+        .amount: { self.amount = $0 as? Int },
+        .minDate: { self.minDate = ($0 as? Timestamp)?.dateValue() },
+        .minAmount: { self.minAmount = $0 as? Int },
+        .typeId: { self.typeId = $0 as? Int },
+        .groups: { self.groups = ($0 as? [String: String]) ?? [String: String]() }]
+
     // MARK: - Static Properties
     internal static let fields = AccountFields()
 
@@ -83,37 +88,10 @@ internal final class Account: DataObject {
     ///   - field: field name
     ///   - value: value of the field
     internal func update(field: String, value: Any) {
-        guard let property = AccountField(rawValue: field) else {
-            return
-        }
-        switch property {
-        case .name:
-            self.name = value as? String
-
-        case .amount:
-            self.amount = value as? Int
-
-        case .minDate:
-            self.minDate = (value as? Timestamp)?.dateValue()
-
-        case .minAmount:
-            self.minAmount = value as? Int
-//        case .min:
-//            guard let value = value as? [String: Any] else {
-//                return
-//            }
-//            if let minAmount = value[Account.Fields.Min.amount.rawValue] as? Int {
-//                self.minAmount = minAmount
-//            }
-//            if let minDate = (value[Account.Fields.Min.date.rawValue] as? Timestamp)?.dateValue() {
-//                self.minDate = minDate
-//            }
-
-        case .typeId:
-            self.typeId = value as? Int
-
-        case .groups:
-            self.groups = (value as? [String: String]) ?? [String: String]()
+        if let field = AccountField(rawValue: field) {
+            update[field]?(value)
+        } else {
+            fatalError("Unknown field name")
         }
     }
 }

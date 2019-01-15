@@ -64,7 +64,8 @@ extension FireStoreData {
                 completion?(error)
             } else {
                 print("Capital account creation")
-                capitalRef?.setData(["name": "capital", "amount": 0, "type": 4]) { error in
+                // TODO: get read of quotation
+                capitalRef?.setData(["name": "capital", "amount": 0, "typeId": 4]) { error in
                     completion?(error)
                 }
             }

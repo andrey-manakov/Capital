@@ -2,7 +2,20 @@
 import XCTest
 
 internal class AccountTests: XCTestCase {
-    /// <#Description#>
+    /// Test that properties list of `Account` is correctly treated
+    internal func testFieldsImplementation() {
+        let account = Account() // TODO: move to tests setup
+        var fieldNamesFromIntance = Set(Mirror(reflecting: account).children.compactMap { $0.label })
+        let fieldNamesFromNamesStruct = Set(Mirror(reflecting: AccountFields()).children.compactMap { $0.label })
+        let fieldNamesFromEnum = Set(AccountField.allCases.map { $0.rawValue })
+        let fieldNamesFromUpdateDict = Set(account.update.keys.map { $0.rawValue })
+        fieldNamesFromIntance.remove("update.storage")
+        XCTAssertTrue(fieldNamesFromIntance == fieldNamesFromNamesStruct)
+        XCTAssertTrue(fieldNamesFromNamesStruct == fieldNamesFromEnum)
+        XCTAssertTrue(fieldNamesFromEnum == fieldNamesFromUpdateDict)
+    }
+
+    /// Test checks that object is correctly initialized with dictionary of [field: value]
     internal func testInitWithData() {
         // 1. Arrange
         let data = ["name": "name"]
@@ -16,7 +29,7 @@ internal class AccountTests: XCTestCase {
         XCTAssertEqual(account, rightAccount)
     }
 
-    /// <#Description#>
+    /// Test checks that code correctly updates name, when ["name": "some name"] is submitted
     internal func testUpdateWithNameFieldValue() {
         // 1. Arrange
         let field = "name"
@@ -99,7 +112,7 @@ internal class AccountTests: XCTestCase {
     /// <#Description#>
     internal func testUpdateWithMinDateFieldValue() {
         // 1. Arrange
-        let field = "min"
+        let field = "minDate"
         let minDate = Date()
 //        let value: [String: Any] = ["date": Timestamp(date: minDate)]
         let value = minDate

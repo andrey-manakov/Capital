@@ -40,6 +40,18 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "AccountGroupTests/testUpdateWithWrongFieldName()">
+               </Test>
+               <Test
+                  Identifier = "AccountGroupTests/testUpdateWithWrongMinFieldName()">
+               </Test>
+               <Test
+                  Identifier = "AccountTests/testUpdateWithWrongFieldName()">
+               </Test>
+               <Test
+                  Identifier = "AccountTests/testUpdateWithWrongMinFieldName()">
+               </Test>
+               <Test
                   Identifier = "FIRAuthTests">
                </Test>
             </SkippedTests>
