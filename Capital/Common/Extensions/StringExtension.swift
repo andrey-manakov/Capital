@@ -11,6 +11,12 @@ extension String {
 extension String {
      internal static func randomWithSmallLetters(length: Int = 10) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyz"
+//        let characters = (0...length - 1).map { _ in letters.randomElement() ?? Character("x") }
+//        return String(characters)
+
+//        let result: String = String((0...length - 1).map { _ in letters.randomElement() ?? Character("x") })
+//        return result
+
         return String((0...length - 1).map { _ in letters.randomElement() ?? Character("x") })
     }
 }
