@@ -1,0 +1,1013 @@
+{
+  "warnings": [
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/DateSelectionCellTests.swift",
+      "line": 4,
+      "symbol": "DateSelectionCellTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/DateSelectionCellTests.swift",
+      "line": 5,
+      "symbol": "DateSelectionCellTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/InputAmountCellTests.swift",
+      "line": 4,
+      "symbol": "InputAmountCellTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/InputAmountCellTests.swift",
+      "line": 5,
+      "symbol": "InputAmountCellTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/SimpleSectionHeaderTests.swift",
+      "line": 4,
+      "symbol": "SimpleSectionHeaderTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/SimpleSectionHeaderTests.swift",
+      "line": 5,
+      "symbol": "SimpleSectionHeaderTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/SwitchCellTests.swift",
+      "line": 4,
+      "symbol": "SwitchCellTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/SwitchCellTests.swift",
+      "line": 5,
+      "symbol": "SwitchCellTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/TransactionCellTests.swift",
+      "line": 4,
+      "symbol": "TransactionCellTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Cell/TransactionCellTests.swift",
+      "line": 5,
+      "symbol": "TransactionCellTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/DataModel/DataModelRowTests.swift",
+      "line": 4,
+      "symbol": "DataModelRowTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/DataModel/DataModelRowTests.swift",
+      "line": 5,
+      "symbol": "DataModelRowTests.testInit()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Extensions/BinaryIntegerExtensionTest.swift",
+      "line": 4,
+      "symbol": "BinaryIntegerExtensionTest",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Extensions/BinaryIntegerExtensionTest.swift",
+      "line": 5,
+      "symbol": "BinaryIntegerExtensionTest.testWithRightArgument()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Extensions/FormatterExtensionTest.swift",
+      "line": 4,
+      "symbol": "FormatterExtensionTest",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Extensions/FormatterExtensionTest.swift",
+      "line": 5,
+      "symbol": "FormatterExtensionTest.testWithRightArgument()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Extensions/StringExtensionTest.swift",
+      "line": 4,
+      "symbol": "StringExtensionTest",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Extensions/StringExtensionTest.swift",
+      "line": 5,
+      "symbol": "StringExtensionTest.testRandom()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Other/NavigationControllerTests.swift",
+      "line": 4,
+      "symbol": "NavigationControllerTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Other/TabBarControllerTests.swift",
+      "line": 4,
+      "symbol": "TabBarControllerTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Table/SimpleTableWithSelectionTests.swift",
+      "line": 4,
+      "symbol": "SimpleTableWithSelectionTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Table/SimpleTableWithSelectionTests.swift",
+      "line": 5,
+      "symbol": "SimpleTableWithSelectionTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/AppTitleTests.swift",
+      "line": 4,
+      "symbol": "AppTitleTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/AppTitleTests.swift",
+      "line": 5,
+      "symbol": "AppTitleTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/ButtonTest.swift",
+      "line": 4,
+      "symbol": "ButtonTest",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/ButtonTest.swift",
+      "line": 5,
+      "symbol": "ButtonTest.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/ButtonTest.swift",
+      "line": 16,
+      "symbol": "ButtonTest.testTapAction()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/NumberLabelTests.swift",
+      "line": 4,
+      "symbol": "NumberLabelTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/NumberLabelTests.swift",
+      "line": 5,
+      "symbol": "NumberLabelTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/NumberLabelTests.swift",
+      "line": 16,
+      "symbol": "NumberLabelTests.testInitWithText()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/SimpleLabelTests.swift",
+      "line": 4,
+      "symbol": "SimpleLabelTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/SimpleLabelTests.swift",
+      "line": 5,
+      "symbol": "SimpleLabelTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/SimpleLabelTests.swift",
+      "line": 16,
+      "symbol": "SimpleLabelTests.testInitWithText()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/SimpleLabelTests.swift",
+      "line": 25,
+      "symbol": "SimpleLabelTests.testInitWithStringAlignLines()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/TitleLabelTests.swift",
+      "line": 4,
+      "symbol": "TitleLabelTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/TitleLabelTests.swift",
+      "line": 5,
+      "symbol": "TitleLabelTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/Labels/TitleLabelTests.swift",
+      "line": 16,
+      "symbol": "TitleLabelTests.testInitWithTest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/TextFields/EmailFieldTests.swift",
+      "line": 4,
+      "symbol": "EmailFieldTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/TextFields/EmailFieldTests.swift",
+      "line": 5,
+      "symbol": "EmailFieldTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/TextFields/PasswordFieldTests.swift",
+      "line": 4,
+      "symbol": "PasswordFieldTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Common/Views/TextFields/PasswordFieldTests.swift",
+      "line": 5,
+      "symbol": "PasswordFieldTests.testInitWithCoder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/FIRAuthTests.swift",
+      "line": 4,
+      "symbol": "FIRAuthTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/FIRAuthTests.swift",
+      "line": 5,
+      "symbol": "FIRAuthTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/FIRAuthTests.swift",
+      "line": 6,
+      "symbol": "FIRAuthTests.login",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/FIRAuthTests.swift",
+      "line": 8,
+      "symbol": "FIRAuthTests.password",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/FIRAuthTests.swift",
+      "line": 10,
+      "symbol": "FIRAuthTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/FIRAuthTests.swift",
+      "line": 15,
+      "symbol": "FIRAuthTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/FIRAuthTests.swift",
+      "line": 20,
+      "symbol": "FIRAuthTests.testSignUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/FIRAuthTests.swift",
+      "line": 44,
+      "symbol": "FIRAuthTests.testSignIn()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/AccountGroupTests.swift",
+      "line": 4,
+      "symbol": "AccountGroupTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/AccountTests.swift",
+      "line": 4,
+      "symbol": "AccountTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/AccountTypeTests.swift",
+      "line": 4,
+      "symbol": "AccountTypeTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/AccountTypeTests.swift",
+      "line": 5,
+      "symbol": "AccountTypeTests.testActiveAsset()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/AccountTypeTests.swift",
+      "line": 12,
+      "symbol": "AccountTypeTests.testNameTests()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/FinTransactionTests.swift",
+      "line": 4,
+      "symbol": "FinTransactionTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/FinTransactionTests.swift",
+      "line": 64,
+      "symbol": "FinTransactionTests.testApprovalModeNames()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/FinTransactionTests.swift",
+      "line": 71,
+      "symbol": "FinTransactionTests.testDateText()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/RecurrenceFrequencyTests.swift",
+      "line": 4,
+      "symbol": "RecurrenceFrequencyTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Model/RecurrenceFrequencyTests.swift",
+      "line": 5,
+      "symbol": "RecurrenceFrequencyTests.testName()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 4,
+      "symbol": "AccountDetailVCTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 7,
+      "symbol": "AccountDetailVCTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 8,
+      "symbol": "AccountDetailVCTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 9,
+      "symbol": "AccountDetailVCTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 13,
+      "symbol": "AccountDetailVCTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 19,
+      "symbol": "AccountDetailVCTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 28,
+      "symbol": "AccountDetailVCTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 36,
+      "symbol": "AccountDetailVCTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 41,
+      "symbol": "AccountDetailVCTests.testAccountDelete()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 53,
+      "symbol": "AccountDetailVCTests.testViewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountDetailVCTests.swift",
+      "line": 68,
+      "symbol": "AccountDetailVCTests.testDoneButton()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 4,
+      "symbol": "AccountGroupDetailVCTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 7,
+      "symbol": "AccountGroupDetailVCTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 8,
+      "symbol": "AccountGroupDetailVCTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 9,
+      "symbol": "AccountGroupDetailVCTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 13,
+      "symbol": "AccountGroupDetailVCTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 19,
+      "symbol": "AccountGroupDetailVCTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 28,
+      "symbol": "AccountGroupDetailVCTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 36,
+      "symbol": "AccountGroupDetailVCTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupDetailVCTests.swift",
+      "line": 41,
+      "symbol": "AccountGroupDetailVCTests.testViewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 4,
+      "symbol": "AccountGroupListVCTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 7,
+      "symbol": "AccountGroupListVCTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 8,
+      "symbol": "AccountGroupListVCTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 9,
+      "symbol": "AccountGroupListVCTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 13,
+      "symbol": "AccountGroupListVCTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 19,
+      "symbol": "AccountGroupListVCTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 28,
+      "symbol": "AccountGroupListVCTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 36,
+      "symbol": "AccountGroupListVCTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountGroupListVCTests.swift",
+      "line": 41,
+      "symbol": "AccountGroupListVCTests.testViewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 4,
+      "symbol": "AccountNewVCTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 7,
+      "symbol": "AccountNewVCTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 8,
+      "symbol": "AccountNewVCTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 9,
+      "symbol": "AccountNewVCTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 13,
+      "symbol": "AccountNewVCTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 19,
+      "symbol": "AccountNewVCTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 28,
+      "symbol": "AccountNewVCTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 36,
+      "symbol": "AccountNewVCTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountNewVCTests.swift",
+      "line": 41,
+      "symbol": "AccountNewVCTests.testViewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 4,
+      "symbol": "AccountSelectorVCTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 7,
+      "symbol": "AccountSelectorVCTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 8,
+      "symbol": "AccountSelectorVCTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 9,
+      "symbol": "AccountSelectorVCTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 13,
+      "symbol": "AccountSelectorVCTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 19,
+      "symbol": "AccountSelectorVCTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 28,
+      "symbol": "AccountSelectorVCTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 36,
+      "symbol": "AccountSelectorVCTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountSelectorVCTests.swift",
+      "line": 41,
+      "symbol": "AccountSelectorVCTests.testViewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 4,
+      "symbol": "AccountTransactionsVCTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 7,
+      "symbol": "AccountTransactionsVCTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 8,
+      "symbol": "AccountTransactionsVCTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 9,
+      "symbol": "AccountTransactionsVCTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 13,
+      "symbol": "AccountTransactionsVCTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 19,
+      "symbol": "AccountTransactionsVCTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 28,
+      "symbol": "AccountTransactionsVCTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 36,
+      "symbol": "AccountTransactionsVCTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/AccountTransactionsVCTests.swift",
+      "line": 41,
+      "symbol": "AccountTransactionsVCTests.testViewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 4,
+      "symbol": "EnumValuesSelectorVCTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 7,
+      "symbol": "EnumValuesSelectorVCTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 8,
+      "symbol": "EnumValuesSelectorVCTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 9,
+      "symbol": "EnumValuesSelectorVCTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 13,
+      "symbol": "EnumValuesSelectorVCTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 19,
+      "symbol": "EnumValuesSelectorVCTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 28,
+      "symbol": "EnumValuesSelectorVCTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 36,
+      "symbol": "EnumValuesSelectorVCTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/EnumValuesSelectorVCTests.swift",
+      "line": 53,
+      "symbol": "EnumValuesSelectorVCTests.testViewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 4,
+      "symbol": "RecurrenceFrequencySelectorVCTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 7,
+      "symbol": "RecurrenceFrequencySelectorVCTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 8,
+      "symbol": "RecurrenceFrequencySelectorVCTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 9,
+      "symbol": "RecurrenceFrequencySelectorVCTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 13,
+      "symbol": "RecurrenceFrequencySelectorVCTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 19,
+      "symbol": "RecurrenceFrequencySelectorVCTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 28,
+      "symbol": "RecurrenceFrequencySelectorVCTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 36,
+      "symbol": "RecurrenceFrequencySelectorVCTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/RecurrenceFrequencySelectorVCTests.swift",
+      "line": 41,
+      "symbol": "RecurrenceFrequencySelectorVCTests.testViewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/TransactionItemTests.swift",
+      "line": 4,
+      "symbol": "TransactionItemTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/TransactionItemTests.swift",
+      "line": 5,
+      "symbol": "TransactionItemTests.testName()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/TransactionItemTests.swift",
+      "line": 14,
+      "symbol": "TransactionItemTests.testHeight()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/ViewControllerTests.swift",
+      "line": 4,
+      "symbol": "ViewControllerTests",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/ViewControllerTests.swift",
+      "line": 7,
+      "symbol": "ViewControllerTests.sut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/ViewControllerTests.swift",
+      "line": 8,
+      "symbol": "ViewControllerTests.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/ViewControllerTests.swift",
+      "line": 9,
+      "symbol": "ViewControllerTests.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/ViewControllerTests.swift",
+      "line": 13,
+      "symbol": "ViewControllerTests.setUp()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/ViewControllerTests.swift",
+      "line": 19,
+      "symbol": "ViewControllerTests.tearDown()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/ViewControllerTests.swift",
+      "line": 28,
+      "symbol": "ViewControllerTests.setupVC()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Volumes/hdd/swift dec 2018/Capital/CapitalTests/Module/ViewControllerTests.swift",
+      "line": 36,
+      "symbol": "ViewControllerTests.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Volumes/hdd/swift dec 2018/Capital"
+}

@@ -36,7 +36,7 @@ internal struct FinTransactionFields {
     internal let approvalMode = FinTransactionField.approvalMode.rawValue
     internal let recurrenceFrequency = FinTransactionField.recurrenceFrequency.rawValue
     internal let recurrenceEnd = FinTransactionField.recurrenceEnd.rawValue
-    internal let parent = FinTransactionField.approvalMode.rawValue
+    internal let parent = FinTransactionField.parent.rawValue
     internal let accountId = FinTransactionField.accountId.rawValue
     internal let accountName = FinTransactionField.accountName.rawValue
 }

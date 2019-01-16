@@ -2,6 +2,23 @@
 import XCTest
 
 internal class FinTransactionTests: XCTestCase {
+    /// Test that properties list of `FinTransaction` is correctly treated
+    internal func testFieldsImplementation() {
+        let sample = FinTransaction()
+        var fieldNamesFromIntance = Set(Mirror(reflecting: sample).children.compactMap { $0.label })
+        var fieldNamesFromNamesStruct = Set(Mirror(reflecting: FinTransactionFields()).children.compactMap { ($0.value as? String) ?? "" })
+        var fieldNamesFromEnum = Set(FinTransactionField.allCases.map { $0.rawValue })
+        let fieldNamesFromUpdateDict = Set(sample.update.keys.map { $0.rawValue })
+        fieldNamesFromIntance.remove("update.storage")
+        XCTAssertTrue(fieldNamesFromNamesStruct == fieldNamesFromEnum)
+        fieldNamesFromNamesStruct.remove("id")
+        fieldNamesFromNamesStruct.remove("name")
+        fieldNamesFromEnum.remove("id")
+        fieldNamesFromEnum.remove("name")
+        XCTAssertTrue(fieldNamesFromIntance == fieldNamesFromNamesStruct)
+        XCTAssertTrue(fieldNamesFromEnum == fieldNamesFromUpdateDict)
+    }
+
     /// Test checks that object is correctly initialized with dictionary of [field: value]
     internal func testInitWithData() {
         // 1. Arrange

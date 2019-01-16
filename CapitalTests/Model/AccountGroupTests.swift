@@ -6,13 +6,16 @@ internal final class AccountGroupTests: XCTestCase {
     internal func testFieldsImplementation() {
         let accountGroup = AccountGroup()
         var fieldNamesFromIntance = Set(Mirror(reflecting: accountGroup).children.compactMap { $0.label })
+        // TODO: check values as well not just labels
         let fieldNamesFromNamesStruct = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { $0.label })
+        let fieldNamesFromNamesStructValues = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { ($0.value as? String) ?? "" })
         let fieldNamesFromEnum = Set(AccountGroupField.allCases.map { $0.rawValue })
         let fieldNamesFromUpdateDict = Set(accountGroup.update.keys.map { $0.rawValue })
         fieldNamesFromIntance.remove("update.storage")
         XCTAssertTrue(fieldNamesFromIntance == fieldNamesFromNamesStruct &&
         fieldNamesFromNamesStruct == fieldNamesFromEnum &&
         fieldNamesFromEnum == fieldNamesFromUpdateDict)
+        XCTAssert(fieldNamesFromNamesStruct == fieldNamesFromNamesStructValues)
     }
 
     /// Test checks that object is correctly initialized with dictionary of [field: value]
