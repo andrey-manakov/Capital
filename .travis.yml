@@ -1,4 +1,4 @@
-# trigger build 006
+# trigger build 007
 language: objective-c
 osx_image: xcode10.1
 xcode_project: Capital.xcodeproj
@@ -15,7 +15,7 @@ install:
   - gem install xcpretty
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
   # - chmod +x ./cc-test-reporter
   # - file ./cc-test-reporter
   # - ./cc-test-reporter before-build
