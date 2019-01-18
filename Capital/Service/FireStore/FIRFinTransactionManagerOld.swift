@@ -1,3 +1,4 @@
+internal typealias SendFinTransactionResult = (approvedAmount: Int, dynamics: [Date: Int])
 internal protocol FIRFinTransactionManagerProtocolOld: AnyObject {
     func createTransaction(
         from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?,
@@ -9,8 +10,8 @@ internal protocol FIRFinTransactionManagerProtocolOld: AnyObject {
         to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?,
         date: Date?, approvalMode: FinTransaction.ApprovalMode?,
         recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String?,
-        approvedAmount: Int
-        ) -> Int
+        result: SendFinTransactionResult
+        ) -> (Int, [Date: Int])
 }
 
 extension FIRFinTransactionManagerProtocolOld {
@@ -19,7 +20,7 @@ extension FIRFinTransactionManagerProtocolOld {
         from: AccountInfo?,
         to: AccountInfo?,
         amount: Int?
-        ) -> Int {
+        ) -> (Int, [Date: Int]) {
         return sendFinTransaction(
             to: fsTransaction,
             from: from,
@@ -30,7 +31,7 @@ extension FIRFinTransactionManagerProtocolOld {
             recurrenceFrequency: nil,
             recurrenceEnd: nil,
             parent: nil,
-            approvedAmount: 0
+            result: (0, [Date: Int]())
         )
     }
 }
@@ -78,16 +79,20 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
 
         fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
             // read account amounts from FireStore
-            guard let fromAccount = self.getAccount(
-                withId: from.id, for: fsTransaction, with: errorPointer),
-                let toAccount = self.getAccount(
-                    withId: to.id, for: fsTransaction, with: errorPointer) else { return nil }
+            guard let fromAccount = self.getAccount(withId: from.id, for: fsTransaction, with: errorPointer),
+                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer) else { return nil }
             // create transactions
-            let approvedAmount = self.sendFinTransaction(
-                to: fsTransaction, from: (from.id, fromAccount.name ?? ""),
-                to: (to.id, toAccount.name ?? ""), amount: amount, date: date,
-                approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency,
+            let sendTransactionResult: SendFinTransactionResult
+            sendTransactionResult = self.sendFinTransaction(
+                to: fsTransaction,
+                from: (from.id, fromAccount.name ?? ""),
+                to: (to.id, toAccount.name ?? ""),
+                amount: amount, date: date,
+                approvalMode: approvalMode,
+                recurrenceFrequency: recurrenceFrequency,
                 recurrenceEnd: recurrenceEnd)
+
+            let approvedAmount = sendTransactionResult.approvedAmount
             // update account amounts
             for (id, account) in [from.id: fromAccount, to.id: toAccount] {
                 let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to.id ? 1 : -1)
@@ -118,18 +123,20 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
     ///     used to update account values
     /// - Returns: approvedAmount(Int) - the sum of amounts of approved transactions (in the past),
     ///     used to update account values
+
     internal func sendFinTransaction(
-        to fsTransaction: Transaction, from: AccountInfo?,
-        to: AccountInfo?, amount: Int?,
+        to fsTransaction: Transaction,
+        from: AccountInfo?,
+        to: AccountInfo?,
+        amount: Int?,
         date: Date? = Date(),
         approvalMode: FinTransaction.ApprovalMode? = nil,
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil,
         parent: String? = nil,
-        approvedAmount: Int = 0
-        ) -> Int {
+        result: SendFinTransactionResult = (0, [Date: Int]())) -> (Int, [Date: Int]) {
         guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
-            let from = from, let to = to, let amount = amount else { return 0 }
+            let from = from, let to = to, let amount = amount else { return result }
         let date = date ?? Date()
         fsTransaction.setData([
             FinTransaction.Fields.from.rawValue:
@@ -147,18 +154,23 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             FinTransaction.Fields.recurrenceEnd.rawValue:
                 recurrenceEnd == nil ? NSNull() : Timestamp(date: recurrenceEnd!)
         ], forDocument: newFinTransactionRef)
-        let approvedAmount = date < Date() ? approvedAmount + amount : approvedAmount
+        let approvedAmount = date < Date() ? result.approvedAmount + amount : result.approvedAmount
         // TODO: consider default recurrence end
         if let recurrenceFrequency = recurrenceFrequency, recurrenceFrequency != .never,
             let nextDate = nextDate(from: date, recurrenceFrequency: recurrenceFrequency),
             let recurrenceEnd = recurrenceEnd, nextDate <= recurrenceEnd {
-            return sendFinTransaction(to: fsTransaction, from: from, to: to, amount: amount, date: nextDate,
-                                      approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency,
-                                      recurrenceEnd: recurrenceEnd,
-                                      parent: parent ?? newFinTransactionRef.documentID,
-                                      approvedAmount: approvedAmount)
+            return sendFinTransaction(
+                to: fsTransaction,
+                from: from,
+                to: to,
+                amount: amount,
+                date: nextDate,
+                approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency,
+                recurrenceEnd: recurrenceEnd,
+                parent: parent ?? newFinTransactionRef.documentID,
+                result: (approvedAmount, [Date: Int]()))
         } else {
-            return approvedAmount
+            return (approvedAmount, [Date: Int]())
         }
     }
 }

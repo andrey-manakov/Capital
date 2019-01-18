@@ -57,7 +57,9 @@ internal class CapitalUITests: XCTestCase {
         app.secureTextFields["passwordTextField"].tap()
         _ = password.map { app.keys[String($0)].tap() }
         app.buttons["signUpButton"].tap()
-        return app.navigationBars["DashBoard"].waitForExistence(timeout: 10)
+        let testResult = app.navigationBars["DashBoard"].waitForExistence(timeout: 10)
+        print("Test result signUp \(testResult)")
+        return testResult
     }
 
     private func signIn(login: String, password: String) -> Bool {
@@ -72,13 +74,17 @@ internal class CapitalUITests: XCTestCase {
     private func signOut() -> Bool {
         app.tabBars.buttons["Settings"].tap()
         app.tables["v"].staticTexts["Log Out"].tap()
-        return app.staticTexts["appTitle"].waitForExistence(timeout: 10)
+        let testResult = app.staticTexts["appTitle"].waitForExistence(timeout: 10)
+        print("Test result signOut \(testResult)")
+        return testResult
     }
 
     private func deleteUser() -> Bool {
         app.tabBars.buttons["Settings"].tap()
         app.tables["v"].staticTexts["Delete User"].tap()
-        return app.staticTexts["appTitle"].waitForExistence(timeout: 10)
+        let testResult = app.staticTexts["appTitle"].waitForExistence(timeout: 10)
+        print("Test result deleteUser \(testResult)")
+        return testResult
     }
 
     private func create(account: (name: String, type: String, amount: String)) -> Bool {
@@ -94,8 +100,10 @@ internal class CapitalUITests: XCTestCase {
 //        let myTable = app.tables.matching(identifier: "t")
 //        let cell = myTable.cells.element(matching: .cell, identifier: name)
 //        cell.tap()
-        return app.tables["t"].staticTexts[
+        let testResult = app.tables["t"].staticTexts[
             "\(account.amount) (\(account.amount))"].waitForExistence(timeout: 10)
+        print("Test result create account \(testResult)")
+        return testResult
         // FIXME: change to unique name
     }
 
@@ -219,74 +227,61 @@ internal class CapitalUITests: XCTestCase {
         _ = amount.map { app.keys[String($0)].tap() }
         app.tables["v"].staticTexts["date"].tap()
 
+//        print(app.descendants(matching: .any).debugDescription)
+
 //        let datePickers = app.datePickers
 //        datePickers.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "June")
 //        _ = app.tables["v"].datePickers["v"].waitForExistence(timeout: 10)
-//        print(app.descendants(matching: .any).debugDescription)
 //        datePickers.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: date.day)
 //        app.tables["v"].datePickers["v"].pickerWheels.element(
-//        boundBy: 1).adjust(toPickerWheelValue: date.day)
+//            boundBy: 1).adjust(toPickerWheelValue: date.day)
 //        datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2015")
-//        print("transaction date \(date.day ?? 0)")
+
+        print("transaction date \(date.day ?? 0)")
+//        sleep(5)
         app.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "\(date.day ?? 0)")
+        app.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "\(date.year ?? 0)")
+        app.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "\(date.monthString ?? "")")
+        print("Transaction date: \(date)")
+        print("Current date: \(Date())")
+//        sleep(5)
         app.navigationBars["New Transaction"].buttons["Done"].tap()
         app.tabBars.buttons["Accounts"].tap()
 
-        app.buttons[accounts[0].type].tap()
-        let newFromAccountValue: String =
-            String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
-                Int(accounts[0].amount)! - Int(amount)! :
-                Int(accounts[0].amount)! + Int(amount)!)
-        print("accounts[0].type \(accounts[0].type)")
-        print((accounts[0].type == "asset" || accounts[0].type == "expense"))
-        print("newFromAccountValue \(newFromAccountValue)")
-        let fromAccountIsCorrect =
-            app.tables["t"].staticTexts[
-                "\(newFromAccountValue) (\(newFromAccountValue))"].waitForExistence(timeout: 10)
-
-        app.buttons[accounts[1].type].tap()
-        let newToAccountValue =
-            String((accounts[1].type == "asset" || accounts[1].type == "expense") ?
-                Int(accounts[1].amount)! + Int(amount)! :
-                Int(accounts[1].amount)! - Int(amount)!)
-        print("accounts[1].type \(accounts[1].type)")
-        print((accounts[1].type == "asset" || accounts[1].type == "expense"))
-        print("newToAccountValue \(newToAccountValue)")
-
-        let toAccountIsCorrect =
-            app.tables["t"].staticTexts[
-                "\(newToAccountValue) (\(newToAccountValue))"].waitForExistence(timeout: 10)
-
-        return fromAccountIsCorrect && toAccountIsCorrect
+        var i = 1
+        return accounts.map {
+            app.buttons[$0.type].tap()
+            let currentAmount: String
+            let newAccountValue: String =
+                String(($0.type == "asset" || $0.type == "expense") ?
+                    Int($0.amount)! - i * Int(amount)! :
+                    Int($0.amount)! + i * Int(amount)!)
+            i = -1
+            if date.isAfter(Date()) {
+                currentAmount = $0.amount
+            } else {
+                currentAmount = newAccountValue
+            }
+            return app.tables["t"].staticTexts[
+                    "\(currentAmount) (\(newAccountValue))"].waitForExistence(timeout: 10)
+        }.filter { $0 }.count == 2
     }
 
-//    func testTransactionNotToday() {
-//        if app.navigationBars["DashBoard"].exists {XCTAssert(signOut())}
-//        let accounts = [randomAccount(), randomAccount()]
-//        let amount = String((0..<3).map{ _ in "123456789".randomElement()! })
-//        let day = "15"//(1...27).map{String($0)}.randomElement()!
-//        let month = "December"
-//        let year = "2018"
-//        let date = (day: day, month: "December", year: "2018")
-//        let sampleDate = "\(day)-\(month)-\(year)".date(withFormat: "dd-MMMM-yyyy")
-//        print(sampleDate?.str as Any)
-//        print(Date().str)
-//        XCTAssert(signUp(login: login, password: password))
-//        _ = accounts.map{XCTAssert(create(account: $0))}
-//        XCTAssert(create(transaction: amount, with: accounts, onDate: sampleDate!))
-//        XCTAssert(deleteUser())
-//
-//        let vTable = app.tables["v"]
-//        vTable.staticTexts["2018 Dec-21"].tap()
-//        vTable.pickerWheels["21"].press(forDuration: 1.2);
-//        vTable.pickerWheels["20"].press(forDuration: 0.8);
-//        vTable.staticTexts["repeat"].tap()
-//        vTable.staticTexts["Every Day"].tap()
-//
-//        let vTable = app.tables["v"]
-//        vTable.pickerWheels["19"].swipeUp()
-//        vTable.pickerWheels["22"].press(forDuration: 1.0);
-//        vTable.pickerWheels["23"].press(forDuration: 0.5);
-//
-//    }
+    internal func testTransactionNotToday() {
+        if app.navigationBars["DashBoard"].exists {
+            XCTAssert(signOut())
+        }
+        let accounts = [randomAccount(), randomAccount()]
+        let amount = String((0..<3).map { _ in "123456789".randomElement()! })
+        let day = "\(Date().localDay!)"  // (1...27).map {String($0)}.randomElement()!
+        let month = "\(Date().month!)" // (1...12).map {String($0)}.randomElement()!
+        let year = "\(Date().year!)"  // [2018, 2019].map {String($0)}.randomElement()!
+        let sampleDate = "\(day)-\(month)-\(year)".date(withFormat: "dd-MM-yyyy")
+        XCTAssert(signUp(login: login, password: password))
+        _ = accounts.map {
+            XCTAssert(create(account: $0))
+        }
+        XCTAssert(create(transaction: amount, with: accounts, onDate: sampleDate!))
+        XCTAssert(deleteUser())
+    }
 }

@@ -2,7 +2,13 @@ import Foundation
 
 extension Date {
     internal var month: Int? { return Calendar.current.dateComponents([.month], from: self).month }
+    internal var monthString: String? { return DateFormatter("LLLL").string(from: self) }
     internal var day: Int? { return Calendar.current.dateComponents([.day], from: self).day }
+    internal var localDay: Int? {
+        let dateFormatter = DateFormatter("dd")
+        dateFormatter.timeZone = TimeZone.current
+        return Int(dateFormatter.string(from: self))
+    }
     internal var year: Int? { return Calendar.current.dateComponents([.year], from: self).year }
     //    var day: Int
 }

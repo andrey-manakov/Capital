@@ -3,7 +3,7 @@ import XCTest
 
 internal class StringExtensionTest: XCTestCase {
     internal func testRandom() {
-        let length = Int.random(in: 0 ..< 10)
+        let length = Int.random(in: 1 ..< 10)
         let randomString = String.randomWithSmallLetters(length: length)
         XCTAssert(randomString.count == length)
     }
