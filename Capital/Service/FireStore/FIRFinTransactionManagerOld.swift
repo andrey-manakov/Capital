@@ -78,34 +78,45 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
         }
 
         fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
-            // read account amounts from FireStore
+            // MARK: read account amounts from FireStore
             guard
                 let fromAccount = self.getAccount(withId: from.id, for: fsTransaction, with: errorPointer),
-                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer)//,
-//                let fromAccountDynamics = self.getAccountDynamics(withId: from.id, for: fsTransaction, with: errorPointer),
-//                let toAccountDynamics = self.getAccountDynamics(withId: to.id, for: fsTransaction, with: errorPointer)
+                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer)
             else {
                     return nil
             }
-            // create transactions
+            let fromAccountDynamics = self.getAccountDynamics(withId: from.id, for: fsTransaction, with: errorPointer)?.data ?? [String: Int]()
+            let toAccountDynamics = self.getAccountDynamics(withId: to.id, for: fsTransaction, with: errorPointer)?.data ?? [String: Int]()
+
+            // MARK: create transactions
             let sendTransactionResult: SendFinTransactionResult
             sendTransactionResult = self.sendFinTransaction(
                 to: fsTransaction,
-                from: (from.id, fromAccount.name ?? ""),
-                to: (to.id, toAccount.name ?? ""),
+                from: (from.id, from.name),
+                to: (to.id, to.name), // toAccount.name ?? ""
                 amount: amount, date: date,
                 approvalMode: approvalMode,
                 recurrenceFrequency: recurrenceFrequency,
                 recurrenceEnd: recurrenceEnd)
 
+            // MARK: update account amounts
             let approvedAmount = sendTransactionResult.approvedAmount
-            // update account amounts
             for (id, account) in [from.id: fromAccount, to.id: toAccount] {
                 let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to.id ? 1 : -1)
+                let newAmount = (account.amount ?? 0) + coef * approvedAmount
+                let minAmount = 0 // TODO: Add impletmentation
+                let minDate = Date() // TODO: Add impletmentation
                 fsTransaction.updateData(
-                    [Account.fields.amount: (account.amount ?? 0) + coef * approvedAmount],
+                    [
+                        Account.fields.amount: newAmount,
+                        Account.fields.minAmount: minAmount,
+                        Account.fields.minDate: minDate
+                    ],
                     forDocument: ref.collection(DataObjectType.account.rawValue).document(id))
             }
+
+            // MARK: udpate dynamics doc
+            // TODO: add implementation
             return { print("Transaction created") }
         }, completion: fireStoreCompletion)
     }
