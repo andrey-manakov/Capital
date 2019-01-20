@@ -53,6 +53,9 @@ extension FireStoreGettersProtocol {
 
         case .change:
             return nil // TODO: double check
+
+        case .dynamics:
+            return AccountDynamics(data)
         }
     }
 
@@ -70,6 +73,14 @@ extension FireStoreGettersProtocol {
         with errorPointer: NSErrorPointer = nil
         ) -> Account? {
         return get(.account, withId: id, for: fsTransaction, with: errorPointer) as? Account
+    }
+
+    internal func getAccountDynamics(
+        withId id: String?,
+        for fsTransaction: Transaction,
+        with errorPointer: NSErrorPointer = nil
+        ) -> AccountDynamics? {
+        return get(.dynamics, withId: id, for: fsTransaction, with: errorPointer) as? AccountDynamics
     }
 
     internal func getTransaction(

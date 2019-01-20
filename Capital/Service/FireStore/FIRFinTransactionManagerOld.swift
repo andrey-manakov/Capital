@@ -11,7 +11,7 @@ internal protocol FIRFinTransactionManagerProtocolOld: AnyObject {
         date: Date?, approvalMode: FinTransaction.ApprovalMode?,
         recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String?,
         result: SendFinTransactionResult
-        ) -> (Int, [Date: Int])
+        ) -> SendFinTransactionResult
 }
 
 extension FIRFinTransactionManagerProtocolOld {
@@ -20,7 +20,7 @@ extension FIRFinTransactionManagerProtocolOld {
         from: AccountInfo?,
         to: AccountInfo?,
         amount: Int?
-        ) -> (Int, [Date: Int]) {
+        ) -> SendFinTransactionResult {
         return sendFinTransaction(
             to: fsTransaction,
             from: from,
@@ -79,8 +79,14 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
 
         fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
             // read account amounts from FireStore
-            guard let fromAccount = self.getAccount(withId: from.id, for: fsTransaction, with: errorPointer),
-                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer) else { return nil }
+            guard
+                let fromAccount = self.getAccount(withId: from.id, for: fsTransaction, with: errorPointer),
+                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer)//,
+//                let fromAccountDynamics = self.getAccountDynamics(withId: from.id, for: fsTransaction, with: errorPointer),
+//                let toAccountDynamics = self.getAccountDynamics(withId: to.id, for: fsTransaction, with: errorPointer)
+            else {
+                    return nil
+            }
             // create transactions
             let sendTransactionResult: SendFinTransactionResult
             sendTransactionResult = self.sendFinTransaction(
@@ -123,7 +129,6 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
     ///     used to update account values
     /// - Returns: approvedAmount(Int) - the sum of amounts of approved transactions (in the past),
     ///     used to update account values
-
     internal func sendFinTransaction(
         to fsTransaction: Transaction,
         from: AccountInfo?,
@@ -134,10 +139,15 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
         recurrenceFrequency: RecurrenceFrequency? = nil,
         recurrenceEnd: Date? = nil,
         parent: String? = nil,
-        result: SendFinTransactionResult = (0, [Date: Int]())) -> (Int, [Date: Int]) {
-        guard let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
-            let from = from, let to = to, let amount = amount else { return result }
+        result: SendFinTransactionResult = (0, [Date: Int]())) -> SendFinTransactionResult {
+        guard
+            let newFinTransactionRef = self.ref?.collection(DataObjectType.transaction.rawValue).document(),
+            let from = from,
+//            let fromDynamics = self.ref?.collection(DataObjectType.dynamics.rawValue).document(),
+            let to = to,
+            let amount = amount else { return result }
         let date = date ?? Date()
+        // TODO: switch to fields
         fsTransaction.setData([
             FinTransaction.Fields.from.rawValue:
                 [FinTransaction.Fields.From.id.rawValue: from.id,
@@ -147,14 +157,22 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
                  FinTransaction.Fields.To.name.rawValue: to.name] as Any,
             FinTransaction.Fields.amount.rawValue: amount as Any,
             FinTransaction.Fields.date.rawValue: Timestamp(date: date),
-            FinTransaction.Fields.isApproved.rawValue: date < Date() ? true : false,
+            FinTransaction.Fields.isApproved.rawValue: date <= Date() ? true : false,
             FinTransaction.Fields.approvalMode.rawValue: approvalMode?.rawValue as Any,
             FinTransaction.Fields.recurrenceFrequency.rawValue:
                 recurrenceFrequency == nil ? NSNull() : recurrenceFrequency!.rawValue,
             FinTransaction.Fields.recurrenceEnd.rawValue:
                 recurrenceEnd == nil ? NSNull() : Timestamp(date: recurrenceEnd!)
         ], forDocument: newFinTransactionRef)
-        let approvedAmount = date < Date() ? result.approvedAmount + amount : result.approvedAmount
+        let approvedAmount: Int
+        var dynamics: [Date: Int] = result.dynamics
+        if date <= Date() {
+            approvedAmount = result.approvedAmount + amount
+        } else {
+            approvedAmount = result.approvedAmount
+            dynamics[date] = (dynamics[date] ?? 0) + amount
+        }
+//        let approvedAmount = date < Date() ? result.approvedAmount + amount : result.approvedAmount
         // TODO: consider default recurrence end
         if let recurrenceFrequency = recurrenceFrequency, recurrenceFrequency != .never,
             let nextDate = nextDate(from: date, recurrenceFrequency: recurrenceFrequency),
@@ -168,7 +186,7 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
                 approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency,
                 recurrenceEnd: recurrenceEnd,
                 parent: parent ?? newFinTransactionRef.documentID,
-                result: (approvedAmount, [Date: Int]()))
+                result: (approvedAmount, dynamics))
         } else {
             return (approvedAmount, [Date: Int]())
         }

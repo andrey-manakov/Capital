@@ -135,7 +135,9 @@ extension Data { // Decide if these functions are needed at all
         case .transaction:
         break // deleteFinTransaction(withId: id, completion)
         case .change:
-            break // TODO: double check
+            break // TODO: add implementation
+        case .dynamics:
+            break // TODO: add implementation
         }
     }
 

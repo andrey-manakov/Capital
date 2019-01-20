@@ -1,3 +1,3 @@
 internal enum DataObjectType: String, CaseIterable {
-    case account, transaction, group, change
+    case account, transaction, group, change, dynamics
 }

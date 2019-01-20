@@ -102,6 +102,7 @@
 		C1A027EC21BD54F300207FF7 /* FIRFinTransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */; };
 		C1A027ED21BD54F300207FF7 /* FIRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DD21BD54F300207FF7 /* FIRManager.swift */; };
 		C1A027EF21BD54F300207FF7 /* FIRListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DF21BD54F300207FF7 /* FIRListners.swift */; };
+		C1CB512221F281F800EF6ABF /* AccountDynamics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CB512121F281F700EF6ABF /* AccountDynamics.swift */; };
 		C1CE083121BD216F000D28C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE083021BD216F000D28C9 /* AppDelegate.swift */; };
 		C1CE083821BD2170000D28C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1CE083721BD2170000D28C9 /* Assets.xcassets */; };
 		C1CE084621BD2170000D28C9 /* ButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE084521BD2170000D28C9 /* ButtonTest.swift */; };
@@ -275,6 +276,7 @@
 		C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManager.swift; sourceTree = "<group>"; };
 		C1A027DD21BD54F300207FF7 /* FIRManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRManager.swift; sourceTree = "<group>"; };
 		C1A027DF21BD54F300207FF7 /* FIRListners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRListners.swift; sourceTree = "<group>"; };
+		C1CB512121F281F700EF6ABF /* AccountDynamics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDynamics.swift; sourceTree = "<group>"; };
 		C1CE082D21BD216F000D28C9 /* Capital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1CE083021BD216F000D28C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1CE083521BD216F000D28C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -664,6 +666,7 @@
 			isa = PBXGroup;
 			children = (
 				C1A027C321BD53AE00207FF7 /* Account.swift */,
+				C1CB512121F281F700EF6ABF /* AccountDynamics.swift */,
 				C1DBCC5821C25B9E0003869A /* AccountGroup.swift */,
 				C1A027C121BD53AE00207FF7 /* AccountType.swift */,
 				C1A027C221BD53AE00207FF7 /* DataObject.swift */,
@@ -1118,6 +1121,7 @@
 				C1164D4F21BD779500895A1B /* NavigationController.swift in Sources */,
 				C1A027D021BD541E00207FF7 /* FIRAuth.swift in Sources */,
 				C1A027EB21BD54F300207FF7 /* FIRDataProtocol.swift in Sources */,
+				C1CB512221F281F800EF6ABF /* AccountDynamics.swift in Sources */,
 				C1164D2D21BD6F2F00895A1B /* DataModelSection.swift in Sources */,
 				C1A027E621BD54F300207FF7 /* MiscFunctionsProtocol.swift in Sources */,
 				C1164D2C21BD6F2F00895A1B /* DataModel.swift in Sources */,
