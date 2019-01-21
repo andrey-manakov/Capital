@@ -65,8 +65,10 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
                 (newAccountRef.documentID, name)
             let transactionTo = type.active ? (newAccountRef.documentID, name) :
                 (self.capitalAccountName, self.capitalAccountName)
-            _ = self.finTransactionManager.sendFinTransaction(
-                to: fsTransaction, from: transactionFrom, to: transactionTo, amount: amount)
+            let finTransaction = FinTransaction(from: transactionFrom, to: transactionTo, amount: amount)
+            _ = self.finTransactionManager.send(finTransaction, to: fsTransaction)
+//            _ = self.finTransactionManager.sendFinTransaction(
+//                to: fsTransaction, from: transactionFrom, to: transactionTo, amount: amount)
             // Update capital account
             fsTransaction.updateData([
                 Account.fields.amount:
@@ -111,19 +113,15 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
             let delta: Int
             if let newAmount = amount {
                 delta = newAmount - oldAmount
+                let finTransaction: FinTransaction
                 switch (delta > 0, type.active) {
                 case (true, true), (false, false):
-                    _ = self.finTransactionManager.sendFinTransaction(
-                        to: fsTransaction,
-                        from: (self.capitalAccountName, self.capitalAccountName),
-                        to: (id, name ?? oldName), amount: abs(delta))
+                    finTransaction = FinTransaction(from: (self.capitalAccountName, self.capitalAccountName), to: (id, name ?? oldName), amount: abs(delta))
 
                 case (false, true), (true, false):
-                    _ = self.finTransactionManager.sendFinTransaction(
-                        to: fsTransaction,
-                        from: (id, name ?? oldName),
-                        to: (self.capitalAccountName, self.capitalAccountName), amount: abs(delta))
+                    finTransaction = FinTransaction(from: (id, name ?? oldName), to: (self.capitalAccountName, self.capitalAccountName), amount: abs(delta))
                 }
+                _ = self.finTransactionManager.send(finTransaction, to: fsTransaction)
                 // Update account amount and name
                 fsTransaction.updateData(
                     [Account.fields.amount: newAmount,

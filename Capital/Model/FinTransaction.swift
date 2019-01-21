@@ -12,18 +12,6 @@ internal enum FinTransactionField: String, CaseIterable {
 
     case accountId = "id"
     case accountName = "name"
-
-//    enum From: String {
-//        case id
-//        case name
-//    }
-//    enum To: String {
-//        case id
-//        case name
-//    }
-    // TODO: check if these fields are needed
-    //    case accountId = "id"
-    //    case accountName = "name"
 }
 
 internal struct FinTransactionFields {
@@ -59,7 +47,7 @@ extension FinTransaction {
 }
 
 /// Transaction is operation of moving of funds from one Account to another
-internal final class FinTransaction: DataObject {
+internal struct FinTransaction: DataObjectProtocol {
     // MARK: - Static Properties
     internal static let fields = FinTransactionFields()
 
@@ -96,32 +84,11 @@ internal final class FinTransaction: DataObject {
     /// through the parent transactions is it possible to get all the related transactions
     internal var parent: String?
 
-    internal lazy var update: [FinTransactionField: (Any) -> Void] = [
-        .from: {
-            guard let value = $0 as? [String: Any],
-                let id = value[FinTransaction.fields.accountId] as? String,
-                let name = value[FinTransaction.fields.accountName] as? String else { return }
-            self.from = (id, name)
-        },
-        .to: {
-            guard let value = $0 as? [String: Any],
-                let id = value[FinTransaction.fields.accountId] as? String,
-                let name = value[FinTransaction.fields.accountName] as? String else { return }
-            self.from = (id, name)
-        },
-        .amount: { self.amount = $0 as? Int },
-        .date: { self.date = ($0 as? Timestamp)?.dateValue() },
-        .serverTime: { self.serverTime = ($0 as? Timestamp)?.dateValue() },
-        .isApproved: { self.isApproved = ($0 as? Bool) ?? false },
-        .approvalMode: { self.approvalMode = ApprovalMode(rawValue: $0 as? Int ?? 0) },
-        .recurrenceFrequency: { self.recurrenceFrequency = RecurrenceFrequency(rawValue: $0 as? Int ?? 0) },
-        .recurrenceEnd: { self.recurrenceEnd = ($0 as? Timestamp)?.dateValue() },
-        .parent: { self.parent = $0 as? String }
-    ]
-
     /// MARK: - Initialization
-    internal required convenience init(_ data: [String: Any]) {
-        self.init()
+    internal init() {
+    }
+
+    internal init(_ data: [String: Any]) {
         for (field, value) in data { self.update(field: field, value: value) }
     }
 
@@ -132,12 +99,22 @@ internal final class FinTransaction: DataObject {
     ///   - to: reference to `Account` to which funds are transferred
     ///   - amount: amount of funds to be transferred
     ///   - date: date when transaction took place
-    internal convenience init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date) {
-        self.init()
+    internal init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date? = nil) {
+//        self.init()
         self.from = from
         self.to = to
         self.amount = amount
         self.date = date
+    }
+
+    internal init(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?, approvalMode: ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String? = nil) {
+        self.from = from
+        self.to = to
+        self.amount = amount
+        self.date = date
+        self.approvalMode = approvalMode
+        self.recurrenceFrequency = recurrenceFrequency
+        self.recurrenceEnd = recurrenceEnd
     }
 
     /// MARK: - Methods
@@ -146,52 +123,56 @@ internal final class FinTransaction: DataObject {
     /// - Parameters:
     ///   - field: field name
     ///   - value: value to use for field update
-    internal func update(field: String, value: Any) {
-        if let field = FinTransactionField(rawValue: field) {
-            update[field]?(value)
-        } else {
-            fatalError("Unknown field name")
+    internal mutating func update(field: String, value: Any) {
+        guard let field = FinTransactionField(rawValue: field) else {
+            return
         }
 
-//        switch field {
-//        case .from:
-//            guard let value = value as? [String: Any],
-//                let id = value[Fields.From.id.rawValue] as? String,
-//                let name = value[Fields.From.name.rawValue] as? String else { return }
-//            self.from = (id, name)
-//
-//        case .to:
-//            guard let value = value as? [String: Any],
-//                let id = value[Fields.To.id.rawValue] as? String,
-//                let name = value[Fields.To.name.rawValue] as? String else { return }
-//            self.to = (id, name)
-//
-//        case .amount:
-//            self.amount = value as? Int
-//
-//        case .date:
-//            self.date = (value as? Timestamp)?.dateValue()
-//
-//        case .serverTime:
-//            self.serverTime = (value as? Timestamp)?.dateValue()
-//
-//        case .isApproved:
-//            self.isApproved = (value as? Bool) ?? false
-//
-//        case .approvalMode:
-//            if let rawValue = value as? Int { self.approvalMode = ApprovalMode(rawValue: rawValue) }
-//
-//        case .recurrenceFrequency:
-//            if let rawValue = value as? Int {
-//                self.recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue)
-//            }
-//
-//        case .recurrenceEnd:
-//            self.recurrenceEnd = (value as? Timestamp)?.dateValue()
-//
-//        case .parent:
-//            self.parent = value as? String
-//        }
+        switch field {
+        case .from:
+            guard let value = value as? [String: Any],
+                let id = value[Fields.From.id.rawValue] as? String,
+                let name = value[Fields.From.name.rawValue] as? String else { return }
+            self.from = (id, name)
+
+        case .to:
+            guard let value = value as? [String: Any],
+                let id = value[Fields.To.id.rawValue] as? String,
+                let name = value[Fields.To.name.rawValue] as? String else { return }
+            self.to = (id, name)
+
+        case .amount:
+            self.amount = value as? Int
+
+        case .date:
+            self.date = (value as? Timestamp)?.dateValue()
+
+        case .serverTime:
+            self.serverTime = (value as? Timestamp)?.dateValue()
+
+        case .isApproved:
+            self.isApproved = (value as? Bool) ?? false
+
+        case .approvalMode:
+            if let rawValue = value as? Int { self.approvalMode = ApprovalMode(rawValue: rawValue) }
+
+        case .recurrenceFrequency:
+            if let rawValue = value as? Int {
+                self.recurrenceFrequency = RecurrenceFrequency(rawValue: rawValue)
+            }
+
+        case .recurrenceEnd:
+            self.recurrenceEnd = (value as? Timestamp)?.dateValue()
+
+        case .parent:
+            self.parent = value as? String
+
+        case .accountId:
+            break
+
+        case .accountName:
+            break
+        }
     }
 }
 

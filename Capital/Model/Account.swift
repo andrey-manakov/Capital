@@ -28,18 +28,7 @@ internal struct AccountFields {
 }
 
 /// Account - is the entity to record transactions (`FinTransaction`).
-internal final class Account: DataObject {
-    // TODO: consider unowned self, check if instance is correctly deinitialized
-    // TODO: create test which check that all the fields are processed
-    internal lazy var update: [AccountField: (Any) -> Void] = [
-        .name: { self.name = $0 as? String },
-        .amount: { self.amount = $0 as? Int },
-        .minDate: { self.minDate = ($0 as? Timestamp)?.dateValue() },
-        .minAmount: { self.minAmount = $0 as? Int },
-//        .minDynamics: { self.minDynamics = $0 as? [Date: Int]}
-        .typeId: { self.typeId = $0 as? Int },
-        .groups: { self.groups = ($0 as? [String: String]) ?? [String: String]() }]
-
+internal struct Account: DataObjectProtocol, Codable { // : DataObject
     // MARK: - Static Properties
     internal static let fields = AccountFields()
 
@@ -79,12 +68,15 @@ internal final class Account: DataObject {
 
     // MARK: - Initializers
 
+    internal init() {
+    }
+
     /// Initializer used to create instance of `Account` from data loaded from FireStore
     ///
     /// - Parameter data: data as it is stored in FireStore
-    internal required convenience init(_ data: [String: Any]) {
-        self.init()
-        for (key, value) in data {update(field: key, value: value)
+    internal init(_ data: [String: Any]) {
+        for (key, value) in data {
+            update(field: key, value: value)
         }
     }
 
@@ -95,11 +87,28 @@ internal final class Account: DataObject {
     /// - Parameters:
     ///   - field: field name
     ///   - value: value of the field
-    internal func update(field: String, value: Any) {
-        if let field = AccountField(rawValue: field) {
-            update[field]?(value)
-        } else {
-            fatalError("Unknown field name")
+    internal mutating func update(field: String, value: Any) {
+        guard let property = AccountField(rawValue: field) else {
+            return
+        }
+        switch property {
+        case .name:
+            self.name = value as? String
+
+        case .amount:
+            self.amount = value as? Int
+
+        case .minAmount:
+            self.minAmount = value as? Int
+
+        case .minDate:
+            self.minDate = (value as? Timestamp)?.dateValue()
+
+        case .typeId:
+            self.typeId = value as? Int
+
+        case .groups:
+            self.groups = value as? [GroupId: GroupName] ?? [GroupId: GroupName]()
         }
     }
 }
@@ -107,17 +116,17 @@ internal final class Account: DataObject {
 // MARK: - Extends 'Account' to Equatable protocol
 extension Account: Equatable {
     /// JSON representation of 'Account' instance
-    internal var json: String {
-        let jsonEncoder = JSONEncoder()
-        let json: String
-        do {
-            let jsonData = try jsonEncoder.encode(self)
-            json = String(data: jsonData, encoding: String.Encoding.utf8) ?? ""
-        } catch {
-            json = ""
-        }
-        return json
-    }
+//    internal var json: String {
+//        let jsonEncoder = JSONEncoder()
+//        let json: String
+//        do {
+//            let jsonData = try jsonEncoder.encode(self)
+//            json = String(data: jsonData, encoding: String.Encoding.utf8) ?? ""
+//        } catch {
+//            json = ""
+//        }
+//        return json
+//    }
 
     /// Implementation of '==' to comply with Equatable protocol
     ///
@@ -137,7 +146,7 @@ extension Account: Equatable {
 }
 
 // MARK: - Extends  'Account' to CustomStringConvertible, CustomDebugStringConvertible protocols
-extension Account: CustomStringConvertible, CustomDebugStringConvertible {
-    internal var description: String { return json }
-    internal var debugDescription: String { return description }
-}
+// extension Account: CustomStringConvertible, CustomDebugStringConvertible {
+//    internal var description: String { return json }
+//    internal var debugDescription: String { return description }
+// }

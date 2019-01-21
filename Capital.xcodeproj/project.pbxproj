@@ -87,7 +87,7 @@
 		C1A027BD21BD521C00207FF7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027BB21BD521C00207FF7 /* Data.swift */; };
 		C1A027BE21BD521C00207FF7 /* DataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027BC21BD521C00207FF7 /* DataProtocol.swift */; };
 		C1A027C621BD53AE00207FF7 /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027C121BD53AE00207FF7 /* AccountType.swift */; };
-		C1A027C721BD53AE00207FF7 /* DataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027C221BD53AE00207FF7 /* DataObject.swift */; };
+		C1A027C721BD53AE00207FF7 /* DataObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027C221BD53AE00207FF7 /* DataObjectProtocol.swift */; };
 		C1A027C821BD53AE00207FF7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027C321BD53AE00207FF7 /* Account.swift */; };
 		C1A027C921BD53AE00207FF7 /* FinTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027C421BD53AE00207FF7 /* FinTransaction.swift */; };
 		C1A027CE21BD541E00207FF7 /* DataObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027CB21BD541E00207FF7 /* DataObjectType.swift */; };
@@ -261,7 +261,7 @@
 		C1A027BB21BD521C00207FF7 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C1A027BC21BD521C00207FF7 /* DataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProtocol.swift; sourceTree = "<group>"; };
 		C1A027C121BD53AE00207FF7 /* AccountType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
-		C1A027C221BD53AE00207FF7 /* DataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObject.swift; sourceTree = "<group>"; };
+		C1A027C221BD53AE00207FF7 /* DataObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObjectProtocol.swift; sourceTree = "<group>"; };
 		C1A027C321BD53AE00207FF7 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		C1A027C421BD53AE00207FF7 /* FinTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinTransaction.swift; sourceTree = "<group>"; };
 		C1A027CB21BD541E00207FF7 /* DataObjectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObjectType.swift; sourceTree = "<group>"; };
@@ -669,7 +669,7 @@
 				C1CB512121F281F700EF6ABF /* AccountDynamics.swift */,
 				C1DBCC5821C25B9E0003869A /* AccountGroup.swift */,
 				C1A027C121BD53AE00207FF7 /* AccountType.swift */,
-				C1A027C221BD53AE00207FF7 /* DataObject.swift */,
+				C1A027C221BD53AE00207FF7 /* DataObjectProtocol.swift */,
 				C1164D1721BD570900895A1B /* Direction.swift */,
 				C1A027C421BD53AE00207FF7 /* FinTransaction.swift */,
 				C1164D1521BD56B700895A1B /* RecurrenceFrequency.swift */,
@@ -1078,7 +1078,7 @@
 				C1A027C621BD53AE00207FF7 /* AccountType.swift in Sources */,
 				C1D0960721E8A2370032BF8E /* DateFormatterExtension.swift in Sources */,
 				C1D0960521E8A1F70032BF8E /* UIViewExtension.swift in Sources */,
-				C1A027C721BD53AE00207FF7 /* DataObject.swift in Sources */,
+				C1A027C721BD53AE00207FF7 /* DataObjectProtocol.swift in Sources */,
 				C1164D3821BD703A00895A1B /* SwitchCell.swift in Sources */,
 				C1A027B221BD4EB400207FF7 /* EmailField.swift in Sources */,
 				C1164D3C21BD703A00895A1B /* TransactionCell.swift in Sources */,

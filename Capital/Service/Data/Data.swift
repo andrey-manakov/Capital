@@ -161,24 +161,8 @@ extension Data {
         accountManager?.createAccount(name, ofType: type, withAmount: amount, completion: completion)
     }
 
-    internal func createTransaction(
-        from: AccountInfo?,
-        to: AccountInfo?,
-        amount: Int?,
-        date: Date? = Date(),
-        approvalMode: FinTransaction.ApprovalMode? = nil,
-        recurrenceFrequency: RecurrenceFrequency? = nil,
-        recurrenceEnd: Date? = nil,
-        completion: ((String?) -> Void)? = nil
-        ) {
-        FIRFinTransactionManagerOld.shared.createTransaction(
-            from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
-            recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd,
-            completion: completion)
-//        finTransactionManager?.createTransaction(
-//            from: from, to: to, amount: amount, date: date, approvalMode: approvalMode,
-//            recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd,
-//            completion: completion)
+    internal func create(_ finTransaction: FinTransaction, completion: ((String?) -> Void)? = nil) {
+        FIRFinTransactionManagerOld.shared.create(finTransaction, completion: completion)
     }
 
     internal func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {

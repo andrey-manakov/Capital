@@ -23,7 +23,7 @@ internal struct AccountGroupFields {
 }
 
 // MARK: - Introduction of Account.Group class
-internal final class AccountGroup: DataObject {
+internal final class AccountGroup: DataObjectProtocol, Codable {
     // MARK: - Static properties
     internal static var fields = AccountGroupFields()
 
@@ -40,15 +40,6 @@ internal final class AccountGroup: DataObject {
     }
     internal var accounts = [AccountId: AccountName]()
 
-    // TODO: consider unowned self, check if instance is correctly deinitialized
-    // TODO: create test which check that all the fields are processed
-    internal lazy var update: [AccountGroupField: (Any) -> Void] = [
-        .name: { self.name = $0 as? String },
-        .amount: { self.amount = $0 as? Int },
-        .minDate: { self.minDate = ($0 as? Timestamp)?.dateValue() },
-        .minAmount: { self.minAmount = $0 as? Int },
-        .accounts: { self.accounts = ($0 as? [String: String]) ?? [String: String]() }]
-
     internal required convenience init(_ data: [String: Any]) {
         self.init()
         for (field, value) in data {
@@ -57,10 +48,24 @@ internal final class AccountGroup: DataObject {
     }
 
     internal func update(field: String, value: Any) {
-        if let field = AccountGroupField(rawValue: field) {
-            update[field]?(value)
-        } else {
-            fatalError("Unknown field name")
+        guard let property = AccountGroupField(rawValue: field) else {
+            return
+        }
+        switch property {
+        case .accounts:
+            self.accounts = (value as? [String: String]) ?? [String: String]()
+
+        case .name:
+            self.name = value as? String
+
+        case .amount:
+            self.amount = value as? Int
+
+        case .minAmount:
+            self.minAmount = value as? Int
+
+        case .minDate:
+            self.minDate = (value as? Timestamp)?.dateValue()
         }
     }
 }

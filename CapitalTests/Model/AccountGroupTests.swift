@@ -10,11 +10,11 @@ internal final class AccountGroupTests: XCTestCase {
         let fieldNamesFromNamesStruct = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { $0.label })
         let fieldNamesFromNamesStructValues = Set(Mirror(reflecting: AccountGroupFields()).children.compactMap { ($0.value as? String) ?? "" })
         let fieldNamesFromEnum = Set(AccountGroupField.allCases.map { $0.rawValue })
-        let fieldNamesFromUpdateDict = Set(accountGroup.update.keys.map { $0.rawValue })
+//        let fieldNamesFromUpdateDict = Set(accountGroup.update.keys.map { $0.rawValue })
         fieldNamesFromIntance.remove("update.storage")
-        XCTAssertTrue(fieldNamesFromIntance == fieldNamesFromNamesStruct &&
-        fieldNamesFromNamesStruct == fieldNamesFromEnum &&
-        fieldNamesFromEnum == fieldNamesFromUpdateDict)
+        XCTAssertTrue(fieldNamesFromIntance == fieldNamesFromNamesStruct)
+//      XCTAssertTrue(fieldNamesFromEnum == fieldNamesFromUpdateDict)
+        XCTAssertTrue(fieldNamesFromNamesStruct == fieldNamesFromEnum)
         XCTAssert(fieldNamesFromNamesStruct == fieldNamesFromNamesStructValues)
     }
 
