@@ -190,12 +190,8 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
         guard let fromId = fromAccountId, let fromName = transactionItemsDesc[.from],
             let toId = toAccountId, let toName = transactionItemsDesc[.to],
             let amount = amount  else { return }
-//        let finTransaction = FinTransaction(from: (fromId, fromName), to: (toId, toName), amount: amount, date: date, approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEndDate)
-        data.createTransaction(from: (fromId, fromName), to: (toId, toName), amount: amount,
-                               date: date, approvalMode: approvalMode,
-                               recurrenceFrequency: recurrenceFrequency,
-                               recurrenceEnd: recurrenceEndDate) { _ in
-        }
+        let finTransaction = FinTransaction(from: (fromId, fromName), to: (toId, toName), amount: amount, date: date, approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEndDate)
+        data.create(finTransaction, completion: nil)
     }
 
     internal func didScroll() {

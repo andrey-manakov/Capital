@@ -17,15 +17,21 @@ extension CapitalUITests {
 // }
 
 internal class CapitalUITests: XCTestCase {
-    private let app = XCUIApplication()
+    private static var app: XCUIApplication?
+    private lazy var app: XCUIApplication = CapitalUITests.app ?? XCUIApplication() // TODO: Refactor
     private let login =
     "\(String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement() ?? "x" }))@gmail.com"
     private let password = String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement() ?? "x" })
 
     override internal func setUp() {
         super.setUp()
-        continueAfterFailure = false
-        XCUIApplication().launch()
+        continueAfterFailure = false // TODO: move to instance method
+//        guard CapitalUITests.app == nil else {
+//            return
+//        }
+//        app = XCUIApplication()
+        CapitalUITests.app = XCUIApplication()
+        CapitalUITests.app?.launch()
     }
 
     override internal func tearDown() {

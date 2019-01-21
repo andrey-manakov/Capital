@@ -10,16 +10,17 @@ internal protocol DataProtocol {
         completion: ((String?) -> Void)?
     )
 
-    func createTransaction(
-        from: AccountInfo?,
-        to: AccountInfo?,
-        amount: Int?,
-        date: Date?,
-        approvalMode: FinTransaction.ApprovalMode?,
-        recurrenceFrequency: RecurrenceFrequency?,
-        recurrenceEnd: Date?,
-        completion: ((String?) -> Void)?
-    )
+//    func createTransaction(
+//        from: AccountInfo?,
+//        to: AccountInfo?,
+//        amount: Int?,
+//        date: Date?,
+//        approvalMode: FinTransaction.ApprovalMode?,
+//        recurrenceFrequency: RecurrenceFrequency?,
+//        recurrenceEnd: Date?,
+//        completion: ((String?) -> Void)?
+//    )
+    func create(_ finTransaction: FinTransaction, completion: ((String?) -> Void)?)
     func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo])
 
     func delete(_ dataObject: DataObjectType, withId id: String?, completion: (() -> Void)?)

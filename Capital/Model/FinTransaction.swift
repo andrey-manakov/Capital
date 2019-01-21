@@ -99,12 +99,22 @@ internal struct FinTransaction: DataObjectProtocol {
     ///   - to: reference to `Account` to which funds are transferred
     ///   - amount: amount of funds to be transferred
     ///   - date: date when transaction took place
-    internal init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date) {
+    internal init(from: AccountInfo, to: AccountInfo, amount: Int, date: Date? = nil) {
 //        self.init()
         self.from = from
         self.to = to
         self.amount = amount
         self.date = date
+    }
+
+    internal init(from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?, approvalMode: ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?, recurrenceEnd: Date?, parent: String? = nil) {
+        self.from = from
+        self.to = to
+        self.amount = amount
+        self.date = date
+        self.approvalMode = approvalMode
+        self.recurrenceFrequency = recurrenceFrequency
+        self.recurrenceEnd = recurrenceEnd
     }
 
     /// MARK: - Methods
