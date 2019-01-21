@@ -161,6 +161,10 @@ extension Data {
         accountManager?.createAccount(name, ofType: type, withAmount: amount, completion: completion)
     }
 
+    internal func create(finTransaction: FinTransaction, completion: ((String?) -> Void)? = nil) {
+        FIRFinTransactionManagerOld.shared.create(finTransaction, completion: completion)
+    }
+
     internal func createTransaction(
         from: AccountInfo?,
         to: AccountInfo?,

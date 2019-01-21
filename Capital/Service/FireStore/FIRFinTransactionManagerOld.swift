@@ -5,7 +5,7 @@ internal protocol FIRFinTransactionManagerProtocolOld: AnyObject {
         approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?,
         recurrenceEnd: Date?, completion: ((String?) -> Void)?
     )
-
+    func create(_ finTransaction: FinTransaction, completion: ((String?) -> Void)?)
     func sendFinTransaction(
         to fsTransaction: Transaction, from: AccountInfo?, to: AccountInfo?, amount: Int?,
         date: Date?, approvalMode: FinTransaction.ApprovalMode?,
@@ -97,6 +97,45 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
                 approvalMode: approvalMode,
                 recurrenceFrequency: recurrenceFrequency,
                 recurrenceEnd: recurrenceEnd)
+
+            let approvedAmount = sendTransactionResult.approvedAmount
+            // update account amounts
+            for (id, account) in [from.id: fromAccount, to.id: toAccount] {
+                let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to.id ? 1 : -1)
+                fsTransaction.updateData(
+                    [Account.fields.amount: (account.amount ?? 0) + coef * approvedAmount],
+                    forDocument: ref.collection(DataObjectType.account.rawValue).document(id))
+            }
+            return { print("Transaction created") }
+        }, completion: fireStoreCompletion)
+    }
+
+    internal func create(_ finTransaction: FinTransaction, completion: ((String?) -> Void)? = nil
+        ) {
+        guard let ref = ref, let from = finTransaction.from, let to = finTransaction.to, let amount = finTransaction.amount else {
+            return
+        }
+
+        fireDB.runTransaction({ fsTransaction, errorPointer -> Any? in
+            // read account amounts from FireStore
+            guard
+                let fromAccount = self.getAccount(withId: from.id, for: fsTransaction, with: errorPointer),
+                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer)//,
+                //                let fromAccountDynamics = self.getAccountDynamics(withId: from.id, for: fsTransaction, with: errorPointer),
+                //                let toAccountDynamics = self.getAccountDynamics(withId: to.id, for: fsTransaction, with: errorPointer)
+                else {
+                    return nil
+            }
+            // create transactions
+            let sendTransactionResult: SendFinTransactionResult
+            sendTransactionResult = self.sendFinTransaction(
+                to: fsTransaction,
+                from: (from.id, fromAccount.name ?? ""),
+                to: (to.id, toAccount.name ?? ""),
+                amount: amount, date: finTransaction.date,
+                approvalMode: finTransaction.approvalMode,
+                recurrenceFrequency: finTransaction.recurrenceFrequency,
+                recurrenceEnd: finTransaction.recurrenceEnd)
 
             let approvedAmount = sendTransactionResult.approvedAmount
             // update account amounts

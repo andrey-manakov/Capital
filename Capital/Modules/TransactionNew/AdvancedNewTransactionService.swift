@@ -189,8 +189,9 @@ internal final class AdvancedNewTransactionService: ClassService, AdvancedNewTra
         view?.endEditing(force: true)
         guard let fromId = fromAccountId, let fromName = transactionItemsDesc[.from],
             let toId = toAccountId, let toName = transactionItemsDesc[.to],
-            let amountV = amount  else { return }
-        data.createTransaction(from: (fromId, fromName), to: (toId, toName), amount: amountV,
+            let amount = amount  else { return }
+//        let finTransaction = FinTransaction(from: (fromId, fromName), to: (toId, toName), amount: amount, date: date, approvalMode: approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEndDate)
+        data.createTransaction(from: (fromId, fromName), to: (toId, toName), amount: amount,
                                date: date, approvalMode: approvalMode,
                                recurrenceFrequency: recurrenceFrequency,
                                recurrenceEnd: recurrenceEndDate) { _ in
