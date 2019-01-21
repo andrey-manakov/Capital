@@ -120,7 +120,7 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             // read account amounts from FireStore
             guard
                 let fromAccount = self.getAccount(withId: from.id, for: fsTransaction, with: errorPointer),
-                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer)//,
+                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer)// ,
                 //                let fromAccountDynamics = self.getAccountDynamics(withId: from.id, for: fsTransaction, with: errorPointer),
                 //                let toAccountDynamics = self.getAccountDynamics(withId: to.id, for: fsTransaction, with: errorPointer)
                 else {
