@@ -57,25 +57,22 @@
                 <a class="nav-group-task-link" href="tasks.html">Tasks</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/FinTransaction.html">FinTransaction</a>
+                <a class="nav-group-task-link" href="Structs/FinTransaction.html">FinTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/FinTransaction/Fields.html">– Fields</a>
+                <a class="nav-group-task-link" href="Structs/FinTransaction/Fields.html">– Fields</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/FinTransaction/ApprovalMode.html">– ApprovalMode</a>
+                <a class="nav-group-task-link" href="Structs/FinTransaction/ApprovalMode.html">– ApprovalMode</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/Account.html">Account</a>
+                <a class="nav-group-task-link" href="Structs/Account.html">Account</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/AccountGroup.html">AccountGroup</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/AccountType.html">AccountType</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/DataObject.html">DataObject</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/Direction.html">Direction</a>
@@ -119,6 +116,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/AccountDetailVC/Service.html">– Service</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/AccountDynamics.html">AccountDynamics</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/AccountGroupDetailVC.html">AccountGroupDetailVC</a>
@@ -212,6 +212,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/FIRAuth.html">FIRAuth</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FIRFinTransactionManager.html">FIRFinTransactionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/FIRFinTransactionManager/LogFields.html">– LogFields</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/FIRFinTransactionManagerOld.html">FIRFinTransactionManagerOld</a>
@@ -421,6 +427,9 @@
                 <a class="nav-group-task-link" href="Protocols/FIRDataProtocol.html">FIRDataProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/FIRFinTransactionManagerProtocol.html">FIRFinTransactionManagerProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/FIRFinTransactionManagerProtocolOld.html">FIRFinTransactionManagerProtocolOld</a>
               </li>
               <li class="nav-group-task">
@@ -532,6 +541,18 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Other Typealiases.html#/s:7Capital11AccountNamea">AccountName</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:7Capital9FieldNamea">FieldName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:7Capital7GroupIda">GroupId</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:7Capital9GroupNamea">GroupName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other Typealiases.html#/s:7Capital24SendFinTransactionResulta">SendFinTransactionResult</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -559,9 +580,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Capital14FinTransactionC"></a>
-                    <a name="//apple_ref/swift/Class/FinTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Capital14FinTransactionC">FinTransaction</a>
+                    <a name="/s:7Capital14FinTransactionV"></a>
+                    <a name="//apple_ref/swift/Struct/FinTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital14FinTransactionV">FinTransaction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -571,13 +592,13 @@
                       <div class="abstract">
                         <p>Transaction is operation of moving of funds from one Account to another</p>
 
-                        <a href="Classes/FinTransaction.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/FinTransaction.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">FinTransaction</span> <span class="p">:</span> <span class="kt"><a href="Classes/DataObject.html">DataObject</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">struct</span> <span class="kt">FinTransaction</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DataObjectProtocol.html">DataObjectProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -591,9 +612,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Capital7AccountC"></a>
-                    <a name="//apple_ref/swift/Class/Account" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Capital7AccountC">Account</a>
+                    <a name="/s:7Capital7AccountV"></a>
+                    <a name="//apple_ref/swift/Struct/Account" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital7AccountV">Account</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -601,15 +622,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Account - is the entity to record transactions (<code><a href="Classes/FinTransaction.html">FinTransaction</a></code>).</p>
+                        <p>Account - is the entity to record transactions (<code><a href="Structs/FinTransaction.html">FinTransaction</a></code>).</p>
 
-                        <a href="Classes/Account.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/Account.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Account</span> <span class="p">:</span> <span class="kt"><a href="Classes/DataObject.html">DataObject</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">struct</span> <span class="kt">Account</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DataObjectProtocol.html">DataObjectProtocol</a></span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -648,7 +669,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountGroup</span> <span class="p">:</span> <span class="kt"><a href="Classes/DataObject.html">DataObject</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AccountGroup</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DataObjectProtocol.html">DataObjectProtocol</a></span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
@@ -681,38 +702,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">enum</span> <span class="kt">AccountType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7Capital10DataObjectC"></a>
-                    <a name="//apple_ref/swift/Class/DataObject" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Capital10DataObjectC">DataObject</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/DataObject.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">DataObject</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DataObjectProtocol.html">DataObjectProtocol</a></span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
 
                         </div>
                       </div>
