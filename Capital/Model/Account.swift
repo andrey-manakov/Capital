@@ -12,7 +12,7 @@ internal enum AccountField: String, CaseIterable {
     // TODO: Consider merge to one struct
     case minAmount
     case minDate
-//    case minDynamics
+    case minDynamics
     case typeId
     case groups
 }
@@ -22,7 +22,7 @@ internal struct AccountFields {
     internal let amount = AccountField.amount.rawValue
     internal let minAmount = AccountField.minAmount.rawValue
     internal let minDate = AccountField.minDate.rawValue
-//    internal let minDynamics = AccountField.minDynamics.rawValue
+    internal let minDynamics = AccountField.minDynamics.rawValue
     internal let typeId = AccountField.typeId.rawValue
     internal let groups = AccountField.groups.rawValue
 }
@@ -43,8 +43,7 @@ internal struct Account: DataObjectProtocol, Codable { // : DataObject
     internal var minDate: Date?
 // TODO: Consider move to separate object
     /// Non approved transaction values used to calculate `Account.minAmount` and `Account.minDate`
-//    internal var minDynamics = [Date: Int]()
-
+    internal var minDynamics = [String: Int]()
     /// Computed tuple holding `Account.minAmount` and `Account.minDate`
     /// In that way the data regarding `Account.minAmount` and `Account.minDate` is stored in Firestore.
     internal var min: (amount: Int, date: Date)? {
@@ -109,6 +108,9 @@ internal struct Account: DataObjectProtocol, Codable { // : DataObject
 
         case .groups:
             self.groups = value as? [GroupId: GroupName] ?? [GroupId: GroupName]()
+
+        case .minDynamics:
+            self.minDynamics = value as? [String: Int] ?? [String: Int]()
         }
     }
 }

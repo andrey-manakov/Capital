@@ -6,48 +6,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CapitalTests/Model/AccountGroupTests.swift"
-            timestampString = "569709082.746151"
+            filePath = "Capital/Service/FireStore/FIRFinTransactionManagerOld.swift"
+            timestampString = "569889202.917194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "testFieldsImplementation()"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "create(_:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CapitalUITests/CapitalUITests.swift"
-            timestampString = "569804711.307857"
+            filePath = "CapitalTests/Model/AccountTests.swift"
+            timestampString = "569889202.9175611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "tearDown()"
+            landmarkName = "testUpdateWithNameFieldValue()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CapitalUITests/CapitalUITests.swift"
-            timestampString = "569804711.308416"
+            filePath = "CapitalTests/Model/AccountTests.swift"
+            timestampString = "569889202.91782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "tearDown()"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "testUpdateWithAmountFieldValue()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CapitalTests/Model/AccountTests.swift"
+            timestampString = "569889202.9178801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "testFieldsImplementation()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

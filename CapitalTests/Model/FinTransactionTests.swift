@@ -2,9 +2,11 @@
 import XCTest
 
 internal class FinTransactionTests: XCTestCase {
+    var master = FinTransaction()
+    var sample = FinTransaction()
+
     /// Test that properties list of `FinTransaction` is correctly treated
     internal func testFieldsImplementation() {
-        var sample = FinTransaction()
         var fieldNamesFromIntance = Set(Mirror(reflecting: sample).children.compactMap { $0.label })
         var fieldNamesFromNamesStruct = Set(Mirror(reflecting: FinTransactionFields()).children.compactMap { ($0.value as? String) ?? "" })
         var fieldNamesFromEnum = Set(FinTransactionField.allCases.map { $0.rawValue })
@@ -25,10 +27,9 @@ internal class FinTransactionTests: XCTestCase {
         let data = ["amount": 10]
 
         // 2. Action
-        var sample = FinTransaction(data)
+        let sample = FinTransaction(data)
 
         // 3. Assert
-        var master = FinTransaction()
         master.amount = 10
         XCTAssertEqual(master, sample)
     }
@@ -38,28 +39,14 @@ internal class FinTransactionTests: XCTestCase {
         // 1. Arrange
         let field = "amount"
         let value = 10
-        var sample = FinTransaction()
 
         // 2. Action
         sample.update(field: field, value: value)
 
         // 3. Assert
-        var master = FinTransaction()
         master.amount = 10
         XCTAssertEqual(master, sample)
     }
-    // Check other fields
-
-//    func testDescription() {
-//        let currentDate = Date()
-//        var transaction = FinTransaction(
-//            from: ("id1", "account1"), to: ("id2", "account2"), amount: 10, date: currentDate)
-//
-//        XCTAssert(transaction.description ==
-//            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
-//        XCTAssert(transaction.debugDescription ==
-//            "from: account1 to: account2 amount: 10 date: \(currentDate.string)")
-//    }
 
     internal func testApprovalModeNames() {
         XCTAssert(FinTransaction.ApprovalMode.autoApprove.name == "Auto Approve" &&
@@ -70,8 +57,7 @@ internal class FinTransactionTests: XCTestCase {
 
     internal func testDateText() {
         let currentDate = Date()
-        var transaction = FinTransaction()
-        transaction.date = currentDate
-        XCTAssert(transaction.dateText == DateFormatter("yyyy MMM-dd").string(from: currentDate))
+        sample.date = currentDate
+        XCTAssert(sample.dateText == DateFormatter("yyyy MMM-dd").string(from: currentDate))
     }
 }

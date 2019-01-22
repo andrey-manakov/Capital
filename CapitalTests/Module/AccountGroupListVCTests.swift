@@ -4,9 +4,9 @@ import XCTest
 internal final class AccountGroupListVCTests: XCTestCase {
     // MARK: Subject under test
 
-    internal var sut: AccountListVC!
-    internal var view: UIView!
-    internal var window: UIWindow!
+    internal var sut: AccountListVC?
+    internal var view: UIView?
+    internal var window: UIWindow?
 
     // MARK: Test lifecycle
 
@@ -28,17 +28,23 @@ internal final class AccountGroupListVCTests: XCTestCase {
     internal func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = AccountListVC()
-        view = sut.view
+        view = sut?.view
         self.window?.rootViewController = sut
-        self.window!.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible()
     }
 
     internal func loadView() {
-        window.addSubview(view)
+        if let window = window, let view = view {
+            window.addSubview(view)
+        }
         RunLoop.current.run(until: Date())
     }
 
     internal func testViewDidLoad() {
+        guard let view = view else {
+            XCTFail()
+            return
+        }
         XCTAssert(view.views["t"] as? SimpleTable != nil && view.views["sc"] as? SegmentedControl != nil)
     }
 }
