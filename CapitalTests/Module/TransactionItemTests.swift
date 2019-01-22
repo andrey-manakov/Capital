@@ -22,17 +22,3 @@ internal final class TransactionItemTests: XCTestCase {
         }
     }
 }
-
-// var name: String {
-//    switch self {
-//    case .from: return "from"
-//    case .to: return "to"
-//    case .amount: return "amount"
-//    case .date: return "date"
-//    case .dateSelection: return ""
-//    case .approvalMode: return "approval mode"
-//    case .recurrenceFrequency: return "repeat"
-//    case .recurrenceEnd: return "end repeat"
-//    case .recurrenceEndDate: return ""
-//    }
-// }

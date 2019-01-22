@@ -527,13 +527,6 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
-		C1913FBB21C58EE900D3DA3E /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		C1A0279221BD428900207FF7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,7 +730,6 @@
 			isa = PBXGroup;
 			children = (
 				C1E9679021C7FC83005014E1 /* Common */,
-				C1913FBB21C58EE900D3DA3E /* Service */,
 				C1913FA621C42A2800D3DA3E /* Module */,
 				C1DBCC5721C256020003869A /* Model */,
 				C1913FB921C575DF00D3DA3E /* FIRAuthTests.swift */,

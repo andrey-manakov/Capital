@@ -4,9 +4,9 @@ import XCTest
 internal class ViewControllerTests: XCTestCase {
     // MARK: Subject under test
 
-    private var sut: ViewController!
-    private var view: UIView!
-    private var window: UIWindow!
+    private var sut: ViewController?
+    private var view: UIView?
+    private var window: UIWindow?
 
     // MARK: Test lifecycle
 
@@ -28,13 +28,15 @@ internal class ViewControllerTests: XCTestCase {
     private func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = ViewController("data")
-        view = sut.view
+        view = sut?.view
         self.window?.rootViewController = sut
-        self.window!.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible()
     }
 
     private func loadView() {
-        window.addSubview(view)
+        if let window = window, let view = view {
+            window.addSubview(view)
+        }
         RunLoop.current.run(until: Date())
     }
 }

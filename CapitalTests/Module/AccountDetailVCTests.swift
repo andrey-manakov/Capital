@@ -4,9 +4,9 @@ import XCTest
 internal final class AccountDetailVCTests: XCTestCase {
     // MARK: Subject under test
 
-    internal var sut: AccountDetailVC!
-    internal var view: UIView!
-    internal var window: UIWindow!
+    internal var sut: AccountDetailVC?
+    internal var view: UIView?
+    internal var window: UIWindow?
 
     // MARK: Test lifecycle
 
@@ -28,20 +28,23 @@ internal final class AccountDetailVCTests: XCTestCase {
     internal func setupVC() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         sut = AccountDetailVC("account id")
-        view = sut.view
+        view = sut?.view
         self.window?.rootViewController = sut
-        self.window!.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible()
     }
 
     internal func loadView() {
-        window.addSubview(view)
+        if let window = window, let view = view {
+            window.addSubview(view)
+        }
         RunLoop.current.run(until: Date())
     }
 
     internal func testAccountDelete() {
         guard let views = view?.subviews else {
             XCTFail("problem with view controller view")
-            return}
+            return
+        }
         for view in views {
             guard let deleteButton = view as? Button,
                 deleteButton.accessibilityIdentifier == "deleteButton" else { continue }
@@ -66,7 +69,7 @@ internal final class AccountDetailVCTests: XCTestCase {
     }
 
     internal func testDoneButton() {
-        let item = sut.navigationItem.rightBarButtonItem
+        let item = sut?.navigationItem.rightBarButtonItem
         item?.perform(item?.action)
         XCTAssert(Data.sharedForUnitTests.updateAccountCalled)
     }
