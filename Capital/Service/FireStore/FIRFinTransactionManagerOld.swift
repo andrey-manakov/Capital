@@ -60,6 +60,7 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             sendTransactionResult = self.send(nextFinTransaction, to: fsTransaction)
 
             // MARK: update account amounts
+            // FIXME: add implementation for min amount & date
             let approvedAmount = sendTransactionResult.approvedAmount
             for (id, account) in [from.id: fromAccount, to.id: toAccount] {
                 let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to.id ? 1 : -1)

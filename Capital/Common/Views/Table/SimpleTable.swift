@@ -24,7 +24,6 @@ internal class SimpleTable: TemplateTable, SimpleTableProtocol {
         cell?.detailTextLabel?.text = data[indexPath].texts[.desc]
         cell?.accessoryType = UITableViewCell.AccessoryType(rawValue: data[indexPath].accessory ?? 0) ?? .none
         cell?.accessibilityIdentifier = data[indexPath].texts[.name]
-        print("cell?.accessibilityIdentifier  = \(cell?.accessibilityIdentifier ?? "")")
         return cell ?? UITableViewCell()
     }
 }
