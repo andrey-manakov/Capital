@@ -1,5 +1,5 @@
 /// Abstract protocol to be used for DataModel, DataModelSection, DataModelRow
-internal protocol BasicDataPropertiesProtocol {
+internal protocol BasicDataPropertiesProtocol: CustomStringConvertible, CustomDebugStringConvertible {
     /// instance, object id - source for cell
     var id: String? { get set }
     /// instance, object name - source for cell
@@ -9,7 +9,7 @@ internal protocol BasicDataPropertiesProtocol {
 }
 
 /// Extenstion to comply with CustomStringConvertible, CustomDebugStringConvertible protocols
-extension BasicDataPropertiesProtocol: CustomStringConvertible, CustomDebugStringConvertible {
+extension BasicDataPropertiesProtocol {
     /// description of instance
     internal var description: String {
         return "\(type(of: self)) \(id ?? "nil") \(name ?? "nil") \(desc ?? "nil")"
