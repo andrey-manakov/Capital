@@ -19,17 +19,17 @@ extension Date {
 }
 /// Extension to add functionality of Date comparison
 extension Date {
-    /// returns true if dates are queal
+    /// Returns true if dates are queal
     internal func isSameDate(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedSame
     }
-    /// returns true if one date is before another
+    /// Returns true if one date is before another
     internal func isBefore(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedAscending
     }
-    /// returns true if one date is after another
+    /// Returns true if one date is after another
     internal func isAfter(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedDescending
