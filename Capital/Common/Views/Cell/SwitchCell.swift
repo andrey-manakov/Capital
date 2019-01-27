@@ -14,6 +14,7 @@ internal final class SwitchCell: UITableViewCell, SwitchCellProtocol {
 	// MARK: - Properties
 	/// UISwitch control for the cell
     internal var switchControl: SwitchProtocol = SimpleSwitch()
+    
     // MARK: - Initializers
     /// Initializes with style and reuseIdentifier. This overrides designated initializer and configure cell
     override internal init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
