@@ -12,7 +12,8 @@ internal class SimpleSectionHeader: UITableViewHeaderFooterView, SimpleSectionHe
     internal var title = UILabel()
     /// Description text label inside the cell to the right
     internal var desc = UILabel()
-    // MARK: - INitializers
+    // MARK: - Initializers
+    /// Initializes section header with reuseIdentifier
     override internal init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         contentView.add(view: title, withConstraints: ["H:|-15-[v]-65-|", "V:|-7-[v(30)]"])
