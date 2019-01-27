@@ -15,7 +15,7 @@ internal final class LeftRightCell: UITableViewCell, LeftRightCellProtocol {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         detailTextLabel?.textColor = .black
     }
-    /// Returns nil and implented since it is required
+    /// Returns nil and implemented since it is required
     internal required init?(coder aDecoder: NSCoder) {
         return nil
     }
