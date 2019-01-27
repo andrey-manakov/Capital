@@ -1,4 +1,3 @@
-import UIKit
 /// Protocol to access `SimpleSectionHeader`
 internal protocol SimpleSectionHeaderProtocol {
     /// Title text label inside the cell to the left
