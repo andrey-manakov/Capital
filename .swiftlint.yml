@@ -160,11 +160,11 @@ identifier_name:
 
 attributes:
   always_on_line_above:
-    - "@objc"
     - "@nonobjc"
     - "@available"
     - "@discardableResult"
   always_on_same_line:
+    - "@objc"
     - "@IBOutlet"
     - "@IBAction"
     - "@NSManaged"

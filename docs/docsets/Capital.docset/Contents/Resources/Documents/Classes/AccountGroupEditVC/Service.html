@@ -23,7 +23,7 @@
         <a class="header-link" href="../../index.html">
           Capital Docs
         </a>
-         (33% documented)
+         (35% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -568,7 +568,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Service class for <code><a href="../../Classes/AccountGroupEditVC.html">AccountGroupEditVC</a></code></p>
 
           </div>
         </section>
@@ -590,7 +590,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Accounts of AccountGroup downloaded from online database</p>
 
                       </div>
                       <div class="declaration">
@@ -617,7 +617,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Accounts transformed to DataModel for the view controller table source</p>
 
                       </div>
                       <div class="declaration">
@@ -644,7 +644,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code><a href="../../Classes/AccountGroup.html">AccountGroup</a></code> selected for the view controller source</p>
 
                       </div>
                       <div class="declaration">
@@ -671,7 +671,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code><a href="../../Structs/Account.html">Account</a></code>s selected to belong to <code><a href="../../Classes/AccountGroup.html">AccountGroup</a></code> being edited</p>
 
                       </div>
                       <div class="declaration">
@@ -698,7 +698,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Loads data for view controller</p>
 
                       </div>
                       <div class="declaration">
@@ -708,6 +708,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getData</span><span class="p">(</span><span class="n">forId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../../Protocols/DataModelProtocol.html">DataModelProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../../Classes/AccountGroup.html">AccountGroup</a></code> id</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>action to perform after data is loaded</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -725,7 +756,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Processes action of account selection / deselection (which belong to <code><a href="../../Classes/AccountGroup.html">AccountGroup</a></code>)</p>
 
                       </div>
                       <div class="declaration">
@@ -735,6 +766,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">rowSelected</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../../Protocols/DataModelProtocol.html">DataModelProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../../Structs/Account.html">Account</a></code> id selected</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>action to perform after account selected / deselected</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -752,7 +814,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Triggered when done button is tapped, calls Data Singleton to update <code><a href="../../Classes/AccountGroup.html">AccountGroup</a></code> with new values</p>
 
                       </div>
                       <div class="declaration">
@@ -762,6 +824,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didTapDone</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>new name of <code>Accountgroup</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>action to perform after <code><a href="../../Classes/AccountGroup.html">AccountGroup</a></code> update</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

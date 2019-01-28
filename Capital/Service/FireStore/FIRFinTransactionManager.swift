@@ -79,7 +79,7 @@ internal final class FIRFinTransactionManager: FIRManager, FIRFinTransactionMana
                     minAmount = min(minAmount, minAmount + amount)
                 }
                 let fields = Account.fields
-                let newAccountData: [String : Any] = [fields.amount: newAmount, fields.minAmount: minAmount, fields.minDate: minDate]
+                let newAccountData: [String: Any] = [fields.amount: newAmount, fields.minAmount: minAmount, fields.minDate: minDate]
                 let newAccountRef = ref.collection(DataObjectType.account.rawValue).document(id)
                 fsTransaction.updateData(newAccountData, forDocument: newAccountRef)
             }
