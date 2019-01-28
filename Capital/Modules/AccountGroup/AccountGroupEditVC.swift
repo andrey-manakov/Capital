@@ -1,5 +1,7 @@
 internal final class AccountGroupEditVC: ViewController {
+    /// Service of view controller to perform actions on data
     private let service = Service()
+    /// Text field for `AccountGroup` name
     private let nameTextField: TextFieldProtocol = SimpleTextField("Account Group Name")
     /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
@@ -36,16 +38,18 @@ internal final class AccountGroupEditVC: ViewController {
             }
         }
     }
-
-    @objc
-    internal func didTapDone() {
+    /// Triggered when done button is tapped, calls `AccountGroupEditVC.Service.didTapDone`
+    @objc internal func didTapDone() {
         service.didTapDone(name: nameTextField.text) { [unowned self] in self.dismiss() }
     }
 }
 /// Extension to provide view controller with service class
 extension AccountGroupEditVC {
+    /// Service class for `AccountGroupEditVC`
     private class Service: ClassService {
+        /// Accounts of AccountGroup downloaded from online database
         private var accounts = [String: Account]()
+        /// Accounts transformed to DataModel for the view controller table source
         private var dataModel: DataModelProtocol {
             return DataModel(self.accounts.map {
                 DataModelRow(
@@ -58,9 +62,16 @@ extension AccountGroupEditVC {
                     filter: $0.value.type?.rawValue)
             })
         }
+        /// `AccountGroup` selected for the view controller source
         internal var accountGroup: String?
+        /// `Account`s selected to belong to `AccountGroup` being edited
         internal var selectedAccounts: Set<String> = []
 
+        /// Loads data for view controller
+        ///
+        /// - Parameters:
+        ///   - id: `AccountGroup` id
+        ///   - completion: action to perform after data is loaded
         func getData(forId id: String? = nil, completion: @escaping ((DataModelProtocol) -> Void)) {
             // check whether unowned self is needed in closure
             data.setListnerToAccounts(for: self.id) { data in
@@ -81,6 +92,11 @@ extension AccountGroupEditVC {
             }
         }
 
+        /// Processes action of account selection / deselection (which belong to `AccountGroup`)
+        ///
+        /// - Parameters:
+        ///   - id: `Account` id selected
+        ///   - completion: action to perform after account selected / deselected
         func rowSelected(id: String?, completion: ((DataModelProtocol) -> Void)? = nil) {
             guard let id = id else {
                 return
@@ -93,6 +109,11 @@ extension AccountGroupEditVC {
             completion?(self.dataModel)
         }
 
+        /// Triggered when done button is tapped, calls Data Singleton to update `AccountGroup` with new values
+        ///
+        /// - Parameters:
+        ///   - name: new name of `Accountgroup`
+        ///   - completion: action to perform after `AccountGroup` update
         func didTapDone(name: String?, completion: (() -> Void)? = nil) {
             guard let name = name else {
                 return

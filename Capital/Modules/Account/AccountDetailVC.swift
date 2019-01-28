@@ -1,4 +1,4 @@
-/// View Controller showing `Account` datails and allowing to edit
+/// View Controller showing `Account` details and allowing to edit
 internal final class AccountDetailVC: ViewController {
     /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
@@ -39,7 +39,7 @@ internal final class AccountDetailVC: ViewController {
 extension AccountDetailVC {
     /// Service class for `AccountDetailVC`
     private class Service: ClassService {
-        /// Triggered when done button is tapped, calls Data Singleton to updated `Account` with new values
+        /// Triggered when done button is tapped, calls Data Singleton to update `Account` with new values
         ///
         /// - Parameters:
         ///   - id: field to identify `Account` to update

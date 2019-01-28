@@ -1,3 +1,4 @@
+/// View Controller showing `AccountGroup` details and allowing to edit
 internal final class AccountGroupDetailVC: ViewController {
     /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
@@ -24,9 +25,16 @@ internal final class AccountGroupDetailVC: ViewController {
 }
 /// Extension to provide view controller with service class
 extension AccountGroupDetailVC {
+    /// Service class for `AccountGroupDetailVC`
     private class Service: ClassService {
+        /// Accounts of AccountGroup downloaded from online database
         private var accounts = [String: Account]()
 
+        /// Loads data for view controller
+        ///
+        /// - Parameters:
+        ///   - id: `AccountGroup` id
+        ///   - completion: action to perform after data is loaded
         func getData(withId id: String?, completion: @escaping ((DataModelProtocol) -> Void)) {
             guard let id = id else {
                 return
@@ -51,6 +59,9 @@ extension AccountGroupDetailVC {
             }
         }
 
+        /// Triggered when delete button is tapped, calls `Data.shared` Singleton to delete `AccountGroup`
+        ///
+        /// - Parameter id: field to identify `AccountGroup` to update
         func deleteAccountGroup(id: String) {
             data.deleteAccountGroup(withId: id, completion: nil)
         }
