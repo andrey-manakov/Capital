@@ -2,7 +2,7 @@
 
 <p align="center">
 <a href="https://andrey-manakov.github.io/Capital/index.html">
-<img src="https://img.shields.io/badge/docs-12%25-red.svg"
+<img src="https://github.com/andrey-manakov/Capital/blob/master/docs/badge.svg"
 alt="Documentation Status">
 </a>
 <a href="https://travis-ci.org/andrey-manakov/Capital">
