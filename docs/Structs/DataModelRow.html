@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Capital Docs
         </a>
-         (12% documented)
+         (30% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -116,9 +116,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/AccountDetailVC/Service.html">– Service</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/AccountDynamics.html">AccountDynamics</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/AccountGroupDetailVC.html">AccountGroupDetailVC</a>
@@ -510,6 +507,9 @@
             <a class="nav-group-name-link" href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/AccountDynamics.html">AccountDynamics</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/AccountFields.html">AccountFields</a>
               </li>
               <li class="nav-group-task">
@@ -568,7 +568,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Struct used to configure UITableViewCell</p>
 
           </div>
         </section>
@@ -590,7 +590,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>texts used in Cell</p>
 
                       </div>
                       <div class="declaration">
@@ -617,7 +617,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>cell height, if null standard is used</p>
 
                       </div>
                       <div class="declaration">
@@ -644,7 +644,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>cell style</p>
 
                       </div>
                       <div class="declaration">
@@ -671,7 +671,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>action to be performed on cell selection</p>
 
                       </div>
                       <div class="declaration">
@@ -698,7 +698,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>RawValue of cell <code>UITableViewCell.AccessoryType</code></p>
 
                       </div>
                       <div class="declaration">
@@ -725,7 +725,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>value used to filter cell and define which to display</p>
 
                       </div>
                       <div class="declaration">
@@ -739,6 +739,17 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializers"></a>
+                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
+                <a href="#/Initializers">
+                  <h3 class="section-name">Initializers</h3>
+                </a>
+              </div>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -752,7 +763,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>initializes DataModelRow with style, selectionAction, accessory and filter</p>
 
                       </div>
                       <div class="declaration">
@@ -760,21 +771,56 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">internal</span> <span class="nf">init</span><span class="p">(</span>
-<span class="c1">//        id: String? = nil,</span>
-<span class="c1">//        name: String? = nil,</span>
-<span class="c1">//        desc: String? = nil,</span>
-<span class="c1">//        height: CGFloat? = nil,</span>
-<span class="c1">//        left: String? = nil,</span>
-<span class="c1">//        up: String? = nil,</span>
-<span class="c1">//        down: String? = nil,</span>
-<span class="c1">//        right: String? = nil,</span>
-        <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Enums/CellStyle.html">CellStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-        <span class="nv">action</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">row</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DataModelRowProtocol.html">DataModelRowProtocol</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">ix</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-        <span class="nv">accessory</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-        <span class="nv">filter</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
-        <span class="p">)</span></code></pre>
+    <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Enums/CellStyle.html">CellStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">action</span><span class="p">:</span> <span class="p">((</span><span class="n">_</span> <span class="nv">row</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DataModelRowProtocol.html">DataModelRowProtocol</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">ix</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">accessory</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">filter</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+    <span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>action to be perfomed on cell selection</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>RawValue of cell <code>UITableViewCell.AccessoryType</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>value used to filter cell and define which to display</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -792,7 +838,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>initializes DataModelRow with texts, style, selectionAction, accessory, filter, and action</p>
 
                       </div>
                       <div class="declaration">
@@ -810,6 +856,73 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>texts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>texts used in Cell</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>style</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>cell style</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>action to be perfomed on cell selection</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>RawValue of cell <code>UITableViewCell.AccessoryType</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>value used to filter cell and define which to display</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -820,9 +933,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:SQ2eeoiySbx_xtFZ"></a>
+                    <a name="/s:7Capital12DataModelRowV2eeoiySbAC_ACtFZ"></a>
                     <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:SQ2eeoiySbx_xtFZ">==(_:_:)</a>
+                    <a class="token" href="#/s:7Capital12DataModelRowV2eeoiySbAC_ACtFZ">==(_:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -830,7 +943,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Equatance function</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>

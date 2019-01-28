@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Capital Docs
         </a>
-         (12% documented)
+         (30% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -116,9 +116,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/AccountDetailVC/Service.html">– Service</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/AccountDynamics.html">AccountDynamics</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/AccountGroupDetailVC.html">AccountGroupDetailVC</a>
@@ -510,6 +507,9 @@
             <a class="nav-group-name-link" href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/AccountDynamics.html">AccountDynamics</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/AccountFields.html">AccountFields</a>
               </li>
               <li class="nav-group-task">
@@ -886,6 +886,34 @@ if it is actually took place and should it be taken into account value calculati
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:7Capital14FinTransactionV11isRecurrentSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isRecurrent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital14FinTransactionV11isRecurrentSbvp">isRecurrent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>parent is refernce to <code>FinTransaction</code> used for recurrence, which produced this transaction,
+through the parent transactions is it possible to get all the related transactions</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="k">var</span> <span class="nv">isRecurrent</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:7Capital14FinTransactionV6parentSSSgvp"></a>
                     <a name="//apple_ref/swift/Property/parent" class="dashAnchor"></a>
                     <a class="token" href="#/s:7Capital14FinTransactionV6parentSSSgvp">parent</a>
@@ -896,8 +924,7 @@ if it is actually took place and should it be taken into account value calculati
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>parent is refernce to <code>FinTransaction</code> used for recurrence, which produced this transaction,
-through the parent transactions is it possible to get all the related transactions</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
@@ -968,9 +995,9 @@ through the parent transactions is it possible to get all the related transactio
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Capital14FinTransactionV4from2to6amount4dateACSS2id_SS4namet_SSAH_SSAItSi10Foundation4DateVtcfc"></a>
+                    <a name="/s:7Capital14FinTransactionV4from2to6amount4dateACSS2id_SS4namet_SSAH_SSAItSi10Foundation4DateVSgtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(from:to:amount:date:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Capital14FinTransactionV4from2to6amount4dateACSS2id_SS4namet_SSAH_SSAItSi10Foundation4DateVtcfc">init(from:to:amount:date:)</a>
+                    <a class="token" href="#/s:7Capital14FinTransactionV4from2to6amount4dateACSS2id_SS4namet_SSAH_SSAItSi10Foundation4DateVSgtcfc">init(from:to:amount:date:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -985,7 +1012,7 @@ through the parent transactions is it possible to get all the related transactio
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="nf">init</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital11AccountInfoa">AccountInfo</a></span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital11AccountInfoa">AccountInfo</a></span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="nf">init</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital11AccountInfoa">AccountInfo</a></span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital11AccountInfoa">AccountInfo</a></span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1043,6 +1070,33 @@ through the parent transactions is it possible to get all the related transactio
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital14FinTransactionV4from2to6amount4date12approvalMode19recurrenceFrequency0J3End6parentACSS2id_SS4nametSg_ANSiSg10Foundation4DateVSgAC08ApprovalI0OSgAA010RecurrenceK0OSgASSSSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(from:to:amount:date:approvalMode:recurrenceFrequency:recurrenceEnd:parent:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital14FinTransactionV4from2to6amount4date12approvalMode19recurrenceFrequency0J3End6parentACSS2id_SS4nametSg_ANSiSg10Foundation4DateVSgAC08ApprovalI0OSgAA010RecurrenceK0OSgASSSSgtcfc">init(from:to:amount:date:approvalMode:recurrenceFrequency:recurrenceEnd:parent:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="nf">init</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital11AccountInfoa">AccountInfo</a></span><span class="p">?,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital11AccountInfoa">AccountInfo</a></span><span class="p">?,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?,</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?,</span> <span class="nv">approvalMode</span><span class="p">:</span> <span class="kt"><a href="../Structs/FinTransaction/ApprovalMode.html">ApprovalMode</a></span><span class="p">?,</span> <span class="nv">recurrenceFrequency</span><span class="p">:</span> <span class="kt"><a href="../Enums/RecurrenceFrequency.html">RecurrenceFrequency</a></span><span class="p">?,</span> <span class="nv">recurrenceEnd</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?,</span> <span class="nv">parent</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
