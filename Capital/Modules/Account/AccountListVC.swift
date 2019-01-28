@@ -1,4 +1,6 @@
+/// View Controller showing list of Accounts
 internal final class AccountListVC: ViewController {
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -24,11 +26,15 @@ internal final class AccountListVC: ViewController {
                  withConstraints: ["H:|[t]|", "H:|-20-[sc]-20-|", "V:|-80-[sc(31)]-5-[t]|"])
     }
 }
-
+/// Extension to provide view controller with service class
 extension AccountListVC {
+    /// Service class for `AccountListVC`
     private class Service: ClassService {
+        /// Accounts downloaded from online database
         private var accounts = [String: Account]()
-
+        /// Loads data for view controller
+        ///
+        /// - Parameter completion: action to perform after data is loaded
         internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccounts(for: self.id) { data in
                 for (id, account, changeType) in data {
@@ -55,6 +61,9 @@ extension AccountListVC {
             }
         }
 
+        /// Deletes account group calling `Data.shared` Singleton
+        ///
+        /// - Parameter row: table row with AccountGroup to delete
         internal func remove(_ row: DataModelRowProtocol?) {
             guard let id = row?.texts[.id] else {
                 return

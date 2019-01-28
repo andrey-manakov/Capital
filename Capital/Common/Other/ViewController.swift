@@ -33,7 +33,7 @@ extension ViewControllerProtocol {
     internal func present(_ viewControllerToPresent: UIViewController, animated flag: Bool) {
         present(viewControllerToPresent, animated: flag, completion: nil)
     }
-    /// Presents view controller modally on top of current instance with animation 
+    /// Presents view controller modally on top of current instance with animation
     ///
     /// Parameters:
     /// - _: view controller to present
@@ -48,7 +48,7 @@ internal class ViewController: UIViewController, ViewControllerProtocol {
     /// Generic data provided to ViewController for setupv
     internal var data: Any?
     // MARK: - Initializers
-    /// Initializes with data 
+    /// Initializes with data
     internal convenience init(_ data: Any?) {
         self.init()
         self.data = data

@@ -1,7 +1,7 @@
 internal final class AccountGroupEditVC: ViewController {
     private let service = Service()
     private let nameTextField: TextFieldProtocol = SimpleTextField("Account Group Name")
-
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +42,7 @@ internal final class AccountGroupEditVC: ViewController {
         service.didTapDone(name: nameTextField.text) { [unowned self] in self.dismiss() }
     }
 }
-
+/// Extension to provide view controller with service class
 extension AccountGroupEditVC {
     private class Service: ClassService {
         private var accounts = [String: Account]()
@@ -56,12 +56,6 @@ extension AccountGroupEditVC {
                     ],
                     accessory: self.selectedAccounts.contains($0.key) ? 3 : 0,
                     filter: $0.value.type?.rawValue)
-//                DataModelRow(
-//                    id: $0.key,
-//                    name: $0.value.name,
-//                    desc: "\($0.value.amount ?? 0)",
-//                    accessory: self.selectedAccounts.contains($0.key) ? 3 : 0,
-//                    filter: $0.value.type?.rawValue)
             })
         }
         internal var accountGroup: String?

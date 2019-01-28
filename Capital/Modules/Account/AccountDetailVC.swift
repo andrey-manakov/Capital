@@ -1,10 +1,12 @@
+/// View Controller showing `Account` datails and allowing to edit
 internal final class AccountDetailVC: ViewController {
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service() // should be private
         let accountNameTextField: TextFieldProtocol = SimpleTextField()
         let accountAmountTextField: TextFieldProtocol = NumberField()
-
+        // Get data provided for view controller configuration
         let id = data as? String
         if let id = id {
             let button: ButtonProtocol = Button(name: "Delete") {[unowned self] in
@@ -33,15 +35,24 @@ internal final class AccountDetailVC: ViewController {
             ])
     }
 }
-
+/// Extension to provide view controller with service class
 extension AccountDetailVC {
+    /// Service class for `AccountDetailVC`
     private class Service: ClassService {
+        /// Triggered when done button is tapped, calls Data Singleton to updated `Account` with new values
+        ///
+        /// - Parameters:
+        ///   - id: field to identify `Account` to update
+        ///   - name: text to update `Account.name`
+        ///   - amount: text to update `Account.amount`
         func didTapDone(with id: String?, name: String, amount: String) {
             if let id = id {
                 data.updateAccount(withId: id, name: name, amount: Int(amount), completion: nil)
             }
         }
-
+        /// Triggered when delete button is tapped, calls `Data.shared` Singleton to delete `Account`
+        ///
+        /// - Parameter id: field to identify `Account` to update
         func didTapDelete(withId id: String) {
             data.deleteAccount(withId: id, completion: nil)
         }

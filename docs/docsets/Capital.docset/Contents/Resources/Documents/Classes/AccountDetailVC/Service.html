@@ -214,10 +214,10 @@
                 <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManager.html">FIRFinTransactionManager</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManager/LogFields.html">– LogFields</a>
+                <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManagerStar.html">FIRFinTransactionManagerStar</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManagerOld.html">FIRFinTransactionManagerOld</a>
+                <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManagerStar/LogFields.html">– LogFields</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../../Classes/FIRListners.html">FIRListners</a>
@@ -427,7 +427,7 @@
                 <a class="nav-group-task-link" href="../../Protocols/FIRFinTransactionManagerProtocol.html">FIRFinTransactionManagerProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../../Protocols/FIRFinTransactionManagerProtocolOld.html">FIRFinTransactionManagerProtocolOld</a>
+                <a class="nav-group-task-link" href="../../Protocols/FIRFinTransactionManagerProtocolStar.html">FIRFinTransactionManagerProtocolStar</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../../Protocols/FIRListnersProtocol.html">FIRListnersProtocol</a>
@@ -568,7 +568,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Service class for <code><a href="../../Classes/AccountDetailVC.html">AccountDetailVC</a></code></p>
 
           </div>
         </section>
@@ -590,7 +590,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Triggered when done button is tapped, calls Data Singleton to updated <code><a href="../../Structs/Account.html">Account</a></code> with new values</p>
 
                       </div>
                       <div class="declaration">
@@ -600,6 +600,49 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didTapDone</span><span class="p">(</span><span class="n">with</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>field to identify <code><a href="../../Structs/Account.html">Account</a></code> to update</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>text to update <code><a href="../../Structs/Account.html#/s:7Capital7AccountV4nameSSSgvp">Account.name</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>text to update <code><a href="../../Structs/Account.html#/s:7Capital7AccountV6amountSiSgvp">Account.amount</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -617,7 +660,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Triggered when delete button is tapped, calls <code><a href="../../Classes/Data.html#/s:7Capital4DataC6sharedACvpZ">Data.shared</a></code> Singleton to delete <code><a href="../../Structs/Account.html">Account</a></code></p>
 
                       </div>
                       <div class="declaration">
@@ -627,6 +670,25 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didTapDelete</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>field to identify <code><a href="../../Structs/Account.html">Account</a></code> to update</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

@@ -162,7 +162,7 @@ extension Data {
     }
 
     internal func create(_ finTransaction: FinTransaction, completion: ((String?) -> Void)? = nil) {
-        FIRFinTransactionManagerOld.shared.create(finTransaction, completion: completion)
+        FIRFinTransactionManager.shared.create(finTransaction, completion: completion)
     }
 
     internal func createAccountGroup(named name: String, withAccounts accounts: [AccountInfo]) {

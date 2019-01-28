@@ -5,7 +5,7 @@ internal final class LoginVC: ViewController, LoginViewControllerProtocol {
     private let service = Service()
     private let loginTextField: TextFieldProtocol = EmailField("email")
     private let passwordTextField: TextFieldProtocol = PasswordField("password")
-
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
         setListners()
@@ -68,7 +68,7 @@ internal final class LoginVC: ViewController, LoginViewControllerProtocol {
         self.passwordTextField.text = ""
     }
 }
-
+/// Extension to provide view controller with service class
 extension LoginVC {
     private class Service: ClassService {
         func listenToAuthUpdates(withAction action: ((String?) -> Void)?) {

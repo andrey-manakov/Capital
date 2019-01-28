@@ -1,4 +1,6 @@
-internal class AccountNewVC: ViewController {
+/// View controller for creation of new `Account`
+internal final class AccountNewVC: ViewController {
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -34,8 +36,9 @@ internal class AccountNewVC: ViewController {
             ])
     }
 }
-
+/// Extension to provide view controller with service class
 extension AccountNewVC {
+    /// Service class for `AccountNewVC`
     private class Service: ClassService {
         func didTapDoneWith(name: String?, amount: String?, type accountType: Int) {
             data.createAccount(name, ofType: AccountType(rawValue: accountType),

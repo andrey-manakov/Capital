@@ -42,7 +42,7 @@ internal class RecurrenceFrequencySelectorVCTests: XCTestCase {
 
     internal func testViewDidLoad() {
         guard let view = view else {
-            XCTFail()
+            XCTFail("Error accessing view controller's view")
             return
         }
         XCTAssert(view.views["v"] as? SimpleTable != nil)

@@ -7,7 +7,7 @@ internal protocol SettingsViewControllerProtocol: ViewControllerProtocol {
 internal final class SettingsViewController: ViewController, SettingsViewControllerProtocol {
     internal var service: SettingsServiceProtocol = SettingsService()
     internal var table: SimpleTableProtocol = SimpleTable()
-
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
         service.viewDidLoad(self)

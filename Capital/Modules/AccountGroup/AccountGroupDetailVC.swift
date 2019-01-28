@@ -1,4 +1,5 @@
 internal final class AccountGroupDetailVC: ViewController {
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
@@ -21,7 +22,7 @@ internal final class AccountGroupDetailVC: ViewController {
         view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
     }
 }
-
+/// Extension to provide view controller with service class
 extension AccountGroupDetailVC {
     private class Service: ClassService {
         private var accounts = [String: Account]()

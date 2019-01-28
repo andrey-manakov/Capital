@@ -94,12 +94,12 @@
 		C1A027CF21BD541E00207FF7 /* ChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027CC21BD541E00207FF7 /* ChangeType.swift */; };
 		C1A027D021BD541E00207FF7 /* FIRAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027CD21BD541E00207FF7 /* FIRAuth.swift */; };
 		C1A027E221BD54F300207FF7 /* FIRAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D221BD54F200207FF7 /* FIRAccountManager.swift */; };
-		C1A027E521BD54F300207FF7 /* FIRFinTransactionManagerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */; };
+		C1A027E521BD54F300207FF7 /* FIRFinTransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D521BD54F200207FF7 /* FIRFinTransactionManager.swift */; };
 		C1A027E621BD54F300207FF7 /* MiscFunctionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D621BD54F200207FF7 /* MiscFunctionsProtocol.swift */; };
 		C1A027E721BD54F300207FF7 /* FireStoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */; };
 		C1A027EA21BD54F300207FF7 /* FIRAccountGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DA21BD54F200207FF7 /* FIRAccountGroupManager.swift */; };
 		C1A027EB21BD54F300207FF7 /* FIRDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DB21BD54F200207FF7 /* FIRDataProtocol.swift */; };
-		C1A027EC21BD54F300207FF7 /* FIRFinTransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */; };
+		C1A027EC21BD54F300207FF7 /* FIRFinTransactionManagerStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DC21BD54F200207FF7 /* FIRFinTransactionManagerStar.swift */; };
 		C1A027ED21BD54F300207FF7 /* FIRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DD21BD54F300207FF7 /* FIRManager.swift */; };
 		C1A027EF21BD54F300207FF7 /* FIRListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DF21BD54F300207FF7 /* FIRListners.swift */; };
 		C1CB512221F281F800EF6ABF /* AccountDynamics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CB512121F281F700EF6ABF /* AccountDynamics.swift */; };
@@ -268,12 +268,12 @@
 		C1A027CC21BD541E00207FF7 /* ChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeType.swift; sourceTree = "<group>"; };
 		C1A027CD21BD541E00207FF7 /* FIRAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAuth.swift; sourceTree = "<group>"; };
 		C1A027D221BD54F200207FF7 /* FIRAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAccountManager.swift; sourceTree = "<group>"; };
-		C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManagerOld.swift; sourceTree = "<group>"; };
+		C1A027D521BD54F200207FF7 /* FIRFinTransactionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManager.swift; sourceTree = "<group>"; };
 		C1A027D621BD54F200207FF7 /* MiscFunctionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctionsProtocol.swift; sourceTree = "<group>"; };
 		C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreDataExtension.swift; sourceTree = "<group>"; };
 		C1A027DA21BD54F200207FF7 /* FIRAccountGroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAccountGroupManager.swift; sourceTree = "<group>"; };
 		C1A027DB21BD54F200207FF7 /* FIRDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRDataProtocol.swift; sourceTree = "<group>"; };
-		C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManager.swift; sourceTree = "<group>"; };
+		C1A027DC21BD54F200207FF7 /* FIRFinTransactionManagerStar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManagerStar.swift; sourceTree = "<group>"; };
 		C1A027DD21BD54F300207FF7 /* FIRManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRManager.swift; sourceTree = "<group>"; };
 		C1A027DF21BD54F300207FF7 /* FIRListners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRListners.swift; sourceTree = "<group>"; };
 		C1CB512121F281F700EF6ABF /* AccountDynamics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDynamics.swift; sourceTree = "<group>"; };
@@ -628,8 +628,8 @@
 				C1164D1E21BD5D0900895A1B /* FireStoreData.swift */,
 				C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */,
 				C1164D1B21BD5CDF00895A1B /* FireStoreGettersProtocol.swift */,
-				C1A027DC21BD54F200207FF7 /* FIRFinTransactionManager.swift */,
-				C1A027D521BD54F200207FF7 /* FIRFinTransactionManagerOld.swift */,
+				C1A027DC21BD54F200207FF7 /* FIRFinTransactionManagerStar.swift */,
+				C1A027D521BD54F200207FF7 /* FIRFinTransactionManager.swift */,
 				C1A027DF21BD54F300207FF7 /* FIRListners.swift */,
 				C1A027DD21BD54F300207FF7 /* FIRManager.swift */,
 				C1A027D621BD54F200207FF7 /* MiscFunctionsProtocol.swift */,
@@ -1080,13 +1080,13 @@
 				C1164D4421BD704800895A1B /* SimpleTable.swift in Sources */,
 				C1A027CE21BD541E00207FF7 /* DataObjectType.swift in Sources */,
 				C1164D4D21BD762400895A1B /* TitleLabel.swift in Sources */,
-				C1A027EC21BD54F300207FF7 /* FIRFinTransactionManager.swift in Sources */,
+				C1A027EC21BD54F300207FF7 /* FIRFinTransactionManagerStar.swift in Sources */,
 				C1164D3B21BD703A00895A1B /* InputAmountCell.swift in Sources */,
 				C1D0960D21E8A2C00032BF8E /* BinaryIntegerExtension.swift in Sources */,
 				C1164D4221BD704800895A1B /* TemplateTable.swift in Sources */,
 				C1164D3A21BD703A00895A1B /* DateSelectionCell.swift in Sources */,
 				C1A0279621BD428900207FF7 /* LoginVC.swift in Sources */,
-				C1A027E521BD54F300207FF7 /* FIRFinTransactionManagerOld.swift in Sources */,
+				C1A027E521BD54F300207FF7 /* FIRFinTransactionManager.swift in Sources */,
 				C1164D4B21BD762400895A1B /* NumberLabel.swift in Sources */,
 				C1164D8521BD974F00895A1B /* AdvancedNewTransactionVC.swift in Sources */,
 				C1164D6221BD834A00895A1B /* NumberField.swift in Sources */,

@@ -42,7 +42,7 @@ internal final class AccountGroupListVCTests: XCTestCase {
 
     internal func testViewDidLoad() {
         guard let view = view else {
-            XCTFail("View doesn't exist")
+            XCTFail("Error accessing view controller's view")
             return
         }
         XCTAssert(view.views["t"] as? SimpleTable != nil && view.views["sc"] as? SegmentedControl != nil)

@@ -15,8 +15,8 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
 
     override private init() {}
     // FIXME: old reference
-    internal let finTransactionManager: FIRFinTransactionManagerProtocolOld =
-        FIRFinTransactionManagerOld.shared
+    internal let finTransactionManager: FIRFinTransactionManagerProtocol =
+        FIRFinTransactionManager.shared
 
     /// Creates transaction in FireStore date base,
     /// creates transaction with capital account to define initial account amount,

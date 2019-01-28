@@ -21,7 +21,7 @@ internal final class AdvancedNewTransactionVC: ViewController, AdvancedNewTransa
     internal var tableData = DataModel()
     internal var amountTextField: TextFieldProtocol?
     internal var date: Date?
-
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
 

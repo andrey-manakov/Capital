@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>create(_:completion:) Instance Method Reference</title>
+    <title>LogFields Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Method/create(_:completion:)" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Enum/LogFields" class="dashAnchor"></a>
 
-    <a title="create(_:completion:) Instance Method Reference"></a>
+    <a title="LogFields Enumeration Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../../index.html">Capital Reference</a>
       <img class="carat" src="../../img/carat.png" />
-      create(_:completion:) Instance Method Reference
+      LogFields Enumeration Reference
     </p>
 
     <div class="content-wrapper">
@@ -214,10 +214,10 @@
                 <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManager.html">FIRFinTransactionManager</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManager/LogFields.html">– LogFields</a>
+                <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManagerStar.html">FIRFinTransactionManagerStar</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManagerOld.html">FIRFinTransactionManagerOld</a>
+                <a class="nav-group-task-link" href="../../Classes/FIRFinTransactionManagerStar/LogFields.html">– LogFields</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../../Classes/FIRListners.html">FIRListners</a>
@@ -427,7 +427,7 @@
                 <a class="nav-group-task-link" href="../../Protocols/FIRFinTransactionManagerProtocol.html">FIRFinTransactionManagerProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../../Protocols/FIRFinTransactionManagerProtocolOld.html">FIRFinTransactionManagerProtocolOld</a>
+                <a class="nav-group-task-link" href="../../Protocols/FIRFinTransactionManagerProtocolStar.html">FIRFinTransactionManagerProtocolStar</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../../Protocols/FIRListnersProtocol.html">FIRListnersProtocol</a>
@@ -561,11 +561,10 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>create(_:completion:)</h1>
+            <h1>LogFields</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">create</span><span class="p">(</span><span class="n">_</span> <span class="nv">finTransaction</span><span class="p">:</span> <span class="kt"><a href="../../Structs/FinTransaction.html">FinTransaction</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
-    <span class="p">)</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">enum</span> <span class="kt">LogFields</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                 </div>
               </div>
@@ -581,9 +580,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Capital27FIRFinTransactionManagerOldC6create_10completionyAA03FinC0V_ySSSgcSgtF11updateBlockL_02fsC012errorPointerypSgSo14FIRTransactionC_SAySo7NSErrorCSgGSgtF"></a>
-                    <a name="//apple_ref/swift/Function/updateBlock(fsTransaction:errorPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Capital27FIRFinTransactionManagerOldC6create_10completionyAA03FinC0V_ySSSgcSgtF11updateBlockL_02fsC012errorPointerypSgSo14FIRTransactionC_SAySo7NSErrorCSgGSgtF">updateBlock(fsTransaction:errorPointer:)</a>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO13logCollectionSSvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/logCollection" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO13logCollectionSSvpZ">logCollection</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -598,7 +597,224 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateBlock</span><span class="p">(</span><span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span> <span class="nv">errorPointer</span><span class="p">:</span> <span class="kt">NSErrorPointer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">logCollection</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO4typeyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO4typeyA2EmF">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">type</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO4fromyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/from" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO4fromyA2EmF">from</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">from</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO2toyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/to" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO2toyA2EmF">to</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">to</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO9timestampyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/timestamp" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO9timestampyA2EmF">timestamp</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">timestamp</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO11transactionyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/transaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO11transactionyA2EmF">transaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transaction</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO14approvedAmountyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/approvedAmount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO14approvedAmountyA2EmF">approvedAmount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">approvedAmount</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO17recurrenceChangesyA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/recurrenceChanges" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO17recurrenceChangesyA2EmF">recurrenceChanges</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">recurrenceChanges</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO0F4TypeO"></a>
+                    <a name="//apple_ref/swift/Enum/LogType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital28FIRFinTransactionManagerStarC9LogFieldsO0F4TypeO">LogType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../../Classes/FIRFinTransactionManagerStar/LogFields/LogType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">enum</span> <span class="kt">LogType</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>

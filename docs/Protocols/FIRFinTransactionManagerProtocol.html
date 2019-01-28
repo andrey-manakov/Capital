@@ -214,10 +214,10 @@
                 <a class="nav-group-task-link" href="../Classes/FIRFinTransactionManager.html">FIRFinTransactionManager</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/FIRFinTransactionManager/LogFields.html">– LogFields</a>
+                <a class="nav-group-task-link" href="../Classes/FIRFinTransactionManagerStar.html">FIRFinTransactionManagerStar</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/FIRFinTransactionManagerOld.html">FIRFinTransactionManagerOld</a>
+                <a class="nav-group-task-link" href="../Classes/FIRFinTransactionManagerStar/LogFields.html">– LogFields</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/FIRListners.html">FIRListners</a>
@@ -427,7 +427,7 @@
                 <a class="nav-group-task-link" href="../Protocols/FIRFinTransactionManagerProtocol.html">FIRFinTransactionManagerProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/FIRFinTransactionManagerProtocolOld.html">FIRFinTransactionManagerProtocolOld</a>
+                <a class="nav-group-task-link" href="../Protocols/FIRFinTransactionManagerProtocolStar.html">FIRFinTransactionManagerProtocolStar</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/FIRListnersProtocol.html">FIRListnersProtocol</a>
@@ -580,9 +580,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Capital32FIRFinTransactionManagerProtocolP06createC04from2to6amount4date12approvalMode19recurrenceFrequency0M3End10completionySS2id_SS4nametSg_AOSiSg10Foundation4DateVSgAA03FinC0V08ApprovalL0OSgAA010RecurrenceN0OSgATySSSgcSgtF"></a>
-                    <a name="//apple_ref/swift/Method/createTransaction(from:to:amount:date:approvalMode:recurrenceFrequency:recurrenceEnd:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Capital32FIRFinTransactionManagerProtocolP06createC04from2to6amount4date12approvalMode19recurrenceFrequency0M3End10completionySS2id_SS4nametSg_AOSiSg10Foundation4DateVSgAA03FinC0V08ApprovalL0OSgAA010RecurrenceN0OSgATySSSgcSgtF">createTransaction(from:to:amount:date:approvalMode:recurrenceFrequency:recurrenceEnd:completion:)</a>
+                    <a name="/s:7Capital32FIRFinTransactionManagerProtocolP6create_10completionyAA03FinC0V_ySSSgcSgtF"></a>
+                    <a name="//apple_ref/swift/Method/create(_:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital32FIRFinTransactionManagerProtocolP6create_10completionyAA03FinC0V_ySSSgcSgtF">create(_:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -597,7 +597,70 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createTransaction</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital11AccountInfoa">AccountInfo</a></span><span class="p">?,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital11AccountInfoa">AccountInfo</a></span><span class="p">?,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?,</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?,</span> <span class="nv">approvalMode</span><span class="p">:</span> <span class="kt"><a href="../Structs/FinTransaction.html">FinTransaction</a></span><span class="o">.</span><span class="kt">ApprovalMode</span><span class="p">?,</span> <span class="nv">recurrenceFrequency</span><span class="p">:</span> <span class="kt"><a href="../Enums/RecurrenceFrequency.html">RecurrenceFrequency</a></span><span class="p">?,</span> <span class="nv">recurrenceEnd</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">create</span><span class="p">(</span><span class="n">_</span> <span class="nv">finTransaction</span><span class="p">:</span> <span class="kt"><a href="../Structs/FinTransaction.html">FinTransaction</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital32FIRFinTransactionManagerProtocolP4send_2to6resultSi14approvedAmount_SDy10Foundation4DateVSiG8dynamicstAA03FinC0V_So14FIRTransactionCSiAG_AkLttF"></a>
+                    <a name="//apple_ref/swift/Method/send(_:to:result:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital32FIRFinTransactionManagerProtocolP4send_2to6resultSi14approvedAmount_SDy10Foundation4DateVSiG8dynamicstAA03FinC0V_So14FIRTransactionCSiAG_AkLttF">send(_:to:result:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">finTransaction</span><span class="p">:</span> <span class="kt"><a href="../Structs/FinTransaction.html">FinTransaction</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">,</span> <span class="nv">result</span><span class="p">:</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital24SendFinTransactionResulta">SendFinTransactionResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital24SendFinTransactionResulta">SendFinTransactionResult</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Capital32FIRFinTransactionManagerProtocolPAAE4send_2toSi14approvedAmount_SDy10Foundation4DateVSiG8dynamicstAA03FinC0V_So14FIRTransactionCtF"></a>
+                    <a name="//apple_ref/swift/Method/send(_:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Capital32FIRFinTransactionManagerProtocolPAAE4send_2toSi14approvedAmount_SDy10Foundation4DateVSiG8dynamicstAA03FinC0V_So14FIRTransactionCtF">send(_:to:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">finTransaction</span><span class="p">:</span> <span class="kt"><a href="../Structs/FinTransaction.html">FinTransaction</a></span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">fsTransaction</span><span class="p">:</span> <span class="kt">Transaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Other Typealiases.html#/s:7Capital24SendFinTransactionResulta">SendFinTransactionResult</a></span></code></pre>
 
                         </div>
                       </div>

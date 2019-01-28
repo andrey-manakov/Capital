@@ -1,4 +1,5 @@
 internal final class AccountGroupsVC: ViewController {
+    /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
         let service = Service()
