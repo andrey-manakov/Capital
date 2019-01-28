@@ -82,6 +82,9 @@ internal struct FinTransaction: DataObjectProtocol {
     internal var recurrenceEnd: Date?
     /// parent is refernce to `FinTransaction` used for recurrence, which produced this transaction,
     /// through the parent transactions is it possible to get all the related transactions
+    internal var isRecurrent: Bool {
+        return recurrenceFrequency != .never && (recurrenceEnd?.isAfter(Date()) ?? false)
+    }
     internal var parent: String?
 
     /// MARK: - Initialization

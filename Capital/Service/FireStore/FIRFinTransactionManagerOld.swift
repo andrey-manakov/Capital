@@ -1,10 +1,10 @@
 internal typealias SendFinTransactionResult = (approvedAmount: Int, dynamics: [Date: Int])
 internal protocol FIRFinTransactionManagerProtocolOld: AnyObject {
-//    func createTransaction(
-//        from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?,
-//        approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?,
-//        recurrenceEnd: Date?, completion: ((String?) -> Void)?
-//    )
+    //    func createTransaction(
+    //        from: AccountInfo?, to: AccountInfo?, amount: Int?, date: Date?,
+    //        approvalMode: FinTransaction.ApprovalMode?, recurrenceFrequency: RecurrenceFrequency?,
+    //        recurrenceEnd: Date?, completion: ((String?) -> Void)?
+    //    )
     func create(_ finTransaction: FinTransaction, completion: ((String?) -> Void)?)
     func send(
         _ finTransaction: FinTransaction,
@@ -38,10 +38,7 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             // MARK: read account amounts from FireStore
             guard // TODO: refactor to make single query
                 let fromAccount = self.getAccount(withId: from.id, for: fsTransaction, with: errorPointer),
-                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer)// ,
-                //                let fromAccountDynamics = self.getAccountDynamics(withId: from.id, for: fsTransaction, with: errorPointer),
-                //                let toAccountDynamics = self.getAccountDynamics(withId: to.id, for: fsTransaction, with: errorPointer)
-                else {
+                let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer) else {
                     return nil
             }
             // TODO: refactor to make single query
@@ -51,9 +48,12 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
                 fromAccountDynamics = self.getAccountDynamics(withId: from.id, for: fsTransaction, with: errorPointer) ?? AccountDynamics()
                 toAccountDynamics = self.getAccountDynamics(withId: to.id, for: fsTransaction, with: errorPointer) ?? AccountDynamics()
             } else {
-                fromAccountDynamics = AccountDynamics()
-                toAccountDynamics = AccountDynamics()
+                fromAccountDynamics = AccountDynamics() // FIXME: change to running sum?
+                toAccountDynamics = AccountDynamics() // FIXME: change to running sum?
             }
+            let fromAccountDynamicsRunningSum = fromAccountDynamics.data.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
+            let toAccountDynamicsRunningSum = toAccountDynamics.data.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
+
             // create transactions
             let nextFinTransaction = FinTransaction(from: from, to: to, amount: amount, date: finTransaction.date, approvalMode: finTransaction.approvalMode, recurrenceFrequency: finTransaction.recurrenceFrequency, recurrenceEnd: finTransaction.recurrenceEnd)
             let sendTransactionResult: SendFinTransactionResult
@@ -62,18 +62,26 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             // MARK: update account amounts
             // FIXME: add implementation for min amount & date
             let approvedAmount = sendTransactionResult.approvedAmount
-            for (id, account) in [from.id: fromAccount, to.id: toAccount] {
+            for (id, (account, dynamics)) in [from.id: (fromAccount, fromAccountDynamics), to.id: (toAccount, toAccountDynamics )] {
                 let coef: Int = ((account.type?.active ?? true) ? 1 : -1) * (id == to.id ? 1 : -1)
                 let newAmount = (account.amount ?? 0) + coef * approvedAmount
-                let minAmount = 0 // TODO: Add impletmentation
-                let minDate = Date() // TODO: Add impletmentation
-                fsTransaction.updateData(
-                    [
-                        Account.fields.amount: newAmount,
-                        Account.fields.minAmount: minAmount,
-                        Account.fields.minDate: minDate
-                    ],
-                    forDocument: ref.collection(DataObjectType.account.rawValue).document(id))
+                var minAmount = newAmount //= 0 // TODO: Add impletmentation
+                let minDate = Date() // = Date() // TODO: Add impletmentation
+
+                var runningDynamics = [String: Int]()
+                var runningSum = minAmount
+                for (dateStr, amount) in dynamics.data {
+                    runningSum += amount
+                    runningDynamics[dateStr] = runningSum
+                }
+
+                for (dateStr, amount) in runningDynamics {
+                    minAmount = min(minAmount, minAmount + amount)
+                }
+                let fields = Account.fields
+                let newAccountData: [String : Any] = [fields.amount: newAmount, fields.minAmount: minAmount, fields.minDate: minDate]
+                let newAccountRef = ref.collection(DataObjectType.account.rawValue).document(id)
+                fsTransaction.updateData(newAccountData, forDocument: newAccountRef)
             }
 
             // MARK: udpate dynamics doc
@@ -96,23 +104,34 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             let amount = finTransaction.amount else { return result }
         let date = finTransaction.date ?? Date()
         // TODO: switch to fields
-        fsTransaction.setData(
+        let fields = FinTransaction.fields
+        var newFinTransactionData =
             [
-            FinTransaction.Fields.from.rawValue:
-                [FinTransaction.Fields.From.id.rawValue: from.id,
-                 FinTransaction.Fields.From.name.rawValue: from.name] as Any,
-            FinTransaction.Fields.to.rawValue:
-                [FinTransaction.Fields.To.id.rawValue: to.id,
-                 FinTransaction.Fields.To.name.rawValue: to.name] as Any,
-            FinTransaction.Fields.amount.rawValue: amount as Any,
-            FinTransaction.Fields.date.rawValue: Timestamp(date: date),
-            FinTransaction.Fields.isApproved.rawValue: date <= Date() ? true : false,
-            FinTransaction.Fields.approvalMode.rawValue: finTransaction.approvalMode?.rawValue as Any,
-            FinTransaction.Fields.recurrenceFrequency.rawValue:
-                finTransaction.recurrenceFrequency == nil ? NSNull() : finTransaction.recurrenceFrequency!.rawValue,
-            FinTransaction.Fields.recurrenceEnd.rawValue:
-                finTransaction.recurrenceEnd == nil ? NSNull() : Timestamp(date: finTransaction.recurrenceEnd!)
-            ], forDocument: newFinTransactionRef)
+                fields.from: [fields.accountId: from.id, fields.accountName: from.name] as Any,
+                fields.to: [fields.accountId: to.id, fields.accountName: to.name] as Any,
+                fields.amount: amount as Any,
+                fields.date: Timestamp(date: date),
+                fields.isApproved: date <= Date() ? true : false,
+                fields.approvalMode: finTransaction.approvalMode?.rawValue as Any
+            ]
+        // FIXME: set condition to recurrence
+        if finTransaction.isRecurrent {
+            newFinTransactionData[fields.recurrenceFrequency] = finTransaction.recurrenceFrequency?.rawValue ?? NSNull()
+            newFinTransactionData[fields.recurrenceEnd] = Timestamp(date: finTransaction.recurrenceEnd!)
+        }
+        fsTransaction.setData(newFinTransactionData, forDocument: newFinTransactionRef)
+//        fsTransaction.setData(
+//            [
+//                fields.from: [fields.accountId: from.id, fields.accountName: from.name] as Any,
+//                fields.to: [fields.accountId: to.id, fields.accountName: to.name] as Any,
+//                fields.amount: amount as Any,
+//                fields.date: Timestamp(date: date),
+//                fields.isApproved: date <= Date() ? true : false,
+//                fields.approvalMode: finTransaction.approvalMode?.rawValue as Any,
+//                fields.recurrenceFrequency: finTransaction.recurrenceFrequency?.rawValue ?? NSNull(),
+//                fields.recurrenceEnd:
+//                    finTransaction.recurrenceEnd == nil ? NSNull() : Timestamp(date: finTransaction.recurrenceEnd!)
+//            ], forDocument: newFinTransactionRef)
         let approvedAmount: Int
         var dynamics: [Date: Int] = result.dynamics
         if date <= Date() {
@@ -121,24 +140,11 @@ internal final class FIRFinTransactionManagerOld: FIRManager, FIRFinTransactionM
             approvedAmount = result.approvedAmount
             dynamics[date] = (dynamics[date] ?? 0) + amount
         }
-        //        let approvedAmount = date < Date() ? result.approvedAmount + amount : result.approvedAmount
-        // TODO: consider default recurrence end
         if let recurrenceFrequency = finTransaction.recurrenceFrequency, recurrenceFrequency != .never,
             let nextDate = nextDate(from: date, recurrenceFrequency: recurrenceFrequency),
             let recurrenceEnd = finTransaction.recurrenceEnd, nextDate <= recurrenceEnd {
             let nextFinTransaction = FinTransaction(from: from, to: to, amount: amount, date: date, approvalMode: finTransaction.approvalMode, recurrenceFrequency: recurrenceFrequency, recurrenceEnd: recurrenceEnd, parent: finTransaction.parent ?? newFinTransactionRef.documentID)
             return send(nextFinTransaction, to: fsTransaction, result: (approvedAmount, dynamics))
-//            return sendFinTransaction(
-//                to: fsTransaction,
-//                from: from,
-//                to: to,
-//                amount: amount,
-//                date: nextDate,
-//                approvalMode: finTransaction.approvalMode,
-//                recurrenceFrequency: recurrenceFrequency,
-//                recurrenceEnd: recurrenceEnd,
-//                parent: finTransaction.parent ?? newFinTransactionRef.documentID,
-//                result: (approvedAmount, dynamics))
         } else {
             return (approvedAmount, [Date: Int]())
         }

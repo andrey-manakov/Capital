@@ -41,11 +41,9 @@ internal struct Account: DataObjectProtocol, Codable { // : DataObject
     internal var minAmount: Int?
     /// Date when Account reaches its min value (`Account.minAmount`)
     internal var minDate: Date?
-// TODO: Consider move to separate object
     /// Non approved transaction values used to calculate `Account.minAmount` and `Account.minDate`
     internal var minDynamics = [String: Int]()
     /// Computed tuple holding `Account.minAmount` and `Account.minDate`
-    /// In that way the data regarding `Account.minAmount` and `Account.minDate` is stored in Firestore.
     internal var min: (amount: Int, date: Date)? {
         guard let minAmount = minAmount, let minDate = minDate else {
             return nil

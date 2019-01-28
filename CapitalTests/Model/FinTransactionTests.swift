@@ -2,8 +2,8 @@
 import XCTest
 
 internal class FinTransactionTests: XCTestCase {
-    var master = FinTransaction()
-    var sample = FinTransaction()
+    internal var master = FinTransaction()
+    internal var sample = FinTransaction()
 
     /// Test that properties list of `FinTransaction` is correctly treated
     internal func testFieldsImplementation() {

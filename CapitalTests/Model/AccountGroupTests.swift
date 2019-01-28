@@ -2,8 +2,8 @@
 import XCTest
 
 internal final class AccountGroupTests: XCTestCase {
-    let master = AccountGroup()
-    let sample = AccountGroup()
+    internal let master = AccountGroup()
+    internal let sample = AccountGroup()
     /// Test that properties list of `AccountGroup` is correctly treated
     internal func testFieldsImplementation() {
         // 1. Arrange
