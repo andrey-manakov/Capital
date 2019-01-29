@@ -93,14 +93,14 @@ internal class CapitalUITests: XCTestCase {
         return testResult
     }
 
-    private func create(account: (name: String, type: String, amount: String)) -> Bool {
+    private func create(account: (name: String, type: String, amount: Int)) -> Bool {
         app.tabBars.buttons["Accounts"].tap()
         app.buttons[account.type].tap()
         app.navigationBars["Accounts"].buttons["New"].tap()
         app.textFields["an"].tap()
         _ = account.name.map { app.keys[String($0)].tap() }
         app.textFields["aa"].tap()
-        _ = account.amount.map { app.keys[String($0)].tap() }
+        _ = "\(account.amount)".map { app.keys[String($0)].tap() }
         app.navigationBars["New account"].buttons["Done"].tap()
         // Alternative way to call
 //        let myTable = app.tables.matching(identifier: "t")
@@ -122,10 +122,10 @@ internal class CapitalUITests: XCTestCase {
         XCTAssert(deleteUser())
     }
 
-    private func randomAccount() -> (name: String, type: String, amount: String) {
+    private func randomAccount() -> (name: String, type: String, amount: Int) {
         return (name: String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }),
                 type: ["asset", "liability", "revenue", "expense"].randomElement()!,
-                amount: String((0..<3).map { _ in "123456789".randomElement()! }))
+                amount: Int.random(in: 0 ..< 1_000) )
     }
 
     internal func testCreateAccountGroup() {
@@ -142,7 +142,7 @@ internal class CapitalUITests: XCTestCase {
 
     private func create(
         accountGroup name: String,
-        with accounts: [(name: String, type: String, amount: String)]
+        with accounts: [(name: String, type: String, amount: Int)]
         ) -> Bool {
         app.tabBars.buttons["DashBoard"].tap()
         app.navigationBars["DashBoard"].buttons["New"].tap()
@@ -177,7 +177,7 @@ internal class CapitalUITests: XCTestCase {
 
     private func create(
         transaction amount: String,
-        with accounts: [(name: String, type: String, amount: String)]
+        with accounts: [(name: String, type: String, amount: Int)]
         ) -> Bool {
         print("create function without date")
         app.tabBars.buttons["New Transaction"].tap()
@@ -195,16 +195,16 @@ internal class CapitalUITests: XCTestCase {
 
         let newFromAccountValue =
             String((accounts[0].type == "asset" || accounts[0].type == "expense") ?
-                Int(accounts[0].amount)! - Int(amount)! :
-                Int(accounts[0].amount)! + Int(amount)!)
+                accounts[0].amount - Int(amount)! :
+                accounts[0].amount + Int(amount)!)
         print("LOG accounts[0].type \(accounts[0].type)")
         print((accounts[0].type == "asset" || accounts[0].type == "expense"))
         print("LOG newFromAccountValue \(newFromAccountValue)")
 
         let newToAccountValue =
             String((accounts[1].type == "asset" || accounts[1].type == "expense") ?
-                Int(accounts[1].amount)! + Int(amount)! :
-                Int(accounts[1].amount)! - Int(amount)!)
+                accounts[1].amount + Int(amount)! :
+                accounts[1].amount - Int(amount)!)
         print("LOG accounts[1].type \(accounts[1].type)")
         print((accounts[1].type == "asset" || accounts[1].type == "expense"))
         print("LOG newToAccountValue \(newToAccountValue)")
@@ -218,8 +218,8 @@ internal class CapitalUITests: XCTestCase {
     }
 
     private func create(
-        transaction amount: String,
-        with accounts: [(name: String, type: String, amount: String)],
+        transaction amount: Int,
+        with accounts: [(name: String, type: String, amount: Int)],
         onDate date: Date
         ) -> Bool {
         app.tabBars.buttons["New Transaction"].tap()
@@ -230,7 +230,7 @@ internal class CapitalUITests: XCTestCase {
         app.buttons[accounts[1].type].tap()
         app.tables["t"].staticTexts[accounts[1].name].tap()
         app.tables["v"].staticTexts["amount"].tap()
-        _ = amount.map { app.keys[String($0)].tap() }
+        _ = "\(amount)".map { app.keys[String($0)].tap() }
         app.tables["v"].staticTexts["date"].tap()
 
 //        print(app.descendants(matching: .any).debugDescription)
@@ -260,11 +260,11 @@ internal class CapitalUITests: XCTestCase {
             let currentAmount: String
             let newAccountValue: String =
                 String(($0.type == "asset" || $0.type == "expense") ?
-                    Int($0.amount)! - i * Int(amount)! :
-                    Int($0.amount)! + i * Int(amount)!)
+                    $0.amount - i * amount :
+                    $0.amount + i * amount)
             i = -1
             if date.isAfter(Date()) {
-                currentAmount = $0.amount
+                currentAmount = "\($0.amount)"
             } else {
                 currentAmount = newAccountValue
             }
@@ -278,10 +278,13 @@ internal class CapitalUITests: XCTestCase {
             XCTAssert(signOut())
         }
         let accounts = [randomAccount(), randomAccount()]
-        let amount = String((0..<3).map { _ in "123456789".randomElement()! })
-        let day = "\(Date().localDay!)"  // (1...27).map {String($0)}.randomElement()!
-        let month = "\(Date().month!)" // (1...12).map {String($0)}.randomElement()!
-        let year = "\(Date().year!)"  // [2018, 2019].map {String($0)}.randomElement()!
+        let amount = Int.random(in: 0 ..< 1_000)// String((0..<3).map { _ in "123456789".randomElement()! })
+//        let day = (1...27).map { String($0) }.randomElement()!  // "\(Date().localDay!)"
+//        let month = (1...12).map { String($0) }.randomElement()! // "\(Date().month!)"
+//        let year = "2020"// "\(Date().year!)"  // [2018, 2019].map {String($0)}.randomElement()!
+        let day = "\(Date().localDay!)"
+        let month = "\(Date().month!)"
+        let year = "\(Date().year!)"
         let sampleDate = "\(day)-\(month)-\(year)".date(withFormat: "dd-MM-yyyy")
         XCTAssert(signUp(login: login, password: password))
         _ = accounts.map {
