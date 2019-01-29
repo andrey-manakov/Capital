@@ -989,119 +989,70 @@
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 10,
-      "symbol": "AccountField.name",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 11,
-      "symbol": "AccountField.amount",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 13,
-      "symbol": "AccountField.minAmount",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 14,
-      "symbol": "AccountField.minDate",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 15,
-      "symbol": "AccountField.minDynamics",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 16,
-      "symbol": "AccountField.typeId",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 17,
-      "symbol": "AccountField.groups",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 20,
+      "line": 28,
       "symbol": "AccountFields",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 21,
+      "line": 29,
       "symbol": "AccountFields.name",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 22,
+      "line": 30,
       "symbol": "AccountFields.amount",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 23,
+      "line": 31,
       "symbol": "AccountFields.minAmount",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 24,
+      "line": 32,
       "symbol": "AccountFields.minDate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 25,
+      "line": 33,
       "symbol": "AccountFields.minDynamics",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 26,
+      "line": 34,
       "symbol": "AccountFields.typeId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 27,
+      "line": 35,
       "symbol": "AccountFields.groups",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 33,
+      "line": 41,
       "symbol": "Account.fields",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/Account.swift",
-      "line": 68,
+      "line": 76,
       "symbol": "Account.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1136,147 +1087,98 @@
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": null,
-      "symbol": "AccountGroup",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 9,
-      "symbol": "AccountGroupField.accounts",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 10,
-      "symbol": "AccountGroupField.name",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 11,
-      "symbol": "AccountGroupField.amount",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 12,
-      "symbol": "AccountGroupField.minAmount",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 13,
-      "symbol": "AccountGroupField.minDate",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 18,
+      "line": 23,
       "symbol": "AccountGroupFields.accounts",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 19,
+      "line": 24,
       "symbol": "AccountGroupFields.name",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 20,
+      "line": 25,
       "symbol": "AccountGroupFields.amount",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 21,
+      "line": 26,
       "symbol": "AccountGroupFields.minAmount",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 22,
+      "line": 27,
       "symbol": "AccountGroupFields.minDate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 26,
-      "symbol": "AccountGroup",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 28,
+      "line": 33,
       "symbol": "AccountGroup.fields",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 31,
+      "line": 36,
       "symbol": "AccountGroup.name",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 32,
+      "line": 37,
       "symbol": "AccountGroup.amount",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 33,
+      "line": 38,
       "symbol": "AccountGroup.minAmount",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 34,
+      "line": 39,
       "symbol": "AccountGroup.minDate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 35,
+      "line": 40,
       "symbol": "AccountGroup.min",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 41,
+      "line": 46,
       "symbol": "AccountGroup.accounts",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 43,
+      "line": 48,
       "symbol": "AccountGroup.init(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Model/AccountGroup.swift",
-      "line": 50,
+      "line": 55,
       "symbol": "AccountGroup.update(field:value:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1825,132 +1727,6 @@
       "line": 34,
       "symbol": "AccountTransactionsVC.Service.transactions",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/AccountGroup/AccountGroupEditVC.swift",
-      "line": null,
-      "symbol": "AccountGroupEditVC",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/AccountGroup/AccountGroupEditVC.swift",
-      "line": 1,
-      "symbol": "AccountGroupEditVC",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/AccountGroups/AccountGroupsVC.swift",
-      "line": null,
-      "symbol": "AccountGroupsVC",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/AccountGroups/AccountGroupsVC.swift",
-      "line": 1,
-      "symbol": "AccountGroupsVC",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/AccountGroups/AccountGroupsVC.swift",
-      "line": 23,
-      "symbol": "AccountGroupsVC.Service",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/AccountGroups/AccountGroupsVC.swift",
-      "line": 24,
-      "symbol": "AccountGroupsVC.Service.accountGroups",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/AccountGroups/AccountGroupsVC.swift",
-      "line": 26,
-      "symbol": "AccountGroupsVC.Service.getData(completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/AccountGroups/AccountGroupsVC.swift",
-      "line": 52,
-      "symbol": "AccountGroupsVC.Service.remove(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": null,
-      "symbol": "LoginVC",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 1,
-      "symbol": "LoginViewControllerProtocol",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 4,
-      "symbol": "LoginVC",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 5,
-      "symbol": "LoginVC.service",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 6,
-      "symbol": "LoginVC.loginTextField",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 7,
-      "symbol": "LoginVC.passwordTextField",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 30,
-      "symbol": "LoginVC.signIn()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 42,
-      "symbol": "LoginVC.signUp()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 56,
-      "symbol": "LoginVC.setListners()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Modules/Other/LoginVC.swift",
-      "line": 66,
-      "symbol": "LoginVC.cleanTextFields()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -3533,118 +3309,6 @@
       "line": 95,
       "symbol": "FIRFinTransactionManager.send(_:to:result:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 1,
-      "symbol": "FIRFinTransactionManagerProtocolStar",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 2,
-      "symbol": "FIRFinTransactionManagerProtocolStar.createTransaction(from:to:amount:date:approvalMode:recurrenceFrequency:recurrenceEnd:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 13,
-      "symbol": "FIRFinTransactionManagerStar",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 17,
-      "symbol": "FIRFinTransactionManagerStar.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 113,
-      "symbol": "FIRFinTransactionManagerStar.LogFields",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 114,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.logCollection",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 116,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.type",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 117,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.from",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 118,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.to",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 119,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.timestamp",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 120,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.transaction",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 121,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.approvedAmount",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 122,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.recurrenceChanges",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 123,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.LogType",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 124,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.LogType.approved",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Volumes/hdd/swiftJan2019/Capital/Capital/Service/FireStore/FIRFinTransactionManagerStar.swift",
-      "line": 125,
-      "symbol": "FIRFinTransactionManagerStar.LogFields.LogType.recurrence",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {

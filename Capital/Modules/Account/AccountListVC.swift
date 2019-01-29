@@ -46,16 +46,14 @@ extension AccountListVC {
                         self.accounts.removeValue(forKey: id)
                     }
                 }
+                func texts(_ account: (key: String, value: Account)) -> [DataModelRowText: String] {
+                    let accountAmount = account.value.amount ?? 0
+                    let accountMinAmount = account.value.min?.amount ?? accountAmount
+                    let desc = "\(accountAmount) (\(accountMinAmount))"
+                    return [ .id: account.key, .name: account.value.name ?? "", .desc: desc]
+                }
                 let rows: [DataModelRowProtocol] = self.accounts.map {
-                    DataModelRow(
-                        texts: [
-                            .id: $0.key,
-                            .name: $0.value.name ?? "",
-                            .desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))"
-                        ],
-                        filter: $0.value.typeId ?? 4
-                    )
-//                    DataModelRow(id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0) (\($0.value.min?.amount ?? $0.value.amount ?? 0))", filter: $0.value.typeId ?? 4)
+                    DataModelRow(texts: texts($0), filter: $0.value.typeId ?? 4)
                 }
                 completion(DataModel(rows))
             }

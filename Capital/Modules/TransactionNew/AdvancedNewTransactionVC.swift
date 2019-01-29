@@ -7,8 +7,8 @@ internal protocol AdvancedNewTransactionVCProtocol: ViewControllerProtocol {
     func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
     func setAmountFieldFirstResponder()
 }
-
-internal protocol AdvancedNewTransactionTableProtocol: AnyObject { // TODO: compare with TemplateTableProtocol
+// TODO: compare with TemplateTableProtocol
+internal protocol AdvancedNewTransactionTableProtocol: AnyObject {
     func reloadRows(at indexPath: [IndexPath], with: UITableView.RowAnimation)
     func reloadData()
     func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation)
@@ -28,17 +28,12 @@ internal final class AdvancedNewTransactionVC: ViewController, AdvancedNewTransa
         service.viewDidLoad(self)
         title = "New Transaction"
         view.add(view: table as? UIView, withConstraints: ["H:|[v]|", "V:|[v]|"])
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonItem.SystemItem.done,
-            target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem = BarButtonItem(title: "Done", action: didTapDone)
+//            UIBarButtonItem(
+//            barButtonSystemItem: UIBarButtonItem.SystemItem.done,
+//            target: self, action: #selector(didTapDone))
     }
 
-    @objc
-    internal func didTapCancel() {
-        dismissNavigationViewController()
-    }
-
-    @objc
     internal func didTapDone() {
         service.didTapDone()
     }

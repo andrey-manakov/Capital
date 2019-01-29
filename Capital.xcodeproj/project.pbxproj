@@ -99,7 +99,6 @@
 		C1A027E721BD54F300207FF7 /* FireStoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */; };
 		C1A027EA21BD54F300207FF7 /* FIRAccountGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DA21BD54F200207FF7 /* FIRAccountGroupManager.swift */; };
 		C1A027EB21BD54F300207FF7 /* FIRDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DB21BD54F200207FF7 /* FIRDataProtocol.swift */; };
-		C1A027EC21BD54F300207FF7 /* FIRFinTransactionManagerStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DC21BD54F200207FF7 /* FIRFinTransactionManagerStar.swift */; };
 		C1A027ED21BD54F300207FF7 /* FIRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DD21BD54F300207FF7 /* FIRManager.swift */; };
 		C1A027EF21BD54F300207FF7 /* FIRListners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A027DF21BD54F300207FF7 /* FIRListners.swift */; };
 		C1CB512221F281F800EF6ABF /* AccountDynamics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CB512121F281F700EF6ABF /* AccountDynamics.swift */; };
@@ -273,7 +272,6 @@
 		C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreDataExtension.swift; sourceTree = "<group>"; };
 		C1A027DA21BD54F200207FF7 /* FIRAccountGroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAccountGroupManager.swift; sourceTree = "<group>"; };
 		C1A027DB21BD54F200207FF7 /* FIRDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRDataProtocol.swift; sourceTree = "<group>"; };
-		C1A027DC21BD54F200207FF7 /* FIRFinTransactionManagerStar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFinTransactionManagerStar.swift; sourceTree = "<group>"; };
 		C1A027DD21BD54F300207FF7 /* FIRManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRManager.swift; sourceTree = "<group>"; };
 		C1A027DF21BD54F300207FF7 /* FIRListners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRListners.swift; sourceTree = "<group>"; };
 		C1CB512121F281F700EF6ABF /* AccountDynamics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDynamics.swift; sourceTree = "<group>"; };
@@ -490,6 +488,7 @@
 			children = (
 				C1164D6B21BD94BA00895A1B /* AccountGroupDetailVC.swift */,
 				C1164D7721BD958900895A1B /* AccountGroupEditVC.swift */,
+				C1164D6721BD93B600895A1B /* AccountGroupsVC.swift */,
 			);
 			path = AccountGroup;
 			sourceTree = "<group>";
@@ -532,7 +531,6 @@
 			children = (
 				C1164D9521BE6A4400895A1B /* Account */,
 				C1164D9621BE828C00895A1B /* AccountGroup */,
-				C1A027B521BD502300207FF7 /* AccountGroups */,
 				C1A0279321BD428900207FF7 /* Other */,
 				C1164D8C21BD97E500895A1B /* ReplicateModeSelector */,
 				C1164D2121BD6C6D00895A1B /* Settings */,
@@ -628,21 +626,12 @@
 				C1164D1E21BD5D0900895A1B /* FireStoreData.swift */,
 				C1A027D721BD54F200207FF7 /* FireStoreDataExtension.swift */,
 				C1164D1B21BD5CDF00895A1B /* FireStoreGettersProtocol.swift */,
-				C1A027DC21BD54F200207FF7 /* FIRFinTransactionManagerStar.swift */,
 				C1A027D521BD54F200207FF7 /* FIRFinTransactionManager.swift */,
 				C1A027DF21BD54F300207FF7 /* FIRListners.swift */,
 				C1A027DD21BD54F300207FF7 /* FIRManager.swift */,
 				C1A027D621BD54F200207FF7 /* MiscFunctionsProtocol.swift */,
 			);
 			path = FireStore;
-			sourceTree = "<group>";
-		};
-		C1A027B521BD502300207FF7 /* AccountGroups */ = {
-			isa = PBXGroup;
-			children = (
-				C1164D6721BD93B600895A1B /* AccountGroupsVC.swift */,
-			);
-			path = AccountGroups;
 			sourceTree = "<group>";
 		};
 		C1A027B621BD51D200207FF7 /* Data */ = {
@@ -1080,7 +1069,6 @@
 				C1164D4421BD704800895A1B /* SimpleTable.swift in Sources */,
 				C1A027CE21BD541E00207FF7 /* DataObjectType.swift in Sources */,
 				C1164D4D21BD762400895A1B /* TitleLabel.swift in Sources */,
-				C1A027EC21BD54F300207FF7 /* FIRFinTransactionManagerStar.swift in Sources */,
 				C1164D3B21BD703A00895A1B /* InputAmountCell.swift in Sources */,
 				C1D0960D21E8A2C00032BF8E /* BinaryIntegerExtension.swift in Sources */,
 				C1164D4221BD704800895A1B /* TemplateTable.swift in Sources */,

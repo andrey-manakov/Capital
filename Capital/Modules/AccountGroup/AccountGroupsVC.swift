@@ -1,3 +1,4 @@
+/// View controller showing `AccountGroup`s list
 internal final class AccountGroupsVC: ViewController {
     /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
@@ -18,11 +19,16 @@ internal final class AccountGroupsVC: ViewController {
         }
     }
 }
-
+/// Extension to provide view controller with service class
 extension AccountGroupsVC {
+    /// Service class for `AccountGroupsVC`
     internal final class Service: ClassService {
-        private var accountGroups = [String: AccountGroup]() // {didSet{print(accountGroups)}}
+        /// Accounts of AccountGroup downloaded from online database
+        private var accountGroups = [String: AccountGroup]()
 
+        /// Loads data for view controller
+        ///
+        /// - Parameter completion: action to perform after data is loaded
         internal func getData(completion: @escaping ((DataModelProtocol) -> Void)) {
             data.setListnerToAccountGroup(for: self.id) { data in
                 for (id, accountGroup, changeType) in data {
@@ -34,9 +40,6 @@ extension AccountGroupsVC {
                         self.accountGroups.removeValue(forKey: id)
                     }
                 }
-//                let dataModel = DataModel(self.accountGroups.map {
-//                    (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
-//                })
                 let rows = self.accountGroups.map {
                     DataModelRow(texts:
                         [
@@ -48,7 +51,9 @@ extension AccountGroupsVC {
                 completion(DataModel(rows))
             }
         }
-
+        /// Deletes account group calling `Data.shared` Singleton
+        ///
+        /// - Parameter row: table row with AccountGroup to delete
         internal func remove(_ row: DataModelRowProtocol?) {
             guard let id = row?.texts[.id] else {
                 return

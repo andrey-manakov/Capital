@@ -30,8 +30,9 @@ internal final class AccountGroupEditVC: ViewController {
                 "H:|-15-[nm]-15-|", "H:|-20-[sc]-20-|", "H:|[tbl]|",
                 "V:|-80-[nm(31)]-20-[sc]-10-[tbl]|"
             ])
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
-                                                            target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem = BarButtonItem(title: "Done", action: didTapDone)
+//            UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
+
         table.didSelect = {[unowned self] row, _ in
             // TODO: reload only one
             self.service.rowSelected(id: row.texts[.id]) { dataModel in
@@ -40,7 +41,7 @@ internal final class AccountGroupEditVC: ViewController {
         }
     }
     /// Triggered when done button is tapped, calls `AccountGroupEditVC.Service.didTapDone`
-    @objc internal func didTapDone() {
+    internal func didTapDone() {
         service.didTapDone(name: nameTextField.text) { [unowned self] in self.dismiss() }
     }
 }

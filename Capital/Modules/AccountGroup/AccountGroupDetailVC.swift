@@ -52,9 +52,6 @@ extension AccountGroupDetailVC {
                 let rows = self.accounts.map {
                     DataModelRow(texts: [.id: $0.key, .name: $0.value.name ?? "", .desc: "\($0.value.amount ?? 0)"])
                 }
-//                let dataModel = DataModel(self.accounts.map {
-//                    (id: $0.key, name: $0.value.name, desc: "\($0.value.amount ?? 0)")
-//                })
                 completion(DataModel(rows))
             }
         }
