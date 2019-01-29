@@ -6,10 +6,15 @@
 /// - minAmount: `AccountGroup.minAmount` field name constant
 /// - minDate: `AccountGroup.minDate` field name constant
 internal enum AccountGroupField: String, CaseIterable {
+    /// `AccountGroup.accounts` field name constant
     case accounts
+    /// `AccountGroup.name` field name constant
     case name
+    /// `AccountGroup.amount` field name constant
     case amount
+    /// `AccountGroup.minAmount` field name constant
     case minAmount
+    /// `AccountGroup.minDate` field name constant
     case minDate
 }
 
@@ -22,7 +27,7 @@ internal struct AccountGroupFields {
     internal let minDate = AccountGroupField.minDate.rawValue
 }
 
-// MARK: - Introduction of Account.Group class
+/// Group of `Account`s with aggregate characteristics
 internal final class AccountGroup: DataObjectProtocol, Codable {
     // MARK: - Static properties
     internal static var fields = AccountGroupFields()

@@ -1,3 +1,4 @@
+/// View controller which allows to edit `AccountGroup`
 internal final class AccountGroupEditVC: ViewController {
     /// Service of view controller to perform actions on data
     private let service = Service()

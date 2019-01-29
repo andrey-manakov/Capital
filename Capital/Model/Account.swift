@@ -4,16 +4,24 @@
 /// - amount: `Account.amount` field name constant
 /// - minAmount: `Account.minAmount` field name constant
 /// - minDate: `Account.minDate` field name constant
+/// - minDynamics: `Account.minDynamics` field name constant
 /// - typeId: `Account.typeId` field name constant
 /// - groups: `Account.groups` field name constant
 internal enum AccountField: String, CaseIterable {
+    /// `Account.name` field name constant
     case name
+    /// `Account.amount` field name constant
     case amount
     // TODO: Consider merge to one struct
+    /// `Account.minAmount` field name constant
     case minAmount
+    /// `Account.minDate` field name constant
     case minDate
+    /// `Account.minDynamics` field name constant
     case minDynamics
+    /// `Account.typeId` field name constant
     case typeId
+    /// `Account.groups` field name constant
     case groups
 }
 
