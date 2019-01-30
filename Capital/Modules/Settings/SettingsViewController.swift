@@ -1,9 +1,11 @@
+/// Protocol to access `SettingsViewController`
 internal protocol SettingsViewControllerProtocol: ViewControllerProtocol {
     var service: SettingsServiceProtocol { get set }
     var table: SimpleTableProtocol { get set } // TODO: consider hiding subview
 
 }
 
+/// <#Description#>
 internal final class SettingsViewController: ViewController, SettingsViewControllerProtocol {
     internal var service: SettingsServiceProtocol = SettingsService()
     internal var table: SimpleTableProtocol = SimpleTable()

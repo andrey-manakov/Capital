@@ -1,3 +1,4 @@
+/// View Controller which allows to select recurrence frequency
 internal final class RecurrenceFrequencySelectorVC: ViewController {
     /// Configures view controller after view is loaded
     override internal func viewDidLoad() {

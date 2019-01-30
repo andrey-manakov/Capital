@@ -1,3 +1,4 @@
+/// <#Description#>
 internal protocol SettingsServiceProtocol: AnyObject {
     var view: SettingsViewControllerProtocol? { get set }
 
