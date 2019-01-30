@@ -257,19 +257,19 @@ internal class CapitalUITests: XCTestCase {
         var i = 1
         return accounts.map {
             app.buttons[$0.type].tap()
-            let currentAmount: String
-            let newAccountValue: String =
-                String(($0.type == "asset" || $0.type == "expense") ?
+            let currentAmount: Int
+            let minAccountValue: Int =
+                ($0.type == "asset" || $0.type == "expense") ?
                     $0.amount - i * amount :
-                    $0.amount + i * amount)
+                    $0.amount + i * amount
             i = -1
             if date.isAfter(Date()) {
-                currentAmount = "\($0.amount)"
+                currentAmount = $0.amount
             } else {
-                currentAmount = newAccountValue
+                currentAmount = min(minAccountValue, $0.amount)
             }
             return app.tables["t"].staticTexts[
-                    "\(currentAmount) (\(newAccountValue))"].waitForExistence(timeout: 10)
+                    "\(currentAmount) (\(minAccountValue))"].waitForExistence(timeout: 10)
         }.filter { $0 }.count == 2
     }
 
