@@ -284,7 +284,7 @@ internal class CapitalUITests: XCTestCase {
 //        let year = "2020"// "\(Date().year!)"  // [2018, 2019].map {String($0)}.randomElement()!
         let day = "\(Date().localDay!)"
         let month = "\(Date().month!)"
-        let year = "\(Date().year!)"
+        let year = "2020"// "\(Date().year!)"
         let sampleDate = "\(day)-\(month)-\(year)".date(withFormat: "dd-MM-yyyy")
         XCTAssert(signUp(login: login, password: password))
         _ = accounts.map {

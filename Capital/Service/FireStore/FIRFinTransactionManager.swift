@@ -29,6 +29,11 @@ internal final class FIRFinTransactionManager: FIRManager, FIRFinTransactionMana
 
     override private init() {}
 
+//    private func calcAccountValues(for finTransaction: FinTransaction, in fsTransaction: Transaction, with errorPointer: NSErrorPointer) -> (amount: Int, minAmount: Int)? {
+//        let account = self.getAccount(withId: id, for: fsTransaction, with: errorPointer)
+//        return nil
+//    }
+
     internal func create(_ finTransaction: FinTransaction, completion: ((String?) -> Void)? = nil
         ) {
         guard let ref = ref, let from = finTransaction.from, let to = finTransaction.to, let amount = finTransaction.amount else {
@@ -36,6 +41,7 @@ internal final class FIRFinTransactionManager: FIRManager, FIRFinTransactionMana
         }
         func updateBlock(fsTransaction: Transaction, errorPointer: NSErrorPointer) -> Any? {
             // MARK: read account amounts from FireStore
+
             guard // TODO: refactor to make single query
                 let fromAccount = self.getAccount(withId: from.id, for: fsTransaction, with: errorPointer),
                 let toAccount = self.getAccount(withId: to.id, for: fsTransaction, with: errorPointer) else {
@@ -51,8 +57,8 @@ internal final class FIRFinTransactionManager: FIRManager, FIRFinTransactionMana
                 fromAccountDynamics = AccountDynamics() // FIXME: change to running sum?
                 toAccountDynamics = AccountDynamics() // FIXME: change to running sum?
             }
-            let fromAccountDynamicsRunningSum = fromAccountDynamics.data.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
-            let toAccountDynamicsRunningSum = toAccountDynamics.data.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
+//            let fromAccountDynamicsRunningSum = fromAccountDynamics.data.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
+//            let toAccountDynamicsRunningSum = toAccountDynamics.data.values.reduce(into: []) { $0.append(($0.last ?? 0) + $1) }
 
             // create transactions
             let nextFinTransaction = FinTransaction(from: from, to: to, amount: amount, date: finTransaction.date, approvalMode: finTransaction.approvalMode, recurrenceFrequency: finTransaction.recurrenceFrequency, recurrenceEnd: finTransaction.recurrenceEnd)
@@ -120,18 +126,6 @@ internal final class FIRFinTransactionManager: FIRManager, FIRFinTransactionMana
             newFinTransactionData[fields.recurrenceEnd] = Timestamp(date: finTransaction.recurrenceEnd!)
         }
         fsTransaction.setData(newFinTransactionData, forDocument: newFinTransactionRef)
-//        fsTransaction.setData(
-//            [
-//                fields.from: [fields.accountId: from.id, fields.accountName: from.name] as Any,
-//                fields.to: [fields.accountId: to.id, fields.accountName: to.name] as Any,
-//                fields.amount: amount as Any,
-//                fields.date: Timestamp(date: date),
-//                fields.isApproved: date <= Date() ? true : false,
-//                fields.approvalMode: finTransaction.approvalMode?.rawValue as Any,
-//                fields.recurrenceFrequency: finTransaction.recurrenceFrequency?.rawValue ?? NSNull(),
-//                fields.recurrenceEnd:
-//                    finTransaction.recurrenceEnd == nil ? NSNull() : Timestamp(date: finTransaction.recurrenceEnd!)
-//            ], forDocument: newFinTransactionRef)
         let approvedAmount: Int
         var dynamics: [Date: Int] = result.dynamics
         if date <= Date() {
