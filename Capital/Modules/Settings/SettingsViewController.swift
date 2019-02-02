@@ -4,7 +4,6 @@ internal protocol SettingsViewControllerProtocol: ViewControllerProtocol {
     var service: SettingsServiceProtocol { get set }
     /// Table with settings items
     var table: SimpleTableProtocol { get set } // TODO: consider hiding subview
-
 }
 
 /// ViewController showing app settings
