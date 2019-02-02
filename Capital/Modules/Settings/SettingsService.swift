@@ -1,4 +1,4 @@
-/// <#Description#>
+/// Service class for `SettingsVC`
 internal protocol SettingsServiceProtocol: AnyObject {
     var view: SettingsViewControllerProtocol? { get set }
 
