@@ -125,7 +125,7 @@ internal class CapitalUITests: XCTestCase {
     private func randomAccount() -> (name: String, type: String, amount: Int) {
         return (name: String((0..<6).map { _ in "abcdefghijklmnopqrstuvwxyz".randomElement()! }),
                 type: ["asset", "liability", "revenue", "expense"].randomElement()!,
-                amount: Int.random(in: 0 ..< 1_000) )
+                amount: Int.random(in: 0 ..< 1_000))
     }
 
     internal func testCreateAccountGroup() {

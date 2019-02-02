@@ -109,7 +109,7 @@ internal final class FIRAccountManager: FIRManager, FIRAccountManagerProtocol {
                 let capitalAccount = self.getAccount(withId: self.capitalAccountName, for: fsTransaction),
                 let capitalAmount = capitalAccount.amount else { return false }
 
-            let oldName = account.name ?? ""
+            let oldName: String = account.name ?? ""
             let delta: Int
             if let newAmount = amount {
                 delta = newAmount - oldAmount
