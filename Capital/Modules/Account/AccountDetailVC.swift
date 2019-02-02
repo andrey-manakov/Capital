@@ -18,8 +18,10 @@ internal final class AccountDetailVC: ViewController {
         }
 
         navigationItem.rightBarButtonItem = BarButtonItem(title: "Done") {[unowned self] in
-                service.didTapDone(with: id, name: accountNameTextField.text ?? "",
-                                   amount: accountAmountTextField.text ?? "")
+                service.didTapDone(
+                    with: id,
+                    name: accountNameTextField.text ?? "",
+                    amount: accountAmountTextField.text ?? "")
                 self.navigationController?.popViewController(animated: true)
         }
 
