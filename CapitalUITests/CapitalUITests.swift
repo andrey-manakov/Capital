@@ -32,6 +32,9 @@ internal class CapitalUITests: XCTestCase {
 //        app = XCUIApplication()
         CapitalUITests.app = XCUIApplication()
         CapitalUITests.app?.launch()
+        if app.navigationBars["DashBoard"].exists {
+            XCTAssert(signOut())
+        }
     }
 
     override internal func tearDown() {
@@ -273,6 +276,47 @@ internal class CapitalUITests: XCTestCase {
         }.filter { $0 }.count == 2
     }
 
+    private func create(transaction amount: Int, onDate date: Date) -> Bool {
+        let accounts = [randomAccount(), randomAccount()]
+        _ = accounts.map {
+            XCTAssert(create(account: $0))
+        }
+        return create(transaction: amount, with: accounts, onDate: date)
+    }
+
+    private func createTransaction(_ time: Time) -> Bool {
+        switch time {
+        case .today:
+            break
+
+        case .future:
+            break
+
+        case .past:
+            break
+
+        case .nextYear:
+            guard let date = Calendar.current.date(byAdding: .year, value: 1, to: Date()) else {
+                return false
+            }
+            return create(transaction: Int.random(in: 0 ..< 1_000), onDate: date)
+        }
+        return false
+    }
+
+    enum Time {
+        case today
+        case future
+        case past
+        case nextYear
+    }
+
+    /// Tests transaction next year
+    internal func testTransactionNextYear() {
+        XCTAssert(createTransaction(.nextYear))
+    }
+
+    /// Tests transaction creation in the future
     internal func testTransactionNotToday() {
         if app.navigationBars["DashBoard"].exists {
             XCTAssert(signOut())
