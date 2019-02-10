@@ -3,7 +3,7 @@ internal final class AccountDetailVC: ViewController {
     /// Configures view controller after view is loaded
     override internal func viewDidLoad() {
         super.viewDidLoad()
-        let service = Service() // should be private
+        let service = Service()
         let accountNameTextField: TextFieldProtocol = SimpleTextField()
         let accountAmountTextField: TextFieldProtocol = NumberField()
         // Get data provided for view controller configuration
