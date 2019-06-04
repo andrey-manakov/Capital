@@ -33,11 +33,6 @@ NB: I created this app along with studying Swift as a hobby. Despite that fact I
 
 - The app uses [Firestore](https://firebase.google.com/docs/firestore/) for storage database
 
-Documentation reference
-- [App Documentation](https://andrey-manakov.github.io/Capital/index.html)
-- [Unit Tests Documentation](https://andrey-manakov.github.io/Capital/tests/index.html)
-- [User Interface Tests Documentation](https://andrey-manakov.github.io/Capital/uitests/index.html)
-
 ## License
 
 [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
